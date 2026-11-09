@@ -41,6 +41,14 @@ $env:SITE_DIR = '.'
 mise run preview -- --port 4175
 ```
 
+For a phone on the same Wi-Fi/LAN, find the computer's IPv4 address with `Get-NetIPConfiguration`, then bind the preview to that address, for example:
+
+```powershell
+mise run preview -- --host 192.168.1.20 --port 4173
+```
+
+Replace the example address with the computer's LAN address and open `http://<LAN-address>:4173/` on the phone. The default preview binds only to `127.0.0.1`; the `--host` option is needed for other devices.
+
 After an operator-confirmed content update, run the build and local checks, inspect the generated `dist/index.html`, and verify every visible/copyable value matches its evidence. The static listing does not report live health or player counts.
 
 ## Local review limits

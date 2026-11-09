@@ -7,6 +7,8 @@ const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const root = path.resolve(process.env.SITE_DIR || path.join(repo, 'dist'));
 const prefixArg = process.argv.indexOf('--prefix');
 const prefix = prefixArg >= 0 ? `/${process.argv[prefixArg + 1].replace(/^\/+|\/+$/g, '')}` : '';
+const hostArg = process.argv.indexOf('--host');
+const host = hostArg >= 0 ? process.argv[hostArg + 1] : '127.0.0.1';
 const portArg = process.argv.indexOf('--port');
 const port = Number(portArg >= 0 ? process.argv[portArg + 1] : process.env.PORT || 4173);
 const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.webp': 'image/webp', '.svg': 'image/svg+xml' };
@@ -35,4 +37,4 @@ createServer(async (request, response) => {
   } catch {
     response.writeHead(404).end('Not found');
   }
-}).listen(port, '127.0.0.1', () => console.log(`Preview: http://127.0.0.1:${port}${prefix}/`));
+}).listen(port, host, () => console.log(`Preview: http://${host}:${port}${prefix}/`));
