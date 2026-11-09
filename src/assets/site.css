@@ -48,16 +48,16 @@ main, .site-footer { position: relative; z-index: 2; }
 .character img { display:block; width:100%; height:100%; object-fit:contain; object-position:center top; -webkit-mask-image:linear-gradient(to bottom,#000 0 89%,#000d 95%,transparent 100%); mask-image:linear-gradient(to bottom,#000 0 89%,#000d 95%,transparent 100%); }
 .statue { position:absolute; left:clamp(11.5rem,13vw,15rem); top:134px; width:clamp(170px,12.5vw,205px); aspect-ratio:2/3; margin:0; z-index:2; pointer-events:none; filter:drop-shadow(0 0 8px #5a8eff65); }
 .statue img { display:block; width:100%; height:100%; object-fit:contain; scale:1.3 1.12; transform-origin:center top; }
-.character--rei { left: 1.3%; top: 8px; width: clamp(148px,10.5vw,176px); height: clamp(224px,16vw,258px); }
-.character--makima { left: 10%; top: 14px; width: clamp(164px,12vw,220px); }
-.character--tifa { left: 22%; top: 88px; width: clamp(144px,10.5vw,188px); }
+.character--rei { left: -.5%; top: 8px; width: clamp(148px,10.5vw,176px); height: clamp(224px,16vw,258px); }
+.character--makima { left: 14%; top: 25px; width: clamp(164px,12vw,220px); }
+.character--tifa { left: 26%; top: 76px; width: clamp(144px,10.5vw,188px); }
 .character--asuka { right: 25%; top: 52px; width: clamp(148px,11vw,196px); }
 .character--nami { right: 13%; top: 61px; width: clamp(160px,12vw,214px); }
 .character--nagatoro { right: .5%; top: 56px; width: clamp(164px,12vw,214px); }
-.character--kurisu { left: .5%; top: 474px; width: clamp(120px,9.3vw,150px); }
-.character--faye { left: .5%; top: 624px; width: clamp(120px,9.3vw,150px); }
-.character--hinata { left: .5%; top: 774px; width: clamp(120px,9.3vw,150px); }
-.character--rem { left: .5%; top: clamp(820px,calc(100vh - 220px),870px); width: clamp(116px,9vw,146px); }
+.character--kurisu { left: .5%; top: 438px; width: clamp(120px,9.3vw,150px); }
+.character--faye { left: 2.2%; top: 588px; width: clamp(116px,8.8vw,142px); }
+.character--hinata { left: .5%; top: 738px; width: clamp(120px,9.3vw,150px); }
+.character--rem { left: 2.2%; top: clamp(820px,calc(100vh - 220px),870px); width: clamp(116px,8.8vw,142px); }
 .character--usagi { right: .5%; top: 285px; width: clamp(142px,10.7vw,182px); height: clamp(224px,16vw,258px); }
 .character--aqua { right: .5%; top: 478px; width: clamp(120px,9vw,154px); }
 .character--mayano { right: .5%; top: 662px; width: clamp(120px,9vw,154px); }
@@ -195,13 +195,18 @@ main, .site-footer { position: relative; z-index: 2; }
 @media (min-width: 1500px) {
   .statue img { scale:1.3 1; }
 }
+@media (min-width: 1700px) {
+  .character--rei { left:calc(640px - 40vw); }
+  .character--makima { left:7%; top:25px; }
+  .character--tifa { left:22%; top:76px; }
+}
 @media (max-width: 900px) and (min-width: 761px) {
   .steps { grid-template-columns:repeat(2,minmax(0,1fr)); row-gap:18px; }
   .step:not(:last-child)::after { display:none; }
   .join { padding-bottom:18px; }
   .game-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
 }
-@media (max-width: 960px) and (min-width: 761px) {
+@media (max-width: 1099px) and (min-width: 761px) {
   .hero { height:auto; display:flex; flex-direction:column; gap:12px; padding:0 18px; }
   .hero__copy { order:0; width:min(760px,100%); }
   .motion-toggle { position:static; left:auto; order:1; align-self:flex-end; margin:-4px 18px 0; transform:none; }
