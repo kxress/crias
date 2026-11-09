@@ -16,3 +16,4 @@ This repository is a GitHub Pages project for a browser game. `mockup.png` is th
 - Preserve the visual intent of supplied mockups when implementing the game.
 - Inspect existing files and follow their conventions before choosing tools or adding dependencies.
 - Keep changes focused and verify site behavior with the available project commands.
+- Commit each completed logical change after appropriate verification, unless the user instructs otherwise. Stage only files belonging to that change and preserve unrelated work.
