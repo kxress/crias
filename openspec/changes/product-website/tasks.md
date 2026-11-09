@@ -21,7 +21,7 @@
 - [ ] 4.1 Implement the cohesive arcade identity, readable type, surfaces, game distinctions and control states; review hierarchy and contrast across sections.
 - [ ] 4.2 Add only original or appropriately licensed decorative assets with recorded provenance; create each character and distinct decorative visual as a separate image or independently controllable CSS or SVG element, and verify each can be moved, scaled, hidden or replaced without changing the others. Verify absent assets do not obscure content or cause disruptive layout shifts.
 - [ ] 4.3 Implement content-driven reflow, independently adapted visual elements, keyboard focus, touch targets and reduced-motion treatment; verify artwork can be repositioned or hidden individually and check keyboard order, focus visibility and motion preference at narrow and wide widths.
-- [ ] 4.4 Animate background layers, neon flicker, displayed characters and any fire or electricity motifs; verify recognizable motion, readable content and WCAG 2.2 AA flash limits.
+- [ ] 4.4 Animate background layers, neon flicker and any fire or electricity motifs; gently transform each static character image as a whole without internal or frame-by-frame animation. Verify recognizable environmental motion, restrained character movement, readable content and WCAG 2.2 AA flash limits.
 - [ ] 4.5 Add cursor-responsive light, subtle surface tilt and character avoidance for fine hover pointers; verify stable hit areas, smooth return on pointer exit and usable touch and keyboard interaction.
 - [ ] 4.6 Add accessible pause/resume and reduced-motion handling; verify all nonessential ambient and pointer motion stops while navigation and copy feedback remain usable.
 

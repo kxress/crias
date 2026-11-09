@@ -60,11 +60,11 @@ Text and controls SHALL meet WCAG 2.2 AA contrast requirements; touch targets SH
 - **THEN** text and control states are discernible and targets can be activated without inadvertently activating adjacent controls
 
 ### Requirement: Animated atmosphere
-With motion enabled, the site SHALL present an animated background and neon lighting throughout the experience. Fire and electrical motifs, when present, SHALL animate as flames and electric jolts; each displayed character illustration SHALL have gentle rotation and zoom. Animation SHALL preserve readable content and usable controls.
+With motion enabled, the site SHALL present an animated background and neon lighting throughout the experience. Fire and electrical motifs, when present, SHALL animate as flames and electric jolts. Each displayed character SHALL remain a static illustration that gently rotates and scales as a single billboard-like element. Animation SHALL preserve readable content and usable controls.
 
 #### Scenario: Viewing the animated site
 - **WHEN** a visitor views the site with motion enabled
-- **THEN** the background and neon lighting move, displayed characters gently rotate and scale, and any fire or electrical motifs animate in a manner recognizable as fire or electricity
+- **THEN** the background and neon lighting move, displayed character images gently rotate and scale as whole pieces without frame-by-frame or internal character animation, and any fire or electrical motifs animate in a manner recognizable as fire or electricity
 
 ### Requirement: Pointer-responsive visual effects
 On devices with a hover-capable fine pointer, the site SHALL provide lighting that responds to pointer movement, subtle three-dimensional sway on interface surfaces, and gentle movement away from an approaching pointer for displayed character illustrations. These effects SHALL not displace controls from their usable hit areas or obstruct content.
