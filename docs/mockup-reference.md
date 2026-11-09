@@ -101,7 +101,7 @@ The first panel could have a pink outline globe icon, the heading `COMO ENTRAR`,
 
 1. `Instale o NetBird` — `Baixe e instale o NetBird no seu PC (Windows, Linux ou macOS).` Use an orange NetBird-inspired icon.
 2. `Configure a URL` — `No NetBird, defina o Management URL como:` followed by `https://netbird.kress.wtf` in a dark cyan-outlined inset with a copy control. Use a pink chain icon.
-3. `Peça um invite pro Crias` — `Envie uma mensagem para o Crias (Discord/WhatsApp) solicitando o seu convite. O convite é manual e não é gerado automaticamente.` Use a pink envelope icon.
+3. `Peça um invite pro Crias` — `Envie uma mensagem para o Kress (Discord/WhatsApp) solicitando o seu convite. O convite é manual e não é gerado automaticamente.` Use a pink envelope icon.
 4. `Conecte e jogue!` — `Após entrar na rede, conecte-se nos servidores listados abaixo e bora jogar.` Use a pink check icon.
 
 The joining panel could have a dark purple gradient, rounded corners, a magenta outline and glow, generous padding and a thin neon divider below its heading. Its URL field could have a dark background, rounded cyan border and glow, bright cyan text and an overlapping-rectangles copy icon. The invitation could clearly be manual; the page would not suggest public access or provide automatic registration. The URL could remain selectable or copyable. The mockup does not show a download button.

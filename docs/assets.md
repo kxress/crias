@@ -38,7 +38,7 @@ The mockup and `docs/mockup-reference.md` guided character traits, palette and c
 | Minecraft | `minecraft-scene.webp` | Generated `exec-8b62677a`; block landscape, grass block and Creeper. RGB WebP, 1672 × 941. Game name is live HTML text. |
 | Hytale | `hytale-scene.webp` | Generated `exec-e9296a22`; fantasy valley, blue sky, pink clouds, ruins, towers and vegetation. RGB WebP, 1672 × 941. Used as an independently sized card landscape. |
 | Frames, borders and stickers | HTML and `site.css` | CSS-built Rei and Usagi Windows-style frames with control buttons, panel borders, neon and sticker shadows. The four left-side portraits are unframed. |
-| Copyleft symbol | `openmoji-copyleft-1.svg` | OpenMoji emoji U+1F12F, downloaded from the OpenMoji 17.0 package ([source](https://openmoji.org/library/emoji-1F12F/)). CC BY-SA 4.0 ([license](https://creativecommons.org/licenses/by-sa/4.0/)). Credited on the footer's linked symbol; the link label includes the project and license for assistive technology. |
+| Copyleft symbol | `openmoji-copyleft-1.svg` | OpenMoji emoji U+1F12F, downloaded from the OpenMoji 17.0 package ([source](https://openmoji.org/library/emoji-1F12F/)). CC BY-SA 4.0 ([license](https://creativecommons.org/licenses/by-sa/4.0/)). The symbol is a static, non-linked footer mark with an accessible OpenMoji and license description. |
 
 ## Fonts
 

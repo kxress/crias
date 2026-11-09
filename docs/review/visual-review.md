@@ -19,10 +19,10 @@ The desktop comparison shows the same broad scene structure: title and sunset, l
 
 Screenshots reviewed:
 
-- `screenshots/comparison-left-balanced-2026-11-09.png` — reference and latest desktop side by side at 1448 × 1086.
-- `screenshots/desktop-left-balanced-1448x1086.png`, `screenshots/tablet-left-final-1024-full.png`, `screenshots/desktop-left-balanced-1280x1080.png`, and `screenshots/wide-left-balanced-1920x1080.png`.
-- `screenshots/tablet-final-900-full.png` — full 885 × 2113 tablet document.
-- `screenshots/mobile-left-final-320-full.png`, `screenshots/mobile-left-final-375-full.png`, and `screenshots/mobile-left-final-430-full.png`.
+- `screenshots/comparison-final-kress-2026-11-09.png` — reference and final desktop side by side at 1448 × 1086.
+- `screenshots/desktop-final-kress-1448x1086.png` and `screenshots/wide-final-kress-1920x1080.png`.
+- `screenshots/tablet-final-kress-900-full.png` and `screenshots/tablet-final-kress-1024-full.png` — full tablet documents.
+- `screenshots/mobile-final-kress-320-full.png`, `screenshots/mobile-final-kress-375-full.png`, and `screenshots/mobile-final-kress-430-full.png`.
 - `screenshots/asset-review-contact-sheet.png` — the fourteen portraits and unified bust inspected as independent transparent assets.
 
 The current portrait WebP files and unified bust are all 1024 × 1536 with alpha transparency. The contact sheet and desktop capture confirm separate, recognizable silhouettes, including horse ears on Mayano and Super Creek. The single bust artwork combines the glasses and Ionic column. Rei and Usagi alone use the independently built Windows-style frames.
@@ -32,7 +32,7 @@ The current portrait WebP files and unified bust are all 1024 × 1536 with alpha
 - `npm run build` completed and reported eight server records. `npm run preview` was used at `http://localhost:4173`.
 - The root path and `/crias-games/` repository subpath both returned HTTP 200 for HTML, CSS, JavaScript and the local OpenMoji footer SVG. Asset links remain relative; no server runtime is needed after build.
 - The nine copy values were compared with canonical data: the management URL plus all eight full hostnames. Clipboard success announces `Copiado!`; a rejected clipboard announces an error while retaining the visible selectable URL and focus. A missing clipboard API with a failed `execCommand('copy')` also reports failure and removes its temporary field. The Space key activated a focused copy button; repeated activation was checked.
-- Keyboard tab order was inspected from the skip link through the motion toggle, nine copy buttons and credited footer link. Focus outlines were visible. Chromium's synthetic Enter event sequence did not reliably produce one activation, so Enter-key activation was not counted as independently verified; the controls are native `<button>` elements.
+- Keyboard tab order was inspected from the skip link through the motion toggle and nine copy buttons. Focus outlines were visible. The copyleft mark is not interactive. Chromium's synthetic Enter event sequence did not reliably produce one activation, so Enter-key activation was not counted as independently verified; the copy controls are native `<button>` elements.
 - With JavaScript disabled, the management URL, eight server rows, fourteen illustrations and essential instructions remained present. Script-dependent motion and copy buttons stayed hidden.
 - Reduced motion stopped decorative animations and disabled the motion toggle; changing the preference live updated the state. Manual pause stopped the grid and sun animations, and the paused state persisted when the preference changed.
 - The copy failure path and success path were exercised in the browser. The static site does not claim live server status and states that invitations are manual.

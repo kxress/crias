@@ -42,8 +42,8 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 
 ## 5. Hosting and integrated review
 
-- [ ] 5.1 Add the GitHub Pages workflow for the actual build output and relative paths; verify local root and repository-subpath previews load content and assets without a backend.
-- [ ] 5.2 Compare a 1448 × 1086 desktop screenshot side by side with `mockup.png`, checking every scene layer, all fourteen named characters, the bust, composition, card art and footer; document discrepancies and fix them before completion.
-- [ ] 5.3 Capture and inspect full mobile pages at 320, 375 and 430 CSS pixels and a tablet and wide desktop view; document character count, overlaps, reflow, clipping and actual browser/device coverage.
-- [ ] 5.4 Run build and relevant content/browser checks, including no JavaScript, reduced motion, denied clipboard, zoom, contrast, copy payloads and subpath hosting; record commands and honest limitations.
-- [ ] 5.5 Review the asset manifest and remaining incomplete tasks; report any missing recognizable artwork, unresolved rights or untested environments instead of marking the change complete.
+- [x] 5.1 Add the GitHub Pages workflow for the actual build output and relative paths; verify local root and repository-subpath previews load content and assets without a backend.
+- [x] 5.2 Compare a 1448 × 1086 desktop screenshot side by side with `mockup.png`, checking every scene layer, all fourteen named characters, the bust, composition, card art and footer; document discrepancies and fix them before completion.
+- [x] 5.3 Capture and inspect full mobile pages at 320, 375 and 430 CSS pixels and a tablet and wide desktop view; document character count, overlaps, reflow, clipping and actual browser/device coverage.
+- [x] 5.4 Run build and relevant content/browser checks, including no JavaScript, reduced motion, denied clipboard, zoom, contrast, copy payloads and subpath hosting; record commands and honest limitations.
+- [x] 5.5 Review the asset manifest and remaining incomplete tasks; report any missing recognizable artwork, unresolved rights or untested environments instead of marking the change complete.

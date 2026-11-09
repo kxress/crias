@@ -3,7 +3,7 @@
 ## ADDED Requirements
 
 ### Requirement: Reference joining copy
-The onboarding panel SHALL present four numbered steps titled `Instale o NetBird`, `Configure a URL`, `Peça um invite pro Crias`, and `Conecte e jogue!`. It SHALL explain desktop installation, management URL configuration, a manual Discord or WhatsApp invitation request to Crias, and connection to the network and a listed server.
+The onboarding panel SHALL present four numbered steps titled `Instale o NetBird`, `Configure a URL`, `Peça um invite pro Crias`, and `Conecte e jogue!`. It SHALL explain desktop installation, management URL configuration, a manual Discord or WhatsApp invitation request to Kress, and connection to the network and a listed server.
 
 #### Scenario: Following onboarding
 - **WHEN** a new visitor reads the steps in order
