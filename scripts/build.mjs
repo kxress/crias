@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const out = path.join(root, 'dist');
+const out = path.resolve(root, process.env.OUT_DIR || 'dist');
 const data = JSON.parse(await readFile(path.join(root, 'src/data/servers.json'), 'utf8'));
 const template = await readFile(path.join(root, 'src/template.html'), 'utf8');
 const safe = (text) => String(text).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
@@ -34,4 +34,5 @@ await writeFile(path.join(out, 'index.html'), html);
 await cp(path.join(root, 'src/assets/site.css'), path.join(out, 'assets/site.css'));
 await cp(path.join(root, 'src/assets/site.js'), path.join(out, 'assets/site.js'));
 await cp(path.join(root, 'src/assets/art'), path.join(out, 'assets/art'), { recursive: true });
+await cp(path.join(root, 'src/experiments'), path.join(out, 'experiments'), { recursive: true });
 console.log(`Built ${path.relative(root, out)} with ${data.games.reduce((n, game) => n + game.servers.length, 0)} server records.`);

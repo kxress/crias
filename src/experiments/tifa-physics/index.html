@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10071f">
+  <meta name="description" content="Experimento local de física 2D com mapas de altura e normal na ilustração da Tifa.">
+  <title>Experimento de física — Tifa</title>
+  <link rel="stylesheet" href="./physics.css">
+  <script src="./physics.js" defer></script>
+</head>
+<body>
+  <main class="lab">
+    <a class="back-link" href="../../">← CRIAS GAMES</a>
+    <header class="lab__header">
+      <p class="eyebrow">LABORATÓRIO VISUAL · 2D</p>
+      <h1>Um truque de luz e pixels</h1>
+      <p class="intro">Uma ilustração, dois mapas de altura independentes e uma mola bem comportada.</p>
+    </header>
+
+    <section class="demo" aria-label="Demonstração de física de imagem">
+      <div class="demo__stage" id="stage">
+        <div class="demo__glow" aria-hidden="true"></div>
+        <div class="demo__sprite" id="sprite">
+          <img class="demo__fallback" src="../../assets/art/tifa-2.webp" width="1024" height="1536" alt="Tifa Lockhart em uma roupa branca e preta">
+          <canvas class="demo__canvas" id="physics-canvas" width="1024" height="1536" aria-hidden="true"></canvas>
+          <div class="map-preview" id="map-preview" aria-hidden="true"></div>
+          <span class="map-tag map-tag--left">MAPA A</span>
+          <span class="map-tag map-tag--right">MAPA B</span>
+        </div>
+      </div>
+
+      <aside class="controls" aria-label="Controles do experimento">
+        <div class="controls__heading"><span class="live-dot" aria-hidden="true"></span><span>SIMULAÇÃO ATIVA</span></div>
+        <label class="slider-label" for="intensity"><span>Intensidade</span><output id="intensity-value" for="intensity">Sutil</output></label>
+        <input id="intensity" type="range" min="0" max="100" value="24">
+        <div class="slider-scale"><span>quase nada</span><span>um pouco mais</span></div>
+        <div class="button-row">
+          <button class="control-button" id="pause" type="button" aria-pressed="false">Pausar</button>
+          <button class="control-button control-button--secondary" id="show-maps" type="button" aria-pressed="false">Ver mapas</button>
+        </div>
+        <p class="status" id="status" role="status" aria-live="polite">Dois lados, dois pequenos balanços.</p>
+        <p class="hint">Mova o ponteiro perto da personagem para dar um empurrãozinho.</p>
+      </aside>
+    </section>
+
+    <footer class="lab__footer"><span>CANVAS + WEBGL</span><span>MAPAS GERADOS LOCALMENTE</span><span>SEM MODELO 3D</span></footer>
+  </main>
+</body>
+</html>
