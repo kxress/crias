@@ -1,0 +1,14 @@
+{
+  "management": {
+    "value": null,
+    "confirmedBy": null,
+    "confirmedAt": null
+  },
+  "invitationContact": {
+    "value": null,
+    "label": null,
+    "confirmedBy": null,
+    "confirmedAt": null
+  },
+  "servers": []
+}

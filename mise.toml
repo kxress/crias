@@ -1,0 +1,18 @@
+[tools]
+node = "22.23.4"
+
+[tasks.build]
+description = "Generate the static GitHub Pages site in dist/"
+run = "node scripts/build.mjs"
+
+[tasks.verify]
+description = "Run local static content and build checks"
+run = "node scripts/verify.mjs"
+
+[tasks.browser-check]
+description = "Review responsive and enhanced behavior in local Chromium"
+run = "node scripts/browser-check.mjs"
+
+[tasks.preview]
+description = "Serve dist/ locally for browser review"
+run = "node scripts/serve.mjs"

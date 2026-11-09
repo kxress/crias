@@ -21,3 +21,6 @@ rulesync.local.jsonc
 **/.codex/hooks.json
 !.rulesync/.aiignore
 # End of Rulesync
+
+# Generated GitHub Pages output
+dist/
