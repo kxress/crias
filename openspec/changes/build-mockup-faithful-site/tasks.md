@@ -34,9 +34,9 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 
 ## 4. Motion and copy controls
 
-- [x] 4.1 Animate the striped sun with restrained glow, pulse the wordmark, grid and neon panel borders/headings using independent scene layers, and turn the major panels cyan on hover; observe the page during motion and verify readable content and stable controls.
-- [x] 4.2 Add independently adjustable gentle whole-image character motion and other subtle scene lighting; verify individual illustrations remain static images with no articulated or frame-by-frame animation.
-- [x] 4.3 Implement reduced-motion support and a functional pause/resume control exposed only with scripts; test initial and live preference changes, pause persistence during preference changes, and that all decorative motion stops.
+- [ ] 4.1 Animate the striped sun with restrained glow, pulse the wordmark, grid and neon panel borders/headings using independent scene layers, and turn the major panels cyan on hover; make pulses visibly perceptible at rest and still active on hover, then verify readable content and stable controls.
+- [ ] 4.2 Add independently adjustable whole-image character motion with visible gentle rotation and scale cycles; verify illustrations remain single static images with no articulated or frame-by-frame animation.
+- [ ] 4.3 Keep reduced-motion behavior and remove the manual pause control; verify motion and fluid smoke stop for an initial and live reduced-motion preference.
 - [x] 4.4 Add nine independently named copy controls from canonical data; test exact URL and each hostname payload, repeat activation and keyboard operation.
 - [x] 4.5 Add visible and screen-reader-announced copy success/failure with stable layout and selectable fallback; test clipboard denial and verify focus and values remain unchanged.
 
@@ -50,17 +50,17 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 
 ## 6. Follow-up motion and depth refinement
 
-- [x] 6.1 Align the desktop perspective-grid origin to the skyline baseline and layer the grid behind the city; verify both horizons meet at 1448 × 1086 and 1920 × 1080.
+- [ ] 6.1 Set the grid to `perspective(280px) rotateX(80deg)`, fade it into the skyline horizon, and keep its origin aligned behind the city; verify the camera angle and blend at desktop and wide-desktop sizes.
 - [x] 6.2 Make the striped sun loop over an exact stripe-repeat period with matching glow endpoints; inspect several consecutive loops for jumps, pops or excessive glow.
-- [ ] 6.3 Restyle the actual-text `CRIAS GAMES` wordmark with higher separation from the sun and a restrained retro offset/glitch treatment; move the prominent neon flicker to `SERVIDORES DE JOGOS PRIVADOS` and verify legibility at desktop and mobile sizes.
-- [x] 6.4 Add a fine-pointer-only smoke-like light trail with bounded, short-lived elements; verify it follows desktop pointer movement without blocking clicks, shifting layout or overflowing the page.
-- [x] 6.5 Add pointer-tracked lighting and a game-card tilt capped at two degrees on desktop; verify cards remain readable, keyboard focus stays clear, and touch does not emulate hover.
-- [ ] 6.6 Recheck all new effects with motion active, paused, reduced, and JavaScript unavailable; capture and visually inspect desktop and wide-desktop screenshots, then run the build and relevant browser checks before marking these tasks complete.
+- [ ] 6.3 Style the actual-text `CRIAS GAMES` title as the supplied layered retrowave chrome with a pulsing glow/glint; preserve the existing cursive subtitle and verify both at desktop and mobile sizes.
+- [ ] 6.4 Replace the slow puff/CPU trail with a WebGL2 stable-fluid solver: advect pink/cyan dye, solve pressure and vorticity at reduced render/simulation resolutions, inject on the first movement, and sleep when clear; layer it above waifus/scenery but below UI panels and controls; verify responsive motion, crisp text, no blocked input/layout shift/overflow, and no reduced-motion rendering.
+- [ ] 6.5 Replace the two-degree card tilt with pointer-position-controlled Steam-style perspective, brightness and specular light; reach at least six degrees on each axis (3× the prior cap) and a small hover lift/scale, then verify readability, keyboard focus and no touch hover.
+- [ ] 6.6 Recheck all new effects with motion active, reduced, and JavaScript unavailable; capture and visually inspect desktop and wide-desktop screenshots, then run the build and relevant browser checks before marking these tasks complete.
 
-## 7. Streamlined hero and floating controls
+## 7. Streamlined hero and feedback
 
 - [x] 7.1 Remove the two-line hero intro from rendered HTML; verify the heading/subtitle remain centered and the same guidance remains available in the joining steps and directory.
-- [ ] 7.2 Place the sun behind the city skyline while preserving the shared skyline/grid horizon; verify the layer order and composition at desktop and wide-desktop sizes.
-- [x] 7.3 Move the pause control to a floating viewport-side position; verify it remains keyboard-operable while scrolling and does not cover text, artwork or copy controls at desktop and narrow widths.
+- [ ] 7.2 Reduce the striped sun to 75% of its previous diameter and raise its visible lower edge about 80px above the shared skyline horizon; put Japanese signs in front of the city and use normal CSS opacity/filter compositing; verify the composition at desktop and wide-desktop sizes.
+- [ ] 7.3 Remove the floating pause control and all of its styles/handlers; verify no visible or inert pause control remains at desktop and narrow widths.
 - [x] 7.4 Move copy success/error feedback to a brief bottom-of-viewport toast; verify repeated copies, clipboard failure, screen-reader announcements, focus, and zero panel/page layout shift.
-- [ ] 7.5 Run the build and recheck no-JavaScript, reduced-motion, pause, responsive, and subpath behavior; capture and inspect final desktop screenshots before marking visual tasks complete.
+- [ ] 7.5 Run the build and recheck no-JavaScript, reduced-motion, responsive, and subpath behavior; capture and inspect final desktop screenshots before marking visual tasks complete.

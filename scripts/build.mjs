@@ -33,6 +33,7 @@ await mkdir(path.join(out, 'assets/art'), { recursive: true });
 await writeFile(path.join(out, 'index.html'), html);
 await cp(path.join(root, 'src/assets/site.css'), path.join(out, 'assets/site.css'));
 await cp(path.join(root, 'src/assets/site.js'), path.join(out, 'assets/site.js'));
+await cp(path.join(root, 'src/assets/fluid-smoke.js'), path.join(out, 'assets/fluid-smoke.js'));
 await cp(path.join(root, 'src/assets/art'), path.join(out, 'assets/art'), { recursive: true });
 await cp(path.join(root, 'src/experiments'), path.join(out, 'experiments'), { recursive: true });
 console.log(`Built ${path.relative(root, out)} with ${data.games.reduce((n, game) => n + game.servers.length, 0)} server records.`);

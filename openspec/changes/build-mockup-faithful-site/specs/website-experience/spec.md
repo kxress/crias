@@ -10,29 +10,29 @@ The site SHALL preserve the approved vaporwave composition with one integrated b
 - **THEN** the bust is one object, portraits have no side cropping, only Rei and Usagi use Windows frames, the desktop cards are equal-sized, and the copyleft mark appears in the footer without a link
 
 ### Requirement: Continuous retro hero motion
-The striped sun SHALL loop without a visible stripe seam or glow pop. The real-text `CRIAS GAMES` wordmark SHALL stand apart from the sun with a retro offset treatment and restrained motion; the subtitle SHALL carry the prominent neon flicker.
+The striped sun SHALL loop without a visible stripe seam or glow pop. The real-text `CRIAS GAMES` wordmark SHALL use heavy slanted Exo lettering, a dark separating edge and the layered blue/cyan/white/violet/magenta chrome gradient from the supplied retro text reference. Its blue glow and corner glint SHALL pulse gently. `SERVIDORES DE JOGOS PRIVADOS` SHALL retain its existing expressive cursive lettering and strong white/pink neon pulse.
 
 #### Scenario: Reading the animated hero
 - **WHEN** the hero is viewed through consecutive animation cycles
-- **THEN** the sun loop closes seamlessly, the wordmark remains legible against the sun, and `SERVIDORES DE JOGOS PRIVADOS` receives the prominent neon treatment
+- **THEN** the sun loop closes seamlessly, the chrome title's glow and glint pulse while the text remains legible against the sun, and the cursive subtitle retains its neon pulse
 
 ### Requirement: Aligned city and grid horizon
-On desktop, the sun SHALL render behind the city skyline, and the perspective grid SHALL begin at the skyline baseline behind the city silhouette, with both horizons aligned vertically.
+On desktop, the sun SHALL sit behind the city and its visible lower edge SHALL be raised slightly above the shared skyline/grid baseline. The building silhouette SHALL remain visually dominant while transparent sky retains the sun above it. Japanese neon signage SHALL layer visibly in front of the city. The city SHALL use normal CSS alpha compositing, with its atmospheric opacity and color harmonization applied through CSS; it SHALL NOT use screen blending. The perspective grid SHALL begin at the skyline baseline behind the city, use a low viewpoint rather than a steep overhead angle, and fade in from transparent at the horizon.
 
 #### Scenario: Inspecting the scene layers
 - **WHEN** the city and grid are visible together
-- **THEN** the sun sits behind the city, the grid begins at the same horizontal horizon as the city baseline, and the grid does not paint over the skyline
+- **THEN** the raised striped sun remains behind the dominant city silhouette, Japanese neon signs sit in front of the city, the grid begins at the same horizontal horizon as the city baseline, its near-horizon edge blends softly into the city, and the grid does not paint over the skyline
 
 ### Requirement: Pointer-reactive depth
-On fine-pointer devices, movement SHALL produce a restrained smoke-like light trail and subtle game-card tilt capped at two degrees. Effects SHALL not block interaction or shift content, and SHALL stop when motion is paused or reduced motion is requested.
+On fine-pointer devices, movement SHALL inject velocity and pink/cyan dye into a GPU-accelerated WebGL2 fluid simulation whose velocity advects the dye and whose pressure projection and vorticity create curling smoke. It SHALL use compact 16-bit scalar and two-channel framebuffer formats, a 6-iteration pressure solve, a 64px short-side simulation grid, a 384px short-side dye buffer, and a canvas capped at 0.6× CSS resolution and 500,000 pixels to keep pointer response fluid without excessive GPU bandwidth. Bilinear browser scaling SHALL smooth the diffuse smoke. The transparent, pointer-inert canvas SHALL layer above the hero collage and scenery, but below the joining/server panels, their controls, and the footer; small text-only masks SHALL preserve the hero title and Japanese scenery lettering above it. It SHALL inject smoke on the first pointer movement, preserve cursor deltas, allow bounded variable time steps when frame delivery slows, stop after dye dissipates, and not run for reduced motion. Movement over a game card SHALL control a Steam-style perspective tilt, brightness and pointer-following specular highlight. The card tilt SHALL reach six degrees on each axis, at least three times the former two-degree per-axis cap, with a small hover lift/scale. Effects SHALL not block interaction or shift content.
 
 #### Scenario: Moving a desktop pointer
 - **WHEN** the pointer moves over the page and game cards
-- **THEN** a short-lived trail follows it and cards tilt subtly without obscuring their content or moving surrounding layout
+- **THEN** pointer movement creates curling, dissipating colored fluid, while card angle and brightness change with pointer position, a highlight follows across each card surface, and cards reset smoothly without obscuring content or moving surrounding layout
 
 #### Scenario: Using reduced motion, touch, or keyboard
-- **WHEN** motion is paused or reduced, or a visitor uses touch or keyboard focus
-- **THEN** the pointer trail and card tilt are absent, and controls remain visible, operable and clearly focused
+- **WHEN** reduced motion is enabled, or a visitor uses touch or keyboard focus
+- **THEN** the fluid canvas and card tilt are absent, and essential controls remain operable and clearly focused
 
 ### Requirement: Reference-specific visual fidelity
 The desktop site SHALL reproduce the reference's visual hierarchy, relative placement, scale, palette, character identities, collage treatment, card illustrations and scene depth. Refinements SHALL preserve the mockup's composition and informal personality. A secondary animation reference SHALL NOT supersede the mockup.
@@ -55,24 +55,16 @@ All fourteen character illustrations SHALL be visible in the mobile page's norma
 - **WHEN** a visitor scrolls a 320 CSS-pixel-wide viewport from top to bottom
 - **THEN** all fourteen character illustrations can be seen and the page has no horizontal overflow
 
-### Requirement: Motion control and accessibility
-The site SHALL provide a visible keyboard-operable floating control at a viewport side for pausing persistent decorative motion when scripts are available. It SHALL remain reachable while scrolling without covering text or other controls. Reduced-motion preference SHALL stop nonessential animation and SHALL NOT be overridden by the control. Motion SHALL NOT obscure content, interfere with input or flash beyond WCAG 2.2 AA limits.
-
-#### Scenario: Pausing the scene
-- **WHEN** the visitor pauses motion
-- **THEN** the grid, neon and other persistent decorative animations stop until resumed
-
-#### Scenario: Reaching the floating pause control
-- **WHEN** the visitor scrolls through the page
-- **THEN** the pause control remains at a viewport side and does not cover essential content or copy controls
+### Requirement: Motion accessibility
+CSS and pointer-driven nonessential motion SHALL stop when reduced motion is requested. The page SHALL NOT show a manual pause/resume control. Motion SHALL NOT obscure content, interfere with input or flash beyond WCAG 2.2 AA limits.
 
 #### Scenario: Reduced motion
 - **WHEN** reduced motion is enabled before or during a visit
-- **THEN** nonessential animation stops, regardless of the manual motion setting
+- **THEN** nonessential CSS animation, card movement and fluid simulation stop
 
 #### Scenario: Scripts unavailable
 - **WHEN** JavaScript is unavailable
-- **THEN** the site remains readable with no nonfunctional motion control
+- **THEN** the site remains readable without a pause control or essential JavaScript behavior
 
 ### Requirement: Accessible responsive presentation
 The site SHALL meet WCAG 2.2 AA contrast and target-size requirements, expose logical landmarks and headings, and keep full connection values accessible without horizontal page scrolling at 320 CSS pixels and at 200% zoom. Decorative artwork SHALL be excluded from the accessibility tree and pointer targeting.
@@ -84,7 +76,7 @@ The site SHALL meet WCAG 2.2 AA contrast and target-size requirements, expose lo
 ## MODIFIED Requirements
 
 ### Requirement: Hero and environment
-The hero SHALL center the CRIAS GAMES wordmark, cyan underline, and private-server subtitle over the striped sunset and skyline, without the two-line introductory callout. The sun SHALL render behind the city skyline. The scene SHALL include the starry purple sky, wireframe mountains, Japanese neon signs and magenta perspective grid depicted in the reference. The grid SHALL begin at the skyline baseline, render behind the city silhouette, and continue around the panels and footer.
+The hero SHALL center the CRIAS GAMES wordmark, cyan underline, and private-server subtitle over the striped sunset and skyline, without the two-line introductory callout. The existing hero layout and cursive subtitle treatment SHALL remain in place. The wordmark SHALL use a dark blue base silhouette with a beveled edge and a blue/cyan/white/violet/magenta chrome gradient overlay, following the two-layer treatment in the supplied Retro Text Effect reference. Its blue glow SHALL pulse. Separate horizontal stripes SHALL NOT render behind the wordmark. It SHALL NOT read as plain white lettering with a pink neon shadow. The sun SHALL render behind the city skyline at approximately 75% of its previous diameter, with its visible lower edge about 80px above the skyline horizon on desktop. The scene SHALL include the starry purple sky, wireframe mountains, Japanese neon signs and magenta perspective grid depicted in the reference. The grid SHALL begin at the skyline baseline, render behind the city silhouette, and continue around the panels and footer.
 
 #### Scenario: Reading the hero
 - **WHEN** a visitor opens the page at desktop width
