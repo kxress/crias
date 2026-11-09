@@ -2,12 +2,13 @@
 
 ## Why
 
-The repository has a detailed mockup and persistent requirements but no site. The removed implementation diverged from the reference, so the new implementation needs an explicit, verifiable visual and functional contract.
+The first implementation now follows the mockup and has been visually reviewed. Follow-up feedback identified five refinements to its motion and depth: remove the sun animation seam, strengthen the title/subtitle hierarchy, align the grid with the city horizon, react subtly to pointer movement, and give game cards restrained depth on hover.
 
 ## What Changes
 
 - Build the single-page Brazilian Portuguese private-server site as a static GitHub Pages artifact closely matching `mockup.png` on desktop and thoughtfully recomposed for mobile.
 - Recreate all fourteen named characters and the bust as individually controllable artwork; construct independently animatable scenery, text, borders and lighting with a living retrowave atmosphere.
+- Refine the hero's seamless striped-sun loop, retro animated wordmark and neon subtitle, skyline/grid layering, pointer-responsive atmosphere, and gentle Steam-inspired game-card tilt without changing the approved composition or making effects intrusive.
 - Publish the user-confirmed management URL and eight server records, with manual invitation guidance and accessible copy interactions.
 - Add explicit fidelity, responsive, accessibility, motion, and static-hosting acceptance criteria and a granular implementation and verification checklist.
 

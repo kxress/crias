@@ -3,11 +3,36 @@
 ## ADDED Requirements
 
 ### Requirement: Approved visual refinements
-The user-approved refinements SHALL preserve the original vaporwave composition while using a single integrated bust, full uncropped portraits with a CSS interior fade, Windows-style frames only where selected, Japanese decorative details, an animated angled gradient wordmark, equal-sized desktop game cards with cyan hover outlines, and the footer label `Crias 🄯 2026` with the OpenMoji copyleft artwork and attribution. The character artwork SHALL fill its available area more effectively while retaining complete silhouettes and gently fading only at the lower interior edge. The sun SHALL use an animated striped treatment with restrained glow; the bust SHALL sit closer to the central content; the major panel outlines SHALL respond to hover with cyan; and neon headings and whole character illustrations SHALL have coordinated, gentle motion.
+The site SHALL preserve the approved vaporwave composition with one integrated bust, complete portraits using only an interior fade, Windows-style frames only on Rei and Usagi, Japanese accents, three equal desktop cards, and the `Crias 🄯 2026` footer with credited OpenMoji artwork.
 
-#### Scenario: Reviewing the revised visual treatment
+#### Scenario: Reviewing the approved composition
 - **WHEN** the page is inspected at desktop and mobile sizes
-- **THEN** the bust reads as one object, portraits keep their full silhouettes with a later interior fade, only Rei and Usagi use Windows frames, cards and panels turn cyan on hover or focus, the striped sun and wordmark animate, and the footer reads `Crias 🄯 2026`
+- **THEN** the bust is one object, portraits have no side cropping, only Rei and Usagi use Windows frames, the desktop cards are equal-sized, and the copyleft mark appears in the footer without a link
+
+### Requirement: Continuous retro hero motion
+The striped sun SHALL loop without a visible stripe seam or glow pop. The real-text `CRIAS GAMES` wordmark SHALL stand apart from the sun with a retro offset treatment and restrained motion; the subtitle SHALL carry the prominent neon flicker.
+
+#### Scenario: Reading the animated hero
+- **WHEN** the hero is viewed through consecutive animation cycles
+- **THEN** the sun loop closes seamlessly, the wordmark remains legible against the sun, and `SERVIDORES DE JOGOS PRIVADOS` receives the prominent neon treatment
+
+### Requirement: Aligned city and grid horizon
+On desktop, the perspective grid SHALL begin at the skyline baseline and render behind the city silhouette, with both horizons aligned vertically.
+
+#### Scenario: Inspecting the scene layers
+- **WHEN** the city and grid are visible together
+- **THEN** the grid begins at the same horizontal horizon as the city baseline and does not paint over the skyline
+
+### Requirement: Pointer-reactive depth
+On fine-pointer devices, movement SHALL produce a restrained smoke-like light trail and subtle game-card tilt capped at two degrees. Effects SHALL not block interaction or shift content, and SHALL stop when motion is paused or reduced motion is requested.
+
+#### Scenario: Moving a desktop pointer
+- **WHEN** the pointer moves over the page and game cards
+- **THEN** a short-lived trail follows it and cards tilt subtly without obscuring their content or moving surrounding layout
+
+#### Scenario: Using reduced motion, touch, or keyboard
+- **WHEN** motion is paused or reduced, or a visitor uses touch or keyboard focus
+- **THEN** the pointer trail and card tilt are absent, and controls remain visible, operable and clearly focused
 
 ### Requirement: Reference-specific visual fidelity
 The desktop site SHALL reproduce the reference's visual hierarchy, relative placement, scale, palette, character identities, collage treatment, card illustrations and scene depth. Refinements SHALL preserve the mockup's composition and informal personality. A secondary animation reference SHALL NOT supersede the mockup.

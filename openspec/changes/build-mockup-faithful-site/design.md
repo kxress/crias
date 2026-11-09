@@ -2,13 +2,13 @@
 
 ## Context
 
-The repository has no current site or Pages workflow. `mockup.png` is a 1448 × 1086 flattened reference, not a set of source assets. Read the persistent specs, both change deltas, and `docs/mockup-reference.md` in full before implementation. The user confirmed the URL and eight records; their confirmation is sufficient to publish them, but is not a claim of live status. The CodePen previously shared is only very loose motion inspiration; no CodePen elements override the mockup.
+The static site now exists and follows the 1448 × 1086 flattened reference. This follow-up responds to visual review of the sun loop, title contrast and motion, city/grid depth alignment, pointer feedback, and restrained card depth while preserving the accepted composition and confirmed server content. The user confirmed the URL and eight records; their confirmation is sufficient to publish them, but is not a claim of live status.
 
 ## Goals / Non-Goals
 
-**Goals:** Deliver a faithful, living, responsive scene with individually adaptable art; preserve selectable semantic text and copyable connection data; make asset quality and visual comparison explicit gates.
+**Goals:** Refine the existing faithful, living scene with a seamless sun loop, clearer retro title/neon subtitle hierarchy, an aligned city and grid horizon, restrained pointer feedback and card tilt; preserve selectable semantic text, copyable connection data and reduced-motion support.
 
-**Non-Goals:** Accounts, signup, automated invitations, server administration, live status, a marketing landing page, pricing, extra navigation, or inventing a contact handle. Do not ship the mockup as the page or a single flattened background.
+**Non-Goals:** Accounts, signup, automated invitations, server administration, live status, a marketing landing page, pricing, extra navigation, or inventing a contact handle. Do not ship the mockup as the page or a single flattened background, copy complete CodePen compositions, or add a runtime dependency for visual effects.
 
 ## Decisions
 
@@ -40,7 +40,7 @@ Use document flow for content and a separate decorative layer with per-element p
 
 ### 4. Motion and interaction
 
-Treat the page as a layered scene: gentle, slow perspective-grid travel; non-lockstep neon pulses and subtle ambient lighting; independently tunable title, sky, sun, skyline, mountain and other decorative layers. The character illustrations are static single images that can gently move as whole billboards, not frame-by-frame or articulated animation. CSS transforms/opacity are preferred for efficiency; keep effects near content quieter than the scene. Pointer light or surface tilt is optional refinement and must not displace interactive hit areas. Avoid copying the unrelated CodePen composition.
+Treat the page as a layered scene: gentle, slow perspective-grid travel; non-lockstep neon pulses and subtle ambient lighting; independently tunable title, sky, sun, skyline, mountain and other decorative layers. The character illustrations are static single images that can gently move as whole billboards, not frame-by-frame or articulated animation. CSS transforms/opacity are preferred for efficiency; keep effects near content quieter than the scene. Pointer light and surface tilt are approved refinements; Decision 6 defines their limits. They must not displace interactive hit areas.
 
 Use CSS `prefers-reduced-motion` to stop nonessential movement even without JS. When JS is enabled, expose a pause/resume control and apply a shared paused state to every decorative layer; changes to reduced-motion preference must take effect immediately and reduced motion takes precedence over resume. A manual pause survives preference changes for the current visit. Render the control only when functional; no-script text and controls remain usable.
 
@@ -51,6 +51,16 @@ Render the URL and hostnames as selectable text. Progressively add nine accessib
 Visual review is mandatory, not a checkbox satisfied by automated DOM tests: render the page at 1448 × 1086 and compare side by side with `mockup.png`; check every character, statue, scene layer, logo, four-step panel, three game cards and footer against the reference. Capture mobile at 320, 375 and 430 px, tablet and wide desktop; scroll the full mobile page and count fourteen recognizable characters. Review reduced motion, no script, 200% zoom and keyboard focus; test nine copies including denied clipboard. Use testable browser checks for overflow, full values, copy payloads, and subpath paths, but do not treat them as a visual fidelity substitute. Record screenshots, browser used and actual limitations. Mark tasks incomplete if assets, review or environments are missing.
 
 Build and verify locally before enabling the Pages workflow. Publish only when the user authorizes deployment; a committed workflow may deploy on a future push to the configured branch. To roll back, revert the implementation commit(s) and workflow in Git. No migration of old site content is needed.
+
+### 6. Follow-up motion and pointer depth
+
+Use the references as effect inspiration only: [vaporwave sun](https://codepen.io/stefanbomhof/pen/NWKBJzK), [retro text](https://codepen.io/K1LL3RFR4M3/pen/GRQXXjx), [smokey cursor](https://codepen.io/uiswarup/pen/QwjMRKN), and [Steam card hover](https://codepen.io/nelsonr/pen/WNQaZPb). Keep the existing site composition, content and independent scene layers.
+
+Make the striped sun repeat seamlessly: the stripe animation must travel by exactly one repeat period per iteration, and the pulsing glow must meet at matching start/end values. Keep the glow restrained. Keep `CRIAS GAMES` as actual HTML text; give it a dark separating edge, retro offset color layers and rare restrained glitch/pulse so it reads over the sun without a broad neon bloom. Give the subtitle the prominent neon treatment and its own gentle flicker/pulse.
+
+Define one shared scene horizon for the skyline baseline and the perspective grid origin. The grid begins at that line and is painted behind the city so the city silhouette remains in front while both horizons meet vertically. Preserve the mobile-specific scene positions while keeping this relationship coherent where the layers are shown.
+
+Implement the smokey pointer response as a small, bounded, decorative trail that follows fine-pointer movement, fades promptly and cannot block clicks or create page overflow. Coalesce movement work, cap live trail elements, and avoid external scripts or canvas. Add pointer-tracked light and a subtle 3D card tilt capped at two degrees on desktop game cards; keyboard focus must retain clear focus styling without tilt, and touch layouts must not emulate hover. Pause and reduced-motion states disable the trail, tilt animation and other nonessential motion. Static content and hover/focus color feedback remain usable without JavaScript.
 
 ## Risks / Trade-offs
 

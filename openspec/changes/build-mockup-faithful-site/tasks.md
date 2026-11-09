@@ -47,3 +47,12 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 - [x] 5.3 Capture and inspect full mobile pages at 320, 375 and 430 CSS pixels and a tablet and wide desktop view; document character count, overlaps, reflow, clipping and actual browser/device coverage.
 - [x] 5.4 Run build and relevant content/browser checks, including no JavaScript, reduced motion, denied clipboard, zoom, contrast, copy payloads and subpath hosting; record commands and honest limitations.
 - [x] 5.5 Review the asset manifest and remaining incomplete tasks; report any missing recognizable artwork, unresolved rights or untested environments instead of marking the change complete.
+
+## 6. Follow-up motion and depth refinement
+
+- [ ] 6.1 Align the desktop perspective-grid origin to the skyline baseline and layer the grid behind the city; verify both horizons meet at 1448 × 1086 and 1920 × 1080.
+- [ ] 6.2 Make the striped sun loop over an exact stripe-repeat period with matching glow endpoints; inspect several consecutive loops for jumps, pops or excessive glow.
+- [ ] 6.3 Restyle the actual-text `CRIAS GAMES` wordmark with higher separation from the sun and a restrained retro offset/glitch treatment; move the prominent neon flicker to `SERVIDORES DE JOGOS PRIVADOS` and verify legibility at desktop and mobile sizes.
+- [ ] 6.4 Add a fine-pointer-only smoke-like light trail with bounded, short-lived elements; verify it follows desktop pointer movement without blocking clicks, shifting layout or overflowing the page.
+- [ ] 6.5 Add pointer-tracked lighting and a game-card tilt capped at two degrees on desktop; verify cards remain readable, keyboard focus stays clear, and touch does not emulate hover.
+- [ ] 6.6 Recheck all new effects with motion active, paused, reduced, and JavaScript unavailable; capture and visually inspect desktop and wide-desktop screenshots, then run the build and relevant browser checks before marking these tasks complete.
