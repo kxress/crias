@@ -28,7 +28,7 @@ Each character SHALL be a separate illustration, independently positionable and 
 - **THEN** individual decorations can be repositioned and resized while essential content and controls remain visible
 
 ### Requirement: Independently animated scene
-The title SHALL be actual text that can be animated with CSS. Interface borders and neon effects SHALL be structural CSS or SVG rather than flattened into artwork. The sun, skyline, mountains, grid, lighting, and other distinct moving scenery SHALL be independently controllable layers, allowing each to be animated separately. Character motion SHALL move each static illustration as a whole, like a billboard; it SHALL NOT require frame-by-frame or internal character animation.
+The title SHALL be text animatable with CSS. Borders and neon SHALL use CSS or SVG rather than flattened artwork. Scenery, including the sun, skyline, mountains, grid and lighting, SHALL have independently controllable layers. Neon SHALL pulse and the perspective grid SHALL move slowly to evoke retrowave. Each static character illustration SHALL move as a whole, like a billboard, without frame-by-frame or internal character animation.
 
 #### Scenario: Animating the scene
 - **WHEN** motion is enabled
