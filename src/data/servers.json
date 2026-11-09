@@ -1,0 +1,71 @@
+{
+    "managementUrl":  "https://netbird.kress.wtf",
+    "games":  [
+                  {
+                      "name":  "Terraria",
+                      "accent":  "terraria",
+                      "servers":  [
+                                      {
+                                          "hostname":  "brasilia.terraria.games.crias.wtf",
+                                          "variant":  "Vanilla",
+                                          "port":  7777,
+                                          "protocol":  "TCP"
+                                      },
+                                      {
+                                          "hostname":  "lsj.terraria.games.crias.wtf",
+                                          "variant":  "Vanilla",
+                                          "port":  7777,
+                                          "protocol":  "TCP"
+                                      },
+                                      {
+                                          "hostname":  "brasilia.calamity.terraria.games.crias.wtf",
+                                          "variant":  "Calamity",
+                                          "port":  7777,
+                                          "protocol":  "TCP"
+                                      },
+                                      {
+                                          "hostname":  "lsj.calamity.terraria.games.crias.wtf",
+                                          "variant":  "Calamity",
+                                          "port":  7777,
+                                          "protocol":  "TCP"
+                                      }
+                                  ]
+                  },
+                  {
+                      "name":  "Minecraft",
+                      "accent":  "minecraft",
+                      "servers":  [
+                                      {
+                                          "hostname":  "arena-v22.minecraft.games.crias.wtf",
+                                          "variant":  "Vanilla",
+                                          "port":  25565,
+                                          "protocol":  "TCP"
+                                      },
+                                      {
+                                          "hostname":  "bmc.minecraft.games.crias.wtf",
+                                          "variant":  "Better MC",
+                                          "port":  25565,
+                                          "protocol":  "TCP"
+                                      },
+                                      {
+                                          "hostname":  "prominence.minecraft.games.crias.wtf",
+                                          "variant":  "Modpack",
+                                          "port":  25565,
+                                          "protocol":  "TCP"
+                                      }
+                                  ]
+                  },
+                  {
+                      "name":  "Hytale",
+                      "accent":  "hytale",
+                      "servers":  [
+                                      {
+                                          "hostname":  "alpha.hytale.games.crias.wtf",
+                                          "variant":  "Alpha",
+                                          "port":  5520,
+                                          "protocol":  "UDP"
+                                      }
+                                  ]
+                  }
+              ]
+}

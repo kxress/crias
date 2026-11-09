@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10071f">
+  <meta name="description" content="Servidores privados de Terraria, Minecraft e Hytale. Entre na rede privada e jogue com a gente.">
+  <title>CRIAS GAMES — Servidores de jogos privados</title>
+  <link rel="stylesheet" href="./assets/site.css">
+  <script src="./assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="scene" aria-hidden="true">
+    <div class="scene__stars"></div>
+    <div class="scene__sun"></div>
+    <img class="scene__skyline" src="./assets/art/skyline.webp" alt="" width="2172" height="724">
+    <div class="scene__mountains scene__mountains--left"></div>
+    <div class="scene__mountains scene__mountains--right"></div>
+    <div class="scene__grid"></div>
+    <div class="scene__facade"><span>カフェ</span></div>
+    <div class="scene__sign">ゲームサーバー</div>
+    <div class="scene__vignette"></div>
+  </div>
+  <button class="motion-toggle" id="motion-toggle" type="button" hidden aria-pressed="false">⏸ Pausar animação</button>
+
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="brand">
+      <div class="hero__collage" aria-hidden="true">
+        <!-- Characters are individual transparent assets. Portrait windows remain CSS. -->
+        <figure class="character character--rei window window--rei"><figcaption>レイ</figcaption><img src="./assets/art/rei.webp" width="1216" height="1294" alt=""></figure>
+        <img class="character character--makima" src="./assets/art/makima.webp" width="1199" height="1312" alt="">
+        <img class="character character--tifa" src="./assets/art/tifa.webp" width="1199" height="1312" alt="">
+        <img class="character character--asuka" src="./assets/art/asuka.webp" width="1312" height="1199" alt="">
+        <img class="character character--nami" src="./assets/art/nami.webp" width="1312" height="1199" alt="">
+        <img class="character character--nagatoro" src="./assets/art/nagatoro.webp" width="1312" height="1199" alt="">
+        <figure class="character character--kurisu photo-frame"><img src="./assets/art/kurisu.webp" width="1312" height="1199" alt=""></figure>
+        <figure class="character character--faye photo-frame"><img src="./assets/art/faye.webp" width="1312" height="1199" alt=""></figure>
+        <figure class="character character--hinata photo-frame"><img src="./assets/art/hinata.webp" width="1312" height="1199" alt=""></figure>
+        <figure class="character character--rem photo-frame"><img src="./assets/art/rem.webp" width="1312" height="1199" alt=""></figure>
+        <figure class="character character--usagi window window--usagi"><figcaption>うさぎ</figcaption><img src="./assets/art/usagi.webp" width="1283" height="1226" alt=""></figure>
+        <img class="character character--aqua" src="./assets/art/aqua.webp" width="1312" height="1199" alt="">
+        <img class="character character--mayano" src="./assets/art/mayano.webp" width="1312" height="1199" alt="">
+        <img class="character character--creek" src="./assets/art/super-creek.webp" width="1199" height="1312" alt="">
+        <figure class="statue" aria-hidden="true">
+          <img class="statue__bust" src="./assets/art/bust.webp" width="1312" height="1199" alt="">
+          <img class="statue__column" src="./assets/art/ionic-column.svg" width="220" height="150" alt="">
+          <svg class="pixel-glasses" viewBox="0 0 160 48" role="presentation"><path fill="#080914" stroke="#d3faff" stroke-width="3" d="M8 7h55v30H8zM97 7h55v30H97zM63 15h34v8H63z"/><path fill="#fff" d="M17 12h10v8H17zM106 12h10v8h-10z"/></svg>
+        </figure>
+      </div>
+      <div class="hero__copy">
+        <h1 class="wordmark" id="brand">CRIAS GAMES</h1>
+        <div class="brushline" aria-hidden="true"></div>
+        <p class="hero__subtitle">SERVIDORES DE JOGOS PRIVADOS</p>
+        <p class="hero__intro">Servidores privados de Terraria, Minecraft e Hytale.<br>Instale o NetBird, entre na rede e conecte nos hosts abaixo.</p>
+      </div>
+    </section>
+
+    <section class="join panel" aria-labelledby="join-title">
+      <div class="panel__heading"><span class="globe-icon" aria-hidden="true">◎</span><h2 id="join-title">COMO ENTRAR</h2></div>
+      <ol class="steps">
+        <li class="step"><span class="step__number">1</span><span class="step__icon step__icon--orange" aria-hidden="true">◆</span><h3>Instale o NetBird</h3><p>Baixe e instale o NetBird no seu PC (Windows, Linux ou macOS).</p></li>
+        <li class="step"><span class="step__number">2</span><span class="step__icon" aria-hidden="true">↗</span><h3>Configure a URL</h3><p>No NetBird, defina o Management URL como:</p><div class="url-copy"><span id="management-url">{{MANAGEMENT_URL}}</span><button class="copy-button" type="button" data-copy="{{MANAGEMENT_URL}}" aria-label="Copiar URL de gerenciamento" hidden><span aria-hidden="true"></span></button></div></li>
+        <li class="step"><span class="step__number">3</span><span class="step__icon" aria-hidden="true">✉</span><h3>Peça um invite pro Crias</h3><p>Envie uma mensagem para o Crias (Discord/WhatsApp) solicitando o seu convite. O convite é manual e não é gerado automaticamente.</p></li>
+        <li class="step"><span class="step__number">4</span><span class="step__icon" aria-hidden="true">✓</span><h3>Conecte e jogue!</h3><p>Após entrar na rede, conecte-se nos servidores listados abaixo e bora jogar.</p></li>
+      </ol>
+      <p class="copy-feedback" id="copy-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+    </section>
+
+    <section class="directory panel" aria-labelledby="servers-title">
+      <div class="panel__heading panel__heading--directory"><svg class="gamepad-icon" viewBox="0 0 40 28" aria-hidden="true"><path d="M10 5h20c4 0 6 3 7 8l2 8c.5 3-3 5-5 3l-5-5H11l-5 5c-2 2-5 0-4-3l2-8c1-5 3-8 6-8Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M11 9v8m-4-4h8m11-3h.1m5 5h.1" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg><h2 id="servers-title">SERVIDORES</h2><span class="heading-divider" aria-hidden="true"></span><p>SERVIDORES DISPONÍVEIS NA REDE PRIVADA</p></div>
+      <div class="game-grid">
+        {{GAME_CARDS}}
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><span class="footer-line" aria-hidden="true"></span><svg class="computer-icon" viewBox="0 0 42 32" aria-hidden="true"><path d="M5 3h32v20H5zM16 23v5m10-5v5M11 29h20" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M9 7h24v12H9z" fill="#28103b" stroke="#ff5be0" stroke-width="1.5"/></svg><span>crias.games</span><span class="footer-line" aria-hidden="true"></span></footer>
+</body>
+</html>

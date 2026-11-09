@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" fill="none">
+  <defs>
+    <linearGradient id="stone" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f38be9"/><stop offset=".38" stop-color="#6b4db7"/><stop offset=".7" stop-color="#241b4a"/><stop offset="1" stop-color="#10d9fa"/></linearGradient>
+    <filter id="glow" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="5"/></filter>
+  </defs>
+  <path d="M38 76h284v25H38zM55 101h250l-18 112H73zM25 213h310v22H25z" fill="#d027cd" opacity=".6" filter="url(#glow)"/>
+  <path d="M45 74h270v25H45z" fill="url(#stone)" stroke="#f988eb" stroke-width="5"/>
+  <path d="M60 99h240l-17 112H77z" fill="url(#stone)" stroke="#ae6df5" stroke-width="4"/>
+  <path d="M94 108v95M129 108v95M164 108v95M199 108v95M234 108v95M269 108v95" stroke="#130d33" stroke-width="10" opacity=".7"/>
+  <path d="M26 211h308v25H26z" fill="url(#stone)" stroke="#16eaff" stroke-width="4"/>
+  <path d="M28 72h304V56H28z" fill="#311754" stroke="#ff59df" stroke-width="4"/>
+  <path d="M50 53h42c0-30-42-34-45-8-2 19 23 27 37 12M310 53h-42c0-30 42-34 45-8 2 19-23 27-37 12" stroke="#f3a5f1" stroke-width="11" stroke-linecap="round"/>
+  <path d="M52 55h38c0-23-31-27-34-9-2 12 16 18 25 9M308 55h-38c0-23 31-27 34-9 2 12-16 18-25 9" stroke="#311754" stroke-width="5" stroke-linecap="round"/>
+  <path d="M31 238h298" stroke="#ff57df" stroke-width="4"/>
+</svg>

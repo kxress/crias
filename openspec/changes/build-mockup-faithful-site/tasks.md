@@ -4,11 +4,11 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 
 ## 1. Static foundation and content
 
-- [ ] 1.1 Create static site source and build/preview commands; verify a clean build produces a locally previewable HTML artifact with relative asset URLs.
-- [ ] 1.2 Create one canonical data source for the confirmed management URL and eight records from the persistent spec; verify count, ordering, variants, ports and protocols against that spec.
-- [ ] 1.3 Generate semantic Brazilian Portuguese HTML with a main landmark, one primary heading, reference intro, four ordered onboarding steps, three game groups and footer; verify reading order and content with JavaScript disabled.
-- [ ] 1.4 Render all eight full hostnames and associated variants and ports from canonical data; verify Hytale displays UDP and Terraria/Minecraft show ports without TCP labels.
-- [ ] 1.5 Document build, local preview and content updates in project documentation; run the commands exactly as documented and verify an updated test record propagates without publishing it.
+- [x] 1.1 Create static site source and build/preview commands; verify a clean build produces a locally previewable HTML artifact with relative asset URLs.
+- [x] 1.2 Create one canonical data source for the confirmed management URL and eight records from the persistent spec; verify count, ordering, variants, ports and protocols against that spec.
+- [x] 1.3 Generate semantic Brazilian Portuguese HTML with a main landmark, one primary heading, reference intro, four ordered onboarding steps, three game groups and footer; verify reading order and content with JavaScript disabled.
+- [x] 1.4 Render all eight full hostnames and associated variants and ports from canonical data; verify Hytale displays UDP and Terraria/Minecraft show ports without TCP labels.
+- [x] 1.5 Document build, local preview and content updates in project documentation; run the commands exactly as documented and verify an updated test record propagates without publishing it.
 
 ## 2. Independently controlled reference artwork
 
