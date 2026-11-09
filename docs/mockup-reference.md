@@ -8,6 +8,10 @@ The original analysis described positions, sizes, and fonts as approximate, and 
 
 ## Detailed mockup notes and earlier suggestions
 
+### Current user-directed refinements
+
+The user has since approved several implementation adjustments while keeping this mockup as the primary reference: retain Japanese decorative labels throughout the site; use a slanted, animated gradient treatment for the live-text wordmark; use one unified bust, glasses and Ionic-column illustration; keep Rei and Usagi in separate Windows-style frames while leaving the four left-side portraits unframed; preserve complete portrait silhouettes, enlarge their visible artwork within the available area, and fade only the lower interior edge; keep desktop game cards equal in size with cyan hover/focus outlines; and label the footer `Crias 🄯 2026` using the OpenMoji copyleft artwork with attribution. At 1920 × 1080, keep the character groups close to the centered content instead of spreading them to the screen edges. The sun should use a moving striped vaporwave treatment with restrained glow, and the main panel borders/headings should pulse while the panels shift toward cyan on hover.
+
 ### Mockup note: Visual identity and composition
 
 The site could reproduce the mockup's dense synthwave, vaporwave, anime, arcade and cyberpunk aesthetic as a single continuous scene, with a clear central reading column framed by decorative artwork. It could feel independent, informal and personalized. The desktop composition could place the hero, joining instructions, server directory and footer in that order. Around the reference resolution, the hero occupies approximately y=0–410, the joining panel y=410–605, the directory y=615–1010 and the footer y=1020–1086. The centered panels are approximately 1100 px wide at most, with the directory slightly wider than the joining panel. These measurements guide visual comparison rather than imposing fixed coordinates.

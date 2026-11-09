@@ -2,6 +2,13 @@
 
 ## ADDED Requirements
 
+### Requirement: Approved visual refinements
+The user-approved refinements SHALL preserve the original vaporwave composition while using a single integrated bust, full uncropped portraits with a CSS interior fade, Windows-style frames only where selected, Japanese decorative details, an animated angled gradient wordmark, equal-sized desktop game cards with cyan hover outlines, and the footer label `Crias 🄯 2026` with the OpenMoji copyleft artwork and attribution. The character artwork SHALL fill its available area more effectively while retaining complete silhouettes and gently fading only at the lower interior edge. The sun SHALL use an animated striped treatment with restrained glow; the bust SHALL sit closer to the central content; the major panel outlines SHALL respond to hover with cyan; and neon headings and whole character illustrations SHALL have coordinated, gentle motion.
+
+#### Scenario: Reviewing the revised visual treatment
+- **WHEN** the page is inspected at desktop and mobile sizes
+- **THEN** the bust reads as one object, portraits keep their full silhouettes with a later interior fade, only Rei and Usagi use Windows frames, cards and panels turn cyan on hover or focus, the striped sun and wordmark animate, and the footer reads `Crias 🄯 2026`
+
 ### Requirement: Reference-specific visual fidelity
 The desktop site SHALL reproduce the reference's visual hierarchy, relative placement, scale, palette, character identities, collage treatment, card illustrations and scene depth. Refinements SHALL preserve the mockup's composition and informal personality. A secondary animation reference SHALL NOT supersede the mockup.
 

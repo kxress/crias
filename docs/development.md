@@ -11,7 +11,7 @@ npm run build
 npm run preview
 ```
 
-The build writes the complete site to `dist/`. The preview serves that folder at `http://localhost:4173`; stop it with Ctrl+C.
+The build writes the complete site to `dist/`. The preview serves that folder at `http://localhost:4173`. It also maps `http://localhost:4173/crias-games/` to the same output so relative asset URLs can be checked under a GitHub Pages repository path. Stop it with Ctrl+C.
 
 ## Updating the directory
 

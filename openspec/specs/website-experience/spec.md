@@ -14,7 +14,7 @@ The site SHALL be a Brazilian Portuguese, single-page entry point for a private 
 - **THEN** they can understand its private-server purpose, find the joining process, and browse the game directory
 
 ### Requirement: Composition based on the mockup
-The desktop experience SHALL closely reproduce and refine the mockup's continuous synthwave arcade composition, with a central wordmark and content panels framed by the reference's fourteen characters and classical bust. A sunset, skyline, wireframe mountains, and perspective grid SHALL establish the scene in deep purple, magenta, cyan, and blue. The footer SHALL use `crias.games` and a retro computer motif. Character identities and placement are documented in `docs/mockup-reference.md`.
+The desktop experience SHALL closely reproduce and refine the mockup's continuous synthwave arcade composition, with a central wordmark and content panels framed by the reference's fourteen characters and classical bust. A sunset, skyline, wireframe mountains, and perspective grid SHALL establish the scene in deep purple, magenta, cyan, and blue. The footer SHALL read `Crias 🄯 2026` and include a retro computer motif. The copyleft symbol SHALL use the OpenMoji artwork with attribution. Character identities and placement are documented in `docs/mockup-reference.md`.
 
 #### Scenario: Comparing the desktop composition
 - **WHEN** the page is compared with `mockup.png` at a similar desktop viewport
@@ -28,7 +28,7 @@ The hero SHALL center the CRIAS GAMES wordmark, cyan underline, private-server s
 - **THEN** the wordmark dominates the central scene while the introduction remains legible against the scenery
 
 ### Requirement: Character and statue composition
-The desktop collage SHALL preserve the fourteen named reference characters in their corresponding upper-left, upper-right, left-side and right-side groups, with their recognizable silhouettes and individual crops. The classical vaporwave bust, pixel sunglasses and ornamental column SHALL appear on the left. Decorative windows, photo borders and sticker treatments SHALL reflect the mockup.
+The desktop collage SHALL preserve the fourteen named reference characters in their corresponding upper-left, upper-right, left-side and right-side groups, with their recognizable silhouettes and individual illustrations. The classical vaporwave bust, pixel sunglasses and ornamental column SHALL appear together as one integrated illustrated element on the left. Rei and Usagi SHALL use separate Windows-style frames; the four left-side portraits SHALL remain unframed for visual consistency.
 
 #### Scenario: Inspecting the collage
 - **WHEN** a visitor views the desktop composition
@@ -42,7 +42,7 @@ The joining panel SHALL use a glowing magenta frame, globe icon, heading and div
 - **THEN** the four steps progress left to right and the URL remains readable and operable
 
 ### Requirement: Illustrated server panels
-The directory SHALL use a glowing magenta outer panel and three distinct, illustrated game cards. Terraria SHALL use cyan accents and pixel-art scenery; Minecraft SHALL use green accents and block scenery; Hytale SHALL use blue accents and a fantasy landscape. Cards SHALL retain the mockup's game identity, row hierarchy, badges and decorative space.
+The directory SHALL use a glowing magenta outer panel and three equally sized, illustrated game cards on desktop. Terraria SHALL use cyan accents and pixel-art scenery; Minecraft SHALL use green accents and block scenery; Hytale SHALL use blue accents and a fantasy landscape. Cards SHALL retain the mockup's game identity, row hierarchy, badges and decorative space, and their outlines SHALL shift to cyan while hovered or focused.
 
 #### Scenario: Comparing game cards
 - **WHEN** a visitor views the directory on a wide screen
@@ -98,7 +98,7 @@ The desktop site SHALL reproduce the reference's visual hierarchy, relative plac
 - **THEN** the hero, sun, skyline, bust, all character groups, four-step panel, three game cards, grid and footer are recognizably arranged like the reference
 
 ### Requirement: Character asset integrity
-The site SHALL show the fourteen reference characters as separate recognizable illustrations, without merged characters or substituted generic mascots. Desktop placements SHALL match the character groups and order documented in `docs/mockup-reference.md`. Frames and stickers SHALL be independent from the illustrations they surround.
+The site SHALL show the fourteen reference characters as separate recognizable illustrations, without merged characters or substituted generic mascots. Desktop placements SHALL match the character groups and order documented in `docs/mockup-reference.md`. Character images SHALL preserve their entire provided silhouettes without side cropping. Their visible artwork SHALL use the available image area effectively; a CSS fade may blend only the final portion of their lower interior edges without cutting off the glow or body. Any derived raster variants SHALL preserve earlier numbered files. Rei and Usagi window frames SHALL be independent from the illustrations they surround.
 
 #### Scenario: Inspecting the collage
 - **WHEN** each character is individually inspected

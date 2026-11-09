@@ -7,6 +7,7 @@ const out = path.join(root, 'dist');
 const data = JSON.parse(await readFile(path.join(root, 'src/data/servers.json'), 'utf8'));
 const template = await readFile(path.join(root, 'src/template.html'), 'utf8');
 const safe = (text) => String(text).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+const readableHostname = (hostname) => safe(hostname).replaceAll('.', '.<wbr>');
 
 const cards = data.games.map((game) => {
   const [artWidth, artHeight] = game.accent === 'terraria' ? [1774, 887] : [1672, 941];
@@ -16,7 +17,7 @@ const cards = data.games.map((game) => {
     <h3 class="visually-hidden" id="game-${safe(game.accent)}">${safe(game.name)}</h3>
     <ul class="server-list">
       ${game.servers.map((server) => `<li class="server-row">
-        <span class="server-row__hostname" id="host-${safe(server.hostname)}">${safe(server.hostname)}</span>
+        <span class="server-row__hostname" id="host-${safe(server.hostname)}">${readableHostname(server.hostname)}</span>
         <span class="server-row__details"><span class="badge badge--${safe(game.accent)} badge--${safe(server.variant.toLowerCase().replace(/\s+/g, '-'))}">${safe(server.variant)}</span><span>Porta: ${safe(server.port)}${server.protocol === 'UDP' ? ' / UDP' : ''}</span></span>
         <button class="copy-button" type="button" data-copy="${safe(server.hostname)}" aria-label="Copiar endereço ${safe(server.hostname)}" hidden><span aria-hidden="true"></span></button>
       </li>`).join('')}
