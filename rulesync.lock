@@ -1,0 +1,52 @@
+{
+  "lockfileVersion": 1,
+  "sources": {
+    "fission-ai/openspec": {
+      "requestedRef": "main",
+      "resolvedRef": "0fa4a9705c20ef1c571fe3ded74435733e4b73a1",
+      "resolvedAt": "2026-11-09T08:00:52.487Z",
+      "skills": {
+        "openspec-apply-change": {
+          "integrity": "sha256-df4cbb36d8a27018fdf26dc3f414c6640288888a29f3825a7af3c418a07726e1"
+        },
+        "openspec-archive-change": {
+          "integrity": "sha256-686c21698674d8cf5f69a199ee1cc398eb5d0ad9ce4eedb1e6c8e361ef0a26d0"
+        },
+        "openspec-bulk-archive-change": {
+          "integrity": "sha256-09d229cff02260d434c81280614fe18a3ca1f15023f7e31d67f8cafedcd4440b"
+        },
+        "openspec-continue-change": {
+          "integrity": "sha256-3ab3b95e39b241530d1062bcd6d86124aef4a0371b0b268e49b0d2f8fb1e9092"
+        },
+        "openspec-explore": {
+          "integrity": "sha256-6fe2955f5c9b962a24c3bf145c5510e2599e8680deb018382a77e18660804ed1"
+        },
+        "openspec-ff-change": {
+          "integrity": "sha256-99db1fc54eb791448fd243e2fe4feb8d1bc2ee15e332ebfa7cf4ee9a2c0278ba"
+        },
+        "openspec-new-change": {
+          "integrity": "sha256-0d77d4f26520b739df5f8774229db77c46130c038b2af33ae775808a36c8856d"
+        },
+        "openspec-onboard": {
+          "integrity": "sha256-26a1a0a947e7e270e55699dd81493c82b96288153a054a1738ebde22e2d06ba9"
+        },
+        "openspec-propose": {
+          "integrity": "sha256-9692df917ca562c2469042fecb7356e60ae6ed2669b53de8c98959728e5855ff"
+        },
+        "openspec-sync-specs": {
+          "integrity": "sha256-c75c5659094a9eb9bea7b23c1494ea28dbdfe75a658a42a9c59c086f86970fc1"
+        },
+        "openspec-update-change": {
+          "integrity": "sha256-703ffb4295b297d29ea4a2a5d63024537dac3cc9563e29014a35c8c74a93a26d"
+        },
+        "openspec-verify-change": {
+          "integrity": "sha256-9b7b15ea00e6b241a452a4d09674eda4f9fac38004fb91030cdd0c8c71f07e5f"
+        }
+      },
+      "skillSelection": [
+        "*"
+      ],
+      "skillsPath": "skills"
+    }
+  }
+}
