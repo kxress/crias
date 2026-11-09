@@ -6,21 +6,21 @@ Reviewed on 2026-11-09 in Microsoft Edge 140.0.3485.54 on Windows, using Chromiu
 
 | View | CSS viewport | Captured page | Character count | Result |
 | --- | ---: | ---: | ---: | --- |
-| Desktop | 1448 × 1086 | 1448 × 1086 | 14 | Main composition reviewed against the reference. The latest comparison places `mockup.png` on the left and the refined site on the right. |
+| Desktop | 1448 × 1086 | 1448 × 1086 | 14 | Main composition reviewed against the reference. The latest comparison places `mockup.png` on the left and the balanced left group on the right. |
 | Tablet landscape | 1024 × 1080 | 1009 × 2127 | 14 | Portrait gallery reflows before the panels, so all characters remain visible in normal flow; no horizontal overflow. The 15 px difference is the emulated browser scrollbar. |
-| Desktop | 1280 × 1080 | 1280 × 1080 | 14 | Left collage spacing and central content checked at an intermediate desktop width. |
+| Desktop | 1280 × 1080 | 1280 × 1080 | 14 | The left portrait cadence and central content checked at an intermediate desktop width. |
 | Wide desktop | 1920 × 1080 | 1920 × 1080 | 14 | Left group moves outward within the bounded collage; the right group stays unchanged and panels remain centered. |
 | Tablet | 900 × 1080 | 885 × 2113 | 14 | Full page captured. The viewport is 900 CSS px; the document's 885 px scroll width reflects the browser scrollbar. Portraits reflow in four columns, steps and cards reflow to two columns, and Hytale occupies the full card row. |
 | Mobile | 320 px wide | 320 × 2666 | 14 | Full page captured; no horizontal overflow. |
 | Mobile | 375 px wide | 375 × 2684 | 14 | Full page captured; no horizontal overflow. |
 | Mobile | 430 px wide | 430 × 2732 | 14 | Full page captured; no horizontal overflow. |
 
-The desktop comparison shows the same broad scene structure: title and sunset, layered skyline and perspective grid, character groups, central joining panel, three illustrated game cards, and footer. The portraits and game art are separate assets. The final art is generated from the reference crops, so poses and silhouettes are recognizable interpretations rather than pixel-matched copies. Three equally sized game cards and the tablet/mobile portrait gallery are deliberate responsive refinements from the mockup. The left desktop portraits are staggered more widely across the upper composition, with the four lower portraits alternating horizontally; at 1920 px the left group shifts outward while the right group remains unchanged. No portrait is hidden on mobile or cropped at its side edges; the CSS fade is limited to the bottom of the desktop portraits.
+The desktop comparison shows the same broad scene structure: title and sunset, layered skyline and perspective grid, character groups, central joining panel, three illustrated game cards, and footer. The portraits and game art are separate assets. The final art is generated from the reference crops, so poses and silhouettes are recognizable interpretations rather than pixel-matched copies. Three equally sized game cards and the tablet/mobile portrait gallery are deliberate responsive refinements from the mockup. The four left-side portraits now start at y≈300, 478, 662 and 846 px at the reference size, matching the right group’s steady vertical rhythm; their horizontal offsets alternate slightly. At 1920 px the left group shifts outward while the right group remains unchanged. No portrait is hidden on mobile or cropped at its side edges; the CSS fade is limited to the bottom of the desktop portraits.
 
 Screenshots reviewed:
 
-- `screenshots/comparison-left-refined-2026-11-09.png` — reference and latest desktop side by side at 1448 × 1086.
-- `screenshots/desktop-left-refined-1448x1086.png`, `screenshots/tablet-left-final-1024-full.png`, `screenshots/desktop-left-final-1280x1080.png`, and `screenshots/wide-left-refined-1920x1080.png`.
+- `screenshots/comparison-left-balanced-2026-11-09.png` — reference and latest desktop side by side at 1448 × 1086.
+- `screenshots/desktop-left-balanced-1448x1086.png`, `screenshots/tablet-left-final-1024-full.png`, `screenshots/desktop-left-balanced-1280x1080.png`, and `screenshots/wide-left-balanced-1920x1080.png`.
 - `screenshots/tablet-final-900-full.png` — full 885 × 2113 tablet document.
 - `screenshots/mobile-left-final-320-full.png`, `screenshots/mobile-left-final-375-full.png`, and `screenshots/mobile-left-final-430-full.png`.
 - `screenshots/asset-review-contact-sheet.png` — the fourteen portraits and unified bust inspected as independent transparent assets.

@@ -54,10 +54,10 @@ main, .site-footer { position: relative; z-index: 2; }
 .character--asuka { right: 25%; top: 52px; width: clamp(148px,11vw,196px); }
 .character--nami { right: 13%; top: 61px; width: clamp(160px,12vw,214px); }
 .character--nagatoro { right: .5%; top: 56px; width: clamp(164px,12vw,214px); }
-.character--kurisu { left: .5%; top: 438px; width: clamp(120px,9.3vw,150px); }
-.character--faye { left: 2.2%; top: 588px; width: clamp(116px,8.8vw,142px); }
-.character--hinata { left: .5%; top: 738px; width: clamp(120px,9.3vw,150px); }
-.character--rem { left: 2.2%; top: clamp(820px,calc(100vh - 220px),870px); width: clamp(116px,8.8vw,142px); }
+.character--kurisu { left: .5%; top: 300px; width: clamp(120px,9.3vw,150px); }
+.character--faye { left: 2.2%; top: 478px; width: clamp(116px,8.8vw,142px); }
+.character--hinata { left: .5%; top: 662px; width: clamp(120px,9.3vw,150px); }
+.character--rem { left: 2.2%; top: 846px; width: clamp(116px,8.8vw,142px); }
 .character--usagi { right: .5%; top: 285px; width: clamp(142px,10.7vw,182px); height: clamp(224px,16vw,258px); }
 .character--aqua { right: .5%; top: 478px; width: clamp(120px,9vw,154px); }
 .character--mayano { right: .5%; top: 662px; width: clamp(120px,9vw,154px); }

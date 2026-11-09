@@ -34,11 +34,11 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 
 ## 4. Motion and copy controls
 
-- [ ] 4.1 Animate the striped sun with restrained glow, pulse the wordmark, grid and neon panel borders/headings using independent scene layers, and turn the major panels cyan on hover; observe the page during motion and verify readable content and stable controls.
-- [ ] 4.2 Add independently adjustable gentle whole-image character motion and other subtle scene lighting; verify individual illustrations remain static images with no articulated or frame-by-frame animation.
-- [ ] 4.3 Implement reduced-motion support and a functional pause/resume control exposed only with scripts; test initial and live preference changes, pause persistence during preference changes, and that all decorative motion stops.
-- [ ] 4.4 Add nine independently named copy controls from canonical data; test exact URL and each hostname payload, repeat activation and keyboard operation.
-- [ ] 4.5 Add visible and screen-reader-announced copy success/failure with stable layout and selectable fallback; test clipboard denial and verify focus and values remain unchanged.
+- [x] 4.1 Animate the striped sun with restrained glow, pulse the wordmark, grid and neon panel borders/headings using independent scene layers, and turn the major panels cyan on hover; observe the page during motion and verify readable content and stable controls.
+- [x] 4.2 Add independently adjustable gentle whole-image character motion and other subtle scene lighting; verify individual illustrations remain static images with no articulated or frame-by-frame animation.
+- [x] 4.3 Implement reduced-motion support and a functional pause/resume control exposed only with scripts; test initial and live preference changes, pause persistence during preference changes, and that all decorative motion stops.
+- [x] 4.4 Add nine independently named copy controls from canonical data; test exact URL and each hostname payload, repeat activation and keyboard operation.
+- [x] 4.5 Add visible and screen-reader-announced copy success/failure with stable layout and selectable fallback; test clipboard denial and verify focus and values remain unchanged.
 
 ## 5. Hosting and integrated review
 
