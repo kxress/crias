@@ -49,6 +49,8 @@ Use semantic HTML, Portuguese document language, landmarks, headings, real links
 
 The only supplied artwork is the flattened reference; there are no isolated illustrations, fonts, or established permissions. Prefer original, appropriately licensed, or CSS/vector artwork, with documented provenance for any third-party asset. Do not extract recognizable characters or logos without rights confirmation. Use responsive optimized imagery, sensible font fallbacks, reserved image space and restrained effects; ensure text appears promptly and avoid expensive continuous effects. Decorative assets can fail without losing information. Test current major desktop and mobile browsers, including clipboard restrictions. A plain HTML/CSS page with small progressive JavaScript is proportionate; a framework is not required. Relative URLs must work from both root and repository subpath. If a build is selected, update Pages to publish its output instead of the source root and verify the deployed path; otherwise retain the existing workflow. No server runtime is needed.
 
+Treat every character (waifu) and distinct decorative element, such as a skyline, grid, sun or illustration, as a separate image or independently controllable CSS or SVG element. Compose them in layers rather than baking multiple elements into a single scene. Give each its own responsive positioning, scale and visibility so it can be replaced, moved or hidden without changing its neighbors. A character can remain one cohesive illustration; its internal details need not be split. Characters remain optional, and any selected artwork must meet the provenance requirements above. This modular approach costs more asset preparation than a flattened backdrop but permits responsive composition and reuse.
+
 ### Reference classification
 
 - Product information: private access, manual invitation, onboarding and server discovery are adopted independently as needs.
@@ -81,4 +83,4 @@ Which management URL and server records are currently valid, what is the approve
 | Find trustworthy server details | server-discovery: all requirements | Content model; 2.1, 3.1–3.2, 5.2 |
 | Copy and recover | connection-copy: both requirements | Copy; 3.3, 5.3 |
 | Use across devices and abilities | website-experience: responsive, accessible, motion and resilience requirements | Visual system and delivery; 4.1–4.3, 5.4–5.5 |
-| Recognizable identity | website-experience: identity and artwork | Visual system and assets; 4.1–4.2, 5.5 |
+| Recognizable identity | website-experience: identity, artwork and independently adaptable visual elements | Visual system and assets; 4.1–4.3, 5.5 |

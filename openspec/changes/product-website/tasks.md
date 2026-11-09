@@ -19,8 +19,8 @@
 ## 4. Visual system and accessibility
 
 - [ ] 4.1 Implement the cohesive arcade identity, readable type, surfaces, game distinctions and control states; review hierarchy and contrast across sections.
-- [ ] 4.2 Add only original or appropriately licensed decorative assets with recorded provenance; verify failed or absent assets do not obscure content and do not cause disruptive layout shifts.
-- [ ] 4.3 Implement content-driven reflow, keyboard focus, touch targets and reduced-motion treatment; verify keyboard order, focus visibility and motion preference at narrow and wide widths.
+- [ ] 4.2 Add only original or appropriately licensed decorative assets with recorded provenance; create each character and distinct decorative visual as a separate image or independently controllable CSS or SVG element, and verify each can be moved, scaled, hidden or replaced without changing the others. Verify absent assets do not obscure content or cause disruptive layout shifts.
+- [ ] 4.3 Implement content-driven reflow, independently adapted visual elements, keyboard focus, touch targets and reduced-motion treatment; verify artwork can be repositioned or hidden individually and check keyboard order, focus visibility and motion preference at narrow and wide widths.
 
 ## 5. Integrated verification
 

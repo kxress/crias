@@ -27,6 +27,17 @@ Decorative imagery and layered backgrounds SHALL support the identity without ob
 - **WHEN** decorative assets fail to load or are omitted at a narrow width
 - **THEN** the content, hierarchy and controls remain understandable and usable
 
+### Requirement: Independently adaptable visual elements
+Each character illustration (waifu) and each distinct decorative visual element SHALL be a separate image or independently controllable CSS or SVG element. Elements SHALL be independently positionable, scalable and hideable without editing a flattened composition or affecting other elements.
+
+#### Scenario: Adapting artwork to a narrow viewport
+- **WHEN** the layout is adapted to a narrow viewport
+- **THEN** an individual character or decorative element can be repositioned, resized or hidden without altering the other elements or obscuring content
+
+#### Scenario: Changing a visual element
+- **WHEN** a designer replaces or removes one visual element
+- **THEN** the remaining elements can be retained and adjusted independently
+
 ### Requirement: Responsive access
 The site SHALL reflow content and controls for phone, tablet, desktop, narrow windows and increased zoom without clipping essential content or requiring page-level horizontal scrolling to read it.
 
