@@ -50,9 +50,9 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 
 ## 6. Follow-up motion and depth refinement
 
-- [ ] 6.1 Align the desktop perspective-grid origin to the skyline baseline and layer the grid behind the city; verify both horizons meet at 1448 × 1086 and 1920 × 1080.
-- [ ] 6.2 Make the striped sun loop over an exact stripe-repeat period with matching glow endpoints; inspect several consecutive loops for jumps, pops or excessive glow.
+- [x] 6.1 Align the desktop perspective-grid origin to the skyline baseline and layer the grid behind the city; verify both horizons meet at 1448 × 1086 and 1920 × 1080.
+- [x] 6.2 Make the striped sun loop over an exact stripe-repeat period with matching glow endpoints; inspect several consecutive loops for jumps, pops or excessive glow.
 - [ ] 6.3 Restyle the actual-text `CRIAS GAMES` wordmark with higher separation from the sun and a restrained retro offset/glitch treatment; move the prominent neon flicker to `SERVIDORES DE JOGOS PRIVADOS` and verify legibility at desktop and mobile sizes.
-- [ ] 6.4 Add a fine-pointer-only smoke-like light trail with bounded, short-lived elements; verify it follows desktop pointer movement without blocking clicks, shifting layout or overflowing the page.
-- [ ] 6.5 Add pointer-tracked lighting and a game-card tilt capped at two degrees on desktop; verify cards remain readable, keyboard focus stays clear, and touch does not emulate hover.
+- [x] 6.4 Add a fine-pointer-only smoke-like light trail with bounded, short-lived elements; verify it follows desktop pointer movement without blocking clicks, shifting layout or overflowing the page.
+- [x] 6.5 Add pointer-tracked lighting and a game-card tilt capped at two degrees on desktop; verify cards remain readable, keyboard focus stays clear, and touch does not emulate hover.
 - [ ] 6.6 Recheck all new effects with motion active, paused, reduced, and JavaScript unavailable; capture and visually inspect desktop and wide-desktop screenshots, then run the build and relevant browser checks before marking these tasks complete.
