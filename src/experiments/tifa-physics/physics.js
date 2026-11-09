@@ -68,7 +68,12 @@ function makeShape(path, center, radiusX, radiusY, direction) {
   path(hctx);
   hctx.fillStyle = '#fff';
   hctx.fill();
-  return { mask: textureFromCanvas(map), height: textureFromCanvas(height), direction };
+  return {
+    mask: textureFromCanvas(map),
+    height: textureFromCanvas(height),
+    heightData: hctx.getImageData(0, 0, height.width, height.height).data,
+    direction,
+  };
 }
 
 function compile(type, source) {
@@ -82,45 +87,44 @@ function compile(type, source) {
 function setup(imageTexture, left, right) {
   const vertex = compile(gl.VERTEX_SHADER, `
     attribute vec2 a_position;
+    attribute vec2 a_uv;
+    attribute vec2 a_weights;
+    uniform vec2 u_motion_left;
+    uniform vec2 u_motion_right;
+    uniform float u_amount;
     varying vec2 v_uv;
     void main() {
-      gl_Position = vec4(a_position, 0.0, 1.0);
-      v_uv = vec2((a_position.x + 1.0) * 0.5, 1.0 - (a_position.y + 1.0) * 0.5);
+      vec2 leftOffset = vec2(u_motion_left.x * 0.48, -u_motion_left.y * 0.55) * a_weights.x;
+      vec2 rightOffset = vec2(u_motion_right.x * 0.48, -u_motion_right.y * 0.55) * a_weights.y;
+      gl_Position = vec4(a_position + (leftOffset + rightOffset) * u_amount, 0.0, 1.0);
+      v_uv = a_uv;
     }
   `);
   const fragment = compile(gl.FRAGMENT_SHADER, `
     precision mediump float;
     varying vec2 v_uv;
     uniform sampler2D u_image;
-    uniform sampler2D u_mask_left;
-    uniform sampler2D u_mask_right;
     uniform sampler2D u_height_left;
     uniform sampler2D u_height_right;
-    uniform vec2 u_motion_left;
-    uniform vec2 u_motion_right;
     uniform float u_amount;
     uniform vec2 u_texel;
-    vec2 surfaceNormal(sampler2D hmap, vec2 uv) {
+    vec3 surfaceNormal(sampler2D hmap, vec2 uv) {
       float l = texture2D(hmap, uv - vec2(u_texel.x, 0.0)).r;
       float r = texture2D(hmap, uv + vec2(u_texel.x, 0.0)).r;
       float t = texture2D(hmap, uv - vec2(0.0, u_texel.y)).r;
       float b = texture2D(hmap, uv + vec2(0.0, u_texel.y)).r;
-      return normalize(vec3(l - r, t - b, 0.14)).xy;
+      return normalize(vec3((l - r) * 18.0, (t - b) * 18.0, 0.8));
     }
     void main() {
-      vec4 original = texture2D(u_image, v_uv);
-      float ml = texture2D(u_mask_left, v_uv).a;
-      float mr = texture2D(u_mask_right, v_uv).a;
-      float hl = texture2D(u_height_left, v_uv).r;
-      float hr = texture2D(u_height_right, v_uv).r;
-      vec2 nl = surfaceNormal(u_height_left, v_uv);
-      vec2 nr = surfaceNormal(u_height_right, v_uv);
-      vec2 uvL = v_uv + vec2(nl.x * u_motion_left.x, nl.y * u_motion_left.y) * u_amount * u_texel * 840.0 * hl;
-      vec2 uvR = v_uv + vec2(nr.x * u_motion_right.x, nr.y * u_motion_right.y) * u_amount * u_texel * 840.0 * hr;
-      vec4 movedLeft = texture2D(u_image, clamp(uvL, 0.001, 0.999));
-      vec4 movedRight = texture2D(u_image, clamp(uvR, 0.001, 0.999));
-      vec4 color = mix(original, movedLeft, ml * 0.82);
-      color = mix(color, movedRight, mr * 0.82);
+      vec4 color = texture2D(u_image, v_uv);
+      float leftHeight = texture2D(u_height_left, v_uv).r;
+      float rightHeight = texture2D(u_height_right, v_uv).r;
+      vec3 leftNormal = surfaceNormal(u_height_left, v_uv);
+      vec3 rightNormal = surfaceNormal(u_height_right, v_uv);
+      vec3 light = normalize(vec3(-0.25, 0.45, 0.86));
+      float leftGlint = pow(max(dot(leftNormal, light), 0.0), 16.0) * leftHeight;
+      float rightGlint = pow(max(dot(rightNormal, light), 0.0), 16.0) * rightHeight;
+      color.rgb += vec3(0.18, 0.075, 0.16) * (leftGlint + rightGlint) * u_amount * 0.16 * color.a;
       gl_FragColor = color;
     }
   `);
@@ -131,17 +135,24 @@ function setup(imageTexture, left, right) {
   if (!gl.getProgramParameter(program, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(program));
   gl.useProgram(program);
 
-  const buffer = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
-  const position = gl.getAttribLocation(program, 'a_position');
-  gl.enableVertexAttribArray(position);
-  gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
-
-  const textureUnits = [
-    ['u_image', imageTexture], ['u_mask_left', left.mask], ['u_mask_right', right.mask],
-    ['u_height_left', left.height], ['u_height_right', right.height],
+  const mesh = createMesh(left.heightData, right.heightData);
+  const attributes = [
+    ['a_position', mesh.positions, 2],
+    ['a_uv', mesh.uvs, 2],
+    ['a_weights', mesh.weights, 2],
   ];
+  attributes.forEach(([name, values, size]) => {
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, values, gl.STATIC_DRAW);
+    const location = gl.getAttribLocation(program, name);
+    gl.enableVertexAttribArray(location);
+    gl.vertexAttribPointer(location, size, gl.FLOAT, false, 0, 0);
+  });
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, gl.createBuffer());
+  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, mesh.indices, gl.STATIC_DRAW);
+
+  const textureUnits = [['u_image', imageTexture], ['u_height_left', left.height], ['u_height_right', right.height]];
   textureUnits.forEach(([name, texture], unit) => {
     gl.activeTexture(gl.TEXTURE0 + unit);
     gl.bindTexture(gl.TEXTURE_2D, texture);
@@ -155,6 +166,48 @@ function setup(imageTexture, left, right) {
   };
   gl.uniform2f(uniforms.texel, 1 / canvas.width, 1 / canvas.height);
   gl.clearColor(0, 0, 0, 0);
+}
+
+function createMesh(leftHeight, rightHeight) {
+  const columns = 160;
+  const rows = 240;
+  const positions = new Float32Array((columns + 1) * (rows + 1) * 2);
+  const uvs = new Float32Array(positions.length);
+  const weights = new Float32Array(positions.length);
+  const indices = new Uint16Array(columns * rows * 6);
+  let vertex = 0;
+  for (let y = 0; y <= rows; y += 1) {
+    const v = y / rows;
+    const py = Math.min(canvas.height - 1, Math.round(v * (canvas.height - 1)));
+    for (let x = 0; x <= columns; x += 1) {
+      const u = x / columns;
+      const px = Math.min(canvas.width - 1, Math.round(u * (canvas.width - 1)));
+      const pixel = (py * canvas.width + px) * 4;
+      positions[vertex * 2] = u * 2 - 1;
+      positions[vertex * 2 + 1] = 1 - v * 2;
+      uvs[vertex * 2] = u;
+      uvs[vertex * 2 + 1] = v;
+      weights[vertex * 2] = (leftHeight[pixel] / 255) * (leftHeight[pixel + 3] / 255);
+      weights[vertex * 2 + 1] = (rightHeight[pixel] / 255) * (rightHeight[pixel + 3] / 255);
+      vertex += 1;
+    }
+  }
+  let index = 0;
+  for (let y = 0; y < rows; y += 1) {
+    for (let x = 0; x < columns; x += 1) {
+      const topLeft = y * (columns + 1) + x;
+      const topRight = topLeft + 1;
+      const bottomLeft = topLeft + columns + 1;
+      const bottomRight = bottomLeft + 1;
+      indices[index++] = topLeft;
+      indices[index++] = bottomLeft;
+      indices[index++] = topRight;
+      indices[index++] = topRight;
+      indices[index++] = bottomLeft;
+      indices[index++] = bottomRight;
+    }
+  }
+  return { positions, uvs, weights, indices };
 }
 
 function ellipsePath(ctx, points) {
@@ -197,7 +250,7 @@ function render(time) {
   gl.uniform2f(uniforms.right, sides[1].x, sides[1].y);
   gl.viewport(0, 0, canvas.width, canvas.height);
   gl.clear(gl.COLOR_BUFFER_BIT);
-  gl.drawArrays(gl.TRIANGLES, 0, 6);
+  gl.drawElements(gl.TRIANGLES, 160 * 240 * 6, gl.UNSIGNED_SHORT, 0);
   requestAnimationFrame(render);
 }
 

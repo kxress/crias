@@ -18,12 +18,13 @@ The site SHALL expose the experiment at `/experiments/tifa-physics/` and SHALL b
 
 ### Requirement: Isolated surface maps
 
-The experiment SHALL use two independently drawn masks and height maps aligned to the source image topology, one for each side of the bust. The rendered effect SHALL stay inside each mask and SHALL retain the source image alpha around the character silhouette.
+The experiment SHALL use two independently drawn masks and height maps aligned to the source image topology, one for each side of the bust. Deformation SHALL move the local image mesh using the height weights while preserving its texture coordinates; it SHALL not slide or resample the artwork inside the masks. The rendered effect SHALL stay inside each mask and SHALL retain the source image alpha around the character silhouette.
 
 #### Scenario: Render the two sides
 
 - **WHEN** the image is rendered
 - **THEN** each side receives its own subtle displacement and spring response
+- **AND** the image texture moves with the mesh so its details remain attached to the surface
 - **AND** the maps do not include unrelated parts of the illustration
 
 ### Requirement: Still motion and manual controls
