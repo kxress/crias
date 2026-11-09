@@ -22,7 +22,7 @@
       <div class="demo__stage" id="stage">
         <div class="demo__glow" aria-hidden="true"></div>
         <div class="demo__sprite" id="sprite">
-          <img class="demo__fallback" src="../../assets/art/tifa-2.webp" width="1024" height="1536" alt="Tifa Lockhart em uma roupa branca e preta">
+          <img class="demo__fallback" src="../../assets/art/tifa-2.png" width="1024" height="1536" alt="Tifa Lockhart em uma roupa branca e preta">
           <canvas class="demo__canvas" id="physics-canvas" width="1024" height="1536" aria-hidden="true"></canvas>
           <div class="map-preview" id="map-preview" aria-hidden="true"></div>
           <span class="map-tag map-tag--left">MAPA A</span>
@@ -32,15 +32,33 @@
 
       <aside class="controls" aria-label="Controles do experimento">
         <div class="controls__heading"><span class="live-dot" aria-hidden="true"></span><span>SIMULAÇÃO ATIVA</span></div>
-        <label class="slider-label" for="intensity"><span>Intensidade</span><output id="intensity-value" for="intensity">Sutil</output></label>
-        <input id="intensity" type="range" min="0" max="100" value="24">
-        <div class="slider-scale"><span>quase nada</span><span>um pouco mais</span></div>
+        <div class="parameter">
+          <label class="slider-label" for="intensity"><span>Amplitude geral</span><output id="intensity-value" for="intensity">160%</output></label>
+          <input id="intensity" type="range" min="0" max="300" step="5" value="160">
+        </div>
+        <div class="parameter">
+          <label class="slider-label" for="speed"><span>Velocidade</span><output id="speed-value" for="speed">2.6×</output></label>
+          <input id="speed" type="range" min="50" max="450" step="10" value="260">
+        </div>
+        <div class="parameter">
+          <label class="slider-label" for="spring"><span>Rigidez da mola</span><output id="spring-value" for="spring">8.5</output></label>
+          <input id="spring" type="range" min="2" max="20" step="0.5" value="8.5">
+        </div>
+        <div class="parameter">
+          <label class="slider-label" for="damping"><span>Amortecimento</span><output id="damping-value" for="damping">2.2</output></label>
+          <input id="damping" type="range" min="0.5" max="10" step="0.1" value="2.2">
+        </div>
+        <div class="parameter">
+          <label class="slider-label" for="phase"><span>Defasagem A / B</span><output id="phase-value" for="phase">70°</output></label>
+          <input id="phase" type="range" min="0" max="180" step="5" value="70">
+        </div>
         <div class="button-row">
           <button class="control-button" id="pause" type="button" aria-pressed="false">Pausar</button>
+          <button class="control-button" id="impulse" type="button">Impulso</button>
           <button class="control-button control-button--secondary" id="show-maps" type="button" aria-pressed="false">Ver mapas</button>
         </div>
         <p class="status" id="status" role="status" aria-live="polite">Dois lados, dois pequenos balanços.</p>
-        <p class="hint">Mova o ponteiro perto da personagem para dar um empurrãozinho.</p>
+        <p class="hint">Use os controles para buscar o ritmo e o balanço que quer; o ponteiro e o botão Impulso dão um empurrão inicial.</p>
       </aside>
     </section>
 

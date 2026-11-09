@@ -28,13 +28,23 @@ The experiment SHALL use two independently drawn masks and height maps aligned t
 
 ### Requirement: Still motion and manual controls
 
-The page SHALL retain a gentle still-image float, provide a subtle default intensity, and allow the visitor to pause the simulation, adjust intensity, inspect the two maps, and nudge the motion with a pointer.
+The page SHALL retain a gentle still-image float and provide live controls for amplitude, speed, spring stiffness, damping, and phase offset between sides. It SHALL allow the visitor to pause the simulation, inspect the two maps, nudge the motion with a pointer, and trigger a test impulse.
 
 #### Scenario: Reduced motion or unavailable WebGL
 
 - **WHEN** the browser requests reduced motion or cannot create WebGL
 - **THEN** the animation is paused or the original still image is shown
 - **AND** the page remains readable and usable
+
+### Requirement: Clean transparent rendering
+
+The experiment SHALL use the lossless source artwork and premultiplied alpha when uploading textures so transparent pixels do not produce color fringes or background artifacts.
+
+#### Scenario: Render over the lab background
+
+- **WHEN** the character is composited over the experiment background
+- **THEN** transparent areas remain clean around the silhouette
+- **AND** image sampling does not expose RGB data from transparent pixels
 
 ### Requirement: No production integration
 

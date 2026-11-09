@@ -1,11 +1,16 @@
 const image = new Image();
-image.src = '../../assets/art/tifa-2.webp';
+image.src = '../../assets/art/tifa-2.png';
 
 const canvas = document.querySelector('#physics-canvas');
 const stage = document.querySelector('#stage');
 const intensity = document.querySelector('#intensity');
 const intensityValue = document.querySelector('#intensity-value');
+const speed = document.querySelector('#speed');
+const springControl = document.querySelector('#spring');
+const dampingControl = document.querySelector('#damping');
+const phaseControl = document.querySelector('#phase');
 const pauseButton = document.querySelector('#pause');
+const impulseButton = document.querySelector('#impulse');
 const mapsButton = document.querySelector('#show-maps');
 const status = document.querySelector('#status');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -26,6 +31,7 @@ function textureFromCanvas(source) {
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, source);
   return texture;
 }
@@ -173,9 +179,13 @@ function render(time) {
   lastTime = time;
   if (!paused && !reducedMotion.matches) {
     sides.forEach((side, index) => {
-      const drive = Math.sin(time * .00155 + side.phase) * .18 + pointerKick * (index === 0 ? .72 : -.58);
-      side.vy += (drive - side.y * 8.4 - side.vy * 3.2) * elapsed;
-      side.vx += ((Math.cos(time * .00115 + side.phase) * .025) - side.x * 7.7 - side.vx * 3.4) * elapsed;
+      const speedScale = Number(speed.value) / 100;
+      const stiffness = Number(springControl.value);
+      const damping = Number(dampingControl.value);
+      const phase = index === 0 ? 0 : Number(phaseControl.value) * Math.PI / 180;
+      const drive = Math.sin(time * .00155 * speedScale + phase) * .24 + pointerKick * (index === 0 ? .72 : -.58);
+      side.vy += (drive - side.y * stiffness - side.vy * damping) * elapsed;
+      side.vx += ((Math.cos(time * .00115 * speedScale + phase) * .1) - side.x * stiffness * .92 - side.vx * damping) * elapsed;
       side.x = Math.max(-.24, Math.min(.24, side.x + side.vx * elapsed));
       side.y = Math.max(-.28, Math.min(.28, side.y + side.vy * elapsed));
     });
@@ -212,10 +222,18 @@ function start() {
 image.addEventListener('load', start, { once: true });
 image.addEventListener('error', () => { status.textContent = 'A arte não carregou; confira se o preview foi iniciado na raiz do projeto.'; }, { once: true });
 
-intensity.addEventListener('input', () => {
-  const value = Number(intensity.value);
-  intensityValue.value = value < 35 ? 'Sutil' : value < 70 ? 'Visível' : 'Exagerado';
+function updateControlOutputs() {
+  intensityValue.value = `${intensity.value}%`;
+  document.querySelector('#speed-value').value = `${(Number(speed.value) / 100).toFixed(1)}×`;
+  document.querySelector('#spring-value').value = Number(springControl.value).toFixed(1);
+  document.querySelector('#damping-value').value = Number(dampingControl.value).toFixed(1);
+  document.querySelector('#phase-value').value = `${phaseControl.value}°`;
+}
+
+[intensity, speed, springControl, dampingControl, phaseControl].forEach((control) => {
+  control.addEventListener('input', updateControlOutputs);
 });
+updateControlOutputs();
 
 pauseButton.addEventListener('click', () => {
   paused = !paused;
@@ -225,6 +243,18 @@ pauseButton.addEventListener('click', () => {
   if (paused) {
     sides.forEach((side) => { side.x = 0; side.y = 0; side.vx = 0; side.vy = 0; });
   }
+});
+
+impulseButton.addEventListener('click', () => {
+  if (reducedMotion.matches) return;
+  paused = false;
+  pauseButton.textContent = 'Pausar';
+  pauseButton.setAttribute('aria-pressed', 'false');
+  sides[0].vy -= .85;
+  sides[0].vx += .32;
+  sides[1].vy += .72;
+  sides[1].vx -= .26;
+  status.textContent = 'Impulso aplicado; ajuste a resposta nos controles.';
 });
 
 mapsButton.addEventListener('click', () => {
