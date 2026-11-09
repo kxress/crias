@@ -25,7 +25,7 @@ The current page displays a mockup but does not help players join or use the pri
 
 ### Modified Capabilities
 
-None. The checkout has no current canonical capabilities; the staged removal of the historical visual spec is intentional and is not restored by this change. Any future existing canonical specifications remain authoritative unless explicitly changed.
+None. The checkout has no current canonical capabilities; the historical visual specification was removed and is not restored by this change. Any future existing canonical specifications remain authoritative unless explicitly changed.
 
 ## Impact
 

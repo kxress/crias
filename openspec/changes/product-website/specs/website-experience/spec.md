@@ -78,7 +78,7 @@ On devices with a hover-capable fine pointer, the site SHALL provide lighting th
 
 #### Scenario: Moving a pointer
 - **WHEN** a visitor moves a mouse over the site or approaches a character illustration
-- **THEN** lighting follows or responds to the pointer, relevant interface surfaces subtly tilt, and the character moves away gently and returns when the pointer leaves
+- **THEN** lighting follows or responds to the pointer, relevant interface surfaces subtly tilt, and the character moves away gently; its pointer-induced displacement returns to rest when the pointer leaves
 
 #### Scenario: Touch and keyboard use
 - **WHEN** a visitor uses touch or keyboard without a hovering pointer
@@ -89,7 +89,7 @@ Motion SHALL not be necessary for comprehension or interaction. The site SHALL h
 
 #### Scenario: Reduced motion requested
 - **WHEN** the visitor enables reduced motion
-- **THEN** ambient, character, lighting and tilt motion stop and focus and interaction feedback remain clear
+- **THEN** ambient, character, lighting and tilt motion stop, the resume control cannot override that preference, and focus and interaction feedback remain clear
 
 #### Scenario: Pausing motion
 - **WHEN** a visitor pauses decorative animation
@@ -101,3 +101,7 @@ Essential explanatory content and connection values SHALL remain readable when d
 #### Scenario: Limited client capabilities
 - **WHEN** scripts or decorative assets fail, or the site is served from a repository subpath
 - **THEN** the visitor can read the purpose, instructions and published server details, and local navigation and assets resolve correctly
+
+#### Scenario: Scripts unavailable
+- **WHEN** JavaScript is unavailable
+- **THEN** decorative presentation is static and no nonfunctional motion control is presented
