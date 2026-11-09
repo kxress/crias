@@ -10,6 +10,7 @@ The current page displays a mockup but does not help players join or use the pri
 - Document manual NetBird onboarding, a maintainable directory of verified game connection details, and accessible copy interactions.
 - Establish a cohesive neon arcade identity, accessibility, and reliable presentation without prescribing a screenshot composition.
 - Keep each character illustration and distinct decorative element independently adaptable for responsive layouts and future visual changes.
+- Give the site a continuously animated arcade atmosphere with responsive lighting, subtle interface depth and animated character artwork, with accessible motion controls.
 - Gate publication of operational values on confirmation by the network operator; do not infer live availability.
 - Exclude network administration, automatic invitations, accounts, monitoring, payments, and community-management systems.
 

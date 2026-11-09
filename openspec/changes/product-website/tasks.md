@@ -21,6 +21,9 @@
 - [ ] 4.1 Implement the cohesive arcade identity, readable type, surfaces, game distinctions and control states; review hierarchy and contrast across sections.
 - [ ] 4.2 Add only original or appropriately licensed decorative assets with recorded provenance; create each character and distinct decorative visual as a separate image or independently controllable CSS or SVG element, and verify each can be moved, scaled, hidden or replaced without changing the others. Verify absent assets do not obscure content or cause disruptive layout shifts.
 - [ ] 4.3 Implement content-driven reflow, independently adapted visual elements, keyboard focus, touch targets and reduced-motion treatment; verify artwork can be repositioned or hidden individually and check keyboard order, focus visibility and motion preference at narrow and wide widths.
+- [ ] 4.4 Animate background layers, neon flicker, displayed characters and any fire or electricity motifs; verify recognizable motion, readable content and WCAG 2.2 AA flash limits.
+- [ ] 4.5 Add cursor-responsive light, subtle surface tilt and character avoidance for fine hover pointers; verify stable hit areas, smooth return on pointer exit and usable touch and keyboard interaction.
+- [ ] 4.6 Add accessible pause/resume and reduced-motion handling; verify all nonessential ambient and pointer motion stops while navigation and copy feedback remain usable.
 
 ## 5. Integrated verification
 
@@ -28,4 +31,4 @@
 - [ ] 5.2 Check published instructions and each displayed record against recorded operator confirmation; exercise unavailable states and confirm no unsupported status claims appear.
 - [ ] 5.3 Exercise all copy controls using keyboard and touch, including clipboard denial and screen-reader feedback; confirm displayed and copied values agree.
 - [ ] 5.4 Test small and large phones, tablet, laptop, wide desktop, narrow windows and 200% zoom; verify complete values, reflow, contrast and target sizes against WCAG 2.2 AA.
-- [ ] 5.5 Review visual coherence and performance with reduced motion, disabled scripts and failed assets; test current major desktop and mobile browsers and verify Pages root and repository-subpath deployment, updating the workflow if a build is used.
+- [ ] 5.5 Review visual coherence and performance with animation running, paused, reduced motion, disabled scripts and failed assets; test current major desktop and mobile browsers and verify Pages root and repository-subpath deployment, updating the workflow if a build is used.

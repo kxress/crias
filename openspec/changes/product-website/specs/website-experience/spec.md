@@ -59,12 +59,34 @@ Text and controls SHALL meet WCAG 2.2 AA contrast requirements; touch targets SH
 - **WHEN** a visitor reads and operates the site on a touch device
 - **THEN** text and control states are discernible and targets can be activated without inadvertently activating adjacent controls
 
+### Requirement: Animated atmosphere
+With motion enabled, the site SHALL present an animated background and neon lighting throughout the experience. Fire and electrical motifs, when present, SHALL animate as flames and electric jolts; each displayed character illustration SHALL have gentle rotation and zoom. Animation SHALL preserve readable content and usable controls.
+
+#### Scenario: Viewing the animated site
+- **WHEN** a visitor views the site with motion enabled
+- **THEN** the background and neon lighting move, displayed characters gently rotate and scale, and any fire or electrical motifs animate in a manner recognizable as fire or electricity
+
+### Requirement: Pointer-responsive visual effects
+On devices with a hover-capable fine pointer, the site SHALL provide lighting that responds to pointer movement, subtle three-dimensional sway on interface surfaces, and gentle movement away from an approaching pointer for displayed character illustrations. These effects SHALL not displace controls from their usable hit areas or obstruct content.
+
+#### Scenario: Moving a pointer
+- **WHEN** a visitor moves a mouse over the site or approaches a character illustration
+- **THEN** lighting follows or responds to the pointer, relevant interface surfaces subtly tilt, and the character moves away gently and returns when the pointer leaves
+
+#### Scenario: Touch and keyboard use
+- **WHEN** a visitor uses touch or keyboard without a hovering pointer
+- **THEN** the site remains fully usable without pointer-responsive effects
+
 ### Requirement: Motion preferences
-Motion SHALL not be necessary for comprehension or interaction; reduced-motion preferences SHALL suppress nonessential motion and flashing effects SHALL not interfere with reading.
+Motion SHALL not be necessary for comprehension or interaction. The site SHALL honor reduced-motion preferences by disabling nonessential motion and pointer effects, and SHALL offer a visible control to pause or resume persistent decorative motion. Flashing SHALL meet WCAG 2.2 AA flash limits and not interfere with reading.
 
 #### Scenario: Reduced motion requested
 - **WHEN** the visitor enables reduced motion
-- **THEN** ambient and transition motion is reduced or removed while focus and interaction feedback remain clear
+- **THEN** ambient, character, lighting and tilt motion stop and focus and interaction feedback remain clear
+
+#### Scenario: Pausing motion
+- **WHEN** a visitor pauses decorative animation
+- **THEN** ongoing background, lighting, character and pointer-driven motion stops until resumed, without disabling site functions
 
 ### Requirement: Resilient static presentation
 Essential explanatory content and connection values SHALL remain readable when decorative assets or JavaScript are unavailable. The site SHALL work on static GitHub Pages hosting, including a repository subpath.
