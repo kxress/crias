@@ -1,119 +1,194 @@
-﻿# Site Visual Design Specification
+# Site Visual Design Specification
 
 ## Purpose
 
-Define the enduring visual identity and layout of the Crias Games site using `mockup.png` at the repository root as the visual reference. The mockup is a desktop composition; its exact pixel dimensions and illustrated text are not a substitute for usable, responsive page content.
+Define the visual identity, content, layout and behavior of the CRIAS GAMES landing page, using the root `mockup.png` as the desktop visual reference. The reference is a single 1448 × 1086 raster image; positions, sizes and fonts are approximate, and its artwork is not a substitute for real, responsive HTML content. The site presents private game servers in Brazilian Portuguese and SHALL remain compatible with static GitHub Pages hosting.
 
 ## Requirements
 
-### Requirement: Synthwave visual identity
+### Requirement: Visual identity and composition
 
-The site SHALL evoke the mockup's dense retro-futurist gaming aesthetic: a predominantly near-black and deep-purple background, vivid magenta and pink neon, cyan and electric-blue accents, and a sunset-orange highlight. A starry city skyline, striped setting sun, perspective grid, and neon-lit architectural details SHALL establish the scene. Text and controls SHALL remain legible against the artwork.
+The site SHALL reproduce the mockup's dense synthwave, vaporwave, anime, arcade and cyberpunk aesthetic as a single continuous scene, with a clear central reading column framed by decorative artwork. It SHALL feel independent, informal and personalized. The desktop composition SHALL place the hero, joining instructions, server directory and footer in that order. Around the reference resolution, the hero occupies approximately y=0–410, the joining panel y=410–605, the directory y=615–1010 and the footer y=1020–1086. The centered panels are approximately 1100 px wide at most, with the directory slightly wider than the joining panel. These measurements guide visual comparison rather than imposing fixed coordinates.
 
-#### Scenario: Viewing the page
+The visual brand SHALL be `CRIAS GAMES`. The page SHALL NOT add hearts, cute animal mascots or stickers, romantic copy, unnecessary title ornaments, corporate dashboard elements, Kress branding, a navigation bar, hamburger menu, login, registration form, additional social links, invented statistics, status panels or an extra notes section.
 
-- **WHEN** a visitor opens the site
-- **THEN** the page presents a coherent neon synthwave scene with the main content clearly distinguishable from decorative artwork
+#### Scenario: Viewing the desktop composition
 
-### Requirement: Hero and character framing
+- **WHEN** a visitor views the page at a wide desktop viewport
+- **THEN** the hero, two neon panels and footer form a centered continuous composition, surrounded by artwork that does not obstruct content
 
-The desktop hero SHALL center the prominent brush-style “CRIAS GAMES” wordmark over the skyline and sunset, followed by the subtitle “Servidores de jogos privados” and a concise introductory callout. The surrounding character collage SHALL frame rather than obscure the central content. The supplied character references are Rei Ayanami, Makima and Tifa Lockhart at the upper left; Asuka Langley, Nami and Hayase Nagatoro at the upper right; Kurisu Makise, Faye Valentine, Hinata Hyuga and Rem along the left; and Usagi Tsukino, Aqua, Mayano Top Gun and Super Creek along the right. Decorative details such as framed portraits, a classical bust, neon signage and pixel-art scenery support the composition.
+### Requirement: Color, light and typography
 
-#### Scenario: Viewing the desktop hero
+The palette SHALL use near-black and deep purple backgrounds, magenta and pink structural neon, cyan and electric-blue accents, and an orange-red sunset. Suggested CSS approximations are `#10071F` and `#230B35` for backgrounds, `#21102F` for panels, `#15142B` for cards, `#FF35D5` and `#FF80E8` for pink, `#B94DFF` for purple, `#12EDFF` for cyan, `#589BFF` for blue, `#47F78B` for Minecraft green, `#FFC45D` for the Alpha badge, `#FF253E` and `#FF7B32` for the sun, and `#FFF0FC` for light text. Gradients and lighting MAY vary these colors.
 
-- **WHEN** the page is displayed at a wide viewport
-- **THEN** the brand and introduction occupy the center and character artwork frames both sides without covering readable content
+Main panels SHALL have rounded corners, dark sufficiently opaque interiors, saturated continuous outlines and layered inner and outer neon glows. Inner cards and rows SHALL use finer borders and more restrained glows. The logo SHALL use large, irregular, sharply angled brush-style lettering; section headings SHALL use heavy italic uppercase sans-serif; interface text SHALL use legible sans-serif; and the footer SHALL use a retro digital or monospace treatment. Approximate desktop sizes are 65–85 px for the logo, 24–29 px for the subtitle, 17–19 px for the introduction, 29–35 px for section headings, 16–19 px for step titles, 13–15 px for descriptions, 13–16 px for hosts, 12–14 px for badges and 22–25 px for the footer. Exact fonts and sizes MAY be adjusted for visual similarity and readability.
+
+#### Scenario: Reading illuminated content
+
+- **WHEN** text and controls appear over the neon scene
+- **THEN** the glow supports the arcade aesthetic without reducing their contrast or legibility
+
+### Requirement: Synthwave background
+
+The background SHALL include a subtly textured, starry dark-purple sky; a large centered striped red-to-orange sun behind the logo; a layered futuristic skyline with dark towers, antennas and cyan-lit windows; blue and cyan triangular wireframe mountains; and a glowing magenta perspective grid extending from the hero to the footer, with larger apparent cells toward the bottom. Subtle grain and scanlines MAY suggest a VHS image without obscuring the scene.
+
+The upper-right scenery SHALL include a purple and blue Japanese urban facade with a bright pink `カフェ` sign. The left side near the statue SHALL include the vertical pink neon inscription `ゲームサーバー`. These signs are decorative, not navigation.
+
+#### Scenario: Viewing the backdrop
+
+- **WHEN** the full desktop page is visible
+- **THEN** the sun, skyline, wireframe mountains and perspective grid create depth behind the interface, with the specified Japanese signs in their respective locations
+
+### Requirement: Character framing
+
+Fourteen recognizable female characters SHALL frame the desktop interface in the following order and general regions:
+
+- Upper left: Rei Ayanami in a tilted pink retro window labeled `レイ`, Makima, and Tifa Lockhart.
+- Upper right: Asuka Langley, Nami, and Hayase Nagatoro, with Nagatoro partially cropped by the right edge.
+- Left side, descending: Kurisu Makise, Faye Valentine, Hinata Hyuga, and Rem.
+- Right side, descending: Usagi Tsukino in a tilted pink retro window, Aqua, Mayano Top Gun, and Super Creek.
+
+The upper portraits SHALL preserve their identifying traits: Rei's short pale-blue hair and red eyes; Makima's red-orange hair and golden eyes; Tifa's long black hair and white-and-black clothing; Asuka's orange hair and red plugsuit; Nami's orange hair, wink and visible spiral arm tattoo; and Nagatoro's dark hair, tan skin and broad smile. Side portraits SHALL preserve their recognizable hair, clothing and expressions: Kurisu's long reddish-brown hair, Faye's dark short hair and yellow details, Hinata's dark blue hair and pale eyes, Rem's short blue hair and maid outfit, Usagi's blonde buns and sailor uniform, and Aqua's blue hair and raised arm. Mayano and Super Creek SHALL retain distinct horse ears, hairstyles and silhouettes; their features SHALL NOT merge or be replaced with cat or dog ears.
+
+Side portraits SHALL resemble individually cut, light-edged stickers or photos, staggered and tilted rather than precisely aligned. Minor overlap is allowed only if faces and essential features remain visible. The artwork SHALL have coherent lighting, saturation, shadows and clean natural crops; characters SHALL NOT merge, cross server cards, cover text or intercept pointer events. No extra characters SHALL be introduced.
+
+#### Scenario: Inspecting the decorative frame
+
+- **WHEN** the desktop composition is viewed
+- **THEN** all fourteen characters appear in their specified regions, retain recognizable features and remain separate from readable and interactive content
+
+### Requirement: Vaporwave statue
+
+A prominent classical male bust and Ionic-style column SHALL occupy the left side between the upper characters and lower portraits. The bust SHALL combine sculpted marble, curled hair, short sculpted beard, muscular neck, pronounced jaw and a confident upward-right gaze associated with Gigachad. It SHALL wear angled black 8-bit sunglasses with small white pixel reflections. Cyan, magenta and violet light SHALL model the stone, shoulders and fragmented lower edge; the column SHALL have ornamental spiral volutes and pink-lit purple edges. It SHALL read as a sculpture rather than a filtered photograph and SHALL NOT obscure the instructions.
+
+#### Scenario: Viewing the statue
+
+- **WHEN** the desktop frame is visible
+- **THEN** the classical bust, pixel sunglasses and ornamental column are recognizable without covering the joining panel's content
+
+### Requirement: Hero content
+
+The hero SHALL center the exact wordmark `CRIAS GAMES` over the sun, rendered in white-to-pink aggressive italic brush lettering with magenta outline or shadow and glow. A curved, irregular cyan brushstroke SHALL underline it. The subtitle SHALL read `SERVIDORES DE JOGOS PRIVADOS` in bold italic uppercase. A centered, dark rounded callout with a cyan border and glow, approximately 560 px wide in the reference, SHALL contain the following Portuguese text:
+
+> Servidores privados de Terraria, Minecraft e Hytale.
+>
+> Instale o NetBird, entre na rede e conecte nos hosts abaixo.
+
+The callout SHALL remain narrower than the main panels. No extra slogan or authorship text SHALL be added.
+
+#### Scenario: Reading the hero
+
+- **WHEN** a visitor arrives at the page
+- **THEN** the brand is dominant, followed by the subtitle and the two-line introduction
 
 ### Requirement: Joining instructions
 
-Below the hero, the site SHALL display a dark translucent panel with a bright neon outline and a “Como entrar” heading. Its four numbered steps SHALL explain installing NetBird, configuring its management URL, requesting a manual invitation from Crias, and connecting to a listed server. On wide screens, the steps SHALL read left to right with visual progression cues. The management URL SHALL be visually prominent and offer a copy control when implemented as an interactive element.
+The first panel SHALL have a pink outline globe icon, the heading `COMO ENTRAR`, a divider, and exactly four numbered steps. At desktop width the steps SHALL read left to right, with pink number squares, relevant icons, bold titles, left-aligned descriptions and glowing right-pointing chevrons between steps. The steps SHALL present the following Portuguese content in order:
 
-#### Scenario: Finding the connection process
+1. `Instale o NetBird` — `Baixe e instale o NetBird no seu PC (Windows, Linux ou macOS).` Use an orange NetBird-inspired icon.
+2. `Configure a URL` — `No NetBird, defina o Management URL como:` followed by `https://netbird.kress.wtf` in a dark cyan-outlined inset with a copy control. Use a pink chain icon.
+3. `Peça um invite pro Crias` — `Envie uma mensagem para o Crias (Discord/WhatsApp) solicitando o seu convite. O convite é manual e não é gerado automaticamente.` Use a pink envelope icon.
+4. `Conecte e jogue!` — `Após entrar na rede, conecte-se nos servidores listados abaixo e bora jogar.` Use a pink check icon.
+
+The invitation SHALL clearly be manual; the page SHALL NOT suggest public access or provide automatic registration. The URL SHALL remain selectable or copyable. The mockup does not show a download button.
+
+#### Scenario: Following the connection process
 
 - **WHEN** a visitor reads the instructions
-- **THEN** the four steps appear in order and the management URL is easy to identify
+- **THEN** the four steps explain installation, the exact management URL, a manual invitation and connection in that order
 
-### Requirement: Server directory layout
+### Requirement: Server directory content
 
-A second neon-outlined panel below the instructions SHALL be headed “Servidores” and present game groups for Terraria, Minecraft and Hytale. On wide screens, the groups SHALL appear side by side as illustrated cards, with recognizable game branding and pixel-art landscapes. Each server entry SHALL make its host, category or modpack, and port easy to distinguish, with a copy control for the host. Actual server addresses, ports, availability and labels SHALL be maintained as site content rather than assumed to be permanent because they appear in the mockup.
+The second panel SHALL be headed by a pink gamepad icon, `SERVIDORES`, a vertical separator and `SERVIDORES DISPONÍVEIS NA REDE PRIVADA`. It SHALL present the following eight entries in order, grouped by game, with the shown labels and ports. The Hytale protocol SHALL be explicitly displayed as `Porta: 5520 / UDP`.
 
-#### Scenario: Comparing servers
+| Game | Hostname | Type | Port |
+| --- | --- | --- | --- |
+| Terraria | `brasilia.terraria.games.crias.wtf` | Vanilla | 7777 |
+| Terraria | `lsj.terraria.games.crias.wtf` | Vanilla | 7777 |
+| Terraria | `brasilia.calamity.terraria.games.crias.wtf` | Calamity | 7777 |
+| Terraria | `lsj.calamity.terraria.games.crias.wtf` | Calamity | 7777 |
+| Minecraft | `arena-v22.minecraft.games.crias.wtf` | Vanilla | 25565 |
+| Minecraft | `bmc.minecraft.games.crias.wtf` | Better MC | 25565 |
+| Minecraft | `prominence.minecraft.games.crias.wtf` | Modpack | 25565 |
+| Hytale | `alpha.hytale.games.crias.wtf` | Alpha | 5520 / UDP |
 
-- **WHEN** a visitor views the directory
-- **THEN** entries are grouped by game and each entry's host, classification and port are readable
+These are reference display values, not proof of operational DNS or services. Before publication, the management endpoint and hostnames SHALL be reconciled with actual infrastructure; the visual brand, management domain, game hostnames and footer address have distinct roles and SHALL NOT be automatically substituted for one another. Server data SHALL be maintained separately from the visual markup so verified values can be updated.
 
-### Requirement: Footer and typography
+#### Scenario: Finding server details
 
-The page SHALL close with a centered crias.games identity, a small computer motif and horizontal neon accents. Major headings SHALL use bold, energetic display styling with a pink or white neon treatment; instructions and server details SHALL use a clear, high-contrast sans-serif style. Visible site copy SHALL be in Brazilian Portuguese.
+- **WHEN** a visitor reads the directory
+- **THEN** the eight reference entries appear in their specified game groups with their hostnames, types and ports, including Hytale's UDP protocol
 
-#### Scenario: Reading the page
+#### Scenario: Preparing for publication
 
-- **WHEN** a visitor moves from the hero through the directory to the footer
-- **THEN** headings, body text and connection details have a clear visual hierarchy and remain readable
+- **WHEN** connection values are prepared for the published site
+- **THEN** they are checked against actual DNS and services rather than assumed operational from the mockup
 
-### Requirement: Responsive and accessible presentation
+### Requirement: Game card presentation
 
-The layout SHALL adapt to narrow screens by stacking or reflowing the instructions and game cards in their original reading order. Decorative artwork MAY be cropped, reduced or repositioned to preserve usable space, but SHALL NOT cover content or force horizontal page scrolling. Interactive controls SHALL be keyboard accessible and have discernible names; decorative imagery SHALL NOT add redundant screen-reader content.
+At desktop width the Terraria, Minecraft and Hytale cards SHALL appear left to right, aligned at top and bottom. Terraria and Minecraft SHALL be comparably wider than Hytale, approximately 35:36:27 before gaps. Each card SHALL have a distinct luminous border, illustrated branded header and dark interior.
+
+Terraria SHALL use cyan accents and a pixel-art header with a recognizable Terraria logo, tree, vegetation, mountains and purple-blue sky. Its four rows SHALL have cyan Vanilla and magenta Calamity badges. Minecraft SHALL use green accents and a header with a recognizable stone-style MINECRAFT logo, grass block, Creeper and block scenery. Its three badges SHALL distinguish Vanilla in lilac, Better MC in cyan-blue and Modpack in violet. The intentionally open lower area SHALL retain a dark teal-green gradient and pixelated vegetation and blocks, without added metrics. Hytale SHALL use electric-blue accents, a recognizable metallic HYTALE logo and a yellow-orange Alpha badge. Its large lower area SHALL retain a pixel-art fantasy landscape with blue twilight, pink clouds, stone ruins, towers, vegetation and depth; it SHALL NOT become a flat background.
+
+#### Scenario: Comparing game cards
+
+- **WHEN** a visitor views the directory on a wide screen
+- **THEN** the three illustrated cards have distinct game identities and retain the specified decorative lower areas
+
+### Requirement: Server rows and copy controls
+
+Each server entry SHALL use a shared dark rounded row with a light lilac outline, bold readable hostname, colored type pill, visible port and a pink neon-framed copy icon at the right. Long hostnames SHALL remain fully accessible and SHALL NOT silently disappear or overlap controls; wrapping or accessible overflow is acceptable. The page SHALL provide eight independent server copy buttons and one management URL copy button.
+
+Each server button SHALL copy only its displayed hostname, without the port or extra characters. The management button SHALL copy the complete URL. Copying SHALL use the Clipboard API when available and provide a usable fallback or a clear error when copying is unavailable or denied. Controls SHALL be keyboard operable and have descriptive accessible names. Successful copies SHALL give brief, accessible feedback such as `Copiado!`, without resizing the button, moving the layout, changing the hostname or preventing an immediate repeat. An error SHALL be communicated discreetly. Hover and visible keyboard focus states SHALL reinforce the neon treatment.
+
+#### Scenario: Copying a connection value
+
+- **WHEN** a visitor activates a server copy button or the management URL copy button
+- **THEN** the corresponding hostname alone or complete URL respectively is copied, and a temporary confirmation is shown and announced without shifting the layout
+
+#### Scenario: Copying is unavailable
+
+- **WHEN** the browser does not permit a copy operation
+- **THEN** the visitor receives a discreet accessible error and can still select the displayed value
+
+### Requirement: Footer
+
+The footer SHALL sit beneath the directory directly over the continuing grid, without its own card. It SHALL center a small retro computer icon and the exact lowercase text `crias.games`, flanked by short pink neon horizontal lines. The text SHALL use a light retro digital or monospace style with pink glow. No secondary signature or decorative slogan SHALL be added.
+
+#### Scenario: Reaching the footer
+
+- **WHEN** a visitor reaches the end of the directory
+- **THEN** the computer icon and `crias.games` provide a centered visual ending over the grid
+
+### Requirement: Layering and responsive layout
+
+The scene SHALL layer the base, sky and texture, sun, skyline, facade, wireframe mountains, grid, characters and statue, hero text, panels and their content, side portraits in the decorative margins, and interactive focus states. Separate stacking contexts MAY be used. Panels SHALL isolate their content sufficiently that artwork does not show through in a distracting way. Decorative elements SHALL NOT block pointer interactions or obscure text, icons, hosts or steps.
+
+At widths of 1280 px and above, the layout SHALL preserve the four horizontal steps, three side-by-side cards, centered logo and side portraits where space permits. At intermediate widths, illustrations MAY scale down or be hidden, steps MAY reflow to two columns and cards MAY rearrange as needed. On narrow screens, steps and cards SHALL stack in their original order, progression cues MAY become vertical or simplified, the logo and callout SHALL fit the viewport, and decorative portraits MAY be reduced, repositioned or hidden. The synthwave background SHALL remain recognizable. Functional content and controls SHALL remain available without accidental horizontal page scrolling.
 
 #### Scenario: Viewing on a narrow screen
 
 - **WHEN** a visitor uses a phone-sized viewport
-- **THEN** the hero, instructions and game groups remain readable and operable without horizontal page scrolling
+- **THEN** the instructions and game cards remain readable and operable in order, complete hostnames remain accessible and no decorative artwork forces horizontal scrolling
 
-### Requirement: Overall desktop composition
+### Requirement: Accessibility and motion
 
-The desktop page SHALL form a single continuous illustrated scene, with a centered content column framed by decorative artwork at both edges. The hero occupies the upper portion, the joining panel sits directly beneath it, the wider server panel follows with a small vertical gap, and the footer sits below the directory over the continuing grid. The content panels SHALL align around the page center, with the server panel extending slightly wider than the joining panel. Rounded corners, thin luminous borders, outer glows and dark purple interiors SHALL visually separate panels from the background.
+Visible site copy SHALL be Brazilian Portuguese and rendered as real HTML text, with semantic heading order and sufficient contrast. Controls SHALL have accessible names and visible focus. Copy feedback SHALL be available to screen readers. Ports and protocol SHALL be textual rather than conveyed only by color. Purely decorative characters, statue, stars and grid SHALL be hidden from the accessibility tree when appropriate and SHALL NOT intercept pointer events.
 
-#### Scenario: Scanning the full page
+Optional neon and hover animation SHALL be subtle, SHALL NOT flash aggressively or impede reading, and SHALL respect reduced-motion preferences. The page SHALL NOT depend on animation for comprehension.
 
-- **WHEN** a visitor scans the desktop layout from top to bottom
-- **THEN** the hero, joining instructions, server directory and footer appear in that order as one centered composition framed by the illustration
+#### Scenario: Navigating without a pointer or with reduced motion
 
-### Requirement: Background and side illustrations
+- **WHEN** a visitor navigates by keyboard, uses a screen reader or requests reduced motion
+- **THEN** controls, connection details and feedback remain understandable and operable with a visible focus indication and without required animation
 
-The skyline SHALL span the upper background beneath a star-filled dark sky, with a large horizontally striped orange and pink sun centered behind the wordmark. Cyan wireframe mountains and a magenta perspective grid SHALL lead from the horizon toward the bottom edge. A neon-lit street facade and vertical Japanese-style signage frame the upper right; vertical neon lettering and wireframe scenery frame the left.
+### Requirement: Implementation and visual verification
 
-The left side SHALL include a prominent vaporwave/Gigachad classical bust wearing dark pixel sunglasses, lit in cyan, violet and pink and resting on an Ionic pedestal. It sits below the upper-left portraits and above the vertical stack of side portraits. The side portraits SHALL use overlapping, tilted, light-edged photo or sticker frames, with Kurisu, Faye, Hinata and Rem descending along the left and Usagi, Aqua, Mayano Top Gun and Super Creek descending along the right. The upper character groups SHALL overlap the skyline around the central title. This decorative framing SHALL preserve the unobstructed central reading area.
+The site SHALL be a functional static page rather than a single scaled image. Text, controls, data, backgrounds and decorative artwork SHALL be separable. SVG is suitable for icons and vector elements; appropriately optimized raster assets with transparency and sufficient resolution are suitable for illustrations. Artwork SHALL NOT be stretched, and expensive full-surface blur SHOULD be avoided. The raster reference does not supply editable layers, original fonts or isolated assets; faithful artwork may require extraction, redrawing or recreation.
 
-#### Scenario: Identifying the decorative frame
+Visual verification SHALL compare the desktop implementation with `mockup.png` at 1448 × 1086, especially composition, positions, scale, character crops, readability and illustrated card areas. Responsive and copy behavior SHALL also be checked. Online status, player counts, ping, hardware metrics, server versions, mod lists, modpack downloads, administration, availability history and site authentication are outside this reproduction's scope.
 
-- **WHEN** the complete desktop composition is visible
-- **THEN** the Gigachad bust and pedestal are recognizable on the left and the fourteen named characters frame the centered content in their specified regions
+#### Scenario: Verifying the implementation
 
-### Requirement: Hero details
-
-The hero SHALL place the large italic brush-lettered pink and white title in front of the sun and skyline, with a cyan brushstroke underline. A smaller uppercase italic subtitle sits immediately below. Beneath it, a centered dark rounded callout with a cyan-blue glow SHALL summarize the private Terraria, Minecraft and Hytale servers and direct visitors to install NetBird and connect. The callout SHALL span substantially less width than the main panels.
-
-#### Scenario: Reading the introduction
-
-- **WHEN** a visitor starts at the top of the page
-- **THEN** the title is the dominant element, followed by the subtitle and a distinct introductory callout
-
-### Requirement: Joining panel details
-
-The joining panel SHALL have a globe icon and italic uppercase heading at its upper left, followed by a horizontal divider. Each of the four desktop columns SHALL contain a pink numbered badge, a small relevant icon, a bold step title and supporting text. Bright chevrons SHALL indicate progression between adjacent columns. The second column SHALL emphasize the management URL in a cyan-outlined inset with a copy icon. The invitation step SHALL make clear that an invitation is requested manually from Crias.
-
-#### Scenario: Following the steps
-
-- **WHEN** the instructions are displayed on a wide screen
-- **THEN** their numbered columns and chevrons guide the visitor from installation through connection in sequence
-
-### Requirement: Directory panel details
-
-The directory panel SHALL begin with a gamepad icon, an italic uppercase “Servidores” title, a vertical separator and a short descriptor, followed by a horizontal divider. Its desktop cards SHALL appear left to right as Terraria, Minecraft and Hytale. Terraria and Minecraft occupy comparable larger columns, while Hytale is narrower. Each card SHALL have a distinct colored luminous border, branded illustrated header and dark interior. Terraria uses cyan accents and landscape art; Minecraft uses green accents and block-style scenery; Hytale uses blue accents and a tall pixel-art landscape.
-
-Within each card, server entries SHALL appear as vertically stacked dark rounded rows with a light outline. The host is the primary line; a colored pill identifies the server category or modpack, and the port appears alongside it. A neon-framed copy icon sits at the right of each row. The mockup depicts four Terraria entries, three Minecraft entries and one Hytale entry; the number of rows SHALL adapt to current data without changing the grouping or hierarchy.
-
-#### Scenario: Reading a server card
-
-- **WHEN** a visitor examines a game group
-- **THEN** its artwork and heading identify the game and its server rows expose host, category, port and copy control in a consistent arrangement
-
-### Requirement: Footer placement
-
-The footer SHALL sit centered below the server panel over the grid, with a neon computer icon beside the “crias.games” wordmark and short horizontal glowing lines extending to either side.
-
-#### Scenario: Reaching the end of the page
-
-- **WHEN** a visitor reaches the bottom of the directory
-- **THEN** the centered footer provides a visual closing point to the composition
+- **WHEN** the completed page is compared with the reference and exercised at desktop and narrow widths
+- **THEN** the layout retains the specified visual identity and content while the nine copy controls and responsive presentation remain usable
