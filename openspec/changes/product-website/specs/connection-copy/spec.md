@@ -27,3 +27,7 @@ Copy controls SHALL be keyboard operable and identify their target to assistive 
 #### Scenario: Copy fails or is denied
 - **WHEN** the browser rejects or cannot perform the clipboard write
 - **THEN** the visitor receives an understandable failure message and can select the unchanged value manually
+
+#### Scenario: Value is unavailable
+- **WHEN** a management URL or server record is not published
+- **THEN** the site does not expose a copy control for that unavailable value

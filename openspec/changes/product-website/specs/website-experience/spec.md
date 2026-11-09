@@ -95,6 +95,14 @@ Motion SHALL not be necessary for comprehension or interaction. The site SHALL h
 - **WHEN** a visitor pauses decorative animation
 - **THEN** ongoing background, lighting, character and pointer-driven motion stops until resumed, without disabling site functions
 
+#### Scenario: Preference changes during a visit
+- **WHEN** reduced motion is enabled while the page is open
+- **THEN** nonessential motion stops immediately and remains stopped while that preference is active
+
+#### Scenario: Reduced motion is turned off after a manual pause
+- **WHEN** reduced motion is turned off after the visitor has paused motion
+- **THEN** motion remains paused until the visitor resumes it
+
 ### Requirement: Resilient static presentation
 Essential explanatory content and connection values SHALL remain readable when decorative assets or JavaScript are unavailable. The site SHALL work on static GitHub Pages hosting, including a repository subpath.
 
