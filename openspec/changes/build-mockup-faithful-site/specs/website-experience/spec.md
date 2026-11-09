@@ -17,11 +17,11 @@ The striped sun SHALL loop without a visible stripe seam or glow pop. The real-t
 - **THEN** the sun loop closes seamlessly, the wordmark remains legible against the sun, and `SERVIDORES DE JOGOS PRIVADOS` receives the prominent neon treatment
 
 ### Requirement: Aligned city and grid horizon
-On desktop, the perspective grid SHALL begin at the skyline baseline and render behind the city silhouette, with both horizons aligned vertically.
+On desktop, the sun SHALL render behind the city skyline, and the perspective grid SHALL begin at the skyline baseline behind the city silhouette, with both horizons aligned vertically.
 
 #### Scenario: Inspecting the scene layers
 - **WHEN** the city and grid are visible together
-- **THEN** the grid begins at the same horizontal horizon as the city baseline and does not paint over the skyline
+- **THEN** the sun sits behind the city, the grid begins at the same horizontal horizon as the city baseline, and the grid does not paint over the skyline
 
 ### Requirement: Pointer-reactive depth
 On fine-pointer devices, movement SHALL produce a restrained smoke-like light trail and subtle game-card tilt capped at two degrees. Effects SHALL not block interaction or shift content, and SHALL stop when motion is paused or reduced motion is requested.
@@ -56,11 +56,15 @@ All fourteen character illustrations SHALL be visible in the mobile page's norma
 - **THEN** all fourteen character illustrations can be seen and the page has no horizontal overflow
 
 ### Requirement: Motion control and accessibility
-The site SHALL provide a visible keyboard-operable control for pausing persistent decorative motion when scripts are available. Reduced-motion preference SHALL stop nonessential animation and SHALL NOT be overridden by the control. Motion SHALL NOT obscure content, interfere with input or flash beyond WCAG 2.2 AA limits.
+The site SHALL provide a visible keyboard-operable floating control at a viewport side for pausing persistent decorative motion when scripts are available. It SHALL remain reachable while scrolling without covering text or other controls. Reduced-motion preference SHALL stop nonessential animation and SHALL NOT be overridden by the control. Motion SHALL NOT obscure content, interfere with input or flash beyond WCAG 2.2 AA limits.
 
 #### Scenario: Pausing the scene
 - **WHEN** the visitor pauses motion
 - **THEN** the grid, neon and other persistent decorative animations stop until resumed
+
+#### Scenario: Reaching the floating pause control
+- **WHEN** the visitor scrolls through the page
+- **THEN** the pause control remains at a viewport side and does not cover essential content or copy controls
 
 #### Scenario: Reduced motion
 - **WHEN** reduced motion is enabled before or during a visit
@@ -76,3 +80,12 @@ The site SHALL meet WCAG 2.2 AA contrast and target-size requirements, expose lo
 #### Scenario: Navigating with a keyboard
 - **WHEN** a visitor uses keyboard navigation
 - **THEN** all actionable controls have descriptive names, visible focus and a logical focus order
+
+## MODIFIED Requirements
+
+### Requirement: Hero and environment
+The hero SHALL center the CRIAS GAMES wordmark, cyan underline, and private-server subtitle over the striped sunset and skyline, without the two-line introductory callout. The sun SHALL render behind the city skyline. The scene SHALL include the starry purple sky, wireframe mountains, Japanese neon signs and magenta perspective grid depicted in the reference. The grid SHALL begin at the skyline baseline, render behind the city silhouette, and continue around the panels and footer.
+
+#### Scenario: Reading the hero
+- **WHEN** a visitor opens the page at desktop width
+- **THEN** the wordmark and subtitle dominate the central scene, the two-line intro is absent, and the city remains layered in front of the sun

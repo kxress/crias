@@ -2,13 +2,14 @@
 
 ## Why
 
-The first implementation now follows the mockup and has been visually reviewed. Follow-up feedback identified five refinements to its motion and depth: remove the sun animation seam, strengthen the title/subtitle hierarchy, align the grid with the city horizon, react subtly to pointer movement, and give game cards restrained depth on hover.
+The first implementation now follows the mockup, and a motion/depth refinement pass is committed. Additional visual feedback asks for a quieter hero without its repeated intro copy, a clearer sun/city layer order, a floating side pause control, and copy feedback that behaves like a bottom toast instead of inline panel content.
 
 ## What Changes
 
 - Build the single-page Brazilian Portuguese private-server site as a static GitHub Pages artifact closely matching `mockup.png` on desktop and thoughtfully recomposed for mobile.
 - Recreate all fourteen named characters and the bust as individually controllable artwork; construct independently animatable scenery, text, borders and lighting with a living retrowave atmosphere.
 - Refine the hero's seamless striped-sun loop, retro animated wordmark and neon subtitle, skyline/grid layering, pointer-responsive atmosphere, and gentle Steam-inspired game-card tilt without changing the approved composition or making effects intrusive.
+- Remove the redundant two-line hero intro, render the sun behind the city, keep the pause control floating at a clear viewport side, and move copy success/error feedback into a brief bottom toast that does not shift content.
 - Publish the user-confirmed management URL and eight server records, with manual invitation guidance and accessible copy interactions.
 - Add explicit fidelity, responsive, accessibility, motion, and static-hosting acceptance criteria and a granular implementation and verification checklist.
 

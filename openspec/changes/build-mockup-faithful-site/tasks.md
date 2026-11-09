@@ -56,3 +56,11 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 - [x] 6.4 Add a fine-pointer-only smoke-like light trail with bounded, short-lived elements; verify it follows desktop pointer movement without blocking clicks, shifting layout or overflowing the page.
 - [x] 6.5 Add pointer-tracked lighting and a game-card tilt capped at two degrees on desktop; verify cards remain readable, keyboard focus stays clear, and touch does not emulate hover.
 - [ ] 6.6 Recheck all new effects with motion active, paused, reduced, and JavaScript unavailable; capture and visually inspect desktop and wide-desktop screenshots, then run the build and relevant browser checks before marking these tasks complete.
+
+## 7. Streamlined hero and floating controls
+
+- [ ] 7.1 Remove the two-line hero intro from rendered HTML; verify the heading/subtitle remain centered and the same guidance remains available in the joining steps and directory.
+- [ ] 7.2 Place the sun behind the city skyline while preserving the shared skyline/grid horizon; verify the layer order and composition at desktop and wide-desktop sizes.
+- [ ] 7.3 Move the pause control to a floating viewport-side position; verify it remains keyboard-operable while scrolling and does not cover text, artwork or copy controls at desktop and narrow widths.
+- [ ] 7.4 Move copy success/error feedback to a brief bottom-of-viewport toast; verify repeated copies, clipboard failure, screen-reader announcements, focus, and zero panel/page layout shift.
+- [ ] 7.5 Run the build and recheck no-JavaScript, reduced-motion, pause, responsive, and subpath behavior; capture and inspect final desktop screenshots before marking visual tasks complete.

@@ -2,11 +2,11 @@
 
 ## Context
 
-The static site now exists and follows the 1448 × 1086 flattened reference. This follow-up responds to visual review of the sun loop, title contrast and motion, city/grid depth alignment, pointer feedback, and restrained card depth while preserving the accepted composition and confirmed server content. The user confirmed the URL and eight records; their confirmation is sufficient to publish them, but is not a claim of live status.
+The static site now exists and follows the 1448 × 1086 flattened reference. Follow-up visual review now includes motion/depth refinements and a simpler hero/control treatment while preserving the accepted composition and confirmed server content. The user confirmed the URL and eight records; their confirmation is sufficient to publish them, but is not a claim of live status.
 
 ## Goals / Non-Goals
 
-**Goals:** Refine the existing faithful, living scene with a seamless sun loop, clearer retro title/neon subtitle hierarchy, an aligned city and grid horizon, restrained pointer feedback and card tilt; preserve selectable semantic text, copyable connection data and reduced-motion support.
+**Goals:** Refine the existing faithful, living scene with a seamless sun loop, clearer retro title/neon subtitle hierarchy, an aligned city and grid horizon, restrained pointer feedback/card tilt, and a simpler hero with unobtrusive floating controls; preserve selectable semantic text, copyable connection data and reduced-motion support.
 
 **Non-Goals:** Accounts, signup, automated invitations, server administration, live status, a marketing landing page, pricing, extra navigation, or inventing a contact handle. Do not ship the mockup as the page or a single flattened background, copy complete CodePen compositions, or add a runtime dependency for visual effects.
 
@@ -16,7 +16,7 @@ The static site now exists and follows the 1448 × 1086 flattened reference. Thi
 
 Use a small static HTML/CSS/JS site with a minimal Node build only if needed for data templating. Emit essential text and all eight records as HTML so they remain readable without JavaScript. Store one canonical data file with management URL and ordered records (`game`, `hostname`, `variant`, `port`, `protocol`); render both text and copy targets from the same values. The default deploy artifact must include generated HTML, styles, scripts and assets, and work from root or a repository subpath using relative URLs. Restore a GitHub Pages Actions workflow appropriate for the chosen output. A server runtime or client-only rendering would unnecessarily undermine static hosting and no-script behavior.
 
-Use the Portuguese wording in `docs/mockup-reference.md`: CRIAS GAMES, `SERVIDORES DE JOGOS PRIVADOS`, the two-line intro, the four step titles and explanations, and the directory heading/subtitle. The user later changed the footer label to `Crias 🄯 2026`; use the OpenMoji copyleft artwork and provide its CC BY-SA 4.0 attribution. Preserve the manual invite wording without fabricating Discord IDs, phone numbers, links or contact availability. Port and host values are in the persistent `private-server-access` spec. Any future changes to connection data belong in the canonical source, not multiple handwritten copies.
+Use the Portuguese wording in `docs/mockup-reference.md`: CRIAS GAMES, `SERVIDORES DE JOGOS PRIVADOS`, the four step titles and explanations, and the directory heading/subtitle. Omit the two-line hero intro per the follow-up request. The user later changed the footer label to `Crias 🄯 2026`; use the OpenMoji copyleft artwork and provide its CC BY-SA 4.0 attribution. Preserve the manual invite wording without fabricating Discord IDs, phone numbers, links or contact availability. Port and host values are in the persistent `private-server-access` spec. Any future changes to connection data belong in the canonical source, not multiple handwritten copies.
 
 ### 2. Art inventory and composition
 
@@ -61,6 +61,14 @@ Make the striped sun repeat seamlessly: the stripe animation must travel by exac
 Define one shared scene horizon for the skyline baseline and the perspective grid origin. The grid begins at that line and is painted behind the city so the city silhouette remains in front while both horizons meet vertically. Preserve the mobile-specific scene positions while keeping this relationship coherent where the layers are shown.
 
 Implement the smokey pointer response as a small, bounded, decorative trail that follows fine-pointer movement, fades promptly and cannot block clicks or create page overflow. Coalesce movement work, cap live trail elements, and avoid external scripts or canvas. Add pointer-tracked light and a subtle 3D card tilt capped at two degrees on desktop game cards; keyboard focus must retain clear focus styling without tilt, and touch layouts must not emulate hover. Pause and reduced-motion states disable the trail, tilt animation and other nonessential motion. Static content and hover/focus color feedback remain usable without JavaScript.
+
+### 7. Streamlined hero and floating controls
+
+Remove the redundant two-line hero intro while preserving the title, neon subtitle, scenery, joining instructions and directory content. Place the sun behind the city skyline in the scene's stacking order; keep the perspective-grid horizon aligned to the skyline baseline.
+
+Place the motion pause control as a floating viewport-side control rather than centered over the hero. Keep it keyboard-operable and visible, but offset it from text, game copy buttons and essential artwork; adapt its position at narrow widths. When motion is paused or reduced, preserve the existing motion rules.
+
+Keep the live status region for copy feedback, but render its success/error message as a brief floating toast at the bottom of the viewport. It must not occupy panel space, shift the page, block pointer input, or obscure connection values; clear each message after a short display interval and allow an immediate repeated copy to announce again. Without JavaScript, the empty status region and copy-control behavior remain non-disruptive.
 
 ## Risks / Trade-offs
 

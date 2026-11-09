@@ -16,13 +16,15 @@ The directory SHALL display the eight confirmed records from the persistent spec
 - **WHEN** a visitor examines any record
 - **THEN** its complete hostname, variant and port are associated visually and semantically, and Hytale displays `Porta: 5520 / UDP`
 
+## MODIFIED Requirements
+
 ### Requirement: Copy feedback without layout shift
-The site SHALL provide nine independently named copy controls, one for the management URL and one per server hostname. Successful copying SHALL provide brief visible and announced feedback without resizing the control, altering the value or preventing immediate repetition. Failure SHALL be announced and leave the value selectable.
+The site SHALL provide nine independently named copy controls, one for the management URL and one per server hostname. Successful copying SHALL provide brief visible and announced feedback as a floating toast at the bottom of the viewport, without resizing the control, altering the value or preventing immediate repetition. Failure SHALL be announced in the toast and leave the value selectable.
 
 #### Scenario: Copying repeatedly
 - **WHEN** a visitor activates a server copy control twice
-- **THEN** each attempt copies only that row's hostname and feedback does not shift the layout
+- **THEN** each attempt copies only that row's hostname and the bottom toast updates without shifting the page or panel layout
 
 #### Scenario: Clipboard denied
 - **WHEN** clipboard access fails
-- **THEN** the site communicates the failure and the displayed value remains available for manual selection
+- **THEN** the site announces the failure in the bottom toast and the displayed value remains available for manual selection
