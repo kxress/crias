@@ -91,7 +91,7 @@ function setup(imageTexture, left, right) {
     attribute vec2 a_weights;
     uniform vec2 u_motion_left;
     uniform vec2 u_motion_right;
-    uniform float u_amount;
+    uniform mediump float u_amount;
     varying vec2 v_uv;
     void main() {
       vec2 leftOffset = vec2(u_motion_left.x * 0.48, -u_motion_left.y * 0.55) * a_weights.x;
@@ -106,7 +106,7 @@ function setup(imageTexture, left, right) {
     uniform sampler2D u_image;
     uniform sampler2D u_height_left;
     uniform sampler2D u_height_right;
-    uniform float u_amount;
+    uniform mediump float u_amount;
     uniform vec2 u_texel;
     vec3 surfaceNormal(sampler2D hmap, vec2 uv) {
       float l = texture2D(hmap, uv - vec2(u_texel.x, 0.0)).r;
