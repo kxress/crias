@@ -59,8 +59,8 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 
 ## 7. Streamlined hero and floating controls
 
-- [ ] 7.1 Remove the two-line hero intro from rendered HTML; verify the heading/subtitle remain centered and the same guidance remains available in the joining steps and directory.
+- [x] 7.1 Remove the two-line hero intro from rendered HTML; verify the heading/subtitle remain centered and the same guidance remains available in the joining steps and directory.
 - [ ] 7.2 Place the sun behind the city skyline while preserving the shared skyline/grid horizon; verify the layer order and composition at desktop and wide-desktop sizes.
-- [ ] 7.3 Move the pause control to a floating viewport-side position; verify it remains keyboard-operable while scrolling and does not cover text, artwork or copy controls at desktop and narrow widths.
-- [ ] 7.4 Move copy success/error feedback to a brief bottom-of-viewport toast; verify repeated copies, clipboard failure, screen-reader announcements, focus, and zero panel/page layout shift.
+- [x] 7.3 Move the pause control to a floating viewport-side position; verify it remains keyboard-operable while scrolling and does not cover text, artwork or copy controls at desktop and narrow widths.
+- [x] 7.4 Move copy success/error feedback to a brief bottom-of-viewport toast; verify repeated copies, clipboard failure, screen-reader announcements, focus, and zero panel/page layout shift.
 - [ ] 7.5 Run the build and recheck no-JavaScript, reduced-motion, pause, responsive, and subpath behavior; capture and inspect final desktop screenshots before marking visual tasks complete.

@@ -5,6 +5,8 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 let manuallyPaused = false;
 let pointerTrail = null;
+let announceTimer = 0;
+let announceRevealTimer = 0;
 
 const motionIsActive = () => !manuallyPaused && !reducedMotion.matches;
 const clearPointerTrail = () => pointerTrail?.replaceChildren();
@@ -25,7 +27,11 @@ if (toggle) {
     toggle.setAttribute('aria-pressed', String(manuallyPaused));
     toggle.textContent = manuallyPaused ? '▶ Retomar animação' : '⏸ Pausar animação';
     toggle.disabled = reducedMotion.matches;
-    toggle.title = reducedMotion.matches ? 'Animação reduzida pela preferência do sistema' : '';
+    const label = reducedMotion.matches
+      ? 'Animação reduzida pela preferência do sistema'
+      : manuallyPaused ? 'Retomar animação' : 'Pausar animação';
+    toggle.setAttribute('aria-label', label);
+    toggle.title = reducedMotion.matches ? label : '';
   };
   toggle.addEventListener('click', () => { manuallyPaused = !manuallyPaused; syncMotion(); });
   reducedMotion.addEventListener('change', syncMotion);
@@ -117,8 +123,19 @@ if (finePointer.matches) {
 
 function announce(message, state) {
   if (!status) return;
-  status.textContent = message;
-  status.dataset.state = state;
+  clearTimeout(announceTimer);
+  clearTimeout(announceRevealTimer);
+  status.textContent = '';
+  delete status.dataset.state;
+  announceRevealTimer = window.setTimeout(() => {
+    status.textContent = message;
+    status.dataset.state = state;
+    announceTimer = window.setTimeout(() => {
+      status.textContent = '';
+      delete status.dataset.state;
+      announceTimer = 0;
+    }, 2800);
+  }, 30);
 }
 
 async function copyText(value) {
