@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Describe the joining instructions and server directory shown in the CRIAS GAMES mockup. The connection values in `docs/mockup-reference.md` are visual reference data and have not been verified as operational.
+Describe the joining instructions and server directory shown in the CRIAS GAMES mockup. The user confirmed on 2026-11-09 that the mockup's connection details are correct. Maintain the actual values as updateable content; confirmation does not imply live monitoring.
 
 ## Requirements
 
@@ -20,12 +20,30 @@ The directory SHALL organize servers into illustrated Terraria, Minecraft, and H
 - **WHEN** a visitor browses the directory
 - **THEN** they can distinguish game and variant and read the corresponding full hostname and port
 
-### Requirement: Trustworthy connection information
-Management URLs, invitation contacts, and server details SHALL be confirmed with the responsible operator before they are presented as usable connection information. Unconfirmed mockup values SHALL remain identified as reference examples and SHALL NOT be represented as verified or live. The static directory SHALL NOT imply real-time server status.
+### Requirement: Confirmed management URL
+The management URL SHALL be `https://netbird.kress.wtf`, selectable and copyable in the configuration step. The invitation instructions SHALL describe the manual request to Crias without inventing contact details or an automatic invitation process.
 
-#### Scenario: Connection information is unconfirmed
-- **WHEN** a reference value has not been confirmed
-- **THEN** it is not represented as an operational connection detail
+#### Scenario: Configuring NetBird
+- **WHEN** a visitor follows the configuration step
+- **THEN** they can read and copy the complete management URL
+
+### Requirement: Confirmed server records
+The directory SHALL initially contain the eight records below, in the shown game and row order. Records SHALL be maintained separately from decorative presentation and updated when the operator changes them. The static directory SHALL NOT imply real-time server status.
+
+#### Scenario: Reading confirmed records
+- **WHEN** the visitor reads the initial directory
+- **THEN** the following records appear under their respective games with their corresponding variants and ports:
+
+| Game | Hostname | Variant | Port | Protocol |
+| --- | --- | --- | --- | --- |
+| Terraria | `brasilia.terraria.games.crias.wtf` | Vanilla | 7777 | TCP |
+| Terraria | `lsj.terraria.games.crias.wtf` | Vanilla | 7777 | TCP |
+| Terraria | `brasilia.calamity.terraria.games.crias.wtf` | Calamity | 7777 | TCP |
+| Terraria | `lsj.calamity.terraria.games.crias.wtf` | Calamity | 7777 | TCP |
+| Minecraft | `arena-v22.minecraft.games.crias.wtf` | Vanilla | 25565 | TCP |
+| Minecraft | `bmc.minecraft.games.crias.wtf` | Better MC | 25565 | TCP |
+| Minecraft | `prominence.minecraft.games.crias.wtf` | Modpack | 25565 | TCP |
+| Hytale | `alpha.hytale.games.crias.wtf` | Alpha | 5520 | UDP |
 
 ### Requirement: Copy connection values
 Available management URLs and server hostnames SHALL have keyboard-operable copy controls with descriptive accessible names. A server control SHALL copy its hostname alone; the management control SHALL copy the complete URL. Success or failure SHALL be communicated visually and to assistive technology without moving the layout, and values SHALL remain selectable for manual copying.

@@ -2,7 +2,7 @@
 
 ## Scope
 
-This document preserves detailed observations and earlier implementation suggestions associated with the root `mockup.png`, a single 1448 × 1086 raster image. It describes the mockup and ideas once suggested for a site based on it. These notes, including the illustrative scenarios, do not define the site's intended end state or acceptance criteria. Measurements, character identifications, transcriptions, and connection values are interpretations of the image; connection values are not verified.
+This document preserves detailed observations and earlier implementation suggestions associated with the root `mockup.png`, a single 1448 × 1086 raster image. The persistent OpenSpec requirements define which aspects are intended for the site; these notes provide supporting visual detail. Measurements and transcriptions are interpretations of the image. On 2026-11-09 the user confirmed that the connection details are correct; the operational values are recorded in the private-server-access spec.
 
 The original analysis described positions, sizes, and fonts as approximate, and noted that the artwork was not a substitute for real, responsive HTML content. It envisioned a Brazilian Portuguese page presenting private game servers, compatible with static GitHub Pages hosting.
 
@@ -122,7 +122,7 @@ The second panel could be headed by a pink gamepad icon, `SERVIDORES`, a vertica
 | Minecraft | `prominence.minecraft.games.crias.wtf` | Modpack | 25565 | TCP |
 | Hytale | `alpha.hytale.games.crias.wtf` | Alpha | 5520 | UDP |
 
-These are reference display values, not proof of operational DNS or services. Before publication, the management endpoint and hostnames could be reconciled with actual infrastructure; the visual brand, management domain, game hostnames and footer address have distinct roles and would not be automatically substituted for one another. Server data could be maintained separately from the visual markup so verified values can be updated. Each structured record could retain game, hostname, category, port, protocol and badge color or variant. TCP is technical data for Terraria and Minecraft and would not be displayed as protocol text; only Hytale explicitly displays `/ UDP`.
+The user confirmed these connection details on 2026-11-09. The visual brand, management domain, game hostnames and footer address have distinct roles and would not be automatically substituted for one another. Server data could be maintained separately from the visual markup so values can be updated. Each structured record could retain game, hostname, category, port, protocol and badge color or variant. TCP is technical data for Terraria and Minecraft and would not be displayed as protocol text; only Hytale explicitly displays `/ UDP`.
 
 #### Illustrative scenario: Finding server details
 
