@@ -66,6 +66,13 @@ With motion enabled, the site SHALL present an animated background and neon ligh
 - **WHEN** a visitor views the site with motion enabled
 - **THEN** the background and neon lighting move, displayed character images gently rotate and scale as whole pieces without frame-by-frame or internal character animation, and any fire or electrical motifs animate in a manner recognizable as fire or electricity
 
+### Requirement: Coherent motion hierarchy
+The site SHALL coordinate ambient and interactive effects into a cohesive visual rhythm, keeping motion around reading and controls quieter than decorative scenery. Focus, hover and copy feedback SHALL remain distinguishable from ambient effects.
+
+#### Scenario: Reading and interacting with motion enabled
+- **WHEN** a visitor reads instructions or uses a control while the scene is moving
+- **THEN** the content remains easy to follow, interaction feedback is identifiable, and effects do not pulse uniformly in lockstep across the page
+
 ### Requirement: Pointer-responsive visual effects
 On devices with a hover-capable fine pointer, the site SHALL provide lighting that responds to pointer movement, subtle three-dimensional sway on interface surfaces, and gentle movement away from an approaching pointer for displayed character illustrations. These effects SHALL not displace controls from their usable hit areas or obstruct content.
 

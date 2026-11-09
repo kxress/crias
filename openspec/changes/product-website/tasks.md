@@ -24,6 +24,7 @@
 - [ ] 4.4 Animate background layers, neon flicker and any fire or electricity motifs; gently transform each static character image as a whole without internal or frame-by-frame animation. Verify recognizable environmental motion, restrained character movement, readable content and WCAG 2.2 AA flash limits.
 - [ ] 4.5 Add cursor-responsive light, subtle surface tilt and character avoidance for fine hover pointers; verify stable hit areas, smooth return on pointer exit and usable touch and keyboard interaction.
 - [ ] 4.6 Add accessible pause/resume and reduced-motion handling; verify all nonessential ambient and pointer motion stops while navigation and copy feedback remain usable.
+- [ ] 4.7 Coordinate timing, lighting and intensity across scenery, character billboards and interface feedback; review the full page in motion on desktop and mobile and verify the reading areas remain quieter and feedback remains distinct.
 
 ## 5. Integrated verification
 
