@@ -278,8 +278,6 @@
   let raf = 0;
   let lastFrame = 0;
   let lastInput = 0;
-  let lastMask = 0;
-  let masks = [];
   let pointer = null;
   let running = false;
 
@@ -425,42 +423,7 @@
     advect(dye, dye, 3.5, dt);
   }
 
-  const textSelector = [
-    '.hero__jp', '.wordmark', '.hero__subtitle',
-    '.scene__facade', '.scene__sign', '.window figcaption'
-  ].join(',');
-
-  function collectTextMasks(now) {
-    if (now - lastMask < 100) return;
-    lastMask = now;
-    masks = [];
-    document.querySelectorAll(textSelector).forEach((element) => {
-      if (!element.getClientRects().length || getComputedStyle(element).visibility === 'hidden') return;
-      const rect = element.getBoundingClientRect();
-      if (rect.width < 1 || rect.height < 1 || rect.bottom < 0 || rect.top > height) return;
-      masks.push(rect);
-    });
-  }
-
-  function clearTextMasks() {
-    const pad = 3 * pixelRatio;
-    gl.enable(gl.SCISSOR_TEST);
-    gl.clearColor(0, 0, 0, 0);
-    for (const rect of masks) {
-      const x = Math.max(0, Math.floor(rect.left * pixelRatio - pad));
-      const y = Math.max(0, Math.floor(canvas.height - rect.bottom * pixelRatio - pad));
-      const w = Math.min(canvas.width - x, Math.ceil(rect.width * pixelRatio + pad * 2));
-      const h = Math.min(canvas.height - y, Math.ceil(rect.height * pixelRatio + pad * 2));
-      if (w > 0 && h > 0) {
-        gl.scissor(x, y, w, h);
-        gl.clear(gl.COLOR_BUFFER_BIT);
-      }
-    }
-    gl.disable(gl.SCISSOR_TEST);
-  }
-
-  function render(now) {
-    collectTextMasks(now);
+  function render() {
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     draw(programs.display, null, () => {
@@ -468,7 +431,6 @@
       setTexelSize(programs.display, dye.read);
     });
     gl.disable(gl.BLEND);
-    clearTextMasks();
   }
 
   function tick(now) {
@@ -489,7 +451,7 @@
       pointer.moved = false;
     }
     step(dt);
-    render(now);
+    render();
     if (now - lastInput < 2400) {
       raf = window.requestAnimationFrame(tick);
     } else {

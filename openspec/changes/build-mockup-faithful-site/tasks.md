@@ -18,7 +18,7 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 - [x] 2.4 Create or source separate tall reference-matching Kurisu, Faye, Hinata and Rem illustrations; keep these left portraits unframed for consistency with the right group and inspect identifying traits and clear edges.
 - [x] 2.5 Create or source separate reference-matching Usagi, Aqua, Mayano and Super Creek illustrations; inspect Usagi's separate window, each silhouette and the horse ears and distinct features of the last two.
 - [x] 2.6 Create or source one unified classical bust illustration that includes pixel glasses and Ionic column; inspect pose, complete silhouette and non-overlap with content.
-- [x] 2.7 Create separate sky, striped sunset, skyline, facade/signs, wireframe mountains and grid layers; inspect each at desktop size and verify it can be individually repositioned or disabled.
+- [x] 2.7 Create separate sky, striped sunset, skyline, text-only Japanese signs, wireframe mountains and grid layers; inspect each at desktop size and verify it can be individually repositioned or disabled.
 - [x] 2.8 Create distinct Terraria, Minecraft and Hytale header/landscape artwork, independent of server rows; verify recognizable identities and the illustrated lower areas of Minecraft and Hytale.
 - [x] 2.9 Optimize and document assets, explicit image dimensions and font licensing/provenance; verify no merged characters, full-page screenshot, generic substitute, missing artwork, accidental rectangular background or broken asset reference remains.
 
@@ -52,8 +52,8 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 
 - [ ] 6.1 Set the grid to `perspective(280px) rotateX(80deg)`, fade it into the skyline horizon, and keep its origin aligned behind the city; verify the camera angle and blend at desktop and wide-desktop sizes.
 - [x] 6.2 Make the striped sun loop over an exact stripe-repeat period with matching glow endpoints; inspect several consecutive loops for jumps, pops or excessive glow.
-- [ ] 6.3 Style the actual-text `CRIAS GAMES` title as the supplied layered retrowave chrome with a pulsing glow/glint; preserve the existing cursive subtitle and verify both at desktop and mobile sizes.
-- [ ] 6.4 Replace the slow puff/CPU trail with a WebGL2 stable-fluid solver: advect pink/cyan dye, solve pressure and vorticity at reduced render/simulation resolutions, inject on the first movement, and sleep when clear; layer it above waifus/scenery but below UI panels and controls; verify responsive motion, crisp text, no blocked input/layout shift/overflow, and no reduced-motion rendering.
+- [ ] 6.3 Style the actual-text `CRIAS GAMES` title as the supplied layered retrowave chrome with a pulsing glow/glint; preserve the cursive subtitle treatment with the updated `SERVERS PRIVADOS` wording and verify both at desktop and mobile sizes.
+- [ ] 6.4 Replace the slow puff/CPU trail with a WebGL2 stable-fluid solver: advect pink/cyan dye, solve pressure and vorticity at reduced render/simulation resolutions, inject on the first movement, and sleep when clear; layer it above waifus/scenery but below title, Japanese signs, and UI panels, using DOM stacking with no rectangular mask cutouts; verify responsive motion, crisp text, no blocked input/layout shift/overflow, and no reduced-motion rendering.
 - [ ] 6.5 Replace the two-degree card tilt with pointer-position-controlled Steam-style perspective, brightness and specular light; reach at least six degrees on each axis (3× the prior cap) and a small hover lift/scale, then verify readability, keyboard focus and no touch hover.
 - [ ] 6.6 Recheck all new effects with motion active, reduced, and JavaScript unavailable; capture and visually inspect desktop and wide-desktop screenshots, then run the build and relevant browser checks before marking these tasks complete.
 

@@ -21,7 +21,7 @@ The desktop experience SHALL closely reproduce and refine the mockup's continuou
 - **THEN** the hero, four-step joining panel, three illustrated game cards, surrounding collage, and footer retain the reference's hierarchy and recognizable visual character
 
 ### Requirement: Hero and environment
-The hero SHALL center the CRIAS GAMES wordmark, cyan underline, private-server subtitle and two-line introductory callout over the striped sunset and skyline. The scene SHALL include the starry purple sky, wireframe mountains, Japanese neon signs and magenta perspective grid depicted in the reference. The grid SHALL continue around the panels and footer.
+The hero SHALL center the CRIAS GAMES wordmark, cyan underline, `SERVERS PRIVADOS` cursive subtitle and two-line introductory callout over the striped sunset and skyline. The scene SHALL include the starry purple sky, wireframe mountains, text-only Japanese neon signs and magenta perspective grid depicted in the reference; it SHALL NOT include the striped right-side facade panel. The grid SHALL continue around the panels and footer.
 
 #### Scenario: Reading the hero
 - **WHEN** a visitor opens the page at desktop width

@@ -33,7 +33,7 @@ The mockup and `docs/mockup-reference.md` guided character traits, palette and c
 | Striped sun | `.scene__sun` in `site.css` | CSS gradients, stripes, independent sheen and pulsing glow; separately clipped and animated. |
 | Wireframe mountains | `.scene__mountains` in `site.css` | CSS geometric layer with independent glow animation. |
 | Grid | `.scene__grid` in `site.css` | CSS perspective transform and line gradients; independent slow travel. |
-| Japanese facade and signs | `.scene__facade`, `.scene__sign` in `site.css` and HTML text | CSS building/light treatment and selectable source text, separate from the sky and skyline. |
+| Japanese signs | `.scene__sign` and `.scene__sign--right` in `site.css` and HTML text | Standalone vertical neon text (`ゲームサーバー` and `カフェ`) in front of the city; the striped right-side facade panel is omitted. |
 | Terraria | `terraria-scene.webp` | Generated `exec-92a55bef`; pixel-art tree, layered mountains, forest and twilight. RGB WebP, 1774 × 887. Game name is live HTML text. |
 | Minecraft | `minecraft-scene.webp` | Generated `exec-8b62677a`; block landscape, grass block and Creeper. RGB WebP, 1672 × 941. Game name is live HTML text. |
 | Hytale | `hytale-scene.webp` | Generated `exec-e9296a22`; fantasy valley, blue sky, pink clouds, ruins, towers and vegetation. RGB WebP, 1672 × 941. Used as an independently sized card landscape. |
