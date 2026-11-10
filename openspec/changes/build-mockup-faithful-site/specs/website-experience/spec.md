@@ -122,6 +122,13 @@ The fourteen original portraits, content panels and footer statues SHALL follow 
 - **WHEN** full desktop pages are reviewed at 1448px and 1920px
 - **THEN** the lowered top groups, descending side portraits, centered panels and closely flanking footer statues follow the supplied arrangement without its temporary editing artifacts
 
+### Requirement: Desktop portrait spacing
+The desktop collage SHALL place the six upper portraits about 16px higher and the eight side-column portraits about 32px higher. The two lowest portraits in each side column SHALL also shift outward toward the page edge by up to about 32px, while preserving complete artwork and keeping it inside the page.
+
+#### Scenario: Reviewing the desktop portrait spacing
+- **WHEN** the page is viewed at 1448px or 1920px wide
+- **THEN** the upper and side portrait groups use the adjusted positions, with lower left portraits shifted toward the left edge and lower right portraits toward the right edge
+
 ### Requirement: Pointer-reactive depth
 Fine-pointer movement SHALL create responsive GPU fluid smoke and Steam-style game-card depth within the performance, stacking and accessibility limits below.
 

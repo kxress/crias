@@ -8,6 +8,10 @@ Desktop captures at 1448 × 1086 and 1920 × 1080 show the updated Kress/Discord
 
 The earlier repeated cone outlines are now irregular, differently shaped alpine ridges with a connected cyan/violet triangular mesh. Both ranges stay in the side corners, clear of the sun, and behind the opaque city. Three illustrated cloud strips loop continuously left at 75s, 47s and 31s per tile; each layer stays above the skyline. The desktop sun lift is 116px, about 32px lower than before. The [1448px capture](screenshots/scene-retrowave-1448-2026-11-10.webp) and [1920px capture](screenshots/scene-retrowave-1920-2026-11-10.webp) were inspected. Browser checks confirmed city/cloud/mountain stacking, no horizontal overflow, leftward movement, and a visually continuous transition at each cloud-loop boundary. With the software-renderer fallback or reduced motion, cloud animation stays disabled.
 
+## Desktop portrait spacing — 2026-11-10
+
+Raised the six portraits above the panels by 16px and the eight side-column portraits by 32px. Moved the four lowest side portraits outward until they retain visible room for the complete silhouette and glow at the page edges. The [1448px capture](screenshots/portrait-spacing-1448-2026-11-10.webp) and [1920px capture](screenshots/portrait-spacing-1920-2026-11-10.webp) were inspected; all portrait images loaded and neither desktop viewport overflowed horizontally.
+
 ## Character hand revisions — 2026-11-10
 
 The replacement Tifa was inspected at full size and in static desktop captures at 1448 and 1920 CSS pixels: her existing guard pose, independent placement and lower fade remain intact, and her open glove has four fingers and a distinct thumb. The padded WebP's center matched the PNG master pixel-for-pixel. Chromium on Windows loaded the art without horizontal overflow or page errors; mouse hover and jump, nine copy controls, reduced motion and repository-subpath behavior passed the local Playwright checks. The full-size and site inspections in this pass used screenshots on desktop; no mobile redesign was performed.

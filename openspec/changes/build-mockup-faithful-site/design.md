@@ -104,3 +104,7 @@ Keep the map URL in the Minecraft data record and render a normal, keyboard-acce
 ### 10. Wireframe mountains and one-way cloud parallax
 
 Replace the cone-like silhouettes with independently drawn, irregular mountain ridges, varied alpine peaks, and connected triangular neon mesh, bounded to the side corners and layered below the opaque skyline without crossing the sun. Move the sun down by lowering the lift from about 148px to about 116px. Use lightweight, repeating illustrated cloud strips in the sky-only layer; translate whole repeated strips left by an exact tile width on linear loops at different speeds, so they never reverse or visibly jump. Preserve the existing GPU/static and reduced-motion fallbacks, hero, city, portrait and panel positions.
+
+### 11. Desktop character spacing
+
+Move the six portraits above the panels upward about 16px. Move all eight side-column portraits upward about 32px, and move the bottom two on each side up to 32px farther outward. Keep the complete artwork and glow clearance inside the page, and keep the desktop composition around the centered panels.

@@ -48,6 +48,13 @@ The latest supplied montage SHALL guide the approved desktop placement: the six 
 - **WHEN** the full desktop page is inspected at 1448px or 1920px
 - **THEN** the lower top groups, regular side columns and closely flanking footer statues retain a balanced composition around the central panels
 
+### Requirement: Desktop portrait spacing
+The desktop collage SHALL place the six upper portraits about 16px higher and the eight side-column portraits about 32px higher. The two lowest portraits in each side column SHALL also shift outward toward the page edge by up to about 32px, while preserving complete artwork and keeping it inside the page.
+
+#### Scenario: Reviewing the desktop portrait spacing
+- **WHEN** the page is viewed at 1448px or 1920px wide
+- **THEN** the upper and side portrait groups use the adjusted positions, with lower left portraits shifted toward the left edge and lower right portraits toward the right edge
+
 ### Requirement: Joining panel presentation
 The joining panel SHALL use a glowing magenta frame, globe icon, heading and divider. Heading dividers SHALL pulse through border color without an inset shadow across the heading area. Its four numbered steps SHALL appear in sequence, horizontally on wide screens, with icons and progression cues. The management URL SHALL appear as readable text in a neon inset with a copy control. All neon details inside either main panel, including Japanese labels, URL text and frame, icons, step badges, chevrons and copy controls, SHALL be pink while idle and shift to cyan together when the panel is hovered or contains keyboard focus; their glow animation SHALL continue in either state. Copy feedback SHALL appear in a document-level floating toast above the footer and copyleft text, positioned clear of footer text when visible, without affecting layout.
 
