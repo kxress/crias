@@ -72,10 +72,15 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
   const masks = new WeakMap();
   const wiggles = new WeakMap();
   const jumps = new WeakMap();
+  const returnFrames = new Map();
   const activeAnimations = new Set();
   let hovered = null;
   let pointer = null;
   let pointerFrame = 0;
+  let drag = null;
+  let dragFrame = 0;
+  let suppressClickPoint = null;
+  let suppressClickTimer = 0;
 
   function alphaMask(image) {
     if (masks.has(image)) return masks.get(image);
@@ -108,8 +113,9 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
     // Undo both the billboard's individual transforms and the portrait's own
     // transform, including any currently running wiggle or jump.
     const rotation = style.rotate === 'none' ? 0 : parseFloat(style.rotate);
+    const translation = style.translate === 'none' ? [0, 0] : style.translate.split(' ').map((value) => parseFloat(value) || 0);
     const scale = style.scale === 'none' ? [1, 1] : style.scale.split(' ').map(Number);
-    const matrix = new DOMMatrix().rotate(rotation).scale(scale[0], scale[1] ?? scale[0])
+    const matrix = new DOMMatrix().translate(translation[0], translation[1] ?? 0).rotate(rotation).scale(scale[0], scale[1] ?? scale[0])
       .multiply(new DOMMatrix(style.transform === 'none' ? undefined : style.transform));
     const corners = [[0, 0], [width, 0], [0, height], [width, height]]
       .map(([cornerX, cornerY]) => matrix.transformPoint(new DOMPoint(cornerX, cornerY)));
@@ -159,10 +165,65 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
     document.documentElement.classList.remove('portrait-hovered');
   }
 
+  function finishDrag(event, animateReturn = true) {
+    if (!drag || (event && event.pointerId !== drag.pointerId)) return;
+    const session = drag;
+    drag = null;
+    session.portrait.classList.remove('portrait-dragging');
+    session.collage?.classList.remove('portrait-collage-dragging');
+    document.documentElement.classList.remove('portrait-drag-active');
+    if (session.moved && animateReturn && motionIsActive()) {
+      const portrait = session.portrait;
+      const started = performance.now();
+      const duration = 460;
+      portrait.classList.add('portrait-returning');
+      const returnToOrigin = (now) => {
+        if (!returnFrames.has(portrait)) return;
+        const progress = Math.min(1, (now - started) / duration);
+        const eased = 1 - (1 - progress) ** 3;
+        const x = session.currentX * (1 - eased);
+        const y = session.currentY * (1 - eased);
+        portrait.style.setProperty('--portrait-drag-x', `${x}px`);
+        portrait.style.setProperty('--portrait-drag-y', `${y}px`);
+        if (progress < 1) returnFrames.set(portrait, requestAnimationFrame(returnToOrigin));
+        else {
+          returnFrames.delete(portrait);
+          portrait.classList.remove('portrait-returning');
+          portrait.style.removeProperty('--portrait-drag-x');
+          portrait.style.removeProperty('--portrait-drag-y');
+        }
+      };
+      returnFrames.set(portrait, requestAnimationFrame(returnToOrigin));
+      if (event?.type === 'pointerup') {
+        suppressClickPoint = { x: event.clientX, y: event.clientY };
+        clearTimeout(suppressClickTimer);
+        suppressClickTimer = window.setTimeout(() => { suppressClickPoint = null; }, 250);
+      }
+    } else {
+      session.portrait.classList.remove('portrait-returning');
+      if (session.moved) {
+        session.portrait.style.removeProperty('--portrait-drag-x');
+        session.portrait.style.removeProperty('--portrait-drag-y');
+      }
+    }
+  }
+
   function stopPortraitMotion() {
     if (pointerFrame) cancelAnimationFrame(pointerFrame);
     pointerFrame = 0;
     pointer = null;
+    if (dragFrame) cancelAnimationFrame(dragFrame);
+    dragFrame = 0;
+    finishDrag(null, false);
+    returnFrames.forEach((frame, portrait) => {
+      cancelAnimationFrame(frame);
+      portrait.classList.remove('portrait-returning');
+      portrait.style.removeProperty('--portrait-drag-x');
+      portrait.style.removeProperty('--portrait-drag-y');
+    });
+    returnFrames.clear();
+    clearTimeout(suppressClickTimer);
+    suppressClickPoint = null;
     clearHover();
     activeAnimations.forEach((animation) => animation.cancel());
     activeAnimations.clear();
@@ -172,8 +233,71 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
   reducedMotion.addEventListener('change', () => {
     if (reducedMotion.matches) stopPortraitMotion();
   });
+  window.addEventListener('pointerdown', (event) => {
+    if (event.pointerType !== 'mouse' || event.button !== 0 || !motionIsActive() || drag) return;
+    const portrait = portraitAt(event.clientX, event.clientY);
+    if (!portrait) return;
+    const returnFrame = returnFrames.get(portrait);
+    if (returnFrame) cancelAnimationFrame(returnFrame);
+    returnFrames.delete(portrait);
+    portrait.classList.remove('portrait-returning');
+    const existingX = parseFloat(getComputedStyle(portrait).getPropertyValue('--portrait-drag-x')) || 0;
+    const existingY = parseFloat(getComputedStyle(portrait).getPropertyValue('--portrait-drag-y')) || 0;
+    drag = {
+      portrait,
+      collage: portrait.closest('.hero__collage, .footer-collage'),
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      moved: false,
+      initialX: existingX,
+      initialY: existingY,
+      currentX: existingX,
+      currentY: existingY,
+      targetX: existingX,
+      targetY: existingY
+    };
+    try { document.documentElement.setPointerCapture(event.pointerId); } catch { /* Window listeners still cover the drag. */ }
+  });
   window.addEventListener('pointermove', (event) => {
-    if (event.pointerType !== 'mouse' || !motionIsActive()) return;
+    if (!drag || event.pointerId !== drag.pointerId) return;
+    const deltaX = event.clientX - drag.startX;
+    const deltaY = event.clientY - drag.startY;
+    if (!drag.moved && Math.hypot(deltaX, deltaY) >= 4) {
+      drag.moved = true;
+      wiggles.get(drag.portrait)?.cancel();
+      jumps.get(drag.portrait)?.cancel();
+      if (hovered === drag.portrait) clearHover();
+      drag.portrait.classList.add('portrait-dragging');
+      drag.collage?.classList.add('portrait-collage-dragging');
+      document.documentElement.classList.add('portrait-drag-active');
+      drag.portrait.style.setProperty('--portrait-drag-x', '0px');
+      drag.portrait.style.setProperty('--portrait-drag-y', '0px');
+    }
+    if (!drag.moved) return;
+    drag.targetX = drag.initialX + deltaX;
+    drag.targetY = drag.initialY + deltaY;
+    if (!dragFrame) {
+      const followPointer = () => {
+        dragFrame = 0;
+        if (!drag?.moved || !motionIsActive()) return;
+        const dx = drag.targetX - drag.currentX;
+        const dy = drag.targetY - drag.currentY;
+        drag.currentX = Math.abs(dx) < .45 ? drag.targetX : drag.currentX + dx * .42;
+        drag.currentY = Math.abs(dy) < .45 ? drag.targetY : drag.currentY + dy * .42;
+        drag.portrait.style.setProperty('--portrait-drag-x', `${drag.currentX}px`);
+        drag.portrait.style.setProperty('--portrait-drag-y', `${drag.currentY}px`);
+        if (Math.abs(drag.targetX - drag.currentX) >= .45 || Math.abs(drag.targetY - drag.currentY) >= .45) dragFrame = requestAnimationFrame(followPointer);
+      };
+      dragFrame = requestAnimationFrame(followPointer);
+    }
+    event.preventDefault();
+  });
+  window.addEventListener('pointerup', (event) => finishDrag(event, true));
+  window.addEventListener('pointercancel', (event) => finishDrag(event, true));
+  window.addEventListener('dragstart', (event) => { if (drag) event.preventDefault(); });
+  window.addEventListener('pointermove', (event) => {
+    if (event.pointerType !== 'mouse' || !motionIsActive() || drag) return;
     pointer = { x: event.clientX, y: event.clientY };
     if (pointerFrame) return;
     pointerFrame = requestAnimationFrame(() => {
@@ -197,6 +321,12 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
   });
   window.addEventListener('scroll', clearHover, { passive: true });
   window.addEventListener('click', (event) => {
+    if (suppressClickPoint) {
+      const suppress = Math.hypot(event.clientX - suppressClickPoint.x, event.clientY - suppressClickPoint.y) <= 3;
+      suppressClickPoint = null;
+      clearTimeout(suppressClickTimer);
+      if (suppress) return;
+    }
     if (!motionIsActive() || event.button !== 0 || event.detail === 0) return;
     const portrait = portraitAt(event.clientX, event.clientY);
     if (!portrait) return;

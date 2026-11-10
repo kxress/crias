@@ -151,6 +151,20 @@ Fine-pointer movement SHALL create responsive GPU fluid smoke and Steam-style ga
 - **WHEN** reduced motion is enabled, or a visitor uses touch or keyboard focus
 - **THEN** the fluid canvas and card tilt are absent, and essential controls remain operable and clearly focused
 
+### Requirement: Desktop hero hover response
+On desktop fine-pointer devices with motion enabled, hovering the hero title group SHALL gently enlarge and rock the chrome wordmark, cursive subtitle, and Japanese eyebrow together without changing layout or hiding text. The effect SHALL stop under reduced motion or the static graphics fallback.
+
+#### Scenario: Hovering the hero title
+- **WHEN** a visitor hovers the hero title group with motion enabled
+- **THEN** the wordmark, subtitle and Japanese eyebrow subtly zoom and rock in place, then settle when the pointer leaves
+
+### Requirement: Desktop character drag and return
+On desktop fine-pointer devices with motion enabled, each visible waifu illustration or its independent window frame SHALL be draggable with the mouse. The selected artwork SHALL follow the drag with eased motion and ease back to its original position on release, without moving surrounding content or capturing interactions on panels, links or controls. Reduced motion and the static graphics fallback SHALL disable the drag animation and leave the original placement intact.
+
+#### Scenario: Dragging a character
+- **WHEN** a visitor presses and drags on a visible character silhouette or window frame, then releases the mouse
+- **THEN** only that character follows the pointer with easing and smoothly returns to its original position; nearby interface controls remain usable
+
 ## MODIFIED Requirements
 
 ### Requirement: Desktop portrait spacing

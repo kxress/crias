@@ -13,6 +13,7 @@ The implementation follows the mockup with motion and depth refinements. The lat
 - Remove the rejected water reflection, lower the sun into the skyline, make its stripe gaps transparent, brighten the mountain sky, and add slow cloud wisps that move in separate horizontal parallax layers above the sun and clear of the buildings.
 - Publish the user-confirmed management URL and eight server records, with manual invitation guidance and accessible copy interactions.
 - Add explicit fidelity, responsive, accessibility, motion, and static-hosting acceptance criteria and a granular implementation and verification checklist.
+- Show each server's connection protocol and identify the arena-v22 Minecraft server as Java/Bedrock mixed play; add a subtle hover animation to the hero title group and eased desktop drag-and-return for character artwork.
 
 ## Capabilities
 

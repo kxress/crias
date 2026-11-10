@@ -103,3 +103,6 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 - [x] 8.26 Raise Shantae and Tamamo 8px, and Marie Rose and Oguri 16px from their current footer positions. Inspect full-page desktop captures at 1448px and 1920px; run the build.
 - [x] 8.27 Move Oguri Cap another 8px up. Inspect full-page desktop captures at 1448px and 1920px; run the build.
 - [x] 8.28 Keep Shantae fixed. Raise Marie Rose, Oguri Cap and Tamamo Cross another 16px each. Inspect desktop captures at 1448px and 1920px and run the build.
+- [x] 8.29 Render each canonical server protocol beside its port and identify arena-v22 as Java + Bedrock while retaining version 1.21.11. Verify all eight rows and ensure the labels fit the desktop cards.
+- [x] 8.30 Add a no-layout-shift hover zoom and gentle rocking animation to the chrome hero title, subtitle and Japanese eyebrow. Respect reduced motion and static graphics mode.
+- [x] 8.31 Add eased mouse dragging and return-to-origin for visible desktop waifus, including framed portraits; avoid controls, suppress click-jump after a drag, and honor reduced-motion/static fallbacks. Verify a drag and release on both an upper character and a footer character.

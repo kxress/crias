@@ -20,7 +20,7 @@ const cards = data.games.map((game) => {
     <ul class="server-list">
       ${game.servers.map((server) => `<li class="server-row">
         <span class="server-row__hostname" id="host-${safe(server.hostname)}">${readableHostname(server.hostname)}</span>
-        <span class="server-row__details">${server.detailsUrl ? `<a class="badge badge--${safe(game.accent)} badge--${safe(server.variant.toLowerCase().replace(/\s+/g, '-'))} badge--link" href="${safe(server.detailsUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Detalhes de ${safe(server.variant)} (abre em nova aba)">${safe(server.variant)}</a>` : `<span class="badge badge--${safe(game.accent)} badge--${safe(server.variant.toLowerCase().replace(/\s+/g, '-'))}">${safe(server.variant)}</span>`}<span>Porta: ${safe(server.port)}${server.protocol === 'UDP' ? ' / UDP' : ''}</span></span>
+        <span class="server-row__details">${server.detailsUrl ? `<a class="badge badge--${safe(game.accent)} badge--${safe(server.variant.toLowerCase().replace(/\s+/g, '-'))} badge--link" href="${safe(server.detailsUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Detalhes de ${safe(server.variant)} (abre em nova aba)">${safe(server.variant)}</a>` : `<span class="badge badge--${safe(game.accent)} badge--${safe(server.variant.toLowerCase().replace(/\s+/g, '-'))}">${safe(server.variant)}</span>`}${server.edition ? `<span class="server-row__edition">${safe(server.edition)}</span>` : ''}<span>Porta: ${safe(server.port)} / ${safe(server.protocol)}</span></span>
         <button class="copy-button" type="button" data-copy="${safe(server.hostname)}" aria-label="Copiar endereço ${safe(server.hostname)}" hidden><span aria-hidden="true"></span></button>
       </li>`).join('')}
     </ul>

@@ -43,6 +43,7 @@
         {
           "hostname": "arena-v22.minecraft.games.kress.wtf",
           "variant": "1.21.11",
+          "edition": "Java + Bedrock",
           "port": 25565,
           "protocol": "TCP"
         },
