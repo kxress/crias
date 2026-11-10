@@ -48,3 +48,5 @@ On devices without identifiable hardware-accelerated graphics, or when the brows
 On desktop, let each character illustration or its window frame respond to pointer entry with an eased left-right wiggle and to a primary click with a squash-and-stretch jump. Keep the artwork decorative and its transparent areas and nearby controls unobstructed; disable these reactions whenever motion is unavailable or reduced.
 
 Replace the current Tifa portrait with a new numbered, transparent variant guided by the supplied Final Fantasy VII illustration, preserving her current pose and correcting her hand. Refresh Nagatoro's hand and playful expression without sexualization, and correct Aqua's hand while retaining her pose. Retain preceding assets and the existing portrait positions, fades and pointer interactions.
+
+Update the invitation step to name Kress and Discord/Telegram, and add the supplied BlueMap link to the Minecraft card without a copy button.

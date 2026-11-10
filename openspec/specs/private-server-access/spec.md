@@ -7,7 +7,7 @@ Describe the joining instructions and server directory shown in the CRIAS GAMES 
 ## Requirements
 
 ### Requirement: Manual network onboarding
-The site SHALL present four ordered steps: install NetBird, configure the management URL, request a manual invitation from Crias, and connect to the network and a game server. It SHALL make clear that invitations are manual and SHALL NOT imply the website issues them.
+The site SHALL present four ordered steps: install NetBird, configure the management URL, request a manual invitation from Kress, and connect to the network and a game server. It SHALL make clear that invitations are manual and SHALL NOT imply the website issues them.
 
 #### Scenario: First-time visitor
 - **WHEN** a visitor reads the joining panel
@@ -21,7 +21,7 @@ The directory SHALL organize servers into illustrated Terraria, Minecraft, and H
 - **THEN** they can distinguish game and variant and read the corresponding full hostname and port
 
 ### Requirement: Confirmed management URL
-The management URL SHALL be `https://netbird.kress.wtf`, selectable and copyable in the configuration step. The invitation instructions SHALL describe the manual request to Crias without inventing contact details or an automatic invitation process.
+The management URL SHALL be `https://netbird.kress.wtf`, selectable and copyable in the configuration step. The invitation instructions SHALL describe the manual request to Kress without inventing contact details or an automatic invitation process.
 
 #### Scenario: Configuring NetBird
 - **WHEN** a visitor follows the configuration step
@@ -59,7 +59,7 @@ Available management URLs and server hostnames SHALL have keyboard-operable copy
 - **THEN** the visitor receives an accessible error and can select the unchanged value
 
 ### Requirement: Reference joining copy
-The onboarding panel SHALL present four numbered steps titled `Instale o NetBird`, `Configure a URL`, `Peça um invite pro Crias`, and `Conecte e jogue!`. It SHALL explain desktop installation, management URL configuration, a manual Discord or WhatsApp invitation request to Kress, and connection to the network and a listed server.
+The onboarding panel SHALL present four numbered steps titled `Instale o NetBird`, `Configure a URL`, `Peça um invite pro Kress`, and `Conecte e jogue!`. It SHALL explain desktop installation, management URL configuration, a manual Discord or Telegram invitation request to Kress, and connection to the network and a listed server.
 
 #### Scenario: Following onboarding
 - **WHEN** a new visitor reads the steps in order
@@ -71,6 +71,13 @@ The directory SHALL display the eight confirmed records from the persistent spec
 #### Scenario: Reading server details
 - **WHEN** a visitor examines any record
 - **THEN** its complete hostname, variant and port are associated visually and semantically, and Hytale displays `Porta: 5520 / UDP`
+
+### Requirement: Minecraft map link
+The Minecraft card SHALL provide an accessible link to `https://map.minecraft.games.kress.wtf` separately from its server rows, without a copy control. It SHALL work without JavaScript and follow the card's pink idle and cyan hover/focus colors.
+
+#### Scenario: Opening the Minecraft map
+- **WHEN** a visitor activates the BlueMap link in the Minecraft card
+- **THEN** the supplied map URL opens, with no additional server row or copy button
 
 ### Requirement: Copy feedback without layout shift
 The site SHALL provide nine independently named copy controls, one for the management URL and one per server hostname. Successful copying SHALL provide brief visible and announced feedback without resizing the control, altering the value or preventing immediate repetition. Failure SHALL be announced and leave the value selectable.

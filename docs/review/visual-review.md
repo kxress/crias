@@ -1,5 +1,9 @@
 # Visual and functional review
 
+## Invite and Minecraft map — 2026-11-10
+
+Desktop captures at 1448 × 1086 and 1920 × 1080 show the updated Kress/Discord/Telegram wording and a compact BlueMap link beneath the three Minecraft server rows. The link opens the supplied destination in a new tab, follows the pink/cyan card interaction state and remains keyboard-accessible and available without JavaScript. Chromium checks confirmed the eight server rows, nine original copy values, equal card dimensions and repository-subpath rendering; the existing Tifa experiment remained available at port 4173.
+
 ## Character hand revisions — 2026-11-10
 
 The replacement Tifa was inspected at full size and in static desktop captures at 1448 and 1920 CSS pixels: her existing guard pose, independent placement and lower fade remain intact, and her open glove has four fingers and a distinct thumb. The padded WebP's center matched the PNG master pixel-for-pixel. Chromium on Windows loaded the art without horizontal overflow or page errors; mouse hover and jump, nine copy controls, reduced motion and repository-subpath behavior passed the local Playwright checks. The full-size and site inspections in this pass used screenshots on desktop; no mobile redesign was performed.

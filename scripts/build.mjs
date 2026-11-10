@@ -24,6 +24,7 @@ const cards = data.games.map((game) => {
         <button class="copy-button" type="button" data-copy="${safe(server.hostname)}" aria-label="Copiar endereço ${safe(server.hostname)}" hidden><span aria-hidden="true"></span></button>
       </li>`).join('')}
     </ul>
+    ${game.mapUrl ? `<a class="game-map" href="${safe(game.mapUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir BlueMap do Minecraft (abre em nova aba)">Ver mapa (BlueMap) <span aria-hidden="true">↗</span></a>` : ''}
   </article>`;
 }).join('\n');
 

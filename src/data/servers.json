@@ -38,6 +38,7 @@
     {
       "name": "Minecraft",
       "accent": "minecraft",
+      "mapUrl": "https://map.minecraft.games.kress.wtf",
       "servers": [
         {
           "hostname": "arena-v22.minecraft.games.kress.wtf",

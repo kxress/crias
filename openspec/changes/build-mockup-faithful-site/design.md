@@ -96,3 +96,7 @@ Keep the server-list wrapper transparent and unframed while retaining the dark b
 ### 8. Reliable local preview and experiment access
 
 Keep port 4173 as the single local preview. The build must write assets and experiment files into the existing output through temporary files and atomic file renames, publishing the main HTML last and pruning obsolete generated files only after success. Do not remove the live output directory at build start. Preserve `/experiments/tifa-physics/` and provide a small `/experiments/` index using relative links so the same pages also work under `/crias-games/`. Verify root, experiment index, existing demo and their assets during repeated builds, and inspect the demo's rendered WebGL state.
+
+### 9. Minecraft map and contact wording
+
+Keep the map URL in the Minecraft data record and render a normal, keyboard-accessible link below its three server rows. Match the card's pink-to-cyan interaction colors, retain the existing card dimensions and artwork, and do not add a copy control. Update the manual invitation wording to Kress on Discord or Telegram.
