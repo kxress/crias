@@ -70,7 +70,7 @@ function announce(message, state) {
   clearTimeout(announceRevealTimer);
   status.textContent = '';
   delete status.dataset.state;
-  const footer = document.querySelector('.site-footer');
+  const footer = document.querySelector('.footer-signature');
   const footerTop = footer?.getBoundingClientRect().top ?? window.innerHeight;
   const footerClearance = footerTop >= 0 && footerTop < window.innerHeight
     ? Math.max(0, window.innerHeight - footerTop + 12 - 14)

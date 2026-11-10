@@ -34,7 +34,7 @@ The desktop collage SHALL preserve the fourteen named reference characters in th
 - **WHEN** a visitor views the desktop composition
 - **THEN** the individual characters and bust frame the content without covering text, controls or each other's essential features
 
-### Requirement: Latest desktop montage placement
+### Requirement: Footer character collage
 The footer SHALL include separate transparent illustrations of Shantae and anime Marie Rose on the left, and chibi Oguri Cap eating rice with chibi Tamamo Cross reacting on the right. Their numbered masters and derivatives SHALL be preserved with recorded provenance, clear silhouettes, alpha clearance for glow and CSS bottom fades. The four new characters SHALL supplement the original fourteen, with no backgrounds or photo frames, and SHALL leave the centered footer signature and controls unobscured.
 
 #### Scenario: Footer character collage

@@ -2,6 +2,12 @@
 
 ## Preview availability and demos — 2026-11-10
 
+## Desktop montage layout and first footer assets — 2026-11-10
+
+Full-page captures `screenshots/montage-desktop-1448-full.png` and `screenshots/montage-desktop-1920-full.png` were visually inspected at their native sizes. Both retain the fourteen original portraits and add four separate footer illustrations, with two instances of the integrated statue near the centered signature. The upper characters begin near y=165–195; side columns descend from Kurisu near y=470. The collage is bounded to 1448px so the wider viewport does not push the characters away from the panels. The document was 1393px tall and had no horizontal overflow; every raster image loaded. Footer text and controls remain unobscured.
+
+The four generated masters were inspected individually and together in `screenshots/footer-character-contact-sheet.png`; each has genuine alpha. Padded lossless WebP derivatives matched their resized, centered PNG sources with zero changed pixels. The initial Shantae and Marie outfits are retained for history; the user requested replacement outfits matching two supplied references, so artwork task 8.4 remains open. The subsequent request to lower the content panels for more exposed skyline is also pending; these captures document the preceding layout.
+
 The live preview at `http://localhost:4173/` and the existing Tifa experiment returned HTTP 200. The experiment is preserved at `/experiments/tifa-physics/`; a new `/experiments/` index links to it and back to the site. Both routes and their relative assets also work under `/crias-games/`. Port 4174 was not listening.
 
 The build now publishes complete files by temporary-file rename, publishes the main HTML last, and cleans obsolete output only after success. A rebuild probe made 240 requests across the site, stylesheet, experiment index, Tifa HTML/CSS/JS and repository-subpath routes during a concurrent build: every response was HTTP 200 and nonempty. An obsolete probe file was correctly removed after the build.

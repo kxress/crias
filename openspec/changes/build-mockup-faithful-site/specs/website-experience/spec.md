@@ -62,7 +62,7 @@ The copy success/error toast SHALL render in a document-level stacking context a
 - **WHEN** a visitor activates a copy control while the footer is visible
 - **THEN** the feedback toast is fully legible above the footer without covering its text or changing page layout
 
-### Requirement: Paired footer statue artwork
+### Requirement: Footer character collage
 The footer SHALL also include four independent transparent character illustrations: Shantae, anime Marie Rose, chibi Oguri Cap eating rice, and chibi Tamamo Cross reacting to her. Shantae and Marie Rose SHALL occupy the left footer spaces; Oguri and Tamamo SHALL form the food joke on the right. These assets SHALL retain numbered masters and derivatives, complete silhouettes, glow clearance and CSS bottom fades without photo backgrounds, and SHALL NOT obscure the footer signature or actionable content.
 
 #### Scenario: Inspecting the footer character joke

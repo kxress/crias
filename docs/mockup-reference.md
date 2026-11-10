@@ -209,7 +209,7 @@ Visual verification could compare the desktop implementation with `mockup.png` a
 - **THEN** the layout retains the specified visual identity and content while the nine copy controls and responsive presentation remain usable
 
 
-## Latest accepted scene and card details ? 2026-11-10
+## Latest accepted scene and card details — 2026-11-10
 
 The desktop sun uses a 25% bottom clip and a lift near 148px under the current horizon formula. Only its lower half has transparent stripe gaps. It has no neon glow or neon pulse; a brief non-glowing glitch is acceptable. The city is at 100% CSS opacity with normal blending, and the mountain layer sits behind opaque building pixels. Clouds move above the sun and stop before the skyline.
 
