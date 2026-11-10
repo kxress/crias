@@ -10,6 +10,12 @@ The Tifa demo was visually inspected in `screenshots/demo-tifa-1280.png` (1280px
 
 ## Follow-up review — 2026-11-10
 
+### Continuous card correction
+
+The current three cards use `terraria-background-1.webp`, `minecraft-background-1.webp` and `hytale-background-1.webp` as single complete backdrops. The split header/lower images and generated Hytale landscape are absent from rendered HTML. `screenshots/cards-continuous-1448.png` was visually inspected: the screenshots remain continuous behind dark individual rows, with no separate server-list fill or frame. The Hytale forest/tower fills the whole card, and Minecraft shows the official mountain/cherry landscape.
+
+Playwright Chromium 158.0.8127.18 at 1448 × 1086 confirmed all three cards are 347 × 318px, each has one loaded full-size image, the row counts are 4/3/1, all nine copy payloads match canonical data, and all seven badge links retain their specified destinations. No horizontal page overflow was present. Earlier split-image descriptions below document the preceding revision, not this corrected implementation.
+
 The desktop scene and game cards were recaptured and inspected after the latest layer and artwork updates. Exact screenshots are saved at `screenshots/sun-horizon-1448x1086.png` and `screenshots/sun-horizon-1920x1080.png`. They were captured with Playwright 1.65.0 on Windows at DPR 1. An interactive browser check ran in Paseo's Electron 44.2.0 / Chrome 152.0.7977.76 at 1448 × 1086; its 22 raster images all loaded. No physical device or second browser engine was used, and mobile was intentionally not reviewed again per the user's instruction.
 
 The full desktop composition and all fourteen character illustrations are visible in both captures. All three game cards are 318px tall. The Minecraft lower card area now uses `minecraft-landscape.webp`, an official Mojang world screenshot; its former CSS green block bars and CSS scenery background are gone. Hytale keeps its separate lower environment illustration. Terraria uses its screenshot only in the header so the same forest band is not repeated beneath its rows. The header titles are compact, upright white lettering over the art; individual server rows keep their own dark fill and fine border while the list wrapper stays transparent. All seven release/modpack badge links resolve to their specified pages; idle badges are pink and the hovered Minecraft badge switches to cyan.

@@ -11,10 +11,11 @@ const safe = (text) => String(text).replace(/[&<>"']/g, (char) => ({ '&': '&amp;
 const readableHostname = (hostname) => safe(hostname).replaceAll('.', '.<wbr>');
 
 const cards = data.games.map((game) => {
-  const [artWidth, artHeight] = game.accent === 'terraria' ? [1774, 887] : [1672, 941];
+  const [artWidth, artHeight] = game.accent === 'terraria' ? [950, 350] : [1600, 900];
   return `
   <article class="game-card game-card--${safe(game.accent)}" aria-labelledby="game-${safe(game.accent)}">
-    <div class="game-art game-art--${safe(game.accent)}" aria-hidden="true"><img class="game-art__image" src="./assets/art/${safe(game.accent)}-scene.webp" width="${artWidth}" height="${artHeight}" alt=""><span class="game-art__logo">${safe(game.name)}</span></div>
+    <img class="game-card__art" src="./assets/art/${safe(game.accent)}-background-1.webp" width="${artWidth}" height="${artHeight}" alt="" aria-hidden="true">
+    <div class="game-art" aria-hidden="true"><span class="game-art__logo">${safe(game.name)}</span></div>
     <h3 class="visually-hidden" id="game-${safe(game.accent)}">${safe(game.name)}</h3>
     <ul class="server-list">
       ${game.servers.map((server) => `<li class="server-row">
@@ -23,8 +24,6 @@ const cards = data.games.map((game) => {
         <button class="copy-button" type="button" data-copy="${safe(server.hostname)}" aria-label="Copiar endereço ${safe(server.hostname)}" hidden><span aria-hidden="true"></span></button>
       </li>`).join('')}
     </ul>
-    ${game.accent === 'minecraft' ? '<div class="game-landscape game-landscape--minecraft" aria-hidden="true"><img src="./assets/art/minecraft-landscape.webp" width="1672" height="576" alt=""></div>' : ''}
-    ${game.accent === 'hytale' ? '<div class="game-landscape game-landscape--hytale" aria-hidden="true"><img src="./assets/art/hytale-scene-1.webp" width="1672" height="941" alt=""></div>' : ''}
   </article>`;
 }).join('\n');
 
