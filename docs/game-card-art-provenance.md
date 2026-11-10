@@ -9,3 +9,9 @@ The active card images are standalone cropped derivatives of real game screensho
 | Hytale | `src/assets/art/hytale-scene.webp` | First-party Hytale media-gallery screenshot titled “Zone 1 Shadows,” showing the forest biome and stone structure. Source page: [Hytale Media](https://hytale.com/media); direct full-size image: [1920 × 1080 screenshot](https://cdn.hytale.com/5e7b9e9b50cbcd001176c5ad_1___zone_1_shadows.jpg). Hytale labels its gallery media as work in progress. | A 1920 × 384 landscape band was cropped, scaled to the existing card-art canvas, and extended with a blurred edge fill. |
 
 The three new derivatives were encoded as WebP at quality 88 with ImageMagick. Their final canvases retain the existing 1774 × 887 Terraria and 1672 × 941 Minecraft/Hytale dimensions, so the site markup and card geometry do not need to change. The source game art remains copyrighted by its respective owners; this provenance record does not grant reuse rights. Terraria's source is not first-party and its reuse terms were not found during this change.
+
+
+## Lower card images
+
+- **Minecraft lower card image**: src/assets/art/minecraft-landscape.webp is a 3840×1320 crop at +0+700 from Mojang's official 3840×2160 multi-biome screenshot, resized to 1672×576 WebP at quality 90 using ImageMagick. Source page: [Discover the world of Minecraft](https://www.minecraft.net/en-us/about-minecraft); direct image: [official screenshot](https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/EXPLORE_PDPScreenshotRefresh2024_multipleBiomes_01.png).
+- **Hytale** keeps the previously generated hytale-scene-1.webp lower illustration; the separate card header is the official Hytale media-gallery screenshot described above.

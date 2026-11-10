@@ -1,5 +1,17 @@
 # Visual and functional review
 
+## Follow-up review — 2026-11-10
+
+The desktop scene and game cards were recaptured and inspected after the latest layer and artwork updates. Exact screenshots are saved at `screenshots/sun-horizon-1448x1086.png` and `screenshots/sun-horizon-1920x1080.png`. They were captured with Playwright 1.65.0 on Windows at DPR 1. An interactive browser check ran in Paseo's Electron 44.2.0 / Chrome 152.0.7977.76 at 1448 × 1086; its 22 raster images all loaded. No physical device or second browser engine was used, and mobile was intentionally not reviewed again per the user's instruction.
+
+The full desktop composition and all fourteen character illustrations are visible in both captures. All three game cards are 318px tall. The Minecraft lower card area now uses `minecraft-landscape.webp`, an official Mojang world screenshot; its former CSS green block bars and CSS scenery background are gone. Hytale keeps its separate lower environment illustration. Terraria uses its screenshot only in the header so the same forest band is not repeated beneath its rows. The header titles are compact, upright white lettering over the art; individual server rows keep their own dark fill and fine border while the list wrapper stays transparent. All seven release/modpack badge links resolve to their specified pages; idle badges are pink and the hovered Minecraft badge switches to cyan.
+
+The scene check confirmed the sun's `inset(0px 0px 25%)` clip, roughly 148px desktop lift, no box-shadow or neon pulse, normal city blending at 100% opacity, mountains behind the city, Japanese scene signs above it, no lagoon layer, and no broken images. The skyline/grid baseline remains shared. Current screenshots were visually reviewed for the sun, mountains, clouds, city, portraits/statue, joining panel, all game cards and footer.
+
+The latest refinement keeps the `.server-list` wrapper transparent and borderless while retaining dark individual `.server-row` panels with thin borders, matching the supplied card-design example. The sun's upper half is solid and its animated transparent stripes start at the disc midpoint. The integrated bust image now appears at both lower footer sides; the right instance uses `scaleX(-1)`. Full-page captures show both complete statues flanking the centered footer without crossing card panels or footer text. At 1920 × 1080 the content extends to 1238px to accommodate the lower decorations, so the full-page capture is used to inspect them; the viewport capture shows their upper portion at the fold. The desktop document has no horizontal overflow.
+
+Final screenshots: `screenshots/sun-horizon-1448x1086.png`, `screenshots/sun-horizon-1920x1080.png`, `screenshots/desktop-full-1448.png`, and `screenshots/desktop-full-1920.png`.
+
 Reviewed on 2026-11-09 in Microsoft Edge 140.0.3485.54 on Windows, using Chromium CSS viewport emulation at device scale factor 1. No physical phone, tablet or other browser engine was tested. The project provides `npm run build` and `npm run preview`; it has no separate automated test suite.
 
 ## Captures and layout
@@ -21,12 +33,11 @@ The desktop comparison shows the same broad scene structure: title and sunset, l
 
 The 2026-11-09 follow-up recaptured the current scene in Edge at 1448 × 1086 and 1920 × 1080. The expanded sky, raised smaller sun, wireframe mountain layer, skyline fade into ground fog, star boundary, full portrait glows and panel layout were visually inspected at both sizes. The captures were reviewed in the live browser session but not exported; the screenshot files listed above are the earlier saved baseline captures. The current toast was also rendered over the visible footer and inspected after success and failure; its bottom offset clears the footer by 12 px without changing document height.
 
-The 2026-11-09 lagoon pass was captured with Playwright 1.65 and Chromium 158 headless at 1448 × 1086 and 1920 × 1080. The raised horizon, sun-aligned curved reflection, skyline occlusion and clear ground grid were inspected in both captures. The reflection layer ends about 158px above the shared skyline/grid baseline. Mobile was intentionally not reviewed again in this pass, following the user’s session-wide direction.
+The 2026-11-09 scene correction removes the rejected lagoon/reflection layer and lowers the striped sun into the upper city silhouette. Mobile was intentionally not reviewed again in that pass, following the session-wide direction.
 Screenshots reviewed:
 
 - `screenshots/comparison-final-kress-2026-11-09.png` — reference and final desktop side by side at 1448 × 1086.
 - `screenshots/desktop-final-kress-1448x1086.png` and `screenshots/wide-final-kress-1920x1080.png`.
-- `screenshots/lagoon-review-1448x1086.png` and `screenshots/lagoon-review-1920x1080.png` — final sun/reflection composition at both desktop widths.
 - `screenshots/tablet-final-kress-900-full.png` and `screenshots/tablet-final-kress-1024-full.png` — full tablet documents.
 - `screenshots/mobile-final-kress-320-full.png`, `screenshots/mobile-final-kress-375-full.png`, and `screenshots/mobile-final-kress-430-full.png`.
 - `screenshots/asset-review-contact-sheet.png` — the fourteen portraits and unified bust inspected as independent transparent assets.
@@ -36,7 +47,7 @@ The active unframed character WebPs and unified bust use lossless 1280 × 1920 c
 ## Functional checks
 
 - `npm run build` completed and reported eight server records. `npm run preview` was used at `http://localhost:4173`.
-- The root path and `/crias-games/` repository subpath both returned HTTP 200 for HTML, CSS, JavaScript and `assets/art/lagoon-reflection.svg`. Asset links remain relative; no server runtime is needed after build.
+- The root path and `/crias-games/` repository subpath both returned HTTP 200 for HTML, CSS, JavaScript and relative artwork assets. Asset links remain relative; no server runtime is needed after build.
 - The nine copy values were compared with canonical data: the management URL plus all eight full hostnames. Clipboard success announces `Copiado!`; a rejected clipboard announces an error while retaining the visible selectable URL and focus. A missing clipboard API with a failed `execCommand('copy')` also reports failure and removes its temporary field. The Space key activated a focused copy button; repeated activation was checked.
 - Keyboard tab order was inspected from the skip link through the nine copy buttons. Focus outlines were visible; no pause control is present. The copyleft mark is not interactive. Chromium’s synthetic Enter event sequence did not reliably produce one activation, so Enter-key activation was not counted as independently verified; the copy controls are native `<button>` elements.
 - With JavaScript disabled, the management URL, eight server rows, fourteen illustrations and essential instructions remained present. Script-dependent motion and copy buttons stayed hidden.

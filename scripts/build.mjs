@@ -22,8 +22,8 @@ const cards = data.games.map((game) => {
         <button class="copy-button" type="button" data-copy="${safe(server.hostname)}" aria-label="Copiar endereço ${safe(server.hostname)}" hidden><span aria-hidden="true"></span></button>
       </li>`).join('')}
     </ul>
-    ${game.accent === 'minecraft' ? '<div class="game-landscape game-landscape--minecraft" aria-hidden="true"><span>▟ ▙ ▟</span></div>' : ''}
-    ${game.accent === 'hytale' ? '<div class="game-landscape game-landscape--hytale" aria-hidden="true"><img src="./assets/art/hytale-scene.webp" width="1672" height="941" alt=""></div>' : ''}
+    ${game.accent === 'minecraft' ? '<div class="game-landscape game-landscape--minecraft" aria-hidden="true"><img src="./assets/art/minecraft-landscape.webp" width="1672" height="576" alt=""></div>' : ''}
+    ${game.accent === 'hytale' ? '<div class="game-landscape game-landscape--hytale" aria-hidden="true"><img src="./assets/art/hytale-scene-1.webp" width="1672" height="941" alt=""></div>' : ''}
   </article>`;
 }).join('\n');
 
