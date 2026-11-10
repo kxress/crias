@@ -141,6 +141,11 @@ Fine-pointer movement SHALL create responsive GPU fluid smoke and Steam-style ga
 - **WHEN** the pointer moves over the page and game cards
 - **THEN** pointer movement creates curling, dissipating colored fluid, while card angle and brightness change with pointer position, a highlight follows across each card surface, and cards reset smoothly without obscuring content or moving surrounding layout
 
+#### Scenario: Playing with a character
+- **WHEN** the mouse enters a visible character illustration or its window frame, or the visitor primary-clicks it
+- **THEN** only that character eases through a left-right wiggle on entry or a whole-illustration squash-and-stretch jump on click, then returns to its existing billboard motion
+- **AND** transparent image margins do not intercept controls, and the reaction stops for reduced motion or the static graphics fallback
+
 #### Scenario: Using reduced motion, touch, or keyboard
 - **WHEN** reduced motion is enabled, or a visitor uses touch or keyboard focus
 - **THEN** the fluid canvas and card tilt are absent, and essential controls remain operable and clearly focused

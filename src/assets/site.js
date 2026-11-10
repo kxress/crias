@@ -65,6 +65,152 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
   });
 }
 
+// Portraits stay pointer-inert so their padded transparent canvases never cover
+// links or copy controls. Sample their alpha only when the pointer is nearby.
+if (finePointer.matches && !document.documentElement.classList.contains('motion-static')) {
+  const portraits = [...document.querySelectorAll('.character, .footer-character')].reverse();
+  const masks = new WeakMap();
+  const wiggles = new WeakMap();
+  const jumps = new WeakMap();
+  const activeAnimations = new Set();
+  let hovered = null;
+  let pointer = null;
+  let pointerFrame = 0;
+
+  function alphaMask(image) {
+    if (masks.has(image)) return masks.get(image);
+    if (!image.complete || !image.naturalWidth || !image.naturalHeight) return null;
+    const canvas = document.createElement('canvas');
+    canvas.width = 128;
+    canvas.height = Math.max(1, Math.round(128 * image.naturalHeight / image.naturalWidth));
+    try {
+      const context = canvas.getContext('2d', { willReadFrequently: true });
+      if (!context) return null;
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      const mask = { width: canvas.width, height: canvas.height, data: context.getImageData(0, 0, canvas.width, canvas.height).data };
+      masks.set(image, mask);
+      return mask;
+    } catch {
+      // A failed or unavailable canvas must not turn transparent margins into hit areas.
+      masks.set(image, null);
+      return null;
+    }
+  }
+
+  function pointInPortrait(portrait, x, y) {
+    const rect = portrait.getBoundingClientRect();
+    if (!rect.width || !rect.height || x < rect.left || x > rect.right || y < rect.top || y > rect.bottom) return false;
+    const style = getComputedStyle(portrait);
+    const width = parseFloat(style.width);
+    const height = parseFloat(style.height);
+    if (!width || !height) return false;
+
+    // Undo both the billboard's individual transforms and the portrait's own
+    // transform, including any currently running wiggle or jump.
+    const rotation = style.rotate === 'none' ? 0 : parseFloat(style.rotate);
+    const scale = style.scale === 'none' ? [1, 1] : style.scale.split(' ').map(Number);
+    const matrix = new DOMMatrix().rotate(rotation).scale(scale[0], scale[1] ?? scale[0])
+      .multiply(new DOMMatrix(style.transform === 'none' ? undefined : style.transform));
+    const corners = [[0, 0], [width, 0], [0, height], [width, height]]
+      .map(([cornerX, cornerY]) => matrix.transformPoint(new DOMPoint(cornerX, cornerY)));
+    const minX = Math.min(...corners.map((point) => point.x));
+    const minY = Math.min(...corners.map((point) => point.y));
+    const local = matrix.inverse().transformPoint(new DOMPoint(x - rect.left + minX, y - rect.top + minY));
+    if (local.x < 0 || local.x >= width || local.y < 0 || local.y >= height) return false;
+    if (portrait.classList.contains('window')) return true;
+    if (style.maskImage !== 'none' && local.y / height >= (portrait.classList.contains('footer-character--marie') ? .86 : .90)) return false;
+
+    const mask = alphaMask(portrait);
+    if (!mask) return false;
+    const fit = Math.min(width / portrait.naturalWidth, height / portrait.naturalHeight);
+    const imageWidth = portrait.naturalWidth * fit;
+    const imageHeight = portrait.naturalHeight * fit;
+    const imageX = local.x - (width - imageWidth) / 2;
+    const imageY = local.y - (style.objectPosition.includes('bottom') ? height - imageHeight : 0);
+    if (imageX < 0 || imageY < 0 || imageX >= imageWidth || imageY >= imageHeight) return false;
+    const pixelX = Math.min(mask.width - 1, Math.floor(imageX / imageWidth * mask.width));
+    const pixelY = Math.min(mask.height - 1, Math.floor(imageY / imageHeight * mask.height));
+    return mask.data[(pixelY * mask.width + pixelX) * 4 + 3] >= 32;
+  }
+
+  function portraitAt(x, y) {
+    const target = document.elementFromPoint(x, y);
+    if (!target || target.closest('.panel, .hero__copy, .footer-signature, a, button, input, select, textarea, summary, [contenteditable]')) return null;
+    return portraits.find((portrait) => pointInPortrait(portrait, x, y)) || null;
+  }
+
+  function react(portrait, keyframes, duration, kind, animations) {
+    animations.get(portrait)?.cancel();
+    const animation = portrait.animate(keyframes, { duration, composite: 'add' });
+    animation.id = `portrait-${kind}`;
+    animations.set(portrait, animation);
+    activeAnimations.add(animation);
+    const forget = () => {
+      activeAnimations.delete(animation);
+      if (animations.get(portrait) === animation) animations.delete(portrait);
+    };
+    animation.onfinish = forget;
+    animation.oncancel = forget;
+  }
+
+  function clearHover() {
+    hovered = null;
+    pointer = null;
+    document.documentElement.classList.remove('portrait-hovered');
+  }
+
+  function stopPortraitMotion() {
+    if (pointerFrame) cancelAnimationFrame(pointerFrame);
+    pointerFrame = 0;
+    pointer = null;
+    clearHover();
+    activeAnimations.forEach((animation) => animation.cancel());
+    activeAnimations.clear();
+  }
+
+  document.addEventListener('crias:motion-disabled', stopPortraitMotion);
+  reducedMotion.addEventListener('change', () => {
+    if (reducedMotion.matches) stopPortraitMotion();
+  });
+  window.addEventListener('pointermove', (event) => {
+    if (event.pointerType !== 'mouse' || !motionIsActive()) return;
+    pointer = { x: event.clientX, y: event.clientY };
+    if (pointerFrame) return;
+    pointerFrame = requestAnimationFrame(() => {
+      pointerFrame = 0;
+      if (!pointer || !motionIsActive()) return;
+      const portrait = portraitAt(pointer.x, pointer.y);
+      if (portrait === hovered) return;
+      hovered = portrait;
+      document.documentElement.classList.toggle('portrait-hovered', Boolean(portrait));
+      if (portrait) react(portrait, [
+        { transform: 'rotate(0deg)', easing: 'ease-in-out' },
+        { transform: 'rotate(-7deg)', offset: .25, easing: 'ease-in-out' },
+        { transform: 'rotate(6deg)', offset: .55, easing: 'ease-in-out' },
+        { transform: 'rotate(-2deg)', offset: .8, easing: 'ease-in-out' },
+        { transform: 'rotate(0deg)' }
+      ], 720, 'wiggle', wiggles);
+    });
+  }, { passive: true });
+  window.addEventListener('pointerout', (event) => {
+    if (!event.relatedTarget) clearHover();
+  });
+  window.addEventListener('scroll', clearHover, { passive: true });
+  window.addEventListener('click', (event) => {
+    if (!motionIsActive() || event.button !== 0 || event.detail === 0) return;
+    const portrait = portraitAt(event.clientX, event.clientY);
+    if (!portrait) return;
+    react(portrait, [
+      { transform: 'translateY(0) scale(1, 1)', easing: 'ease-in' },
+      { transform: 'translateY(3%) scale(1.1, .93)', offset: .15, easing: 'cubic-bezier(.18,.75,.32,1)' },
+      { transform: 'translateY(-23px) scale(.96, 1.06)', offset: .43, easing: 'cubic-bezier(.55,0,.8,.5)' },
+      { transform: 'translateY(1%) scale(1.08, .95)', offset: .72, easing: 'ease-out' },
+      { transform: 'translateY(-4px) scale(.98, 1.02)', offset: .87, easing: 'ease-in-out' },
+      { transform: 'translateY(0) scale(1, 1)' }
+    ], 760, 'jump', jumps);
+  });
+}
+
 function announce(message, state) {
   if (!status) return;
   clearTimeout(announceTimer);

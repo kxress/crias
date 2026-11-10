@@ -1,5 +1,11 @@
 # Visual and functional review
 
+## Portrait reactions — 2026-11-10
+
+All fourteen original portraits and four footer characters use their visible silhouette, or their separate window frame, for pointer entry and primary clicks. The reaction adds an eased left-right wiggle or squash-and-stretch jump to the existing whole-image billboard motion. Transparent padding remains pointer-inert and the panels, links and copy controls retain priority. The 1448 × 1086 hover, airborne Tifa and airborne Shantae screenshots were visually inspected locally; the movements preserve the composition and do not shift the page.
+
+Playwright 1.65 / Chromium 158 on Windows used a simulated hardware-identification response to exercise the animated branch. A pixel search found a clickable point on each of the 18 portraits, including both frames; real mouse input verified Tifa, a framed portrait and a footer portrait, repeated clicks, a transparent corner and all nine copy controls. Initial and live reduced motion suppress or cancel reactions. Actual SwiftShader rendering selected the static fallback and did not start the reactions. A separate Paseo Chrome 152 / Electron 44 check on an NVIDIA RTX 4070 SUPER at 1920 × 1080 confirmed a portrait jump with actual hardware acceleration. The repository subpath supported the reaction with scripts enabled and remained readable with scripts disabled. No browser errors or layout changes were observed. Firefox, Safari and physical low-end devices were not tested during this interaction pass.
+
 ## Smoke stacking and graphics fallback — 2026-11-10
 
 The fluid canvas remains above the scenery and now sits behind the fourteen original portraits, their two window frames, the four footer characters, statues, title, signs, panels and controls. The [active-fluid capture](screenshots/smoke-behind-characters-1448.png) was visually inspected at 1448 × 1086. A separate temporary solid-color canvas diagnostic was inspected at the top and footer: the character silhouettes, frames and interface remained in front of the diagnostic color while the scene remained behind it. The canvas has `pointer-events: none`; keyboard activation copied the management URL correctly, with no horizontal overflow or page errors.

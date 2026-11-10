@@ -15,6 +15,7 @@
 }
 * { box-sizing: border-box; }
 html { background: #10071f; overflow-x:clip; scroll-behavior: smooth; }
+html.portrait-hovered { cursor:pointer; }
 body { position:relative; margin:0; color:var(--ink); background:radial-gradient(ellipse at 50% 5%,#321048 0,#160821 43%,#0d0718 100%); overflow-x:clip; }
 button { font: inherit; }
 .skip-link { position: fixed; z-index: 100; left: 1rem; top: 1rem; padding: .7rem 1rem; transform: translateY(-180%); background: #fff; color: #180b25; border-radius: .4rem; }

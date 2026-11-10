@@ -44,3 +44,5 @@ Match the subsequently supplied outfits: Shantae's Swimsuit Special shirt/swimwe
 The newest dragged montage also moves all fourteen original portraits about 200px down with the panels: upper portraits begin near y=365–395, Kurisu near y=670 and the last side portraits near y=1200. Keep the footer additions in their existing lower band. Follow the official Shantae reference's drawing and outfit closely, with no baked smoke or broad glow in either replacement cutout.
 
 On devices without identifiable hardware-accelerated graphics, or when the browser cannot expose enough information to establish that acceleration is available, keep the site static and skip the fluid simulation and pointer-driven card motion before they start. Essential information, copying and focus feedback remain usable.
+
+On desktop, let each character illustration or its window frame respond to pointer entry with an eased left-right wiggle and to a primary click with a squash-and-stretch jump. Keep the artwork decorative and its transparent areas and nearby controls unobstructed; disable these reactions whenever motion is unavailable or reduced.

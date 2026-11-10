@@ -83,6 +83,11 @@ The scene SHALL feel alive through coordinated independent motion, with a slow m
 - **WHEN** ambient motion is active
 - **THEN** the visitor can read and operate the page without the effects obscuring content or shifting controls
 
+#### Scenario: Playing with a character
+- **WHEN** the mouse enters a visible character illustration or its window frame, or the visitor primary-clicks it
+- **THEN** only that character eases through a left-right wiggle on entry or a whole-illustration squash-and-stretch jump on click, then returns to its existing billboard motion without blocking nearby controls
+- **AND** these reactions stop for reduced motion or the static graphics fallback
+
 ### Requirement: Complete mobile character collage
 All fourteen reference characters SHALL remain represented on mobile. Their independently placed illustrations SHALL be freely rearranged and resized to suit the narrower composition; the mobile layout SHALL NOT be constrained to the desktop placement. The artwork SHALL leave the text and controls legible and operable.
 
