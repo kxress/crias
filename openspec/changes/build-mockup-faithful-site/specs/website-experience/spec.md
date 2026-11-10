@@ -29,8 +29,8 @@ Every visible neon accent SHALL have a perceptible glow pulse and occasional res
 - **WHEN** the page is viewed without pointer interaction while motion is enabled
 - **THEN** each neon accent pulses and has an occasional brief flicker without flashing rapidly or reducing readability
 
-### Requirement: Panel-wide neon focus color
-All neon accents in each main panel SHALL be pink at rest and cyan together on hover or keyboard focus, while preserving readable text and reduced-motion behavior.
+### Requirement: Panel-wide neon focus color and depth
+All neon accents in each main panel SHALL be pink at rest and cyan together on hover or keyboard focus, while preserving readable text and reduced-motion behavior. At desktop widths of at least 1100px, either main panel SHALL gently zoom and tilt in perspective while hovered or containing keyboard focus. The transform SHALL not alter document flow and SHALL be disabled for reduced motion and the static graphics fallback.
 
 #### Scenario: All panel accents change together
 - **WHEN** the implementation is reviewed against the approved detailed criteria
@@ -38,10 +38,12 @@ All neon accents in each main panel SHALL be pink at rest and cyan together on h
 - **AND** Heading dividers SHALL pulse through border color without an inset shadow across the heading area.
 - **AND** The accents SHALL keep pulsing and flickering in either state.
 - **AND** The same behavior SHALL work for keyboard focus and remain within reduced-motion rules.
+- **AND** On desktop, the focused panel SHALL scale up slightly and lean with a restrained perspective tilt without shifting surrounding content.
 
 #### Scenario: Focusing a main panel
 - **WHEN** a visitor hovers a main panel or tabs to a control inside it
 - **THEN** its border and every neon detail, including the Japanese label and URL frame, are pink at rest and turn cyan together while their glow remains active
+- **AND** at desktop widths with motion enabled, that panel zooms and tilts slightly; focus on a control triggers the same effect and does not move other content
 
 ### Requirement: Aligned city and grid horizon
 The city, mountains, transparent striped sun, clouds, stars, signs and low-view grid SHALL follow the specified geometry and layer order, with normal city blending and no water-reflection layer.
@@ -159,11 +161,11 @@ On desktop fine-pointer devices with motion enabled, hovering the hero title gro
 - **THEN** the wordmark, subtitle and Japanese eyebrow subtly zoom and rock in place, then settle when the pointer leaves
 
 ### Requirement: Desktop character drag and return
-On desktop fine-pointer devices with motion enabled, each visible waifu illustration or its independent window frame SHALL be draggable with the mouse. The selected artwork SHALL follow the drag with eased motion and ease back to its original position on release, without moving surrounding content or capturing interactions on panels, links or controls. Reduced motion and the static graphics fallback SHALL disable the drag animation and leave the original placement intact.
+On desktop fine-pointer devices with motion enabled, visible character artwork and independent frames SHALL follow mouse drags with eased movement and return to their CSS positions on release. Dragging SHALL preserve page selection, keep nearby layout fixed, and leave interface controls usable. A click without movement SHALL retain the portrait reaction. Reduced motion and the static graphics fallback SHALL disable drag motion.
 
 #### Scenario: Dragging a character
 - **WHEN** a visitor presses and drags on a visible character silhouette or window frame, then releases the mouse
-- **THEN** only that character follows the pointer with easing and smoothly returns to its original position; nearby interface controls remain usable
+- **THEN** only that character follows the pointer with easing and smoothly returns to its original position; no text or image selection appears, a click without movement still triggers its reaction, and nearby interface controls remain usable
 
 ## MODIFIED Requirements
 

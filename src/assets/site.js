@@ -172,6 +172,7 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
     session.portrait.classList.remove('portrait-dragging');
     session.collage?.classList.remove('portrait-collage-dragging');
     document.documentElement.classList.remove('portrait-drag-active');
+    document.documentElement.classList.remove('portrait-press-active');
     if (session.moved && animateReturn && motionIsActive()) {
       const portrait = session.portrait;
       const started = performance.now();
@@ -215,6 +216,7 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
     if (dragFrame) cancelAnimationFrame(dragFrame);
     dragFrame = 0;
     finishDrag(null, false);
+    document.documentElement.classList.remove('portrait-press-active');
     returnFrames.forEach((frame, portrait) => {
       cancelAnimationFrame(frame);
       portrait.classList.remove('portrait-returning');
@@ -257,8 +259,10 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
       targetX: existingX,
       targetY: existingY
     };
+    document.documentElement.classList.add('portrait-press-active');
     try { document.documentElement.setPointerCapture(event.pointerId); } catch { /* Window listeners still cover the drag. */ }
   });
+  window.addEventListener('selectstart', (event) => { if (drag) event.preventDefault(); });
   window.addEventListener('pointermove', (event) => {
     if (!drag || event.pointerId !== drag.pointerId) return;
     const deltaX = event.clientX - drag.startX;
