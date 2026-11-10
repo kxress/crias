@@ -16,6 +16,20 @@ The striped sun SHALL loop without a visible stripe seam or glow pop. The real-t
 - **WHEN** the hero is viewed through consecutive animation cycles
 - **THEN** the sun loop closes seamlessly, the chrome title's glow and glint pulse while the text remains legible against the sun, and the cursive subtitle retains its neon pulse
 
+### Requirement: Site-wide neon pulse and flicker
+Every visible neon accent SHALL have a perceptible glow pulse and occasional restrained flicker while motion is enabled, including scene lines, Japanese labels, panel and card outlines, headings, icons, controls and footer decorations. Flicker SHALL be infrequent and low-intensity, never obscure text or controls, and stop for reduced motion.
+
+#### Scenario: Inspecting neon at rest
+- **WHEN** the page is viewed without pointer interaction while motion is enabled
+- **THEN** each neon accent pulses and has an occasional brief flicker without flashing rapidly or reducing readability
+
+### Requirement: Panel-wide neon focus color
+Every neon accent inside either main content panel SHALL be pink while idle and shift to cyan together when the panel is hovered or contains keyboard focus, including Japanese labels, heading, globe or gamepad icon, divider, URL text and frame, numbered step badges, step icons, chevrons, and copy controls. The accents SHALL keep pulsing and flickering in either state. The same behavior SHALL work for keyboard focus and remain within reduced-motion rules.
+
+#### Scenario: Focusing a main panel
+- **WHEN** a visitor hovers a main panel or tabs to a control inside it
+- **THEN** its border and every neon detail, including the Japanese label and URL frame, are pink at rest and turn cyan together while their glow remains active
+
 ### Requirement: Aligned city and grid horizon
 On desktop, the sun SHALL sit behind the city and its visible lower edge SHALL be raised slightly above the shared skyline/grid baseline. The building silhouette SHALL remain visually dominant while transparent sky retains the sun above it. Japanese neon signage SHALL layer visibly in front of the city. The city SHALL use normal CSS alpha compositing, with its atmospheric opacity and color harmonization applied through CSS; it SHALL NOT use screen blending. The perspective grid SHALL begin at the skyline baseline behind the city, use a low viewpoint rather than a steep overhead angle, and fade in from transparent at the horizon.
 

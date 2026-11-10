@@ -34,7 +34,7 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 
 ## 4. Motion and copy controls
 
-- [ ] 4.1 Animate the striped sun with restrained glow, pulse the wordmark, grid and neon panel borders/headings using independent scene layers, and turn the major panels cyan on hover; make pulses visibly perceptible at rest and still active on hover, then verify readable content and stable controls.
+- [x] 4.1 Give every visible neon accent a perceptible glow pulse and restrained occasional flicker, including scene lines, Japanese labels, panel/card borders, headings, icons, badges, chevrons, copy frames and footer ornaments; on hover or keyboard focus, switch every pink neon detail in either main panel to cyan while pulses continue; verify readable text, stable controls and reduced-motion behavior.
 - [ ] 4.2 Add independently adjustable whole-image character motion with visible gentle rotation and scale cycles; verify illustrations remain single static images with no articulated or frame-by-frame animation.
 - [ ] 4.3 Keep reduced-motion behavior and remove the manual pause control; verify motion and fluid smoke stop for an initial and live reduced-motion preference.
 - [x] 4.4 Add nine independently named copy controls from canonical data; test exact URL and each hostname payload, repeat activation and keyboard operation.

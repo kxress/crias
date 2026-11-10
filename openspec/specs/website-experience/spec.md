@@ -35,14 +35,14 @@ The desktop collage SHALL preserve the fourteen named reference characters in th
 - **THEN** the individual characters and bust frame the content without covering text, controls or each other's essential features
 
 ### Requirement: Joining panel presentation
-The joining panel SHALL use a glowing magenta frame, globe icon, heading and divider. Its four numbered steps SHALL appear in sequence, horizontally on wide screens, with icons and progression cues. The management URL SHALL appear as readable text in a cyan-accented inset with a copy control.
+The joining panel SHALL use a glowing magenta frame, globe icon, heading and divider. Its four numbered steps SHALL appear in sequence, horizontally on wide screens, with icons and progression cues. The management URL SHALL appear as readable text in a neon inset with a copy control. All neon details inside either main panel, including Japanese labels, URL text and frame, icons, step badges, chevrons and copy controls, SHALL be pink while idle and shift to cyan together when the panel is hovered or contains keyboard focus; their glow animation SHALL continue in either state.
 
 #### Scenario: Following the desktop steps
 - **WHEN** a visitor reads the joining panel at desktop width
 - **THEN** the four steps progress left to right and the URL remains readable and operable
 
 ### Requirement: Illustrated server panels
-The directory SHALL use a glowing magenta outer panel and three equally sized, illustrated game cards on desktop. Terraria SHALL use cyan accents and pixel-art scenery; Minecraft SHALL use green accents and block scenery; Hytale SHALL use blue accents and a fantasy landscape. Cards SHALL retain the mockup's game identity, row hierarchy, badges and decorative space, and their outlines SHALL shift to cyan while hovered or focused.
+The directory SHALL use a glowing magenta outer panel and three equally sized, illustrated game cards on desktop. Terraria SHALL use cyan accents and pixel-art scenery; Minecraft SHALL use green accents and block scenery; Hytale SHALL use blue accents and a fantasy landscape. Cards SHALL retain the mockup's game identity, row hierarchy, badges and decorative space, and their outlines SHALL shift to cyan while hovered or focused. Neon details inside the outer directory panel SHALL be pink while idle and shift together to cyan when the panel is hovered or contains keyboard focus, including its Japanese label, gamepad icon, divider and copy-control borders.
 
 #### Scenario: Comparing game cards
 - **WHEN** a visitor views the directory on a wide screen
@@ -84,7 +84,7 @@ The site SHALL use real, selectable HTML text, semantic structure, accessible co
 - **THEN** joining steps and game cards reflow in reading order and connection values remain accessible
 
 ### Requirement: Motion and static hosting
-The site SHALL respect reduced-motion preferences and SHALL NOT require animation to understand or use it. Essential content SHALL remain readable without JavaScript or decorative assets. The site SHALL be deployable as static files on GitHub Pages, including under a repository subpath.
+Every visible neon accent, including the title, subtitle, Japanese labels, scene lines, panel and card borders, headings, icons, controls and footer decorations, SHALL pulse visibly and show occasional restrained flicker while motion is enabled. Flicker SHALL remain infrequent and low-intensity so text and controls stay readable. The site SHALL respect reduced-motion preferences and SHALL NOT require animation to understand or use it. Essential content SHALL remain readable without JavaScript or decorative assets. The site SHALL be deployable as static files on GitHub Pages, including under a repository subpath.
 
 #### Scenario: Reduced motion or scripts unavailable
 - **WHEN** the visitor requests reduced motion or scripts do not run
