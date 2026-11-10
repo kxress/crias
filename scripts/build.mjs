@@ -59,6 +59,7 @@ async function pruneObsolete(directory) {
 
 // Keep the live preview available: publish complete files, then HTML, then prune.
 await mkdir(out, { recursive: true });
+await publish('assets/motion-capability.js', path.join(root, 'src/assets/motion-capability.js'));
 await publish('assets/site.css', path.join(root, 'src/assets/site.css'));
 await publish('assets/site.js', path.join(root, 'src/assets/site.js'));
 await publish('assets/fluid-smoke.js', path.join(root, 'src/assets/fluid-smoke.js'));

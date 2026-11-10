@@ -130,7 +130,7 @@ Fine-pointer movement SHALL create responsive GPU fluid smoke and Steam-style ga
 - **THEN** On fine-pointer devices, movement SHALL inject velocity and pink/cyan dye into a GPU-accelerated WebGL2 fluid simulation whose velocity advects the dye and whose pressure projection and vorticity create curling smoke.
 - **AND** It SHALL use compact 16-bit scalar and two-channel framebuffer formats, a 6-iteration pressure solve, a 64px short-side simulation grid, a 384px short-side dye buffer, and a canvas capped at 0.6× CSS resolution and 500,000 pixels to keep pointer response fluid without excessive GPU bandwidth.
 - **AND** Bilinear browser scaling SHALL smooth the diffuse smoke.
-- **AND** The transparent, pointer-inert canvas SHALL layer above the hero collage and scenery, but below the hero title, Japanese signs, joining/server panels, their controls, and the footer.
+- **AND** The transparent, pointer-inert canvas SHALL layer above the scenery but below every character illustration and frame, the hero title, Japanese signs, joining/server panels, their controls, and the footer.
 - **AND** Text SHALL remain above the canvas through DOM stacking, with no rectangular clearing masks or visible cutouts in the fluid.
 - **AND** It SHALL inject smoke on the first pointer movement, preserve cursor deltas, allow bounded variable time steps when frame delivery slows, stop after dye dissipates, and not run for reduced motion.
 - **AND** Movement over a game card SHALL control a Steam-style perspective tilt, brightness and pointer-following specular highlight.
@@ -192,9 +192,15 @@ All fourteen character illustrations SHALL be visible in the mobile page's norma
 ### Requirement: Motion accessibility
 CSS and pointer-driven nonessential motion SHALL stop when reduced motion is requested. The page SHALL NOT show a manual pause/resume control. Motion SHALL NOT obscure content, interfere with input or flash beyond WCAG 2.2 AA limits.
 
+The site SHALL conservatively check graphics capability before starting nonessential motion. If WebGL2 is unavailable, reports a serious performance caveat, identifies a software renderer, or does not expose enough renderer information to distinguish acceleration, CSS animation and pointer effects SHALL remain disabled while content and controls remain usable.
+
 #### Scenario: Reduced motion
 - **WHEN** reduced motion is enabled before or during a visit
 - **THEN** nonessential CSS animation, card movement and fluid simulation stop
+
+#### Scenario: Hardware acceleration unavailable or unknown
+- **WHEN** the graphics check finds software rendering, unavailable WebGL2 or insufficient renderer information
+- **THEN** the page remains static, does not initialize the fluid simulation or pointer-driven card effects, and retains usable text, links and copy controls
 
 #### Scenario: Scripts unavailable
 - **WHEN** JavaScript is unavailable

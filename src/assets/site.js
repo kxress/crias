@@ -4,7 +4,7 @@ const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 let announceTimer = 0;
 let announceRevealTimer = 0;
 
-const motionIsActive = () => !reducedMotion.matches;
+const motionIsActive = () => !reducedMotion.matches && !document.documentElement.classList.contains('motion-static');
 const resetCardTilt = (card) => {
   ['--card-tilt-x', '--card-tilt-y', '--card-spot-x', '--card-spot-y', '--card-brightness', '--card-glare-opacity'].forEach((name) => card.style.removeProperty(name));
 };
@@ -12,6 +12,7 @@ const clearPointerEffects = () => {
   document.querySelectorAll('.game-card').forEach(resetCardTilt);
 };
 
+document.addEventListener('crias:motion-disabled', clearPointerEffects);
 reducedMotion.addEventListener('change', () => {
   if (reducedMotion.matches) clearPointerEffects();
 });
@@ -33,7 +34,7 @@ function setCardTilt(card, x, y) {
   card.style.setProperty('--card-glare-opacity', (.55 + Math.min(.3, magnitude * .2)).toFixed(2));
 }
 
-if (finePointer.matches) {
+if (finePointer.matches && !document.documentElement.classList.contains('motion-static')) {
   document.querySelectorAll('.game-card').forEach((card) => {
     let pointerPosition = null;
     let framePending = false;

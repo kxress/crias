@@ -77,7 +77,7 @@ The title SHALL be text animatable with CSS. Borders and neon SHALL use CSS or S
 - **THEN** scenery and lighting can move independently, the title can animate as text, and each character can move as a single illustration
 
 ### Requirement: Coordinated motion
-The scene SHALL feel alive through coordinated independent motion, with a slow moving grid and pulsating neon guided by the mockup's aesthetic. Effects near text and controls SHALL preserve legibility and interaction feedback. Character movement SHALL remain gentle; independent layers SHALL permit refinement without merging the scene into a single animation.
+The scene SHALL feel alive through coordinated independent motion, with a slow moving grid and pulsating neon guided by the mockup's aesthetic. Effects near text and controls SHALL preserve legibility and interaction feedback. Character movement SHALL remain gentle; independent layers SHALL permit refinement without merging the scene into a single animation. Pointer-driven smoke SHALL appear above the scenery but behind all character illustrations and frames, text, panels and controls.
 
 #### Scenario: Reading while the scene moves
 - **WHEN** ambient motion is active
@@ -126,11 +126,15 @@ All fourteen character illustrations SHALL be visible in the mobile page's norma
 - **THEN** all fourteen character illustrations can be seen and the page has no horizontal overflow
 
 ### Requirement: Motion accessibility
-The site SHALL NOT show a manual pause/resume control. Reduced-motion preference SHALL stop nonessential CSS and pointer-driven animation, including character motion, fluid smoke, and card tilt, without relying on a control or overriding the preference. Motion SHALL NOT obscure content, interfere with input or flash beyond WCAG 2.2 AA limits.
+The site SHALL NOT show a manual pause/resume control. Reduced-motion preference SHALL stop nonessential CSS and pointer-driven animation, including character motion, fluid smoke, and card tilt, without relying on a control or overriding the preference. Motion SHALL NOT obscure content, interfere with input or flash beyond WCAG 2.2 AA limits. A conservative startup graphics check SHALL disable CSS animation and pointer effects before they start when WebGL2 is unavailable, has a serious performance caveat, identifies a software renderer, or cannot expose sufficient renderer information. Essential content and controls SHALL remain usable.
 
 #### Scenario: Reduced motion
 - **WHEN** reduced motion is enabled before or during a visit
 - **THEN** nonessential animation stops immediately, including when the preference changes while the page is open
+
+#### Scenario: Hardware acceleration unavailable or unknown
+- **WHEN** the graphics check finds software rendering, unavailable WebGL2 or insufficient renderer information
+- **THEN** the page remains static, does not initialize the fluid simulation or pointer-driven card effects, and retains usable text, links and copy controls
 
 #### Scenario: Scripts unavailable
 - **WHEN** JavaScript is unavailable

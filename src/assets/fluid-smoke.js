@@ -1,7 +1,8 @@
 (() => {
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (!finePointer.matches || reducedMotion.matches) return;
+  const motion = window.criasMotion;
+  if (!motion || document.documentElement.classList.contains('motion-static') || !finePointer.matches || reducedMotion.matches) return;
 
   const canvas = document.createElement('canvas');
   canvas.className = 'fluid-smoke';
@@ -9,16 +10,21 @@
   const layerHost = document.querySelector('main') || document.body;
   layerHost.append(canvas);
 
-  const gl = canvas.getContext('webgl2', {
-    alpha: true,
-    antialias: false,
-    depth: false,
-    stencil: false,
-    powerPreference: 'high-performance',
-    preserveDrawingBuffer: false
-  });
-  if (!gl || !gl.getExtension('EXT_color_buffer_float')) {
+  let gl;
+  try {
+    gl = canvas.getContext('webgl2', {
+      alpha: true,
+      antialias: false,
+      depth: false,
+      stencil: false,
+      failIfMajorPerformanceCaveat: true,
+      powerPreference: 'high-performance',
+      preserveDrawingBuffer: false
+    });
+    if (!motion.isAccelerated(gl)) throw new Error('Accelerated graphics unavailable');
+  } catch {
     canvas.remove();
+    motion.disable();
     return;
   }
 
@@ -292,6 +298,7 @@
     gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
   } catch {
     canvas.remove();
+    motion.disable();
     return;
   }
 
@@ -482,14 +489,14 @@
     resize();
   } catch {
     canvas.remove();
+    motion.disable();
     return;
   }
 
-  window.addEventListener('resize', resize, { passive: true });
-  reducedMotion.addEventListener('change', () => {
+  const onReducedMotionChange = () => {
     if (reducedMotion.matches) stopAndClear();
-  });
-  window.addEventListener('pointermove', (event) => {
+  };
+  const onPointerMove = (event) => {
     if ((event.pointerType !== 'mouse' && event.pointerType !== 'pen') || reducedMotion.matches) return;
     const x = Math.max(0, Math.min(1, event.clientX / width));
     const y = 1 - Math.max(0, Math.min(1, event.clientY / height));
@@ -506,6 +513,18 @@
       pointer.moved = true;
     }
     wake();
-  }, { passive: true });
+  };
+
+  canvas.addEventListener('webglcontextlost', () => {
+    if (raf) window.cancelAnimationFrame(raf);
+    window.removeEventListener('resize', resize);
+    window.removeEventListener('pointermove', onPointerMove);
+    reducedMotion.removeEventListener('change', onReducedMotionChange);
+    motion.disable();
+    canvas.remove();
+  }, { once: true });
+  window.addEventListener('resize', resize, { passive: true });
+  reducedMotion.addEventListener('change', onReducedMotionChange);
+  window.addEventListener('pointermove', onPointerMove, { passive: true });
 
 })();
