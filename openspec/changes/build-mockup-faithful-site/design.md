@@ -117,3 +117,8 @@ Apply the latest portrait request cumulatively: move the six upper illustrations
 The three game-card borders use one shared neon state: pink while the SERVIDORES directory is idle, cyan when the directory is hovered or contains keyboard focus. The cards change together; per-game artwork tints do not affect border color.
 
 Refine both mountain vectors toward the supplied image's more organic retrowave range. Vary peak spacing, height and ridge direction, and layer uneven contour and triangular mesh lines to avoid the repeated-cone appearance. Keep the mountains in the side corners behind the opaque city and clear of the sun.
+
+
+### 13. Upper silhouette and side-column vertical balance
+
+Position the upper group by visible illustration bounds rather than assigning a shared CSS top. Keep Tifa fixed as the approved anchor; lower Asuka about 16px and raise Nami about 8px to bring the lower fade baselines into closer alignment. Move Kurisu, Faye, Hinata, Rem, Usagi, Aqua, Mayano and Super Creek down about 12px, retaining the existing horizontal offsets and full-art clearance.

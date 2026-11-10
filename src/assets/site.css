@@ -77,6 +77,18 @@ main, .site-footer { position: relative; z-index: 2; }
 .character--aqua { right:20px; top:576px; width:clamp(150px,11.25vw,163px); }
 .character--mayano { right:0; top:756px; width:clamp(150px,11.25vw,163px); }
 .character--creek { right:0; top:936px; width:clamp(157.5px,11.625vw,168px); }
+@media (min-width:1425px) {
+  .character--asuka { top:149px; }
+  .character--nami { top:130px; }
+  .character--kurisu { top:418px; }
+  .character--faye { top:598px; }
+  .character--hinata { top:778px; }
+  .character--rem { top:958px; }
+  .character--usagi { top:398px; }
+  .character--aqua { top:588px; }
+  .character--mayano { top:768px; }
+  .character--creek { top:948px; }
+}
 @media (min-width:1448px) {
   .character--hinata,.character--rem { left:clamp(-32px,calc(720px - 50vw),-4px); }
   .character--mayano,.character--creek { right:clamp(-32px,calc(720px - 50vw),-4px); }

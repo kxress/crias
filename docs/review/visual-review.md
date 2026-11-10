@@ -1,4 +1,10 @@
 # Visual and functional review
+## Upper silhouette and side-column balance — 2026-11-10
+
+Kept Tifa in place as the upper-group anchor, lowered Asuka by 16px and raised Nami by 8px to bring their visible fade baselines into closer alignment without forcing identical CSS top values. Moved all eight side-column portraits down 12px while preserving their outer offsets. Both desktop captures show complete illustrations and no horizontal overflow.
+
+[1448px desktop capture](screenshots/portrait-baseline-balance-1448-2026-11-10.webp) · [1920px desktop capture](screenshots/portrait-baseline-balance-1920-2026-11-10.webp)
+
 ## Follow-up portraits, card borders and mountain wireframes — 2026-11-10
 
 Moved the six upper portraits another 16px up and all eight side portraits another 32px up. The lowest two on each side now move outward from 4px at the 1448px composition to 32px at 1920px, based on available outer gutter. Complete artwork and glow remain visible, all character images loaded, and neither desktop capture overflowed horizontally.

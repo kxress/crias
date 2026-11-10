@@ -153,7 +153,7 @@ Fine-pointer movement SHALL create responsive GPU fluid smoke and Steam-style ga
 ## MODIFIED Requirements
 
 ### Requirement: Desktop portrait spacing
-The desktop collage SHALL place the six upper portraits a further 16px higher and the eight side-column portraits a further 32px higher than the last approved adjustment. The two lowest portraits in each side column SHALL also shift outward again toward the page edge by up to about 32px where the viewport gutter permits, while preserving complete artwork and glow inside the page.
+On desktop, the six upper portraits SHALL be positioned by their visible artwork bounds and bottom fades, without forcing identical CSS top coordinates. Tifa SHALL remain at her approved position, Asuka SHALL move about 16px lower and Nami SHALL move about 8px higher from their current positions so the upper silhouettes sit more coherently. All eight side-column portraits SHALL move about 12px lower, within an 8–16px adjustment, while preserving full artwork, glow and spacing; the existing outward offsets for the bottom two on each side SHALL remain.
 
 #### Scenario: Reviewing the desktop portrait spacing
 - **WHEN** the page is viewed at 1448px or 1920px wide
