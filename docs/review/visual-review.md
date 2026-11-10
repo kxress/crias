@@ -4,6 +4,8 @@
 
 The replacement Tifa was inspected at full size and in static desktop captures at 1448 and 1920 CSS pixels: her existing guard pose, independent placement and lower fade remain intact, and her open glove has four fingers and a distinct thumb. The padded WebP's center matched the PNG master pixel-for-pixel. Chromium on Windows loaded the art without horizontal overflow or page errors; mouse hover and jump, nine copy controls, reduced motion and repository-subpath behavior passed the local Playwright checks. The full-size and site inspections in this pass used screenshots on desktop; no mobile redesign was performed.
 
+The Nagatoro replacement was inspected at full size, including a close-up of the corrected raised hand, and in desktop captures at 1448 and 1920 CSS pixels. Her expression, pose, transparent margins, lower fade and position remain coherent with the scene. A browser pixel search found a clickable point on all 18 illustrations, including the new Nagatoro; the static graphics fallback and live reduced motion also passed. The active WebP scales the preserved transparent master proportionally to the existing 1280 × 1920 footprint.
+
 ## Portrait reactions — 2026-11-10
 
 All fourteen original portraits and four footer characters use their visible silhouette, or their separate window frame, for pointer entry and primary clicks. The reaction adds an eased left-right wiggle or squash-and-stretch jump to the existing whole-image billboard motion. Transparent padding remains pointer-inert and the panels, links and copy controls retain priority. The 1448 × 1086 hover, airborne Tifa and airborne Shantae screenshots were visually inspected locally; the movements preserve the composition and do not shift the page.
