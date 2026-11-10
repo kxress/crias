@@ -30,7 +30,7 @@ Every visible neon accent SHALL have a perceptible glow pulse and occasional res
 - **THEN** each neon accent pulses and has an occasional brief flicker without flashing rapidly or reducing readability
 
 ### Requirement: Panel-wide neon focus color and depth
-All neon accents in each main panel SHALL be pink at rest and cyan together on hover or keyboard focus, while preserving readable text and reduced-motion behavior. At desktop widths of at least 1100px, either main panel SHALL scale to about 1.04 and tilt about 1.1 degrees on X and 0.8 degrees on Y while hovered or containing keyboard focus. The transform SHALL not alter document flow and SHALL be disabled for reduced motion and the static graphics fallback.
+All neon accents in each main panel SHALL be pink at rest and cyan together on hover or keyboard focus, while preserving readable text and reduced-motion behavior. At desktop widths of at least 1100px, either main panel SHALL scale to about 1.08 and tilt about 2.2 degrees on X and 1.6 degrees on Y while hovered or containing keyboard focus. The transform SHALL not alter document flow and SHALL be disabled for reduced motion and the static graphics fallback.
 
 #### Scenario: All panel accents change together
 - **WHEN** the implementation is reviewed against the approved detailed criteria
@@ -38,12 +38,13 @@ All neon accents in each main panel SHALL be pink at rest and cyan together on h
 - **AND** Heading dividers SHALL pulse through border color without an inset shadow across the heading area.
 - **AND** The accents SHALL keep pulsing and flickering in either state.
 - **AND** The same behavior SHALL work for keyboard focus and remain within reduced-motion rules.
-- **AND** On desktop, the focused panel SHALL scale to about 1.04 and lean with a restrained perspective tilt without shifting surrounding content.
+- **AND** On desktop, the focused panel SHALL scale to about 1.08 and lean with a restrained perspective tilt without shifting surrounding content.
 
 #### Scenario: Focusing a main panel
 - **WHEN** a visitor hovers a main panel or tabs to a control inside it
 - **THEN** its border and every neon detail, including the Japanese label and URL frame, are pink at rest and turn cyan together while their glow remains active
-- **AND** at desktop widths with motion enabled, that panel zooms about 4% and tilts slightly; focus on a control triggers the same effect without moving other content
+- **AND** at desktop widths with motion enabled, that panel zooms about 8% and tilts slightly; focus on a control triggers the same effect without moving other content
+- **AND** Clicking or focusing a control inside a hovered panel SHALL preserve the hover state and its stronger transform until the pointer leaves.
 
 ### Requirement: Aligned city and grid horizon
 The city, mountains, transparent striped sun, clouds, stars, signs and low-view grid SHALL follow the specified geometry and layer order, with normal city blending and no water-reflection layer.
@@ -84,6 +85,7 @@ Each equal-sized desktop game card SHALL use one continuous real screenshot behi
 #### Scenario: Inspecting a game card
 - **WHEN** a visitor views a card or moves pointer/focus within the SERVIDORES directory
 - **THEN** the selected game art remains clearly visible without a texture overlay, all cards and their neon details use pink at rest and shift together to cyan when the directory or a card within it is hovered or keyboard-focused, while supported version badges open their details pages
+- **AND** Clicking or focusing a control inside a hovered game card SHALL preserve its hover color and pointer-driven tilt until the pointer leaves; the focus-only transform SHALL apply after pointer exit.
 
 #### Scenario: Viewing server rows
 - **WHEN** a visitor views the server list inside a game card
@@ -155,11 +157,12 @@ Fine-pointer movement SHALL create responsive GPU fluid smoke and Steam-style ga
 - **THEN** the fluid canvas and card tilt are absent, and essential controls remain operable and clearly focused
 
 ### Requirement: Desktop hero hover response
-On desktop fine-pointer devices with motion enabled, hovering the hero title group SHALL animate the chrome gradient across the CRIAS GAMES letters while gently rocking the cursive subtitle and Japanese eyebrow. Preserve the title's baseline letterforms and layout. Stop all hover motion under reduced motion or the static graphics fallback.
+On desktop with motion enabled, the Japanese eyebrow SHALL remain still. Hover SHALL rock Servers Privados without scaling it and enlarge CRIAS GAMES while its chrome gradient loops vertically in one direction. On exit, ease the gradient to rest over 1.8 seconds. Reduced motion and static graphics SHALL disable these effects.
 
 #### Scenario: Hovering the hero title
 - **WHEN** a visitor hovers the hero title group with motion enabled
-- **THEN** the chrome colors sweep through the title letters while the subtitle and Japanese eyebrow gently rock; all effects settle when the pointer leaves
+- **THEN** the title smoothly enlarges as its chrome gradient scrolls vertically without reversing; the subtitle rocks without scaling, the Japanese eyebrow stays still, and the title and subtitle settle when the pointer leaves
+- **AND** the gradient eases back to its resting position over 1.8 seconds after hover, without a quick snap
 
 ### Requirement: Desktop character drag and return
 On desktop fine-pointer devices with motion enabled, visible character artwork and independent frames SHALL follow mouse drags with eased movement and return to their CSS positions on release. Dragging SHALL preserve page selection, keep nearby layout fixed, and leave interface controls usable. A click without movement SHALL retain the portrait reaction. Reduced motion and the static graphics fallback SHALL disable drag motion.
@@ -169,11 +172,19 @@ On desktop fine-pointer devices with motion enabled, visible character artwork a
 - **THEN** only that character follows the pointer with easing and smoothly returns to its original position; no text or image selection appears, a click without movement still triggers its reaction, and nearby interface controls remain usable
 
 ### Requirement: Temporary portrait wheel zoom
-While a desktop fine-pointer visitor holds the primary mouse button on a visible portrait or frame, the wheel SHALL adjust that illustration's temporary scale from its original size up to 2.5x. The page SHALL not scroll during this held wheel interaction. Releasing the button SHALL smoothly restore the original scale and SHALL not trigger the click reaction after wheel input. Reduced motion and the static graphics fallback SHALL disable this effect.
+While a desktop fine-pointer visitor holds the primary mouse button on a visible portrait or frame, the wheel SHALL adjust that illustration's temporary scale from its original size up to 4x. The page SHALL not scroll during this held wheel interaction. Releasing the button SHALL smoothly restore the original scale and SHALL not trigger the click reaction after wheel input. Reduced motion and the static graphics fallback SHALL disable this effect.
 
 #### Scenario: Zooming a held portrait
 - **WHEN** a visitor holds a visible portrait and scrolls the mouse wheel
-- **THEN** the portrait zooms in or out within the 1x to 2.5x range, page scrolling is suppressed only while it is held, and release restores its original scale without a click-jump
+- **THEN** the portrait zooms in or out within the 1x to 4x range, page scrolling is suppressed only while it is held, and release restores its original scale without a click-jump
+
+### Requirement: Hardware-gated neon particles
+On desktop fine-pointer devices with detected hardware-accelerated graphics, mouse movement SHALL emit small cyan particles and each cyan main panel SHALL emit particles outward from its border while hovered or keyboard-focused. Reduced motion, software rendering, and lost graphics acceleration SHALL disable and remove these particles.
+
+#### Scenario: Emitting particles from a focused panel and pointer
+- **WHEN** a visitor hovers or focuses a main panel, or moves the mouse with accelerated graphics available
+- **THEN** small bright sparks and slower dim particles drift outward from the active panel border or trail the pointer; they remain below characters and interface controls
+- **AND** no particle layer is created for software graphics, reduced motion, or a lost graphics context
 
 ## MODIFIED Requirements
 

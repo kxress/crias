@@ -54,23 +54,20 @@ main, .site-footer { position: relative; z-index: 2; }
 .hero { height:calc(var(--scene-horizon) + 48px); position:relative; text-align:center; }
 .hero__copy { position: relative; z-index: 3; width: min(760px, 94vw); margin: 0 auto; padding-top: 157px; }
 .hero__jp,.wordmark,.brushline,.hero__subtitle { position:relative; z-index:2; }
-.wordmark { display:inline-block; isolation:isolate; margin:0; white-space:nowrap; position:relative; font:900 clamp(3rem,6.2vw,5rem)/.95 Exo,"Racing Sans One",Barlow Condensed,Impact,sans-serif; letter-spacing:.015em; color:#032d50; animation:title-pulse 3.8s ease-in-out infinite,heading-flicker 9.1s steps(1,end) infinite; transform:translateY(-8px) skewX(-15deg) rotate(-2deg) scaleX(.91); }
+.wordmark { display:inline-block; isolation:isolate; margin:0; white-space:nowrap; position:relative; font:900 clamp(3rem,6.2vw,5rem)/.95 Exo,"Racing Sans One",Barlow Condensed,Impact,sans-serif; letter-spacing:.015em; color:#032d50; scale:1; animation:title-pulse 3.8s ease-in-out infinite,heading-flicker 9.1s steps(1,end) infinite; transform:translateY(-8px) skewX(-15deg) rotate(-2deg) scaleX(.91); transition:scale .28s cubic-bezier(.2,.72,.2,1); }
 .wordmark,.hero__jp,.hero__subtitle { transform-box:fill-box; transform-origin:center; }
 .wordmark__base { display:block; color:#032d50; -webkit-text-stroke:.06em #07152e80; text-shadow:0 0 .1em #8ba2d0,0 0 .2em #000,0 0 1.1em #165ff3; }
-.wordmark__chrome { --chrome-shift:0%; position:absolute; inset:0; z-index:4; display:block; pointer-events:none; color:transparent; background-image:linear-gradient(180deg,#032d50 calc(25% + var(--chrome-shift)),#00a1ef calc(35% + var(--chrome-shift)),#fff calc(50% + var(--chrome-shift)),#20125f calc(50% + var(--chrome-shift)),#8313e7 calc(55% + var(--chrome-shift)),#ff61af calc(75% + var(--chrome-shift))); background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; -webkit-text-stroke:.01em #94a0b9; }
+.wordmark__chrome { --chrome-shift:0%; position:absolute; inset:0; z-index:4; display:block; pointer-events:none; color:transparent; background-image:repeating-linear-gradient(180deg,#032d50 calc(0% + var(--chrome-shift)),#00a1ef calc(20% + var(--chrome-shift)),#fff calc(35% + var(--chrome-shift)),#20125f calc(50% + var(--chrome-shift)),#8313e7 calc(56% + var(--chrome-shift)),#ff61af calc(75% + var(--chrome-shift)),#032d50 calc(100% + var(--chrome-shift))); background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; -webkit-text-stroke:.01em #94a0b9; transition:--chrome-shift 1.8s linear; }
 .wordmark::before { content:""; position:absolute; top:-.1em; right:.05em; z-index:5; width:.4em; height:.4em; pointer-events:none; background:radial-gradient(circle,white 3%,#fff5 16%,#fff1 60%,transparent 80%),radial-gradient(ellipse,#fff3 50%,transparent 60%) 50% 50%/5% 100%,radial-gradient(ellipse,#fff3 50%,transparent 60%) 50% 50%/70% 5%; background-repeat:no-repeat; animation:star-glint 3.8s ease-in-out infinite; }
 .hero__jp { position:absolute; top:125px; left:50%; transform:translateX(-50%); color:#12edff; font:700 14px/1 Rajdhani,sans-serif; letter-spacing:.3em; white-space:nowrap; text-shadow:0 0 8px #12edff,0 0 18px #12edff; animation:neon-text-pulse 2.9s ease-in-out infinite alternate,neon-flicker 9.7s steps(1,end) infinite; }
 .brushline { height: 9px; width: min(75%,590px); margin: 9px auto 8px; border-radius: 100%; background: linear-gradient(90deg,transparent,#0cf4ff 13%,#14dfff 79%,transparent); transform: rotate(-2deg); filter: drop-shadow(0 0 7px #0cf4ff); clip-path: polygon(0 43%,12% 28%,25% 40%,41% 0,62% 31%,82% 17%,100% 0,96% 70%,69% 63%,44% 100%,20% 64%,2% 83%); animation:line-neon-pulse 2.7s ease-in-out infinite alternate,neon-flicker 8.9s steps(1,end) infinite; }
 .hero__subtitle { margin: 0 0 10px; color:#fff5ff; font:400 clamp(2rem,3vw,2.5rem)/.96 "Mr Dafoe",cursive; letter-spacing:.005em; -webkit-text-stroke:.25px #ffd8f7; text-shadow:0 0 2px #fff,0 0 8px #ff33cd,0 0 18px #ff33cd,0 0 32px #ff13bb; transform:rotate(-3deg); animation:subtitle-neon 2.3s ease-in-out infinite alternate,heading-flicker 9s steps(1,end) infinite; }
-@keyframes hero-title-rock { 0%,100% { rotate:0deg; scale:1; } 28% { rotate:-1.1deg; scale:1.035; } 72% { rotate:.8deg; scale:1.035; } }
-@keyframes chrome-gradient-flow { 0%,100% { --chrome-shift:-10%; } 50% { --chrome-shift:10%; } }
+@keyframes subtitle-rock { 0%,100% { rotate:-1.2deg; } 50% { rotate:1.2deg; } }
+@keyframes chrome-gradient-flow { from { --chrome-shift:0%; } to { --chrome-shift:100%; } }
 @media (min-width:1100px) and (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
-  .hero__jp,.hero__subtitle { transition:scale .24s ease,rotate .24s ease; }
-  .hero__copy:hover .hero__jp,.hero__copy:hover .hero__subtitle { animation:hero-title-rock 1.45s ease-in-out infinite; }
-  .hero__copy:hover .wordmark { animation:title-pulse 3.8s ease-in-out infinite,heading-flicker 9.1s steps(1,end) infinite; }
-  .hero__copy:hover .wordmark__chrome { animation:chrome-gradient-flow 1.8s ease-in-out infinite; }
-  .hero__copy:hover .hero__subtitle { animation:subtitle-neon 2.3s ease-in-out infinite alternate,heading-flicker 9s steps(1,end) infinite,hero-title-rock 1.45s ease-in-out infinite; }
-  .hero__copy:hover .hero__jp { animation:neon-text-pulse 2.9s ease-in-out infinite alternate,neon-flicker 9.7s steps(1,end) infinite,hero-title-rock 1.45s ease-in-out infinite; }
+  .hero__copy:hover .wordmark { scale:1.08; }
+  .hero__copy:hover .wordmark__chrome { animation:chrome-gradient-flow 2.8s linear infinite; animation-delay:var(--chrome-resume-delay,0s); }
+  .hero__copy:hover .hero__subtitle { animation:subtitle-neon 2.3s ease-in-out infinite alternate,heading-flicker 9s steps(1,end) infinite,subtitle-rock 1.65s ease-in-out infinite; }
 }
 .hero__collage { position:absolute; left:50%; top:200px; width:min(100%,1448px); height:1270px; transform:translateX(-50%); z-index:1; pointer-events:none; }
 .character { position:absolute; display:block; height:auto; margin:0; object-fit:contain; object-position:center top; filter:drop-shadow(0 4px 11px #ff2ec780); animation:billboard 5.4s ease-in-out infinite alternate,portrait-neon-pulse 7.3s ease-in-out infinite; }
@@ -138,10 +135,16 @@ html.portrait-press-active,html.portrait-press-active * { user-select:none!impor
 .window img { width: 100%; height: 100%; object-fit: contain; object-position: center top; }
 .window--usagi { transform: rotate(-8deg); }
 .panel { --panel-neon:var(--pink); --panel-neon-light:var(--pink-light); --panel-neon-glow:#ff35d588; --neon-glow:var(--panel-neon-glow); position:relative; z-index:3; width: min(1100px, calc(100% - 34px)); margin-inline: auto; border: 3px solid var(--panel-neon); border-radius: 19px; background: linear-gradient(120deg,rgba(27,11,43,.98),rgba(20,11,39,.98)); box-shadow: 0 0 10px #ff28d980,0 0 23px #e322ca53; animation:neon-breathe 3.4s ease-in-out infinite; transition:transform .28s cubic-bezier(.2,.72,.2,1),border-color .25s ease,box-shadow .25s ease; }
-.panel:hover,.panel:focus-within { --panel-neon:var(--cyan); --panel-neon-light:#c9fdff; --panel-neon-glow:#12edffb8; animation:panel-cyan-pulse 2.5s ease-in-out infinite; border-color:var(--panel-neon); }
+.panel:hover,.panel:focus-within { --panel-neon:var(--cyan); --panel-neon-light:#c9fdff; --panel-neon-glow:#12edffb8; z-index:5; animation:panel-cyan-pulse 2.5s ease-in-out infinite; border-color:var(--panel-neon); }
 @media (min-width:1100px) and (prefers-reduced-motion:no-preference) {
-  .panel:hover,.panel:focus-within { transform:perspective(1400px) rotateX(1.1deg) rotateY(-.8deg) scale(1.04); }
+  .panel:hover,.panel:focus-within { transform:perspective(1400px) rotateX(2.2deg) rotateY(-1.6deg) scale(1.08); }
 }
+.panel-particles { position:absolute; z-index:1; inset:-4px; overflow:visible; pointer-events:none; }
+.panel > :not(.panel-particles) { position:relative; z-index:2; }
+.pointer-particles { position:fixed; z-index:1; inset:0; overflow:hidden; pointer-events:none; }
+.neon-particle { position:absolute; display:block; width:var(--particle-size); height:var(--particle-size); border-radius:50%; opacity:0; pointer-events:none; will-change:transform,opacity; animation:particle-drift var(--particle-duration) cubic-bezier(.18,.58,.32,1) forwards; }
+.neon-particle--bright { background:#d9feff; box-shadow:0 0 4px 1px #c7fdff,0 0 10px 2px #12edff,0 0 18px #12edffb0; }
+.neon-particle--dim { background:#62efff; box-shadow:0 0 4px #12edff,0 0 8px #12edff70; }
 .panel__heading { border-bottom-color:var(--panel-neon); color:var(--panel-neon-light); }
 .panel__heading h2 { color:var(--panel-neon-light); }
 .panel:hover .panel__heading h2,.panel:focus-within .panel__heading h2 { color:var(--panel-neon-light); animation:heading-cyan 1.8s ease-in-out infinite alternate,heading-flicker 9s steps(1,end) infinite; }
@@ -188,13 +191,13 @@ html.portrait-press-active,html.portrait-press-active * { user-select:none!impor
 .game-card--terraria { --game-tint:#294ab1; }
 .game-card--minecraft { --game-tint:#234a3a; }
 .game-card--hytale { --game-tint:#243a82; }
-.game-card:hover,.game-card:focus-within { --card-neon:var(--cyan); --card-neon-light:#c9fdff; --card-neon-glow:#12edffb8; --badge-neon:var(--card-neon); animation:card-cyan-pulse 2.4s ease-in-out infinite; border-color:var(--cyan); box-shadow:0 0 22px #12edffb8,inset 0 0 14px #12edff70; }
+.game-card:hover,.game-card:focus-within { --card-neon:var(--cyan); --card-neon-light:#c9fdff; --card-neon-glow:#12edffb8; --badge-neon:var(--card-neon); z-index:4; animation:card-cyan-pulse 2.4s ease-in-out infinite; border-color:var(--cyan); box-shadow:0 0 22px #12edffb8,inset 0 0 14px #12edff70; }
 .game-card:hover { transform:translateY(-5px) scale(1.025); }
-.game-card:focus-within { transform:translateY(-3px); }
-.game-card:hover:not(:focus-within)::after { opacity:max(.5,var(--card-glare-opacity)); }
+.game-card:focus-within:not(:hover) { transform:translateY(-3px); }
+.game-card:hover::after { opacity:max(.5,var(--card-glare-opacity)); }
 @media (min-width:1100px) and (hover:hover) and (pointer:fine) {
-  .game-card:hover:not(:focus-within) { transform:perspective(600px) rotateX(var(--card-tilt-y,0deg)) rotateY(var(--card-tilt-x,0deg)) translateY(-5px) scale(1.07); }
-  .game-card:focus-within { transform:perspective(900px) rotateX(.8deg) rotateY(-.8deg) translateY(-3px) scale(1.07); }
+  .game-card:hover { transform:perspective(600px) rotateX(var(--card-tilt-y,0deg)) rotateY(var(--card-tilt-x,0deg)) translateY(-5px) scale(1.07); }
+  .game-card:focus-within:not(:hover) { transform:perspective(900px) rotateX(.8deg) rotateY(-.8deg) translateY(-3px) scale(1.07); }
 }
 .game-card__art { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 50%; pointer-events:none; filter:brightness(var(--card-brightness,1)); transition:filter .15s ease; }
 .game-card--terraria .game-card__art { object-position:75% 50%; }
@@ -258,6 +261,7 @@ html.portrait-press-active,html.portrait-press-active * { user-select:none!impor
 @keyframes title-pulse { 0%,100% { filter:brightness(.94) drop-shadow(0 5px 8px #00b9e97a); } 50% { filter:brightness(1.2) drop-shadow(0 7px 17px #16bfffba) drop-shadow(0 0 12px #a722ff70); } }
 @keyframes star-glint { 0%,80%,100% { opacity:.65; filter:brightness(1); } 88% { opacity:1; filter:brightness(2.1); } }
 @keyframes subtitle-neon { from { filter:brightness(.88); text-shadow:0 0 2px #fff,0 0 6px #ff33cd,0 0 11px #ff33cd,0 0 17px #ff13bb; } to { filter:brightness(1.3); text-shadow:0 0 4px #fff,0 0 12px #ff33cd,0 0 25px #ff33cd,0 0 43px #ff13bb; } }
+@keyframes particle-drift { 0% { opacity:0; transform:translate3d(0,0,0) scale(.45); } 10% { opacity:var(--particle-opacity); } 100% { opacity:0; transform:translate3d(var(--particle-dx),var(--particle-dy),0) scale(.2); } }
 @keyframes heading-neon { from { text-shadow:0 0 4px #ff3dd8,0 0 8px #ff35d560; } to { text-shadow:0 0 10px #ff3dd8,0 0 24px #ff35d5c0,0 0 34px #ff35d590; } }
 @keyframes heading-cyan { from { text-shadow:0 0 5px #12edff,0 0 10px #12edff6e; } to { text-shadow:0 0 12px #12edff,0 0 27px #12edffc9,0 0 37px #12edff80; } }
 @keyframes heading-flicker { 0%,44%,47%,100% { opacity:1; } 45% { opacity:.72; } 45.2% { opacity:.97; } 46% { opacity:.8; } 46.3% { opacity:1; } }

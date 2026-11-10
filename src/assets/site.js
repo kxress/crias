@@ -18,7 +18,7 @@ reducedMotion.addEventListener('change', () => {
 });
 
 function setCardTilt(card, x, y) {
-  if (!motionIsActive() || card.matches(':focus-within')) {
+  if (!motionIsActive() || (card.matches(':focus-within') && !card.matches(':hover'))) {
     resetCardTilt(card);
     return;
   }
@@ -39,7 +39,7 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
     let pointerPosition = null;
     let framePending = false;
     const trackPointer = (event) => {
-      if (event.pointerType !== 'mouse' || !motionIsActive() || card.matches(':focus-within')) return;
+      if (event.pointerType !== 'mouse' || !motionIsActive() || (card.matches(':focus-within') && !card.matches(':hover'))) return;
       pointerPosition = { x: event.clientX, y: event.clientY };
       if (framePending) return;
       framePending = true;
@@ -55,13 +55,210 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
       resetCardTilt(card);
     });
     card.addEventListener('focusin', () => {
+      if (card.matches(':hover') && pointerPosition) {
+        setCardTilt(card, pointerPosition.x, pointerPosition.y);
+        return;
+      }
       pointerPosition = null;
       resetCardTilt(card);
     });
     card.addEventListener('focusout', () => {
+      if (card.matches(':hover') && pointerPosition) {
+        setCardTilt(card, pointerPosition.x, pointerPosition.y);
+        return;
+      }
       pointerPosition = null;
       resetCardTilt(card);
     });
+  });
+}
+
+// Tiny DOM sparks are only created after the shared renderer probe has confirmed
+// hardware acceleration. The page stays quiet on software-rendered devices.
+if (finePointer.matches && motionIsActive() && window.criasMotion?.isAccelerated) {
+  const particleStyle = (particle, { x, y, dx, dy, size, duration, opacity }) => {
+    particle.style.left = `${x.toFixed(1)}px`;
+    particle.style.top = `${y.toFixed(1)}px`;
+    particle.style.setProperty('--particle-dx', `${dx.toFixed(1)}px`);
+    particle.style.setProperty('--particle-dy', `${dy.toFixed(1)}px`);
+    particle.style.setProperty('--particle-size', `${size.toFixed(1)}px`);
+    particle.style.setProperty('--particle-duration', `${duration.toFixed(2)}s`);
+    particle.style.setProperty('--particle-opacity', opacity.toFixed(2));
+  };
+  const makeParticle = (layer, options) => {
+    const particle = document.createElement('i');
+    particle.className = `neon-particle neon-particle--${options.kind}`;
+    particle.setAttribute('aria-hidden', 'true');
+    particleStyle(particle, options);
+    particle.addEventListener('animationend', () => particle.remove(), { once: true });
+    layer.append(particle);
+  };
+  const random = (min, max) => min + Math.random() * (max - min);
+  const makePanelSpark = (layer, panel) => {
+    const rect = panel.getBoundingClientRect();
+    const edge = Math.floor(Math.random() * 4);
+    const x = edge === 1 ? rect.width : edge === 3 ? 0 : random(0, rect.width);
+    const y = edge === 0 ? 0 : edge === 2 ? rect.height : random(0, rect.height);
+    const spread = random(-22, 22);
+    const distance = random(16, 54);
+    const vector = [
+      { dx: spread, dy: -distance },
+      { dx: distance, dy: spread },
+      { dx: spread, dy: distance },
+      { dx: -distance, dy: spread }
+    ][edge];
+    const dim = Math.random() < .52;
+    makeParticle(layer, {
+      x, y, ...vector,
+      kind: dim ? 'dim' : 'bright',
+      size: dim ? random(1, 2) : random(1.4, 3),
+      duration: dim ? random(1.5, 2.6) : random(.75, 1.35),
+      opacity: dim ? random(.35, .65) : random(.75, 1)
+    });
+    if (!dim && Math.random() < .35) {
+      makeParticle(layer, {
+        x: x + random(-5, 5), y: y + random(-5, 5),
+        dx: vector.dx * .55, dy: vector.dy * .55,
+        kind: 'dim', size: random(1, 1.8), duration: random(1.4, 2.4), opacity: random(.3, .55)
+      });
+    }
+  };
+
+  const emitters = [...document.querySelectorAll('.panel.join, .panel.directory')].map((panel) => {
+    const layer = document.createElement('div');
+    layer.className = 'panel-particles';
+    layer.setAttribute('aria-hidden', 'true');
+    panel.prepend(layer);
+    let timer = 0;
+    const stop = () => {
+      if (timer) clearInterval(timer);
+      timer = 0;
+      layer.replaceChildren();
+    };
+    const update = () => {
+      const active = motionIsActive() && (panel.matches(':hover') || panel.matches(':focus-within'));
+      if (!active) {
+        stop();
+        return;
+      }
+      if (timer) return;
+      timer = window.setInterval(() => {
+        if (!motionIsActive() || (!panel.matches(':hover') && !panel.matches(':focus-within'))) {
+          stop();
+          return;
+        }
+        makePanelSpark(layer, panel);
+      }, 135);
+    };
+    panel.addEventListener('pointerenter', update, { passive: true });
+    panel.addEventListener('pointerleave', update, { passive: true });
+    panel.addEventListener('focusin', update);
+    panel.addEventListener('focusout', () => requestAnimationFrame(update));
+    return { layer, stop };
+  });
+
+  const pointerLayer = document.createElement('div');
+  pointerLayer.className = 'pointer-particles';
+  pointerLayer.setAttribute('aria-hidden', 'true');
+  document.body.append(pointerLayer);
+  let lastPointer = null;
+  let lastEmission = 0;
+  window.addEventListener('pointermove', (event) => {
+    if (event.pointerType !== 'mouse' || !motionIsActive()) return;
+    const now = performance.now();
+    const previous = lastPointer;
+    lastPointer = { x: event.clientX, y: event.clientY };
+    if (!previous || now - lastEmission < 34) return;
+    const dx = event.clientX - previous.x;
+    const dy = event.clientY - previous.y;
+    const distance = Math.hypot(dx, dy);
+    if (distance < 6) return;
+    lastEmission = now;
+    const tail = random(10, 28);
+    const travelX = -dx / distance * tail + random(-8, 8);
+    const travelY = -dy / distance * tail + random(-8, 8);
+    const dim = Math.random() < .55;
+    makeParticle(pointerLayer, {
+      x: event.clientX, y: event.clientY,
+      dx: travelX, dy: travelY,
+      kind: dim ? 'dim' : 'bright',
+      size: dim ? random(1, 1.8) : random(1.5, 2.8),
+      duration: dim ? random(1.3, 2.2) : random(.7, 1.25),
+      opacity: dim ? random(.28, .55) : random(.7, .95)
+    });
+  }, { passive: true });
+
+  const removeParticles = () => {
+    emitters.forEach(({ stop, layer }) => { stop(); layer.remove(); });
+    pointerLayer.replaceChildren();
+    pointerLayer.remove();
+  };
+  document.addEventListener('crias:motion-disabled', removeParticles, { once: true });
+  reducedMotion.addEventListener('change', () => {
+    if (reducedMotion.matches) removeParticles();
+  });
+}
+
+// Preserve the gradient's current phase on exit, then ease it to rest slowly.
+// Re-entering during that ease resumes the same forward-moving loop phase.
+const heroCopy = document.querySelector('.hero__copy');
+const chromeTitle = document.querySelector('.wordmark__chrome');
+if (heroCopy && chromeTitle) {
+  let gradientReturnFrame = 0;
+  let gradientReturnTimer = 0;
+  let gradientTrackingFrame = 0;
+  let lastChromePhase = 0;
+  const trackChromePhase = () => {
+    gradientTrackingFrame = 0;
+    if (!heroCopy.matches(':hover') || !motionIsActive()) return;
+    lastChromePhase = parseFloat(getComputedStyle(chromeTitle).getPropertyValue('--chrome-shift')) || 0;
+    gradientTrackingFrame = requestAnimationFrame(trackChromePhase);
+  };
+  const cancelGradientReturn = () => {
+    if (gradientReturnFrame) cancelAnimationFrame(gradientReturnFrame);
+    if (gradientReturnTimer) clearTimeout(gradientReturnTimer);
+    gradientReturnFrame = 0;
+    gradientReturnTimer = 0;
+  };
+  const clearGradientInlineState = () => {
+    cancelGradientReturn();
+    if (gradientTrackingFrame) cancelAnimationFrame(gradientTrackingFrame);
+    gradientTrackingFrame = 0;
+    lastChromePhase = 0;
+    ['animation', '--chrome-shift', '--chrome-resume-delay'].forEach((name) => chromeTitle.style.removeProperty(name));
+  };
+  heroCopy.addEventListener('pointerenter', (event) => {
+    if (event.pointerType !== 'mouse' || !finePointer.matches || !motionIsActive()) return;
+    const phase = parseFloat(getComputedStyle(chromeTitle).getPropertyValue('--chrome-shift')) || 0;
+    cancelGradientReturn();
+    lastChromePhase = phase;
+    chromeTitle.style.removeProperty('animation');
+    chromeTitle.style.removeProperty('--chrome-shift');
+    chromeTitle.style.setProperty('--chrome-resume-delay', `-${(phase / 100 * 2.8).toFixed(3)}s`);
+    if (!gradientTrackingFrame) gradientTrackingFrame = requestAnimationFrame(trackChromePhase);
+  }, { passive: true });
+  heroCopy.addEventListener('pointerleave', (event) => {
+    if (event.pointerType !== 'mouse' || !finePointer.matches || !motionIsActive()) return;
+    const phase = lastChromePhase || parseFloat(getComputedStyle(chromeTitle).getPropertyValue('--chrome-shift')) || 0;
+    if (gradientTrackingFrame) cancelAnimationFrame(gradientTrackingFrame);
+    gradientTrackingFrame = 0;
+    cancelGradientReturn();
+    chromeTitle.style.setProperty('animation', 'none');
+    chromeTitle.style.setProperty('--chrome-shift', `${phase}%`);
+    getComputedStyle(chromeTitle).getPropertyValue('--chrome-shift');
+    gradientReturnFrame = requestAnimationFrame(() => {
+      gradientReturnFrame = 0;
+      if (heroCopy.matches(':hover') || !motionIsActive()) return clearGradientInlineState();
+      chromeTitle.style.setProperty('--chrome-shift', '0%');
+      gradientReturnTimer = window.setTimeout(() => {
+        gradientReturnTimer = 0;
+        if (!heroCopy.matches(':hover')) clearGradientInlineState();
+      }, 1900);
+    });
+  }, { passive: true });
+  document.addEventListener('crias:motion-disabled', clearGradientInlineState, { once: true });
+  reducedMotion.addEventListener('change', () => {
+    if (reducedMotion.matches) clearGradientInlineState();
   });
 }
 
@@ -272,7 +469,7 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
     event.preventDefault();
     drag.scrolled = true;
     const unit = event.deltaMode === WheelEvent.DOM_DELTA_LINE ? 16 : event.deltaMode === WheelEvent.DOM_DELTA_PAGE ? window.innerHeight : 1;
-    drag.wheelScale = Math.max(1, Math.min(2.5, drag.wheelScale - event.deltaY * unit * .002));
+    drag.wheelScale = Math.max(1, Math.min(4, drag.wheelScale - event.deltaY * unit * .002));
     drag.portrait.style.setProperty('--portrait-hold-scale', drag.wheelScale.toFixed(3));
     drag.portrait.classList.add('portrait-wheel-zoom');
   }, { passive: false });
