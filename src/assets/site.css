@@ -9,17 +9,18 @@
   --cyan: #12edff;
   --purple: #b94dff;
   --panel: rgba(24, 10, 39, .97);
+  --scene-horizon:clamp(535px,53vh,600px);
   font-family: Rajdhani, "Arial Narrow", Arial, sans-serif;
   font-synthesis: none;
 }
 * { box-sizing: border-box; }
 html { background: #10071f; overflow-x:clip; scroll-behavior: smooth; }
-body { margin: 0; color: var(--ink); background: radial-gradient(ellipse at 50% 5%, #321048 0, #160821 43%, #0d0718 100%); overflow-x: clip; }
+body { position:relative; margin:0; color:var(--ink); background:radial-gradient(ellipse at 50% 5%,#321048 0,#160821 43%,#0d0718 100%); overflow-x:clip; }
 button { font: inherit; }
 .skip-link { position: fixed; z-index: 100; left: 1rem; top: 1rem; padding: .7rem 1rem; transform: translateY(-180%); background: #fff; color: #180b25; border-radius: .4rem; }
 .skip-link:focus { transform: none; }
 .visually-hidden { position: absolute!important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-.scene { --scene-horizon:clamp(535px,53vh,600px); --scene-city-height:clamp(290px,28vh,320px); --scene-sun-diameter:clamp(260px,22.2vw,326px); --scene-sun-visible-height:clamp(195px,16.65vw,244.5px); --scene-sun-lift:clamp(140px,13.65vh,148px); position: absolute; inset: 0 0 auto; height: max(100vh, 1390px); overflow: hidden; pointer-events: none; z-index: 0; background:radial-gradient(ellipse 39% 44% at 0% 29%,rgba(54,178,222,.28),transparent 78%),radial-gradient(ellipse 39% 44% at 100% 29%,rgba(130,91,201,.28),transparent 78%),radial-gradient(ellipse at 50% 17%,rgba(202,31,122,.24),transparent 38%); }
+.scene { --scene-city-height:clamp(290px,28vh,320px); --scene-sun-diameter:clamp(260px,22.2vw,326px); --scene-sun-visible-height:clamp(195px,16.65vw,244.5px); --scene-sun-lift:clamp(140px,13.65vh,148px); position: absolute; inset:0; height:auto; overflow: hidden; pointer-events: none; z-index: 0; background:radial-gradient(ellipse 39% 44% at 0% 29%,rgba(54,178,222,.28),transparent 78%),radial-gradient(ellipse 39% 44% at 100% 29%,rgba(130,91,201,.28),transparent 78%),radial-gradient(ellipse at 50% 17%,rgba(202,31,122,.24),transparent 38%); }
 .scene__stars { position: absolute; inset: 0 0 auto; height:calc(var(--scene-horizon) - 24px); opacity: .43; background-image: radial-gradient(#ffabea 1px, transparent 1.2px), radial-gradient(#8deaff .8px, transparent 1px); background-size: 83px 71px, 121px 109px; background-position: 16px 19px, 49px 67px; -webkit-mask-image:linear-gradient(to bottom,#000 0 66%,#0009 82%,transparent 100%); mask-image:linear-gradient(to bottom,#000 0 66%,#0009 82%,transparent 100%); animation:starfield-neon-pulse 8.6s ease-in-out infinite; }
 .scene__sun { position:absolute; z-index:2; top:calc(var(--scene-horizon) - var(--scene-sun-visible-height) - var(--scene-sun-lift)); left:50%; width:var(--scene-sun-diameter); aspect-ratio:1; transform:translateX(-50%); transform-origin:center top; overflow:hidden; border-radius:50%; clip-path:inset(0px 0px 25%); background:transparent; animation:sun-glitch 12s steps(1,end) infinite; }
 .scene__sun::before,.scene__sun::after { content:""; position:absolute; inset:0; border-radius:50%; background:linear-gradient(180deg,#ff3048 0%,#ff5739 58%,#ffa03c 100%); }
@@ -40,7 +41,7 @@ button { font: inherit; }
 .scene__sign--right { top:clamp(88px,9vh,108px); right:5px; left:auto; }
 .scene__vignette { position: absolute; inset: 0; background:linear-gradient(90deg,#10071f42,transparent 24%,transparent 76%,#10071f3d),linear-gradient(180deg,rgba(88,75,143,.08) 0 20%,transparent 41%,#10071f5e 100%); }
 main, .site-footer { position: relative; z-index: 2; }
-.hero { height: 440px; position: relative; text-align: center; }
+.hero { height:calc(var(--scene-horizon) + 48px); position:relative; text-align:center; }
 .hero__copy { position: relative; z-index: 3; width: min(760px, 94vw); margin: 0 auto; padding-top: 157px; }
 .hero__jp,.wordmark,.brushline,.hero__subtitle { position:relative; z-index:2; }
 .wordmark { display:inline-block; isolation:isolate; margin:0; white-space:nowrap; position:relative; font:900 clamp(3rem,6.2vw,5rem)/.95 Exo,"Racing Sans One",Barlow Condensed,Impact,sans-serif; letter-spacing:.015em; color:#032d50; animation:title-pulse 3.8s ease-in-out infinite,heading-flicker 9.1s steps(1,end) infinite; transform:translateY(-8px) skewX(-15deg) rotate(-2deg) scaleX(.91); }

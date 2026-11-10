@@ -62,13 +62,6 @@ The copy success/error toast SHALL render in a document-level stacking context a
 - **WHEN** a visitor activates a copy control while the footer is visible
 - **THEN** the feedback toast is fully legible above the footer without covering its text or changing page layout
 
-### Requirement: Footer character collage
-The footer SHALL also include four independent transparent character illustrations: Shantae, anime Marie Rose, chibi Oguri Cap eating rice, and chibi Tamamo Cross reacting to her. Shantae and Marie Rose SHALL occupy the left footer spaces; Oguri and Tamamo SHALL form the food joke on the right. These assets SHALL retain numbered masters and derivatives, complete silhouettes, glow clearance and CSS bottom fades without photo backgrounds, and SHALL NOT obscure the footer signature or actionable content.
-
-#### Scenario: Inspecting the footer character joke
-- **WHEN** the full desktop page is scrolled to its footer
-- **THEN** all four new characters are recognizable as separate illustrations, Oguri visibly eats rice with a comic expression, Tamamo reacts nearby, and all fourteen existing reference characters remain present
-
 ### Requirement: Paired footer statue placement
 The extended footer band SHALL place two instances of the same integrated bust, pixel glasses, and Ionic-column illustration close to the centered footer signature as in the latest user montage. The right instance SHALL be horizontally mirrored through CSS without creating a second raster asset. These decorations SHALL remain behind footer text and controls and SHALL NOT overlap the main panels.
 
@@ -83,13 +76,6 @@ At desktop widths of 1448px and 1920px, the six upper portraits SHALL sit lower,
 - **WHEN** full desktop pages are reviewed at 1448px and 1920px
 - **THEN** the lowered top groups, descending side portraits, centered panels and closely flanking footer statues follow the supplied arrangement without its temporary editing artifacts
 
-### Requirement: Stable local preview and experiments
-The local preview SHALL remain available at port 4173 during builds. A rebuild SHALL preserve the currently served output until replacement files are ready, publish files atomically, and remove obsolete generated files only after successful publication. The existing `/experiments/tifa-physics/` demo and its assets SHALL remain available; `/experiments/` SHALL provide an accessible index with relative links that also work under the repository subpath.
-
-#### Scenario: Rebuilding while browsing a demo
-- **WHEN** the build runs while the home page and Tifa demo are requested
-- **THEN** their HTML and existing assets continue to respond successfully, the demo renders, and the final output includes its index and updated site
-
 ### Requirement: Pointer-reactive depth
 On fine-pointer devices, movement SHALL inject velocity and pink/cyan dye into a GPU-accelerated WebGL2 fluid simulation whose velocity advects the dye and whose pressure projection and vorticity create curling smoke. It SHALL use compact 16-bit scalar and two-channel framebuffer formats, a 6-iteration pressure solve, a 64px short-side simulation grid, a 384px short-side dye buffer, and a canvas capped at 0.6× CSS resolution and 500,000 pixels to keep pointer response fluid without excessive GPU bandwidth. Bilinear browser scaling SHALL smooth the diffuse smoke. The transparent, pointer-inert canvas SHALL layer above the hero collage and scenery, but below the hero title, Japanese signs, joining/server panels, their controls, and the footer. Text SHALL remain above the canvas through DOM stacking, with no rectangular clearing masks or visible cutouts in the fluid. It SHALL inject smoke on the first pointer movement, preserve cursor deltas, allow bounded variable time steps when frame delivery slows, stop after dye dissipates, and not run for reduced motion. Movement over a game card SHALL control a Steam-style perspective tilt, brightness and pointer-following specular highlight. The card tilt SHALL reach six degrees on each axis, at least three times the former two-degree per-axis cap, with a small hover lift/scale. Effects SHALL not block interaction or shift content.
 
@@ -100,6 +86,29 @@ On fine-pointer devices, movement SHALL inject velocity and pink/cyan dye into a
 #### Scenario: Using reduced motion, touch, or keyboard
 - **WHEN** reduced motion is enabled, or a visitor uses touch or keyboard focus
 - **THEN** the fluid canvas and card tilt are absent, and essential controls remain operable and clearly focused
+
+## MODIFIED Requirements
+
+### Requirement: Footer character collage
+The footer SHALL also include four independent transparent character illustrations: Shantae, anime Marie Rose, chibi Oguri Cap eating rice, and chibi Tamamo Cross reacting to her. Shantae and Marie Rose SHALL occupy the left footer spaces; Oguri and Tamamo SHALL form the food joke on the right. These assets SHALL retain numbered masters and derivatives, complete silhouettes, glow clearance and CSS bottom fades without photo backgrounds, and SHALL NOT obscure the footer signature or actionable content.
+
+#### Scenario: Footer character collage
+- **WHEN** the full desktop page is scrolled to its footer
+- **THEN** all four new characters are recognizable as separate illustrations, Oguri visibly eats rice with a comic expression, Tamamo reacts nearby, and all fourteen existing reference characters remain present
+
+### Requirement: Exposed city above content
+The first desktop content panel SHALL begin about 48px below the shared skyline/grid baseline so the full city is exposed above it. The directory and footer SHALL follow lower in document flow. The sun, skyline, title and portrait coordinates SHALL remain unchanged by this spacing correction.
+
+#### Scenario: Skyline above the panels
+- **WHEN** the page is viewed at 1448px or 1920px desktop width
+- **THEN** the joining panel starts below the city base, without the panel covering lower buildings or the skyline being moved upward
+
+### Requirement: Stable local preview and experiments
+The local preview SHALL remain available at port 4173 during builds. A rebuild SHALL preserve the currently served output until replacement files are ready, publish files atomically, and remove obsolete generated files only after successful publication. The existing `/experiments/tifa-physics/` demo and its assets SHALL remain available; `/experiments/` SHALL provide an accessible index with relative links that also work under the repository subpath.
+
+#### Scenario: Rebuilding while previewing
+- **WHEN** the build runs while the home page and Tifa demo are requested
+- **THEN** their HTML and existing assets continue to respond successfully, the demo renders, and the final output includes its index and updated site
 
 ### Requirement: Reference-specific visual fidelity
 The desktop site SHALL reproduce the reference's visual hierarchy, relative placement, scale, palette, character identities, collage treatment, card illustrations and scene depth. Refinements SHALL preserve the mockup's composition and informal personality. A secondary animation reference SHALL NOT supersede the mockup.
@@ -139,8 +148,6 @@ The site SHALL meet WCAG 2.2 AA contrast and target-size requirements, expose lo
 #### Scenario: Navigating with a keyboard
 - **WHEN** a visitor uses keyboard navigation
 - **THEN** all actionable controls have descriptive names, visible focus and a logical focus order
-
-## MODIFIED Requirements
 
 ### Requirement: Hero and environment
 The hero SHALL center the CRIAS GAMES wordmark, cyan underline, and `SERVERS PRIVADOS` subtitle over the striped sunset and skyline, without the two-line introductory callout. The existing hero layout and cursive subtitle treatment SHALL remain in place. The wordmark SHALL use a dark blue base silhouette with a beveled edge and a blue/cyan/white/violet/magenta chrome gradient overlay, following the supplied retro-text reference. Its blue glow SHALL pulse; horizontal stripes SHALL remain within the title letters, with no separate bands behind it. The sun SHALL render behind and overlap the upper skyline slightly at about 1.8 times its current CSS diameter (roughly 320–326px across desktop widths 1448–1920px); colored bands SHALL have transparent cutouts that reveal the sky, and its visible lower edge SHALL be about 270px above the shared skyline/grid horizon. Soft clouds SHALL scroll horizontally at separate parallax speeds above the sun and stop above the building layer. The center sky SHALL retain its original dark purple while brighter side edges reveal legible side-corner wireframe mountains. The scene SHALL include the starry purple sky, text-only Japanese neon signs and magenta perspective grid, with no lagoon or separate reflection layer. The page SHALL NOT include the striped right-side facade panel. The grid SHALL begin at the skyline baseline, render behind the city silhouette, and continue around the panels and footer.

@@ -44,6 +44,8 @@ Use document flow for content and a separate decorative layer with per-element p
 
 ### 4. Motion and interaction
 
+Latest skyline visibility correction: increase the hero's flow height to the shared skyline/grid baseline plus about 48px. This shifts the joining panel, directory and footer down together while leaving the city, sun, title and existing portrait coordinates unchanged. The first panel must begin below the city's base rather than cover its lower buildings. Let the decorative scene fill the resulting document height; do not obtain this space by raising the skyline.
+
 Treat the page as a layered scene: a low camera-angle perspective grid that fades into the city horizon; clearly visible, non-lockstep neon pulses; and independently tunable title, sky, sun, skyline, mountain and other decorative layers. Character illustrations remain static single images, but move noticeably as whole billboards with a gentle rotational sway and scale pulse, not frame-by-frame or articulated animation. CSS transforms/opacity are preferred for efficiency; keep effects near content quieter than the scene. Pointer light and surface tilt are approved refinements; Decision 6 defines their limits. They must not displace interactive hit areas.
 
 Use CSS `prefers-reduced-motion` to stop CSS motion even without JS and stop the pointer-driven fluid solver when the preference is enabled. Do not show a manual pause/resume control. Apply preference changes immediately, and keep text and essential controls usable without scripts.

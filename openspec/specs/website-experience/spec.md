@@ -143,6 +143,13 @@ The site SHALL meet WCAG 2.2 AA contrast and target-size requirements, expose lo
 - **WHEN** a visitor uses keyboard navigation
 - **THEN** all actionable controls have descriptive names, visible focus and a logical focus order
 
+### Requirement: Exposed city above content
+The first desktop content panel SHALL start about 48px below the skyline/grid baseline, exposing the full city above it. Subsequent directory and footer content SHALL move down in document flow. This correction SHALL retain the existing sun, skyline, title and portrait coordinates.
+
+#### Scenario: Skyline above the panels
+- **WHEN** the page is reviewed at desktop widths of 1448px and 1920px
+- **THEN** the first panel is below the city base and the lower buildings remain exposed above it
+
 ### Requirement: Stable local preview and experiments
 The local preview SHALL use port 4173 and keep currently served files available during rebuilds. Replacement files SHALL be published atomically before obsolete output files are removed. The existing Tifa demo SHALL remain reachable at `/experiments/tifa-physics/`, and `/experiments/` SHALL list available experiments with relative links compatible with the GitHub Pages repository subpath.
 
