@@ -1,4 +1,10 @@
 # Visual and functional review
+## Side-column pairing — 2026-11-10
+
+Raised Kurisu by 24px, Faye by 16px and Hinata by 8px relative to their previous positions, leaving Rem fixed. The right column remains fixed as the alignment reference. The descending spaces now pair more closely from Kurisu/Usagi through Hinata/Mayano, with the final Rem/Super Creek pair left intact.
+
+[1448px desktop capture](screenshots/side-column-pairing-1448-2026-11-10.webp) · [1920px desktop capture](screenshots/side-column-pairing-1920-2026-11-10.webp)
+
 ## Upper silhouette and side-column balance — 2026-11-10
 
 Kept Tifa in place as the upper-group anchor, lowered Asuka by 16px and raised Nami by 8px to bring their visible fade baselines into closer alignment without forcing identical CSS top values. Moved all eight side-column portraits down 12px while preserving their outer offsets. Both desktop captures show complete illustrations and no horizontal overflow.
@@ -170,3 +176,13 @@ The active unframed character WebPs and unified bust use lossless 1280 × 1920 c
 - The static site has no automated server monitoring and does not automatically issue invitations.
 
 No deployment was performed.
+
+## Panoramic mountain source, cloud depth and footer spacing — 2026-11-10
+
+Replaced the separate mountain artwork with one generated transparent panorama, `src/assets/art/mountains-valley.png`. Its left and right halves are used as opposing CSS alpha masks, so both corner ranges share the same generated brightness and cyan tint; the triangulated terrain includes translucent filled faces. The cyan tone darkens slightly toward the top, where a very subtle 2px blur/haze softens only the upper ridges. The valley stays open under the centered sun and title, while the city remains above the mountain layer.
+
+The cloud layers now have explicit depth and speed: the 75s far layer is behind the mountains; the 47s middle and 31s near layers pass in front; the skyline remains above all three. All cloud strips loop toward the left and stay within the sky.
+
+The footer characters moved outward again: Shantae by 16px, Marie Rose by 48px, Oguri by 32px and Tamamo by 32px. Each bust statue moved 16px farther from page center and has no motion animation. At 1448px, character x-positions are 97, 268, 980 and 1154px; statue x-positions are 463 and 840px. At 1920px, character x-positions are 317, 488, 1232 and 1406px; statue x-positions are 699 and 1076px. The subtitle renders exactly as `Servers Privados`.
+
+Full-page desktop captures `screenshots/mountains-footer-1448-2026-11-10.webp` and `screenshots/mountains-footer-1920-2026-11-10.webp` were visually inspected. The production build reported eight server records. Browser review at 1448 × 1086 and 1920 × 1080 found no horizontal overflow, broken images, failed requests or page errors. Preview remains on port 4173.

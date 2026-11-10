@@ -2,13 +2,13 @@
 
 ## Why
 
-The implementation follows the mockup with motion and depth refinements. The latest desktop montage calls for lower upper portraits, continuous screenshot backgrounds across the game cards, an extended footer collage, and reliable access to the local experiments. The chrome title, cursive `SERVERS PRIVADOS` subtitle, transparent sunset bands, fluid pointer smoke and bottom copy toast remain part of the approved direction.
+The implementation follows the mockup with motion and depth refinements. The latest desktop montage calls for lower upper portraits, continuous screenshot backgrounds across the game cards, an extended footer collage, and reliable access to the local experiments. The chrome title, cursive `Servers Privados` subtitle, transparent sunset bands, fluid pointer smoke and bottom copy toast remain part of the approved direction.
 
 ## What Changes
 
 - Build the single-page Brazilian Portuguese private-server site as a static GitHub Pages artifact closely matching `mockup.png` on desktop and thoughtfully recomposed for mobile.
 - Recreate all fourteen named characters and the bust as individually controllable artwork; construct independently animatable scenery, text, borders and lighting with a living retrowave atmosphere.
-- Refine the hero's seamless striped-sun loop, chrome animated wordmark, skyline/grid layering, downsampled fluid pointer smoke above scenery but behind all characters and interface panels, and Steam-inspired game-card tilt without changing the approved composition or making effects intrusive; keep the cursive subtitle treatment and use the requested `SERVERS PRIVADOS` wording.
+- Refine the hero's seamless striped-sun loop, chrome animated wordmark, skyline/grid layering, downsampled fluid pointer smoke above scenery but behind all characters and interface panels, and Steam-inspired game-card tilt without changing the approved composition or making effects intrusive; keep the cursive subtitle treatment and use the requested `Servers Privados` wording.
 - Remove the redundant two-line hero intro and manual pause control, render the sun behind the city, and move copy success/error feedback into a brief bottom toast that does not shift content.
 - Remove the rejected water reflection, lower the sun into the skyline, make its stripe gaps transparent, brighten the mountain sky, and add slow cloud wisps that move in separate horizontal parallax layers above the sun and clear of the buildings.
 - Publish the user-confirmed management URL and eight server records, with manual invitation guidance and accessible copy interactions.
@@ -51,6 +51,10 @@ Replace the current Tifa portrait with a new numbered, transparent variant guide
 
 Update the invitation step to name Kress and Discord/Telegram, and add the supplied BlueMap link to the Minecraft card without a copy button.
 
-Refine the corner mountains into more organic, uneven alpine ridges with a layered neon wireframe inspired by the supplied image, lower the sun by about 32px, and give the sky more defined clouds that scroll continuously left at independent parallax speeds.
+Refine the corner mountains into irregular retrowave terrain with broad triangular meshes receding into a valley, guided by the [Synthwave Mountains CodePen](https://codepen.io/rickpr/pen/xxxyVxZ). Lower the sun by about 32px and give the sky more defined clouds that scroll continuously left at independent parallax speeds.
 
 Raise the six upper portraits around 16px and the eight portraits in the side columns around 32px; move each side's two lowest portraits outward toward the page edge by up to around 32px while keeping their art within the page. Balance the visible top-group silhouettes around the approved Tifa position by lowering Asuka about 16px and raising Nami about 8px, without forcing equal CSS top coordinates. Move all eight side-column portraits down about 12px while preserving their existing outward offsets. Make all three card borders pink together at rest and cyan together whenever the SERVIDORES panel is hovered or keyboard-focused. Refine the mountain ridges into a more organic, irregular retrowave wireframe based on the latest reference.
+
+Balance the left side column against the right: raise Kurisu by about 24px, Faye by 16px and Hinata by 8px, leaving Rem fixed because the final pair is already aligned. Keep the right column unchanged.
+
+Move the four footer character illustrations farther from the centered signature toward their respective page edges. Scale the outward shift to desktop viewport margin and preserve clearance from the outer side portraits, statues and each other.
