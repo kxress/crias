@@ -4,6 +4,8 @@ Reviewed on 2026-11-09 in Microsoft Edge 140.0.3485.54 on Windows, using Chromiu
 
 ## Captures and layout
 
+Follow-up polish recalibrates portrait fades to the visible artwork inside the padded canvases, pulses panel heading rules without an inset glow, and limits wireframe mountains to the side corners so they do not cross the sun. These refinements were checked in the live desktop browser at 1448 × 1086 and wide desktop at 1920 × 1080.
+
 | View | CSS viewport | Captured page | Character count | Result |
 | --- | ---: | ---: | ---: | --- |
 | Desktop | 1448 × 1086 | 1448 × 1086 | 14 | Main composition reviewed against the reference. The latest comparison places `mockup.png` on the left and the balanced left group on the right. |
