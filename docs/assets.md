@@ -31,6 +31,7 @@ The mockup and `docs/mockup-reference.md` guided character traits, palette and c
 | Skyline | `skyline.webp` | Generated `exec-94b18f83`; transparent panorama of individually lit cyberpunk towers. WebP, 2172 × 724; CSS mask fades the city at its ground edge. |
 | Sky and stars | `.scene`, `.scene__stars` in `site.css` | CSS gradients and star patterns; star layer stops and fades at the horizon above the ground grid. |
 | Striped sun | `.scene__sun` in `site.css` | CSS gradients, stripes, independent sheen and pulsing glow; 75% of its current diameter and raised above the shared horizon. |
+| Lagoon reflection | `lagoon-reflection.svg`, `.scene__lagoon` in `site.css` and HTML | Hand-authored transparent vector with broken, gently curved amber/rose highlights; CSS positions it just below the sun and above the skyline/grid baseline, behind the city, then adds a soft glow and restrained shimmer. No water is drawn under the town or onto the ground grid. |
 | Wireframe mountains | `.scene__mountains` in `site.css` | CSS geometric layer with independent glow animation. |
 | Grid and ground fog | `.scene__grid`, `.scene__ground-fog` in `site.css` | CSS perspective transform, line gradients and a broad low fog fade that softens the skyline/ground transition; stars fade out before the grid. |
 | Japanese signs | `.scene__sign` and `.scene__sign--right` in `site.css` and HTML text | Standalone vertical neon text (`ゲームサーバー` and `カフェ`) in front of the city; the striped right-side facade panel is omitted. |
@@ -38,7 +39,7 @@ The mockup and `docs/mockup-reference.md` guided character traits, palette and c
 | Minecraft | `minecraft-scene.webp` | Generated `exec-8b62677a`; block landscape, grass block and Creeper. RGB WebP, 1672 × 941. Game name is live HTML text. |
 | Hytale | `hytale-scene.webp` | Generated `exec-e9296a22`; fantasy valley, blue sky, pink clouds, ruins, towers and vegetation. RGB WebP, 1672 × 941. Used as an independently sized card landscape. |
 | Frames, borders and stickers | HTML and `site.css` | CSS-built Rei and Usagi Windows-style frames with control buttons, panel borders, neon and sticker shadows. The four left-side portraits are unframed. |
-| Copyleft symbol | `openmoji-copyleft-1.svg` | OpenMoji emoji U+1F12F, downloaded from the OpenMoji 17.0 package ([source](https://openmoji.org/library/emoji-1F12F/)). CC BY-SA 4.0 ([license](https://creativecommons.org/licenses/by-sa/4.0/)). The symbol is a static, non-linked footer mark with an accessible OpenMoji and license description. |
+| Copyleft symbol | Unicode U+1F12F in the footer | Rendered as text through the local system emoji font stack (`Segoe UI Emoji`, `Noto Color Emoji`, `Apple Color Emoji`) and animated with CSS text/drop shadows. The earlier `openmoji-copyleft-1.svg` remains in the art archive but is not used for the footer; source and CC BY-SA 4.0 license details are retained here. |
 
 ## Fonts
 

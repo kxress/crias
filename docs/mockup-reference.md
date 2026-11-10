@@ -10,8 +10,9 @@ The original analysis described positions, sizes, and fonts as approximate, and 
 
 ### Current user-directed refinements
 
-The user has since approved several implementation adjustments while keeping this mockup as the primary reference: retain Japanese decorative labels throughout the site; use a slanted, animated gradient treatment for the live-text wordmark; use one unified bust, glasses and Ionic-column illustration; keep Rei and Usagi in separate Windows-style frames while leaving the four left-side portraits unframed; preserve complete portrait silhouettes, enlarge their visible artwork within the available area, and fade only the lower interior edge; keep desktop game cards equal in size with cyan hover/focus outlines; and label the footer `Crias 🄯 2026` using the OpenMoji copyleft artwork with attribution. At 1920 × 1080, keep the character groups close to the centered content instead of spreading them to the screen edges. The sun should use a moving striped vaporwave treatment with restrained glow, and the main panel borders/headings should pulse while the panels shift toward cyan on hover. The latest desktop refinement starts Kurisu near y=300 and places Faye, Hinata and Rem at roughly 478, 662 and 846 px, creating a steady left-side rhythm like the unchanged right group. The portrait band enters document flow on tablet widths so characters remain visible around the content.
+The user has since approved several implementation adjustments while keeping this mockup as the primary reference: retain Japanese decorative labels throughout the site; use a slanted, animated gradient treatment for the live-text wordmark; use one unified bust, glasses and Ionic-column illustration; keep Rei and Usagi in separate Windows-style frames while leaving the four left-side portraits unframed; preserve complete portrait silhouettes, enlarge their visible artwork within the available area, and fade only the lower interior edge; keep desktop game cards equal in size with cyan hover/focus outlines; and render the footer's `🄯` copyleft glyph using an emoji font with neon text styling. At 1920 × 1080, keep the character groups close to the centered content instead of spreading them to the screen edges. The sun should use a moving striped vaporwave treatment with restrained glow, with a CSS lagoon reflection behind the city. Main panel borders/headings should pulse while the panels shift toward cyan on hover. The latest desktop refinement starts Kurisu near y=300 and places Faye, Hinata and Rem at roughly 478, 662 and 846 px, creating a steady left-side rhythm like the unchanged right group. The portrait band enters document flow on tablet widths so characters remain visible around the content.
 
+Latest lagoon guidance: Raise the shared desktop skyline/grid horizon to about 53vh. Keep the warm broken reflection aligned under the sun, behind the town and above the skyline baseline; it must not continue below the city or across the ground grid. The glints are a separate vector layer controlled and animated with CSS.
 ### Mockup note: Visual identity and composition
 
 The site could reproduce the mockup's dense synthwave, vaporwave, anime, arcade and cyberpunk aesthetic as a single continuous scene, with a clear central reading column framed by decorative artwork. It could feel independent, informal and personalized. The desktop composition could place the hero, joining instructions, server directory and footer in that order. Around the reference resolution, the hero occupies approximately y=0–410, the joining panel y=410–605, the directory y=615–1010 and the footer y=1020–1086. The centered panels are approximately 1100 px wide at most, with the directory slightly wider than the joining panel. These measurements guide visual comparison rather than imposing fixed coordinates.
@@ -25,7 +26,7 @@ The earlier analysis treated the mockup as an approved design and suggested reta
 
 ### Mockup note: Color, light and typography
 
-The palette could use near-black and deep purple backgrounds, magenta and pink structural neon, cyan and electric-blue accents, and an orange-red sunset. Suggested CSS approximations are `#10071F` and `#230B35` for backgrounds, `#21102F` for panels, `#15142B` for cards, `#FF35D5` and `#FF80E8` for pink, `#B94DFF` for purple, `#12EDFF` for cyan, `#589BFF` for blue, `#47F78B` for Minecraft green, `#FFC45D` for the Alpha badge, `#FF253E` and `#FF7B32` for the sun, and `#FFF0FC` for light text. Gradients and lighting could vary these colors.
+The palette could use near-black and deep purple backgrounds, magenta and pink structural neon, cyan and electric-blue accents, and an orange-red sunset. Suggested CSS approximations are `#10071F` and `#230B35` for backgrounds, `#21102F` for panels, `#15142B` for cards, `#FF35D5` and `#FF80E8` for pink, `#B94DFF` for purple, `#12EDFF` for cyan, `#589BFF` for blue, `#47F78B` for Minecraft green, `#FFC45D` for Hytale's version badge, `#FF253E` and `#FF7B32` for the sun, and `#FFF0FC` for light text. Gradients and lighting could vary these colors.
 
 Main panels could have rounded corners, dark sufficiently opaque interiors, saturated continuous outlines and layered inner and outer neon glows. Inner cards and rows could use finer borders and more restrained glows. The logo could use large, irregular, sharply angled brush-style lettering; section headings could use heavy italic uppercase sans-serif; interface text could use legible sans-serif; and the footer could use a strong, legible sans-serif treatment. Approximate desktop sizes are 65–85 px for the logo, 24–29 px for the subtitle, 17–19 px for the introduction, 29–35 px for section headings, 16–19 px for step titles, 13–15 px for descriptions, 13–16 px for hosts, 12–14 px for badges and 22–25 px for the footer. Exact fonts and sizes could be adjusted for visual similarity and readability.
 
@@ -117,16 +118,16 @@ The second panel could be headed by a pink gamepad icon, `SERVIDORES`, a vertica
 
 | Game | Hostname | Type | Port | Protocol |
 | --- | --- | --- | --- | --- |
-| Terraria | `brasilia.terraria.games.crias.wtf` | Vanilla | 7777 | TCP |
-| Terraria | `lsj.terraria.games.crias.wtf` | Vanilla | 7777 | TCP |
-| Terraria | `brasilia.calamity.terraria.games.crias.wtf` | Calamity | 7777 | TCP |
-| Terraria | `lsj.calamity.terraria.games.crias.wtf` | Calamity | 7777 | TCP |
-| Minecraft | `arena-v22.minecraft.games.crias.wtf` | Vanilla | 25565 | TCP |
-| Minecraft | `bmc.minecraft.games.crias.wtf` | Better MC | 25565 | TCP |
-| Minecraft | `prominence.minecraft.games.crias.wtf` | Modpack | 25565 | TCP |
-| Hytale | `alpha.hytale.games.crias.wtf` | Alpha | 5520 | UDP |
+| Terraria | `brasilia.terraria.games.kress.wtf` | 1.4.5.8 | 7777 | TCP |
+| Terraria | `lsj.terraria.games.kress.wtf` | 1.4.5.8 | 7777 | TCP |
+| Terraria | `brasilia.calamity.terraria.games.kress.wtf` | Calamity | 7777 | TCP |
+| Terraria | `lsj.calamity.terraria.games.kress.wtf` | Calamity | 7777 | TCP |
+| Minecraft | `arena-v22.minecraft.games.kress.wtf` | 1.21.11 | 25565 | TCP |
+| Minecraft | `bmc.minecraft.games.kress.wtf` | Better MC 6 | 25565 | TCP |
+| Minecraft | `prominence.minecraft.games.kress.wtf` | Prominence II | 25565 | TCP |
+| Hytale | `alpha.hytale.games.kress.wtf` | 0.7.3 | 5520 | UDP |
 
-The user confirmed these connection details on 2026-11-09. The visual brand, management domain, game hostnames and footer address have distinct roles and would not be automatically substituted for one another. Server data could be maintained separately from the visual markup so values can be updated. Each structured record could retain game, hostname, category, port, protocol and badge color or variant. TCP is technical data for Terraria and Minecraft and would not be displayed as protocol text; only Hytale explicitly displays `/ UDP`.
+The user confirmed the eight server records on 2026-11-09 and later updated their game-host suffix and version labels to the values shown above. Keep the visual brand, management domain and game hostnames as distinct values. Server data is maintained separately from visual markup so values can be updated. Each structured record retains game, hostname, version, port and protocol; Calamity badges link to the 2.2.4 release details page. TCP is technical data for Terraria and Minecraft and is not displayed as protocol text; only Hytale explicitly displays `/ UDP`.
 
 #### Illustrative scenario: Finding server details
 
@@ -142,7 +143,7 @@ The user confirmed these connection details on 2026-11-09. The visual brand, man
 
 At desktop width the Terraria, Minecraft and Hytale cards could appear left to right, aligned at top and bottom. Terraria and Minecraft could be comparably wider than Hytale, approximately 35:36:27 before gaps. Each card could have a distinct luminous border, illustrated branded header and dark interior.
 
-Terraria could use cyan accents and a pixel-art header with a recognizable Terraria logo, tree, vegetation, mountains and purple-blue sky. Its four rows could have cyan Vanilla and magenta Calamity badges. Minecraft could use green accents and a header with a recognizable stone-style MINECRAFT logo, grass block, Creeper and block scenery. Its three badges could distinguish Vanilla in lilac, Better MC in cyan-blue and Modpack in violet. The intentionally open lower area could retain a dark teal-green gradient and pixelated vegetation and blocks, without added metrics. Hytale could use electric-blue accents, a recognizable metallic HYTALE logo and a yellow-orange Alpha badge. Its large lower area could retain a pixel-art fantasy landscape with blue twilight, pink clouds, stone ruins, towers, vegetation and depth; it would not become a flat background.
+Terraria could use cyan accents and a pixel-art header with a recognizable Terraria logo, tree, vegetation, mountains and purple-blue sky. Its four rows use cyan `1.4.5.8` and magenta Calamity badges. Minecraft could use green accents and a header with a recognizable stone-style MINECRAFT logo, grass block, Creeper and block scenery. Its three badges distinguish `1.21.11` in lilac, Better MC 6 in cyan-blue and Prominence II in violet. The intentionally open lower area could retain a dark teal-green gradient and pixelated vegetation and blocks, without added metrics. Hytale could use electric-blue accents, a recognizable metallic HYTALE logo and a yellow-orange `0.7.3` badge. Its large lower area could retain a pixel-art fantasy landscape with blue twilight, pink clouds, stone ruins, towers, vegetation and depth; it would not become a flat background.
 
 #### Illustrative scenario: Comparing game cards
 

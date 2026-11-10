@@ -21,10 +21,12 @@ The desktop comparison shows the same broad scene structure: title and sunset, l
 
 The 2026-11-09 follow-up recaptured the current scene in Edge at 1448 × 1086 and 1920 × 1080. The expanded sky, raised smaller sun, wireframe mountain layer, skyline fade into ground fog, star boundary, full portrait glows and panel layout were visually inspected at both sizes. The captures were reviewed in the live browser session but not exported; the screenshot files listed above are the earlier saved baseline captures. The current toast was also rendered over the visible footer and inspected after success and failure; its bottom offset clears the footer by 12 px without changing document height.
 
+The 2026-11-09 lagoon pass was captured with Playwright 1.65 and Chromium 158 headless at 1448 × 1086 and 1920 × 1080. The raised horizon, sun-aligned curved reflection, skyline occlusion and clear ground grid were inspected in both captures. The reflection layer ends about 158px above the shared skyline/grid baseline. Mobile was intentionally not reviewed again in this pass, following the user’s session-wide direction.
 Screenshots reviewed:
 
 - `screenshots/comparison-final-kress-2026-11-09.png` — reference and final desktop side by side at 1448 × 1086.
 - `screenshots/desktop-final-kress-1448x1086.png` and `screenshots/wide-final-kress-1920x1080.png`.
+- `screenshots/lagoon-review-1448x1086.png` and `screenshots/lagoon-review-1920x1080.png` — final sun/reflection composition at both desktop widths.
 - `screenshots/tablet-final-kress-900-full.png` and `screenshots/tablet-final-kress-1024-full.png` — full tablet documents.
 - `screenshots/mobile-final-kress-320-full.png`, `screenshots/mobile-final-kress-375-full.png`, and `screenshots/mobile-final-kress-430-full.png`.
 - `screenshots/asset-review-contact-sheet.png` — the fourteen portraits and unified bust inspected as independent transparent assets.
@@ -34,7 +36,7 @@ The active unframed character WebPs and unified bust use lossless 1280 × 1920 c
 ## Functional checks
 
 - `npm run build` completed and reported eight server records. `npm run preview` was used at `http://localhost:4173`.
-- The root path and `/crias-games/` repository subpath both returned HTTP 200 for HTML, CSS, JavaScript and the local OpenMoji footer SVG. Asset links remain relative; no server runtime is needed after build.
+- The root path and `/crias-games/` repository subpath both returned HTTP 200 for HTML, CSS, JavaScript and `assets/art/lagoon-reflection.svg`. Asset links remain relative; no server runtime is needed after build.
 - The nine copy values were compared with canonical data: the management URL plus all eight full hostnames. Clipboard success announces `Copiado!`; a rejected clipboard announces an error while retaining the visible selectable URL and focus. A missing clipboard API with a failed `execCommand('copy')` also reports failure and removes its temporary field. The Space key activated a focused copy button; repeated activation was checked.
 - Keyboard tab order was inspected from the skip link through the nine copy buttons. Focus outlines were visible; no pause control is present. The copyleft mark is not interactive. Chromium’s synthetic Enter event sequence did not reliably produce one activation, so Enter-key activation was not counted as independently verified; the copy controls are native `<button>` elements.
 - With JavaScript disabled, the management URL, eight server rows, fourteen illustrations and essential instructions remained present. Script-dependent motion and copy buttons stayed hidden.

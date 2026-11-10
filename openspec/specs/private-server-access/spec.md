@@ -36,14 +36,16 @@ The directory SHALL initially contain the eight records below, in the shown game
 
 | Game | Hostname | Variant | Port | Protocol |
 | --- | --- | --- | --- | --- |
-| Terraria | `brasilia.terraria.games.crias.wtf` | Vanilla | 7777 | TCP |
-| Terraria | `lsj.terraria.games.crias.wtf` | Vanilla | 7777 | TCP |
-| Terraria | `brasilia.calamity.terraria.games.crias.wtf` | Calamity | 7777 | TCP |
-| Terraria | `lsj.calamity.terraria.games.crias.wtf` | Calamity | 7777 | TCP |
-| Minecraft | `arena-v22.minecraft.games.crias.wtf` | Vanilla | 25565 | TCP |
-| Minecraft | `bmc.minecraft.games.crias.wtf` | Better MC | 25565 | TCP |
-| Minecraft | `prominence.minecraft.games.crias.wtf` | Modpack | 25565 | TCP |
-| Hytale | `alpha.hytale.games.crias.wtf` | Alpha | 5520 | UDP |
+| Terraria | `brasilia.terraria.games.kress.wtf` | 1.4.5.8 | 7777 | TCP |
+| Terraria | `lsj.terraria.games.kress.wtf` | 1.4.5.8 | 7777 | TCP |
+| Terraria | `brasilia.calamity.terraria.games.kress.wtf` | Calamity | 7777 | TCP |
+| Terraria | `lsj.calamity.terraria.games.kress.wtf` | Calamity | 7777 | TCP |
+| Minecraft | `arena-v22.minecraft.games.kress.wtf` | 1.21.11 | 25565 | TCP |
+| Minecraft | `bmc.minecraft.games.kress.wtf` | Better MC 6 | 25565 | TCP |
+| Minecraft | `prominence.minecraft.games.kress.wtf` | Prominence II | 25565 | TCP |
+| Hytale | `alpha.hytale.games.kress.wtf` | 0.7.3 | 5520 | UDP |
+
+The two `Calamity` badges SHALL link to [release details for version 2.2.4](https://calamitymod.wiki.gg/wiki/2.2.4). The other badges identify their game version or modpack and SHALL NOT imply live status.
 
 ### Requirement: Copy connection values
 Available management URLs and server hostnames SHALL have keyboard-operable copy controls with descriptive accessible names. A server control SHALL copy its hostname alone; the management control SHALL copy the complete URL. Success or failure SHALL be communicated visually and to assistive technology without moving the layout, and values SHALL remain selectable for manual copying.

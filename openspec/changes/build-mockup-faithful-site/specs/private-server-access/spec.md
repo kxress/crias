@@ -16,6 +16,13 @@ The directory SHALL display the eight confirmed records from the persistent spec
 - **WHEN** a visitor examines any record
 - **THEN** its complete hostname, variant and port are associated visually and semantically, and Hytale displays `Porta: 5520 / UDP`
 
+### Requirement: Current server suffixes and version badges
+All eight game hostnames SHALL use the `.games.kress.wtf` suffix and the versions listed in the persistent server-access spec. Terraria Vanilla SHALL show `1.4.5.8`, Minecraft Vanilla SHALL show `1.21.11`, Better MC SHALL show `Better MC 6`, Prominence SHALL show `Prominence II`, and Hytale SHALL show `0.7.3`. Each Calamity badge SHALL be a keyboard-accessible link to `https://calamitymod.wiki.gg/wiki/2.2.4`.
+
+#### Scenario: Inspecting updated badges
+- **WHEN** a visitor views the server directory
+- **THEN** each row shows its updated hostname and version, and either Calamity badge opens the version 2.2.4 release details
+
 ## MODIFIED Requirements
 
 ### Requirement: Copy feedback without layout shift

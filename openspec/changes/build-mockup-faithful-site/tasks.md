@@ -29,7 +29,7 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 - [x] 3.2 Implement the magenta joining panel, globe, divider, four numbered steps, icons, chevrons and cyan URL inset; compare their order, spacing and relative scale against the mockup.
 - [x] 3.3 Implement the magenta directory panel, gamepad heading, three equal-sized illustrated cards, ordered rows, badges and copy-control spaces; verify hover changes the card outline to cyan.
 - [x] 3.4 Place the fourteen characters and unified bust in their reference desktop groups with separate tall portraits, efficiently sized visible artwork, a bottom fade aligned to padded artwork and no edge cropping; keep Windows frames only on Rei and Usagi and check that artwork does not cover content. If raster processing is used, create the next numbered variant and retain existing files; inspect the character silhouettes and glow at 1448 and 1920 px.
-- [x] 3.5 Implement the footer over the continuing grid with computer icon, flanking neon lines and `Crias 🄯 2026`; use and credit the OpenMoji copyleft artwork, then compare position and treatment against the reference.
+- [x] 3.5 Implement the footer over the continuing grid with computer icon, flanking neon lines and `Crias 🄯 2026`; render U+1F12F through an emoji font with an animated neon text glow and no link, then compare position and treatment against the reference.
 - [x] 3.6 Implement tablet reflow and mobile stacking with separate artwork placement and reserved space; inspect full pages at 320, 375 and 430 CSS pixels and verify all fourteen characters are visible in normal scroll flow with no horizontal page overflow.
 - [x] 3.7 Check full hostnames, text contrast, 200% zoom, keyboard focus and touch target size at narrow and wide widths; correct any clipped, obscured or overlapping content.
 
@@ -58,10 +58,11 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 - [x] 6.5 Replace the two-degree card tilt with pointer-position-controlled Steam-style perspective, brightness and specular light; reach at least six degrees on each axis (3× the prior cap) and a small hover lift/scale, then verify readability, keyboard focus and no touch hover.
 - [x] 6.6 Recheck all new effects with motion active, reduced, and JavaScript unavailable; capture and visually inspect desktop and wide-desktop screenshots, then run the build and relevant browser checks before marking these tasks complete.
 
-## 7. Streamlined hero and feedback
+## 7. Sky, lagoon and feedback refinements
 
 - [x] 7.1 Remove the two-line hero intro from rendered HTML; verify the heading/subtitle remain centered and the same guidance remains available in the joining steps and directory.
-- [x] 7.2 Reduce the striped sun to 75% of its current diameter, raise its visible lower edge about 260px above the shared skyline horizon, and reserve more open sky for wireframe mountains confined to the side corners; put Japanese signs in front of the city and use normal CSS opacity/filter compositing; verify the sun remains unobstructed at desktop and wide-desktop sizes.
+- [x] 7.2 Reduce the striped sun to 75% of its current diameter, raise its visible lower edge about 320px above the shared skyline horizon, and reserve more open sky for wireframe mountains confined to the side corners; put Japanese signs in front of the city and use normal CSS opacity/filter compositing; verify the sun remains unobstructed at desktop and wide-desktop sizes.
 - [x] 7.3 Remove the floating pause control and all of its styles/handlers; verify no visible or inert pause control remains at desktop and narrow widths.
 - [x] 7.4 Keep copy success/error feedback in a brief bottom-of-viewport toast outside the main/footer stacking contexts so it renders above the copyleft label; verify footer-visible copies, repeated copies, clipboard failure, screen-reader announcements, focus, and zero panel/page layout shift.
 - [x] 7.5 Run the build and recheck no-JavaScript, reduced-motion, responsive, and subpath behavior; capture and inspect final desktop screenshots before marking visual tasks complete.
+- [x] 7.6 Raise the shared skyline/grid horizon to about 53vh while keeping the sun centered over a CSS-controlled vector reflection; render scattered, warm curved glints above the skyline baseline and behind the city, widening into skyline gaps without drawing water under the town or onto the ground grid. Verify layer order, sun clearance, reduced-motion behavior, and the full composition at 1448 × 1086 and 1920 × 1080.
