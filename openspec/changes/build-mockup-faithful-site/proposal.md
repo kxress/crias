@@ -51,6 +51,6 @@ Replace the current Tifa portrait with a new numbered, transparent variant guide
 
 Update the invitation step to name Kress and Discord/Telegram, and add the supplied BlueMap link to the Minecraft card without a copy button.
 
-Redraw the corner mountains as irregular alpine ridges with a varied triangulated neon wireframe inspired by the supplied image, lower the sun by about 32px, and give the sky more defined clouds that scroll continuously left at independent parallax speeds.
+Refine the corner mountains into more organic, uneven alpine ridges with a layered neon wireframe inspired by the supplied image, lower the sun by about 32px, and give the sky more defined clouds that scroll continuously left at independent parallax speeds.
 
-Raise the six upper portraits around 16px and the eight portraits in the side columns around 32px; move each side's two lowest portraits outward toward the page edge by up to around 32px while keeping their art within the page.
+Raise the six upper portraits around 16px and the eight portraits in the side columns around 32px; move each side's two lowest portraits outward toward the page edge by up to around 32px while keeping their art within the page. Apply this upward and outward portrait adjustment once more after the latest user review. Make all three card borders pink together at rest and cyan together whenever the SERVIDORES panel is hovered or keyboard-focused. Refine the mountain ridges into a more organic, irregular retrowave wireframe based on the latest reference.

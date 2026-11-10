@@ -48,7 +48,7 @@ The city, mountains, transparent striped sun, clouds, stars, signs and low-view 
 
 #### Scenario: Scene geometry, transparency and stacking
 - **WHEN** the implementation is reviewed against the approved detailed criteria
-- **THEN** On desktop, the shared skyline/grid horizon SHALL sit higher on the page, with irregular mountain ridges and varied triangulated neon wireframes confined to the side corners clear of the sun.
+- **THEN** On desktop, the shared skyline/grid horizon SHALL sit higher on the page, with organic, uneven mountain ridges and varied layered triangulated neon wireframes confined to the side corners clear of the sun.
 - **AND** The center sky SHALL retain its original dark purple color while its brighter side edges distinguish the mountains from the background.
 - **AND** Distinct cloud layers SHALL scroll continuously left in seamless loops at different parallax speeds above the sun and SHALL end above the skyline, without covering buildings.
 - **AND** The sun SHALL sit behind and overlap the upper city silhouette slightly at about 1.8 times its previous CSS diameter (roughly 320–326px across 1448–1920px desktop widths); its container SHALL use `clip-path: inset(0px 0px 25%)`, its desktop lift SHALL be about 116px (32px lower than the previous 148px position), and its orange-red bands SHALL be separated by transparent cutouts that reveal the sky.
@@ -72,14 +72,14 @@ Each equal-sized desktop game card SHALL use one continuous real screenshot behi
 - **WHEN** the implementation is reviewed against the approved detailed criteria
 - **THEN** The three equal desktop game cards SHALL each use one continuous recognizable in-game or official screenshot across the complete card behind the title and server rows: early-game Terraria, an iconic Minecraft world scene, and Hytale spawn scenery.
 - **AND** The image SHALL NOT be split into separate header and lower strips, repeated, covered by CSS scenery textures, or combined with the rejected generated Hytale landscape.
-- **AND** The server-list wrapper SHALL have no separate background or border; individual server rows SHALL retain their own dark readable backgrounds and fine borders over the card artwork.
+- **AND** The server-list wrapper SHALL have no separate background or border; individual server rows SHALL retain their own dark readable backgrounds and fine borders over the card artwork. All three game-card outlines SHALL be pink while the SERVIDORES panel is idle and switch together to cyan while it is hovered or contains keyboard focus.
 - **AND** All eight canonical records SHALL remain intact even when a design reference repeats placeholder rows.
 - **AND** Version and modpack badges SHALL use the same pink color while idle and cyan when the containing card is hovered or keyboard-focused; they SHALL NOT use a different base color per game or badge.
 - **AND** The Terraria 1.4.5.8, Calamity 2.2.4, Better MC 6, Prominence II and Hytale 0.7.3 badges SHALL link to the exact details pages defined by the persistent private-server-access spec.
 
 #### Scenario: Inspecting a game card
-- **WHEN** a visitor views a card or moves pointer/focus within it
-- **THEN** the selected game art remains clearly visible without a texture overlay, all badges share the pink idle color and shift to cyan within the hovered/focused card, and supported version badges open their details pages
+- **WHEN** a visitor views a card or moves pointer/focus within the SERVIDORES directory
+- **THEN** the selected game art remains clearly visible without a texture overlay, all three borders share pink at rest and cyan together while the directory is hovered/focused, all badges share the pink idle color and shift to cyan within the hovered/focused card, and supported version badges open their details pages
 
 #### Scenario: Viewing server rows
 - **WHEN** a visitor views the server list inside a game card
@@ -122,13 +122,6 @@ The fourteen original portraits, content panels and footer statues SHALL follow 
 - **WHEN** full desktop pages are reviewed at 1448px and 1920px
 - **THEN** the lowered top groups, descending side portraits, centered panels and closely flanking footer statues follow the supplied arrangement without its temporary editing artifacts
 
-### Requirement: Desktop portrait spacing
-The desktop collage SHALL place the six upper portraits about 16px higher and the eight side-column portraits about 32px higher. The two lowest portraits in each side column SHALL also shift outward toward the page edge by up to about 32px, while preserving complete artwork and keeping it inside the page.
-
-#### Scenario: Reviewing the desktop portrait spacing
-- **WHEN** the page is viewed at 1448px or 1920px wide
-- **THEN** the upper and side portrait groups use the adjusted positions, with lower left portraits shifted toward the left edge and lower right portraits toward the right edge
-
 ### Requirement: Pointer-reactive depth
 Fine-pointer movement SHALL create responsive GPU fluid smoke and Steam-style game-card depth within the performance, stacking and accessibility limits below.
 
@@ -158,6 +151,14 @@ Fine-pointer movement SHALL create responsive GPU fluid smoke and Steam-style ga
 - **THEN** the fluid canvas and card tilt are absent, and essential controls remain operable and clearly focused
 
 ## MODIFIED Requirements
+
+### Requirement: Desktop portrait spacing
+The desktop collage SHALL place the six upper portraits a further 16px higher and the eight side-column portraits a further 32px higher than the last approved adjustment. The two lowest portraits in each side column SHALL also shift outward again toward the page edge by up to about 32px where the viewport gutter permits, while preserving complete artwork and glow inside the page.
+
+#### Scenario: Reviewing the desktop portrait spacing
+- **WHEN** the page is viewed at 1448px or 1920px wide
+- **THEN** the upper and side portrait groups use the adjusted positions, with lower left portraits shifted toward the left edge and lower right portraits toward the right edge
+
 
 ### Requirement: Footer character collage
 The footer SHALL also include four independent transparent character illustrations: Shantae, anime Marie Rose, chibi Oguri Cap eating rice, and chibi Tamamo Cross reacting to her. Shantae and Marie Rose SHALL occupy the left footer spaces; Oguri and Tamamo SHALL form the food joke on the right. These assets SHALL retain numbered masters and derivatives, complete silhouettes, glow clearance and CSS bottom fades without photo backgrounds, and SHALL NOT obscure the footer signature or actionable content.

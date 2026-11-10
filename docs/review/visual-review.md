@@ -1,4 +1,12 @@
 # Visual and functional review
+## Follow-up portraits, card borders and mountain wireframes — 2026-11-10
+
+Moved the six upper portraits another 16px up and all eight side portraits another 32px up. The lowest two on each side now move outward from 4px at the 1448px composition to 32px at 1920px, based on available outer gutter. Complete artwork and glow remain visible, all character images loaded, and neither desktop capture overflowed horizontally.
+
+All three game-card borders are pink at rest and switch to cyan together when the SERVIDORES panel is hovered or contains keyboard focus. Browser inspection returned the same idle and active border colors for all three cards at both desktop widths. The mountain vectors now use asymmetric peaks, irregular terrain contours and uneven triangulation behind the opaque city.
+
+[1448px desktop capture](screenshots/portrait-border-mountain-1448-2026-11-10.webp) · [1920px desktop capture](screenshots/portrait-border-mountain-1920-2026-11-10.webp) · [1448px hover state](screenshots/portrait-border-mountain-hover-1448-2026-11-10.webp)
+
 
 ## Invite and Minecraft map — 2026-11-10
 
