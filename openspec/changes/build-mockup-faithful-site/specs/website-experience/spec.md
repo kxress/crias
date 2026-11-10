@@ -30,7 +30,7 @@ Every visible neon accent SHALL have a perceptible glow pulse and occasional res
 - **THEN** each neon accent pulses and has an occasional brief flicker without flashing rapidly or reducing readability
 
 ### Requirement: Panel-wide neon focus color and depth
-All neon accents in each main panel SHALL be pink at rest and cyan together on hover or keyboard focus, while preserving readable text and reduced-motion behavior. At desktop widths of at least 1100px, either main panel SHALL gently zoom and tilt in perspective while hovered or containing keyboard focus. The transform SHALL not alter document flow and SHALL be disabled for reduced motion and the static graphics fallback.
+All neon accents in each main panel SHALL be pink at rest and cyan together on hover or keyboard focus, while preserving readable text and reduced-motion behavior. At desktop widths of at least 1100px, either main panel SHALL scale to about 1.04 and tilt about 1.1 degrees on X and 0.8 degrees on Y while hovered or containing keyboard focus. The transform SHALL not alter document flow and SHALL be disabled for reduced motion and the static graphics fallback.
 
 #### Scenario: All panel accents change together
 - **WHEN** the implementation is reviewed against the approved detailed criteria
@@ -38,12 +38,12 @@ All neon accents in each main panel SHALL be pink at rest and cyan together on h
 - **AND** Heading dividers SHALL pulse through border color without an inset shadow across the heading area.
 - **AND** The accents SHALL keep pulsing and flickering in either state.
 - **AND** The same behavior SHALL work for keyboard focus and remain within reduced-motion rules.
-- **AND** On desktop, the focused panel SHALL scale up slightly and lean with a restrained perspective tilt without shifting surrounding content.
+- **AND** On desktop, the focused panel SHALL scale to about 1.04 and lean with a restrained perspective tilt without shifting surrounding content.
 
 #### Scenario: Focusing a main panel
 - **WHEN** a visitor hovers a main panel or tabs to a control inside it
 - **THEN** its border and every neon detail, including the Japanese label and URL frame, are pink at rest and turn cyan together while their glow remains active
-- **AND** at desktop widths with motion enabled, that panel zooms and tilts slightly; focus on a control triggers the same effect and does not move other content
+- **AND** at desktop widths with motion enabled, that panel zooms about 4% and tilts slightly; focus on a control triggers the same effect without moving other content
 
 ### Requirement: Aligned city and grid horizon
 The city, mountains, transparent striped sun, clouds, stars, signs and low-view grid SHALL follow the specified geometry and layer order, with normal city blending and no water-reflection layer.
@@ -75,14 +75,15 @@ Each equal-sized desktop game card SHALL use one continuous real screenshot behi
 - **WHEN** the implementation is reviewed against the approved detailed criteria
 - **THEN** The three equal desktop game cards SHALL each use one continuous recognizable in-game or official screenshot across the complete card behind the title and server rows: early-game Terraria, an iconic Minecraft world scene, and Hytale spawn scenery.
 - **AND** The image SHALL NOT be split into separate header and lower strips, repeated, covered by CSS scenery textures, or combined with the rejected generated Hytale landscape.
-- **AND** The server-list wrapper SHALL have no separate background or border; individual server rows SHALL retain their own dark readable backgrounds and fine borders over the card artwork. All three game-card outlines SHALL be pink while the SERVIDORES panel is idle and switch together to cyan while it is hovered or contains keyboard focus.
+- **AND** The server-list wrapper SHALL have no separate background or border; individual server rows SHALL retain their own dark readable backgrounds and fine borders over the card artwork. Each game-card outline SHALL be pink while its card is idle and cyan while that card is hovered or contains keyboard focus.
 - **AND** All eight canonical records SHALL remain intact even when a design reference repeats placeholder rows.
+- **AND** Every neon detail within the directory focus zone, including each game-card outline, server-row border, copy control, release badge and map link, SHALL switch together from pink to cyan when the directory or a card within it is hovered or keyboard-focused.
 - **AND** Version and modpack badges SHALL use the same pink color while idle and cyan when the containing card is hovered or keyboard-focused; they SHALL NOT use a different base color per game or badge.
 - **AND** The Terraria 1.4.5.8, Calamity 2.2.4, Better MC 6, Prominence II and Hytale 0.7.3 badges SHALL link to the exact details pages defined by the persistent private-server-access spec.
 
 #### Scenario: Inspecting a game card
 - **WHEN** a visitor views a card or moves pointer/focus within the SERVIDORES directory
-- **THEN** the selected game art remains clearly visible without a texture overlay, all three borders share pink at rest and cyan together while the directory is hovered/focused, all badges share the pink idle color and shift to cyan within the hovered/focused card, and supported version badges open their details pages
+- **THEN** the selected game art remains clearly visible without a texture overlay, all cards and their neon details use pink at rest and shift together to cyan when the directory or a card within it is hovered or keyboard-focused, while supported version badges open their details pages
 
 #### Scenario: Viewing server rows
 - **WHEN** a visitor views the server list inside a game card
@@ -137,7 +138,7 @@ Fine-pointer movement SHALL create responsive GPU fluid smoke and Steam-style ga
 - **AND** Text SHALL remain above the canvas through DOM stacking, with no rectangular clearing masks or visible cutouts in the fluid.
 - **AND** It SHALL inject smoke on the first pointer movement, preserve cursor deltas, allow bounded variable time steps when frame delivery slows, stop after dye dissipates, and not run for reduced motion.
 - **AND** Movement over a game card SHALL control a Steam-style perspective tilt, brightness and pointer-following specular highlight.
-- **AND** The card tilt SHALL reach six degrees on each axis, at least three times the former two-degree per-axis cap, with a small hover lift/scale.
+- **AND** The card tilt SHALL reach twelve degrees on each axis with a 1.07 hover scale and a restrained lift.
 - **AND** Effects SHALL not block interaction or shift content.
 
 #### Scenario: Moving a desktop pointer
@@ -154,11 +155,11 @@ Fine-pointer movement SHALL create responsive GPU fluid smoke and Steam-style ga
 - **THEN** the fluid canvas and card tilt are absent, and essential controls remain operable and clearly focused
 
 ### Requirement: Desktop hero hover response
-On desktop fine-pointer devices with motion enabled, hovering the hero title group SHALL gently enlarge and rock the chrome wordmark, cursive subtitle, and Japanese eyebrow together without changing layout or hiding text. The effect SHALL stop under reduced motion or the static graphics fallback.
+On desktop fine-pointer devices with motion enabled, hovering the hero title group SHALL animate the chrome gradient across the CRIAS GAMES letters while gently rocking the cursive subtitle and Japanese eyebrow. Preserve the title's baseline letterforms and layout. Stop all hover motion under reduced motion or the static graphics fallback.
 
 #### Scenario: Hovering the hero title
 - **WHEN** a visitor hovers the hero title group with motion enabled
-- **THEN** the wordmark, subtitle and Japanese eyebrow subtly zoom and rock in place, then settle when the pointer leaves
+- **THEN** the chrome colors sweep through the title letters while the subtitle and Japanese eyebrow gently rock; all effects settle when the pointer leaves
 
 ### Requirement: Desktop character drag and return
 On desktop fine-pointer devices with motion enabled, visible character artwork and independent frames SHALL follow mouse drags with eased movement and return to their CSS positions on release. Dragging SHALL preserve page selection, keep nearby layout fixed, and leave interface controls usable. A click without movement SHALL retain the portrait reaction. Reduced motion and the static graphics fallback SHALL disable drag motion.
@@ -166,6 +167,13 @@ On desktop fine-pointer devices with motion enabled, visible character artwork a
 #### Scenario: Dragging a character
 - **WHEN** a visitor presses and drags on a visible character silhouette or window frame, then releases the mouse
 - **THEN** only that character follows the pointer with easing and smoothly returns to its original position; no text or image selection appears, a click without movement still triggers its reaction, and nearby interface controls remain usable
+
+### Requirement: Temporary portrait wheel zoom
+While a desktop fine-pointer visitor holds the primary mouse button on a visible portrait or frame, the wheel SHALL adjust that illustration's temporary scale from its original size up to 2.5x. The page SHALL not scroll during this held wheel interaction. Releasing the button SHALL smoothly restore the original scale and SHALL not trigger the click reaction after wheel input. Reduced motion and the static graphics fallback SHALL disable this effect.
+
+#### Scenario: Zooming a held portrait
+- **WHEN** a visitor holds a visible portrait and scrolls the mouse wheel
+- **THEN** the portrait zooms in or out within the 1x to 2.5x range, page scrolling is suppressed only while it is held, and release restores its original scale without a click-jump
 
 ## MODIFIED Requirements
 

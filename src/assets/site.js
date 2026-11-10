@@ -26,8 +26,8 @@ function setCardTilt(card, x, y) {
   const normalizedX = Math.max(-1, Math.min(1, (x - rect.left - rect.width / 2) / (rect.width / 2)));
   const normalizedY = Math.max(-1, Math.min(1, (y - rect.top - rect.height / 2) / (rect.height / 2)));
   const magnitude = Math.hypot(normalizedX, normalizedY);
-  card.style.setProperty('--card-tilt-x', `${(normalizedX * 6).toFixed(2)}deg`);
-  card.style.setProperty('--card-tilt-y', `${(-normalizedY * 6).toFixed(2)}deg`);
+  card.style.setProperty('--card-tilt-x', `${(normalizedX * 12).toFixed(2)}deg`);
+  card.style.setProperty('--card-tilt-y', `${(-normalizedY * 12).toFixed(2)}deg`);
   card.style.setProperty('--card-spot-x', `${((normalizedX + 1) * 50).toFixed(1)}%`);
   card.style.setProperty('--card-spot-y', `${((normalizedY + 1) * 50).toFixed(1)}%`);
   card.style.setProperty('--card-brightness', (1.08 - normalizedY * .24).toFixed(2));
@@ -170,6 +170,8 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
     const session = drag;
     drag = null;
     session.portrait.classList.remove('portrait-dragging');
+    session.portrait.classList.remove('portrait-wheel-zoom');
+    session.portrait.style.removeProperty('--portrait-hold-scale');
     session.collage?.classList.remove('portrait-collage-dragging');
     document.documentElement.classList.remove('portrait-drag-active');
     document.documentElement.classList.remove('portrait-press-active');
@@ -195,17 +197,17 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
         }
       };
       returnFrames.set(portrait, requestAnimationFrame(returnToOrigin));
-      if (event?.type === 'pointerup') {
-        suppressClickPoint = { x: event.clientX, y: event.clientY };
-        clearTimeout(suppressClickTimer);
-        suppressClickTimer = window.setTimeout(() => { suppressClickPoint = null; }, 250);
-      }
     } else {
       session.portrait.classList.remove('portrait-returning');
       if (session.moved) {
         session.portrait.style.removeProperty('--portrait-drag-x');
         session.portrait.style.removeProperty('--portrait-drag-y');
       }
+    }
+    if ((session.moved || session.scrolled) && event?.type === 'pointerup') {
+      suppressClickPoint = { x: event.clientX, y: event.clientY };
+      clearTimeout(suppressClickTimer);
+      suppressClickTimer = window.setTimeout(() => { suppressClickPoint = null; }, 250);
     }
   }
 
@@ -252,6 +254,8 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
       startX: event.clientX,
       startY: event.clientY,
       moved: false,
+      scrolled: false,
+      wheelScale: 1,
       initialX: existingX,
       initialY: existingY,
       currentX: existingX,
@@ -263,6 +267,15 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
     try { document.documentElement.setPointerCapture(event.pointerId); } catch { /* Window listeners still cover the drag. */ }
   });
   window.addEventListener('selectstart', (event) => { if (drag) event.preventDefault(); });
+  window.addEventListener('wheel', (event) => {
+    if (!drag || !motionIsActive() || event.deltaY === 0) return;
+    event.preventDefault();
+    drag.scrolled = true;
+    const unit = event.deltaMode === WheelEvent.DOM_DELTA_LINE ? 16 : event.deltaMode === WheelEvent.DOM_DELTA_PAGE ? window.innerHeight : 1;
+    drag.wheelScale = Math.max(1, Math.min(2.5, drag.wheelScale - event.deltaY * unit * .002));
+    drag.portrait.style.setProperty('--portrait-hold-scale', drag.wheelScale.toFixed(3));
+    drag.portrait.classList.add('portrait-wheel-zoom');
+  }, { passive: false });
   window.addEventListener('pointermove', (event) => {
     if (!drag || event.pointerId !== drag.pointerId) return;
     const deltaX = event.clientX - drag.startX;
