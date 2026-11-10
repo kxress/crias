@@ -2,7 +2,7 @@
 
 ## Why
 
-The first implementation now follows the mockup, and a motion/depth refinement pass is committed. Additional visual feedback asks for a quieter hero without its repeated intro copy, a smaller higher sun, a clearer sun/city layer order, fast GPU fluid pointer smoke above character art but below interface panels, a retrowave chrome title with the cursive `SERVERS PRIVADOS` subtitle, and copy feedback that behaves like a bottom toast instead of inline panel content.
+The implementation follows the mockup with motion and depth refinements. The latest desktop montage calls for lower upper portraits, continuous screenshot backgrounds across the game cards, an extended footer collage, and reliable access to the local experiments. The chrome title, cursive `SERVERS PRIVADOS` subtitle, transparent sunset bands, fluid pointer smoke and bottom copy toast remain part of the approved direction.
 
 ## What Changes
 
@@ -33,4 +33,8 @@ Adds static site source, independently managed visual assets and data, verificat
 
 Use a 25% bottom clip on the sun and a desktop lift near 148px, remove neon glow/pulse from the sun, keep the city fully opaque with mountains behind it, and replace the generated Minecraft block bars with an official Minecraft landscape screenshot. Preserve only screenshot imagery as game-card scenery; CSS may style borders and text, not synthesize scenery over the art.
 
-Keep the upper half of the sun solid and confine its transparent stripe cutouts to the lower half. Leave the server-list wrapper transparent and unframed, but retain a separate dark fill and fine border on each server row. Keep each game screenshot in its header area rather than repeating the Terraria capture as a lower strip. Move the unified bust/column artwork into paired lower footer positions, with the right instance mirrored through CSS.
+Keep the upper half of the sun solid and confine its transparent stripe cutouts to the lower half. Leave the server-list wrapper transparent and unframed, but retain a separate dark fill and fine border on each server row. Each game card uses one continuous in-game screenshot behind its title and server rows, without separate repeated image strips. Remove the generated lower Hytale landscape. Move the unified bust/column artwork into paired placements close to the centered footer signature, with the right instance mirrored through CSS.
+
+Follow the latest user montage for desktop placement: lower the six top illustrations toward the joining panel, continue both side columns down the extended page, and reserve a footer band below the directory. Keep the composition bounded around the content at both 1448px and 1920px. Preserve the local visual experiments at port 4173, expose their index, and keep the existing preview output available during rebuilds.
+
+Include the four newly approved footer characters now: Shantae and anime Marie Rose on the left, and chibi Oguri Cap eating rice with chibi Tamamo Cross on the right. Each is separate transparent artwork with numbered retained masters, broad glow margins and CSS bottom fades. Oguri and Tamamo form a visual food joke without covering the centered footer signature or paired statues.

@@ -38,7 +38,7 @@ On desktop, the shared skyline/grid horizon SHALL sit higher on the page, with c
 - **THEN** the enlarged lowered sun's transparent stripes reveal the sky behind it, the parallax clouds drift above the sun without covering buildings, bright mountain edges flank the darker center sky, Japanese neon signs sit in front of the city, the skyline base fades through fog into the grid, no stars appear on the ground, and the grid does not paint over the skyline
 
 ### Requirement: Official game card art and unified badge colors
-The three equal desktop game cards SHALL use recognizable in-game or official promotional header art: early-game Terraria, an iconic Minecraft title-screen/world scene, and Hytale spawn scenery. Minecraft's lower card artwork SHALL also be a real in-game/official landscape image; CSS-built block silhouettes, textures, and gradients SHALL NOT be used as substitute scenery or obscure any selected screenshot. The server-list wrapper SHALL have no separate background or border; individual server rows SHALL retain their own dark readable backgrounds and fine borders over the card artwork. Version and modpack badges SHALL use the same pink color while idle and cyan when the containing card is hovered or keyboard-focused; they SHALL NOT use a different base color per game or badge. The Terraria 1.4.5.8, Calamity 2.2.4, Better MC 6, Prominence II and Hytale 0.7.3 badges SHALL link to the exact details pages defined by the persistent private-server-access spec.
+The three equal desktop game cards SHALL each use one continuous recognizable in-game or official screenshot across the complete card behind the title and server rows: early-game Terraria, an iconic Minecraft world scene, and Hytale spawn scenery. The image SHALL NOT be split into separate header and lower strips, repeated, covered by CSS scenery textures, or combined with the rejected generated Hytale landscape. The server-list wrapper SHALL have no separate background or border; individual server rows SHALL retain their own dark readable backgrounds and fine borders over the card artwork. All eight canonical records SHALL remain intact even when a design reference repeats placeholder rows. Version and modpack badges SHALL use the same pink color while idle and cyan when the containing card is hovered or keyboard-focused; they SHALL NOT use a different base color per game or badge. The Terraria 1.4.5.8, Calamity 2.2.4, Better MC 6, Prominence II and Hytale 0.7.3 badges SHALL link to the exact details pages defined by the persistent private-server-access spec.
 
 #### Scenario: Inspecting a game card
 - **WHEN** a visitor views a card or moves pointer/focus within it
@@ -63,11 +63,32 @@ The copy success/error toast SHALL render in a document-level stacking context a
 - **THEN** the feedback toast is fully legible above the footer without covering its text or changing page layout
 
 ### Requirement: Paired footer statue artwork
-The footer SHALL place two instances of the same integrated bust, pixel glasses, and Ionic-column illustration in its left and right side spaces. The right instance SHALL be horizontally mirrored through CSS without creating a second raster asset. These decorations SHALL remain behind footer text and controls and SHALL NOT overlap the main panels.
+The footer SHALL also include four independent transparent character illustrations: Shantae, anime Marie Rose, chibi Oguri Cap eating rice, and chibi Tamamo Cross reacting to her. Shantae and Marie Rose SHALL occupy the left footer spaces; Oguri and Tamamo SHALL form the food joke on the right. These assets SHALL retain numbered masters and derivatives, complete silhouettes, glow clearance and CSS bottom fades without photo backgrounds, and SHALL NOT obscure the footer signature or actionable content.
+
+#### Scenario: Inspecting the footer character joke
+- **WHEN** the full desktop page is scrolled to its footer
+- **THEN** all four new characters are recognizable as separate illustrations, Oguri visibly eats rice with a comic expression, Tamamo reacts nearby, and all fourteen existing reference characters remain present
+
+### Requirement: Paired footer statue placement
+The extended footer band SHALL place two instances of the same integrated bust, pixel glasses, and Ionic-column illustration close to the centered footer signature as in the latest user montage. The right instance SHALL be horizontally mirrored through CSS without creating a second raster asset. These decorations SHALL remain behind footer text and controls and SHALL NOT overlap the main panels.
 
 #### Scenario: Inspecting footer statues
 - **WHEN** the footer is viewed at desktop and wide-desktop widths
 - **THEN** the integrated statues flank the centered footer content, the right one faces the mirrored direction, and both complete silhouettes remain visible when the page is scrolled to its bottom
+
+### Requirement: Latest desktop montage placement
+At desktop widths of 1448px and 1920px, the six upper portraits SHALL sit lower, beginning around y=160–195 and finishing near the joining panel. The side columns SHALL continue below them with a regular descending rhythm, with Kurisu beginning around y=470. The collage SHALL stay bounded near the centered content rather than spreading to wide viewport edges. An extended footer band SHALL accommodate the paired statues close to its centered signature. All illustrations SHALL remain separate, transparent, uncropped, and clear of text and controls. The user's montage is a placement reference; its pasted rectangles and duplicated content SHALL NOT be rendered.
+
+#### Scenario: Comparing the supplied montage
+- **WHEN** full desktop pages are reviewed at 1448px and 1920px
+- **THEN** the lowered top groups, descending side portraits, centered panels and closely flanking footer statues follow the supplied arrangement without its temporary editing artifacts
+
+### Requirement: Stable local preview and experiments
+The local preview SHALL remain available at port 4173 during builds. A rebuild SHALL preserve the currently served output until replacement files are ready, publish files atomically, and remove obsolete generated files only after successful publication. The existing `/experiments/tifa-physics/` demo and its assets SHALL remain available; `/experiments/` SHALL provide an accessible index with relative links that also work under the repository subpath.
+
+#### Scenario: Rebuilding while browsing a demo
+- **WHEN** the build runs while the home page and Tifa demo are requested
+- **THEN** their HTML and existing assets continue to respond successfully, the demo renders, and the final output includes its index and updated site
 
 ### Requirement: Pointer-reactive depth
 On fine-pointer devices, movement SHALL inject velocity and pink/cyan dye into a GPU-accelerated WebGL2 fluid simulation whose velocity advects the dye and whose pressure projection and vorticity create curling smoke. It SHALL use compact 16-bit scalar and two-channel framebuffer formats, a 6-iteration pressure solve, a 64px short-side simulation grid, a 384px short-side dye buffer, and a canvas capped at 0.6× CSS resolution and 500,000 pixels to keep pointer response fluid without excessive GPU bandwidth. Bilinear browser scaling SHALL smooth the diffuse smoke. The transparent, pointer-inert canvas SHALL layer above the hero collage and scenery, but below the hero title, Japanese signs, joining/server panels, their controls, and the footer. Text SHALL remain above the canvas through DOM stacking, with no rectangular clearing masks or visible cutouts in the fluid. It SHALL inject smoke on the first pointer movement, preserve cursor deltas, allow bounded variable time steps when frame delivery slows, stop after dye dissipates, and not run for reduced motion. Movement over a game card SHALL control a Steam-style perspective tilt, brightness and pointer-following specular highlight. The card tilt SHALL reach six degrees on each axis, at least three times the former two-degree per-axis cap, with a small hover lift/scale. Effects SHALL not block interaction or shift content.

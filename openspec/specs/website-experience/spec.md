@@ -34,6 +34,20 @@ The desktop collage SHALL preserve the fourteen named reference characters in th
 - **WHEN** a visitor views the desktop composition
 - **THEN** the individual characters and bust frame the content without covering text, controls or each other's essential features
 
+### Requirement: Latest desktop montage placement
+The footer SHALL include separate transparent illustrations of Shantae and anime Marie Rose on the left, and chibi Oguri Cap eating rice with chibi Tamamo Cross reacting on the right. Their numbered masters and derivatives SHALL be preserved with recorded provenance, clear silhouettes, alpha clearance for glow and CSS bottom fades. The four new characters SHALL supplement the original fourteen, with no backgrounds or photo frames, and SHALL leave the centered footer signature and controls unobscured.
+
+#### Scenario: Footer character collage
+- **WHEN** a visitor scrolls to the bottom of the desktop page
+- **THEN** all four added characters are independently visible and recognizable, the Oguri/Tamamo food joke is readable, and the original fourteen characters remain present
+
+### Requirement: Desktop montage alignment
+The latest supplied montage SHALL guide the approved desktop placement: the six upper portraits begin around y=160–195 and finish near the joining panel, side columns descend from Kurisu around y=470 through the lower page, and both integrated statues sit near the centered signature in an extended footer band. The collage SHALL remain bounded near the central content at 1448px and 1920px widths. Illustrations SHALL preserve transparency, full silhouettes and text/control clearance; temporary rectangles and duplicated content in the montage are not site elements.
+
+#### Scenario: Viewing the desktop montage arrangement
+- **WHEN** the full desktop page is inspected at 1448px or 1920px
+- **THEN** the lower top groups, regular side columns and closely flanking footer statues retain a balanced composition around the central panels
+
 ### Requirement: Joining panel presentation
 The joining panel SHALL use a glowing magenta frame, globe icon, heading and divider. Heading dividers SHALL pulse through border color without an inset shadow across the heading area. Its four numbered steps SHALL appear in sequence, horizontally on wide screens, with icons and progression cues. The management URL SHALL appear as readable text in a neon inset with a copy control. All neon details inside either main panel, including Japanese labels, URL text and frame, icons, step badges, chevrons and copy controls, SHALL be pink while idle and shift to cyan together when the panel is hovered or contains keyboard focus; their glow animation SHALL continue in either state. Copy feedback SHALL appear in a document-level floating toast above the footer and copyleft text, positioned clear of footer text when visible, without affecting layout.
 
@@ -42,7 +56,7 @@ The joining panel SHALL use a glowing magenta frame, globe icon, heading and div
 - **THEN** the four steps progress left to right and the URL remains readable and operable
 
 ### Requirement: Illustrated server panels
-The directory SHALL use a glowing magenta outer panel and three equally sized, illustrated game cards on desktop. Their header backgrounds SHALL use recognizable in-game or official promotional screenshots: an early-game Terraria scene, an iconic Minecraft title-screen or world image, and a Hytale environment. Minecraft's lower card area SHALL use a real official/in-game landscape screenshot. CSS SHALL NOT synthesize terrain, block silhouettes, or other game scenery, nor obscure selected screenshot artwork with textures. CSS may style card borders, labels, and layout. Terraria SHALL use cyan accents, Minecraft SHALL use green accents, and Hytale SHALL use blue accents. The server-list wrapper SHALL have no separate background or border, while individual server rows SHALL retain dark fills and fine borders for readability. Cards SHALL retain the mockup's game identity, row hierarchy, badges and decorative space, and their outlines SHALL shift to cyan while hovered or focused. Version/modpack badges SHALL share pink idle and cyan card-hover/focus colors rather than using per-badge colors. Neon details inside the outer directory panel SHALL be pink while idle and shift together to cyan when the panel is hovered or contains keyboard focus, including its Japanese label, gamepad icon, divider and copy-control borders.
+The directory SHALL use a glowing magenta outer panel and three equally sized, illustrated game cards on desktop. Each card SHALL use one continuous recognizable in-game or official screenshot behind its title and server rows: an early-game Terraria scene, an iconic Minecraft world image, and a Hytale environment. The artwork SHALL NOT be split into separate header and lower strips, repeated, replaced by CSS scenery, or covered with texture patterns. The generated Hytale lower landscape SHALL NOT be rendered. Terraria SHALL use cyan accents, Minecraft SHALL use green accents, and Hytale SHALL use blue accents. The server-list wrapper SHALL have no separate background or border, while individual server rows SHALL retain dark fills and fine borders for readability. All eight real records SHALL remain intact; duplicated example rows in a design montage are not content. Cards SHALL retain the mockup's game identity, row hierarchy, badges and decorative space, and their outlines SHALL shift to cyan while hovered or focused. Version/modpack badges SHALL share pink idle and cyan card-hover/focus colors rather than using per-badge colors. Neon details inside the outer directory panel SHALL be pink while idle and shift together to cyan when the panel is hovered or contains keyboard focus, including its Japanese label, gamepad icon, divider and copy-control borders.
 
 #### Scenario: Comparing game cards
 - **WHEN** a visitor views the directory on a wide screen
@@ -128,3 +142,10 @@ The site SHALL meet WCAG 2.2 AA contrast and target-size requirements, expose lo
 #### Scenario: Navigating with a keyboard
 - **WHEN** a visitor uses keyboard navigation
 - **THEN** all actionable controls have descriptive names, visible focus and a logical focus order
+
+### Requirement: Stable local preview and experiments
+The local preview SHALL use port 4173 and keep currently served files available during rebuilds. Replacement files SHALL be published atomically before obsolete output files are removed. The existing Tifa demo SHALL remain reachable at `/experiments/tifa-physics/`, and `/experiments/` SHALL list available experiments with relative links compatible with the GitHub Pages repository subpath.
+
+#### Scenario: Rebuilding while previewing
+- **WHEN** the site rebuilds while a visitor opens the home page or existing demo
+- **THEN** both pages and their existing assets stay available and the rebuilt output retains the experiment index and Tifa demo

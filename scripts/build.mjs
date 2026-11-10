@@ -1,9 +1,10 @@
-import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const out = path.resolve(root, process.env.OUT_DIR || 'dist');
+if (out === root || root.startsWith(`${out}${path.sep}`)) throw new Error('Build output must not contain the source repository.');
 const data = JSON.parse(await readFile(path.join(root, 'src/data/servers.json'), 'utf8'));
 const template = await readFile(path.join(root, 'src/template.html'), 'utf8');
 const safe = (text) => String(text).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
@@ -28,12 +29,42 @@ const cards = data.games.map((game) => {
 }).join('\n');
 
 const html = template.replaceAll('{{MANAGEMENT_URL}}', safe(data.managementUrl)).replace('{{GAME_CARDS}}', cards);
-await rm(out, { recursive: true, force: true });
-await mkdir(path.join(out, 'assets/art'), { recursive: true });
-await writeFile(path.join(out, 'index.html'), html);
-await cp(path.join(root, 'src/assets/site.css'), path.join(out, 'assets/site.css'));
-await cp(path.join(root, 'src/assets/site.js'), path.join(out, 'assets/site.js'));
-await cp(path.join(root, 'src/assets/fluid-smoke.js'), path.join(out, 'assets/fluid-smoke.js'));
-await cp(path.join(root, 'src/assets/art'), path.join(out, 'assets/art'), { recursive: true });
-await cp(path.join(root, 'src/experiments'), path.join(out, 'experiments'), { recursive: true });
+const emitted = new Set();
+
+async function publish(relativePath, source, content) {
+  const target = path.join(out, relativePath);
+  const temporary = `${target}.build-${process.pid}.tmp`;
+  await mkdir(path.dirname(target), { recursive: true });
+  if (source) await copyFile(source, temporary);
+  else await writeFile(temporary, content);
+  await rename(temporary, target);
+  emitted.add(target);
+}
+
+async function publishDirectory(source, relativePath) {
+  for (const entry of await readdir(source, { withFileTypes: true })) {
+    const input = path.join(source, entry.name);
+    const output = path.join(relativePath, entry.name);
+    if (entry.isDirectory()) await publishDirectory(input, output);
+    else if (entry.isFile()) await publish(output, input);
+  }
+}
+
+async function pruneObsolete(directory) {
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const file = path.join(directory, entry.name);
+    if (entry.isDirectory()) await pruneObsolete(file);
+    else if (!emitted.has(file)) await rm(file);
+  }
+}
+
+// Keep the live preview available: publish complete files, then HTML, then prune.
+await mkdir(out, { recursive: true });
+await publish('assets/site.css', path.join(root, 'src/assets/site.css'));
+await publish('assets/site.js', path.join(root, 'src/assets/site.js'));
+await publish('assets/fluid-smoke.js', path.join(root, 'src/assets/fluid-smoke.js'));
+await publishDirectory(path.join(root, 'src/assets/art'), 'assets/art');
+await publishDirectory(path.join(root, 'src/experiments'), 'experiments');
+await publish('index.html', null, html);
+await pruneObsolete(out);
 console.log(`Built ${path.relative(root, out)} with ${data.games.reduce((n, game) => n + game.servers.length, 0)} server records.`);

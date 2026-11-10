@@ -1,5 +1,13 @@
 # Visual and functional review
 
+## Preview availability and demos — 2026-11-10
+
+The live preview at `http://localhost:4173/` and the existing Tifa experiment returned HTTP 200. The experiment is preserved at `/experiments/tifa-physics/`; a new `/experiments/` index links to it and back to the site. Both routes and their relative assets also work under `/crias-games/`. Port 4174 was not listening.
+
+The build now publishes complete files by temporary-file rename, publishes the main HTML last, and cleans obsolete output only after success. A rebuild probe made 240 requests across the site, stylesheet, experiment index, Tifa HTML/CSS/JS and repository-subpath routes during a concurrent build: every response was HTTP 200 and nonempty. An obsolete probe file was correctly removed after the build.
+
+The Tifa demo was visually inspected in `screenshots/demo-tifa-1280.png` (1280px viewport, full page) using Playwright 1.65.0 on Windows. An interactive Paseo Chrome 152 / Electron 44 check confirmed the artwork loaded, WebGL context remained active, the canvas rendered, and no console errors appeared. The demo's controls and artwork remain intact. No physical device or alternate browser engine was used.
+
 ## Follow-up review — 2026-11-10
 
 The desktop scene and game cards were recaptured and inspected after the latest layer and artwork updates. Exact screenshots are saved at `screenshots/sun-horizon-1448x1086.png` and `screenshots/sun-horizon-1920x1080.png`. They were captured with Playwright 1.65.0 on Windows at DPR 1. An interactive browser check ran in Paseo's Electron 44.2.0 / Chrome 152.0.7977.76 at 1448 × 1086; its 22 raster images all loaded. No physical device or second browser engine was used, and mobile was intentionally not reviewed again per the user's instruction.

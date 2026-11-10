@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10071f">
+  <title>Demos — CRIAS GAMES</title>
+  <style>
+    :root { color-scheme:dark; font-family:system-ui,sans-serif; background:#10071f; color:#fff0fc; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; background:radial-gradient(ellipse at 50% 0,#452052,transparent 65%); }
+    main { width:min(760px,calc(100% - 40px)); margin:auto; padding:48px 0; }
+    a { color:#83f7ff; text-underline-offset:4px; }
+    a:focus-visible { outline:3px solid #fff; outline-offset:6px; }
+    h1 { margin:28px 0 12px; font-size:clamp(2rem,6vw,3.4rem); }
+    p { line-height:1.6; color:#e2cfe9; }
+    .demo { display:flex; align-items:center; gap:28px; margin-top:32px; padding:24px; border:1px solid #ff6fe2; border-radius:18px; background:#20102e; box-shadow:0 0 24px #ff35d52b; }
+    .demo img { width:120px; height:180px; object-fit:contain; }
+    h2 { font-size:1.3rem; }
+    .open { display:inline-block; padding:10px 16px; border:1px solid currentColor; border-radius:8px; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="../">← CRIAS GAMES</a>
+    <h1>Demos do Crias</h1>
+    <p>Experimentos visuais disponíveis neste preview.</p>
+    <article class="demo">
+      <img src="../assets/art/tifa-2.webp" width="1024" height="1536" alt="" aria-hidden="true">
+      <div>
+        <h2>Tifa · Física 2D</h2>
+        <p>Malha WebGL, mapas de altura e controles de mola, velocidade e amortecimento.</p>
+        <a class="open" href="./tifa-physics/">Abrir demo da Tifa</a>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
