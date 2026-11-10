@@ -31,7 +31,7 @@ Adds static site source, independently managed visual assets and data, verificat
 
 ## Latest approved refinements (2026-11-10)
 
-Use a 25% bottom clip on the sun and a desktop lift near 148px, remove neon glow/pulse from the sun, keep the city fully opaque with mountains behind it, and replace the generated Minecraft block bars with an official Minecraft landscape screenshot. Preserve only screenshot imagery as game-card scenery; CSS may style borders and text, not synthesize scenery over the art.
+Use a 25% bottom clip on the sun and a desktop lift near 116px, remove neon glow/pulse from the sun, keep the city fully opaque with detailed mountains behind it, and replace the generated Minecraft block bars with an official Minecraft landscape screenshot. Preserve only screenshot imagery as game-card scenery; CSS may style borders and text, not synthesize scenery over the art.
 
 Keep the upper half of the sun solid and confine its transparent stripe cutouts to the lower half. Leave the server-list wrapper transparent and unframed, but retain a separate dark fill and fine border on each server row. Each game card uses one continuous in-game screenshot behind its title and server rows, without separate repeated image strips. Remove the generated lower Hytale landscape. Move the unified bust/column artwork into paired placements close to the centered footer signature, with the right instance mirrored through CSS.
 
@@ -50,3 +50,5 @@ On desktop, let each character illustration or its window frame respond to point
 Replace the current Tifa portrait with a new numbered, transparent variant guided by the supplied Final Fantasy VII illustration, preserving her current pose and correcting her hand. Refresh Nagatoro's hand and playful expression without sexualization, and correct Aqua's hand while retaining her pose. Retain preceding assets and the existing portrait positions, fades and pointer interactions.
 
 Update the invitation step to name Kress and Discord/Telegram, and add the supplied BlueMap link to the Minecraft card without a copy button.
+
+Redraw the corner mountains as irregular alpine ridges with a varied triangulated neon wireframe inspired by the supplied image, lower the sun by about 32px, and give the sky more defined clouds that scroll continuously left at independent parallax speeds.

@@ -89,7 +89,7 @@ Keep the live status region for copy feedback, but render its success/error mess
 
 ## Latest scene and card refinements (2026-11-10)
 
-Set the desktop sun clip to `inset(0px 0px 25%)` with a lift near 148px under the current horizon formula. Remove its neon glow and pulse; retain transparent animated stripe gaps and only an optional brief non-glowing glitch. Keep the city at full opacity with normal blending, limit its mask fade to the bottom edge, and stack mountains behind its opaque pixels. Remove synthetic Minecraft block scenery and use one real screenshot across the entire card, with no CSS scenery textures or separate lower image.
+Set the desktop sun clip to `inset(0px 0px 25%)` with a lift near 116px under the current horizon formula. Remove its neon glow and pulse; retain transparent animated stripe gaps and only an optional brief non-glowing glitch. Keep the city at full opacity with normal blending, limit its mask fade to the bottom edge, and stack mountains behind its opaque pixels. Remove synthetic Minecraft block scenery and use one real screenshot across the entire card, with no CSS scenery textures or separate lower image.
 
 Keep the server-list wrapper transparent and unframed while retaining the dark bordered panels around individual server rows. Use one continuous screenshot across each complete card, with the title and rows layered above it. Do not split the image into a header crop and another lower landscape or repeat a short scenery strip. Remove the generated Hytale lower landscape and fill that card with its official environment screenshot. Preserve all real hostnames, versions, ports and copy targets even when the design montage uses duplicated placeholder rows. Limit the sun's transparent stripes to its lower half. Place the integrated statues close to the centered footer signature, using CSS to mirror the right copy.
 
@@ -100,3 +100,7 @@ Keep port 4173 as the single local preview. The build must write assets and expe
 ### 9. Minecraft map and contact wording
 
 Keep the map URL in the Minecraft data record and render a normal, keyboard-accessible link below its three server rows. Match the card's pink-to-cyan interaction colors, retain the existing card dimensions and artwork, and do not add a copy control. Update the manual invitation wording to Kress on Discord or Telegram.
+
+### 10. Wireframe mountains and one-way cloud parallax
+
+Replace the cone-like silhouettes with independently drawn, irregular mountain ridges, varied alpine peaks, and connected triangular neon mesh, bounded to the side corners and layered below the opaque skyline without crossing the sun. Move the sun down by lowering the lift from about 148px to about 116px. Use lightweight, repeating illustrated cloud strips in the sky-only layer; translate whole repeated strips left by an exact tile width on linear loops at different speeds, so they never reverse or visibly jump. Preserve the existing GPU/static and reduced-motion fallbacks, hero, city, portrait and panel positions.
