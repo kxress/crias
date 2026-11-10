@@ -131,7 +131,7 @@ Use the right column as the reference for vertical rhythm. Raise the first three
 
 ### 15. Footer character spacing
 
-Move the four footer illustrations farther outward on wide desktops, on top of the earlier offsets: Shantae gains another 16px, Marie Rose another 48px, Oguri another 32px and Tamamo another 32px. This produces cumulative outward offsets of about 48–64px for Shantae, 80–96px for Marie, and 64–80px for Oguri/Tamamo across 1448–1920px. Move each footer statue 16px farther from page center and keep both static. Check that the outer illustrations do not crowd the lower side-column portraits or clip their glow.
+Move the four footer illustrations farther outward on wide desktops, on top of the earlier offsets: Shantae gains another 16px, Marie Rose another 48px, Oguri another 32px and Tamamo another 32px. This produces cumulative outward offsets of about 48–64px for Shantae, 80–96px for Marie, and 64–80px for Oguri/Tamamo across 1448–1920px. Move each footer statue 16px farther from page center and keep both static. Then raise Shantae and Tamamo by 8px and Marie Rose and Oguri by 16px. Check that the outer illustrations do not crowd the lower side-column portraits or clip their glow.
 
 ### 16. Mountain valley and subtitle casing
 
