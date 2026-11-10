@@ -1,73 +1,78 @@
 {
-    "managementUrl":  "https://netbird.kress.wtf",
-    "games":  [
-                  {
-                      "name":  "Terraria",
-                      "accent":  "terraria",
-                      "servers":  [
-                                      {
-                                          "hostname":  "brasilia.terraria.games.kress.wtf",
-                                          "variant":  "1.4.5.8",
-                                          "port":  7777,
-                                          "protocol":  "TCP"
-                                      },
-                                      {
-                                          "hostname":  "lsj.terraria.games.kress.wtf",
-                                          "variant":  "1.4.5.8",
-                                          "port":  7777,
-                                          "protocol":  "TCP"
-                                      },
-                                      {
-                                          "hostname":  "brasilia.calamity.terraria.games.kress.wtf",
-                                          "variant":  "Calamity",
-                                          "detailsUrl":  "https://calamitymod.wiki.gg/wiki/2.2.4",
-                                          "port":  7777,
-                                          "protocol":  "TCP"
-                                      },
-                                      {
-                                          "hostname":  "lsj.calamity.terraria.games.kress.wtf",
-                                          "variant":  "Calamity",
-                                          "detailsUrl":  "https://calamitymod.wiki.gg/wiki/2.2.4",
-                                          "port":  7777,
-                                          "protocol":  "TCP"
-                                      }
-                                  ]
-                  },
-                  {
-                      "name":  "Minecraft",
-                      "accent":  "minecraft",
-                      "servers":  [
-                                      {
-                                          "hostname":  "arena-v22.minecraft.games.kress.wtf",
-                                          "variant":  "1.21.11",
-                                          "port":  25565,
-                                          "protocol":  "TCP"
-                                      },
-                                      {
-                                          "hostname":  "bmc.minecraft.games.kress.wtf",
-                                          "variant":  "Better MC 6",
-                                          "port":  25565,
-                                          "protocol":  "TCP"
-                                      },
-                                      {
-                                          "hostname":  "prominence.minecraft.games.kress.wtf",
-                                          "variant":  "Prominence II",
-                                          "port":  25565,
-                                          "protocol":  "TCP"
-                                      }
-                                  ]
-                  },
-                  {
-                      "name":  "Hytale",
-                      "accent":  "hytale",
-                      "servers":  [
-                                      {
-                                          "hostname":  "alpha.hytale.games.kress.wtf",
-                                          "variant":  "0.7.3",
-                                          "port":  5520,
-                                          "protocol":  "UDP"
-                                      }
-                                  ]
-                  }
-              ]
+  "managementUrl": "https://netbird.kress.wtf",
+  "games": [
+    {
+      "name": "Terraria",
+      "accent": "terraria",
+      "servers": [
+        {
+          "hostname": "brasilia.terraria.games.kress.wtf",
+          "variant": "1.4.5.8",
+          "port": 7777,
+          "protocol": "TCP",
+          "detailsUrl": "https://terraria.wiki.gg/wiki/1.4.5.8"
+        },
+        {
+          "hostname": "lsj.terraria.games.kress.wtf",
+          "variant": "1.4.5.8",
+          "port": 7777,
+          "protocol": "TCP",
+          "detailsUrl": "https://terraria.wiki.gg/wiki/1.4.5.8"
+        },
+        {
+          "hostname": "brasilia.calamity.terraria.games.kress.wtf",
+          "variant": "Calamity",
+          "detailsUrl": "https://calamitymod.wiki.gg/wiki/2.2.4",
+          "port": 7777,
+          "protocol": "TCP"
+        },
+        {
+          "hostname": "lsj.calamity.terraria.games.kress.wtf",
+          "variant": "Calamity",
+          "detailsUrl": "https://calamitymod.wiki.gg/wiki/2.2.4",
+          "port": 7777,
+          "protocol": "TCP"
+        }
+      ]
+    },
+    {
+      "name": "Minecraft",
+      "accent": "minecraft",
+      "servers": [
+        {
+          "hostname": "arena-v22.minecraft.games.kress.wtf",
+          "variant": "1.21.11",
+          "port": 25565,
+          "protocol": "TCP"
+        },
+        {
+          "hostname": "bmc.minecraft.games.kress.wtf",
+          "variant": "Better MC 6",
+          "port": 25565,
+          "protocol": "TCP",
+          "detailsUrl": "https://www.curseforge.com/minecraft/modpacks/better-mc-bmc6"
+        },
+        {
+          "hostname": "prominence.minecraft.games.kress.wtf",
+          "variant": "Prominence II",
+          "port": 25565,
+          "protocol": "TCP",
+          "detailsUrl": "https://www.curseforge.com/minecraft/modpacks/prominence-2-hasturian-era"
+        }
+      ]
+    },
+    {
+      "name": "Hytale",
+      "accent": "hytale",
+      "servers": [
+        {
+          "hostname": "alpha.hytale.games.kress.wtf",
+          "variant": "0.7.3",
+          "port": 5520,
+          "protocol": "UDP",
+          "detailsUrl": "https://hytale.com/news/2026/10/hotfixes-update-7"
+        }
+      ]
+    }
+  ]
 }

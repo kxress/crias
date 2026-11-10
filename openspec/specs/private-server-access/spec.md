@@ -45,7 +45,7 @@ The directory SHALL initially contain the eight records below, in the shown game
 | Minecraft | `prominence.minecraft.games.kress.wtf` | Prominence II | 25565 | TCP |
 | Hytale | `alpha.hytale.games.kress.wtf` | 0.7.3 | 5520 | UDP |
 
-The two `Calamity` badges SHALL link to [release details for version 2.2.4](https://calamitymod.wiki.gg/wiki/2.2.4). The other badges identify their game version or modpack and SHALL NOT imply live status.
+The two `Calamity` badges SHALL link to [release details for version 2.2.4](https://calamitymod.wiki.gg/wiki/2.2.4). Both Terraria `1.4.5.8` badges SHALL link to https://terraria.wiki.gg/wiki/1.4.5.8. The `Better MC 6` and `Prominence II` badges SHALL link to https://www.curseforge.com/minecraft/modpacks/better-mc-bmc6 and https://www.curseforge.com/minecraft/modpacks/prominence-2-hasturian-era. The Hytale `0.7.3` badge SHALL link to https://hytale.com/news/2026/10/hotfixes-update-7. The Minecraft `1.21.11` badge remains plain because no details URL was supplied. Version and modpack badges SHALL use a consistent pink idle treatment and shift to cyan when their containing card is hovered or keyboard-focused. Badges SHALL NOT imply live status.
 
 ### Requirement: Copy connection values
 Available management URLs and server hostnames SHALL have keyboard-operable copy controls with descriptive accessible names. A server control SHALL copy its hostname alone; the management control SHALL copy the complete URL. Success or failure SHALL be communicated visually and to assistive technology without moving the layout, and values SHALL remain selectable for manual copying.
