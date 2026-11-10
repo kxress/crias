@@ -25,7 +25,7 @@ The mockup and `docs/mockup-reference.md` guided character traits, palette and c
 
 ## Scene and card art
 
-The four footer additions are `shantae-2.webp`, `marie-rose-2.webp`, `oguri-cap-2.webp` and `tamamo-cross-2.webp`. Each has a separate `-1.png` master and a lossless padded derivative. Shantae has her purple ponytail/red genie outfit; Marie Rose has blonde twin tails/blue fighting outfit in anime style; Oguri has the giant rice bowl and funny eating face; Tamamo provides the separate chibi reaction. Their full prompt set and generation identifiers are retained in the linked footer-art record above.
+The active footer additions are `shantae-6.webp`, `marie-rose-6.webp`, `oguri-cap-2.webp` and `tamamo-cross-2.webp`, with their separate numbered PNG masters and lossless padded derivatives. Shantae follows the supplied Swimsuit Special cover's outfit, pose and drawing; Marie Rose follows the supplied blue bodysuit, gloves, collar and stockings reference in anime style. Both use clean transparency without the rejected baked smoke/glow. Oguri has the giant rice bowl and funny eating face; Tamamo provides the separate chibi reaction. The initial and intermediate variants remain available. All prompt sets, generation identifiers and selection notes are retained in the linked footer-art record above.
 
 | Element | Asset / implementation | Provenance and treatment |
 | --- | --- | --- |

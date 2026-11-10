@@ -39,10 +39,10 @@ The footer SHALL include separate transparent illustrations of Shantae and anime
 
 #### Scenario: Footer character collage
 - **WHEN** a visitor scrolls to the bottom of the desktop page
-- **THEN** all four added characters are independently visible and recognizable, the Oguri/Tamamo food joke is readable, and the original fourteen characters remain present
+- **THEN** all four added characters are independently visible and recognizable, Shantae closely follows the supplied Swimsuit Special cover's drawing/outfit/pose without baked smoke, Marie Rose wears the supplied blue bodysuit/glove outfit, the Oguri/Tamamo food joke is readable, and the original fourteen characters remain present
 
 ### Requirement: Desktop montage alignment
-The latest supplied montage SHALL guide the approved desktop placement: the six upper portraits begin around y=160–195 and finish near the joining panel, side columns descend from Kurisu around y=470 through the lower page, and both integrated statues sit near the centered signature in an extended footer band. The collage SHALL remain bounded near the central content at 1448px and 1920px widths. Illustrations SHALL preserve transparency, full silhouettes and text/control clearance; temporary rectangles and duplicated content in the montage are not site elements.
+The latest supplied montage SHALL guide the approved desktop placement: the six upper portraits begin around y=365–395 and finish near the joining panel, side columns descend from Kurisu around y=670 through the lower page, and both integrated statues sit near the centered signature in an extended footer band. The collage SHALL remain bounded near the central content at 1448px and 1920px widths. Illustrations SHALL preserve transparency, full silhouettes and text/control clearance; temporary rectangles and duplicated content in the montage are not site elements.
 
 #### Scenario: Viewing the desktop montage arrangement
 - **WHEN** the full desktop page is inspected at 1448px or 1920px
@@ -144,7 +144,7 @@ The site SHALL meet WCAG 2.2 AA contrast and target-size requirements, expose lo
 - **THEN** all actionable controls have descriptive names, visible focus and a logical focus order
 
 ### Requirement: Exposed city above content
-The first desktop content panel SHALL start about 48px below the skyline/grid baseline, exposing the full city above it. Subsequent directory and footer content SHALL move down in document flow. This correction SHALL retain the existing sun, skyline, title and portrait coordinates.
+The first desktop content panel SHALL start about 48px below the skyline/grid baseline, exposing the full city above it. Subsequent directory and footer content SHALL move down in document flow. This correction SHALL retain the existing sun, skyline and title coordinates.
 
 #### Scenario: Skyline above the panels
 - **WHEN** the page is reviewed at desktop widths of 1448px and 1920px

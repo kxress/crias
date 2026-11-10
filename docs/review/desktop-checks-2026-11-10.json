@@ -1,0 +1,258 @@
+{
+  "browser": "158.0.8127.18",
+  "viewport": [
+    1448,
+    1086
+  ],
+  "checks": [
+    {
+      "copyKeyboard": "9 native Enter/Space activations with actual browser clipboard reads and retained focus",
+      "payloads": [
+        "https://netbird.kress.wtf",
+        "brasilia.terraria.games.kress.wtf",
+        "lsj.terraria.games.kress.wtf",
+        "brasilia.calamity.terraria.games.kress.wtf",
+        "lsj.calamity.terraria.games.kress.wtf",
+        "arena-v22.minecraft.games.kress.wtf",
+        "bmc.minecraft.games.kress.wtf",
+        "prominence.minecraft.games.kress.wtf",
+        "alpha.hytale.games.kress.wtf"
+      ],
+      "initialReducedMotion": "no fluid canvas"
+    },
+    {
+      "tabOrder": [
+        {
+          "tag": "BUTTON",
+          "text": "",
+          "label": "Copiar URL de gerenciamento",
+          "copy": "https://netbird.kress.wtf",
+          "outline": "solid"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "",
+          "label": "Copiar endereço brasilia.terraria.games.kress.wtf",
+          "copy": "brasilia.terraria.games.kress.wtf",
+          "outline": "solid"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "",
+          "label": "Copiar endereço lsj.terraria.games.kress.wtf",
+          "copy": "lsj.terraria.games.kress.wtf",
+          "outline": "solid"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "",
+          "label": "Copiar endereço brasilia.calamity.terraria.games.kress.wtf",
+          "copy": "brasilia.calamity.terraria.games.kress.wtf",
+          "outline": "solid"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "",
+          "label": "Copiar endereço lsj.calamity.terraria.games.kress.wtf",
+          "copy": "lsj.calamity.terraria.games.kress.wtf",
+          "outline": "solid"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "",
+          "label": "Copiar endereço arena-v22.minecraft.games.kress.wtf",
+          "copy": "arena-v22.minecraft.games.kress.wtf",
+          "outline": "solid"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "",
+          "label": "Copiar endereço bmc.minecraft.games.kress.wtf",
+          "copy": "bmc.minecraft.games.kress.wtf",
+          "outline": "solid"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "",
+          "label": "Copiar endereço prominence.minecraft.games.kress.wtf",
+          "copy": "prominence.minecraft.games.kress.wtf",
+          "outline": "solid"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "",
+          "label": "Copiar endereço alpha.hytale.games.kress.wtf",
+          "copy": "alpha.hytale.games.kress.wtf",
+          "outline": "solid"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "",
+          "label": "Copiar URL de gerenciamento",
+          "copy": "https://netbird.kress.wtf",
+          "outline": "solid"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "",
+          "label": "Copiar endereço brasilia.terraria.games.kress.wtf",
+          "copy": "brasilia.terraria.games.kress.wtf",
+          "outline": "solid"
+        }
+      ],
+      "skipLink": true
+    },
+    {
+      "simulatedDeniedClipboard": {
+        "message": "Não foi possível copiar. Selecione e copie o endereço manualmente.",
+        "height": 1577,
+        "toast": {
+          "x": 512.578125,
+          "y": 833.78125,
+          "width": 422.84375,
+          "height": 38.796875,
+          "top": 833.78125,
+          "right": 935.421875,
+          "bottom": 872.578125,
+          "left": 512.578125
+        },
+        "signature": {
+          "x": 573.34375,
+          "y": 875.578125,
+          "width": 301.3125,
+          "height": 30,
+          "top": 875.578125,
+          "right": 874.65625,
+          "bottom": 905.578125,
+          "left": 573.34375
+        },
+        "z": "50",
+        "overlap": false
+      }
+    },
+    {
+      "legacyFallback": "success payload and failed-copy feedback verified; temporary field removed; focus retained; manual selection exact"
+    },
+    {
+      "noJavaScript": "/",
+      "portraits": 18,
+      "imagesLoaded": true,
+      "essentialValues": 9
+    },
+    {
+      "noJavaScript": "/crias-games/",
+      "portraits": 18,
+      "imagesLoaded": true,
+      "essentialValues": 9
+    },
+    {
+      "motion": {
+        "first": {
+          "rotate": "2.18844deg",
+          "scale": "1.03603",
+          "neon": "oklab(0.695561 0.255416 -0.100754 / 0.387942) 0px 0px 9.54784px 0px, oklab(0.695561 0.255416 -0.100755 / 0.254764) 0px 0px 20.8841px 0px",
+          "sun": "0px -1.55552px"
+        },
+        "second": {
+          "rotate": "2.39782deg",
+          "scale": "1.03996",
+          "neon": "oklab(0.695561 0.255416 -0.100754 / 0.527203) 0px 0px 14.7701px 0px, oklab(0.695561 0.255416 -0.100755 / 0.378551) 0px 0px 32.4891px 0px",
+          "sun": "0px -3.14804px"
+        },
+        "hoverTilt": {
+          "x": "4.99deg",
+          "y": "4.69deg",
+          "badge": "rgb(18, 237, 255)",
+          "hover": true
+        },
+        "liveReducedMotion": {
+          "running": 0,
+          "tilt": "",
+          "frames": 11
+        },
+        "rafStopped": true
+      }
+    },
+    {
+      "finalDesktop": {
+        "width": 1448,
+        "height": 1577,
+        "images": 24,
+        "portraits": 14,
+        "footerCharacters": 4,
+        "overflow": false,
+        "broken": [],
+        "collage": [
+          1448,
+          200
+        ],
+        "clearance": 48,
+        "cards": [
+          [
+            347,
+            318
+          ],
+          [
+            347,
+            318
+          ],
+          [
+            347,
+            318
+          ]
+        ]
+      }
+    },
+    {
+      "finalDesktop": {
+        "width": 1920,
+        "height": 1573,
+        "images": 24,
+        "portraits": 14,
+        "footerCharacters": 4,
+        "overflow": false,
+        "broken": [],
+        "collage": [
+          1448,
+          200
+        ],
+        "clearance": 48,
+        "cards": [
+          [
+            347,
+            318
+          ],
+          [
+            347,
+            318
+          ],
+          [
+            347,
+            318
+          ]
+        ]
+      }
+    },
+    {
+      "demo": "root",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "webgl": true,
+      "broken": [],
+      "pageErrors": []
+    },
+    {
+      "demo": "/crias-games",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "webgl": true,
+      "broken": [],
+      "pageErrors": []
+    }
+  ],
+  "pageErrors": []
+}

@@ -10,7 +10,13 @@ The site SHALL preserve the approved vaporwave composition with two lower-footer
 - **THEN** both footer bust placements use the same integrated bust-and-column image, the right one is mirrored in CSS, portraits have no side cropping, only Rei and Usagi use Windows frames, the desktop cards are equal-sized, and the copyleft mark appears in the footer without a link
 
 ### Requirement: Continuous retro hero motion
-The striped sun SHALL loop without a visible stripe seam or glow pop; stripe cutouts SHALL appear only in the lower half of the sun, leaving its upper half solid. The real-text `CRIAS GAMES` wordmark SHALL use heavy slanted Exo lettering, a dark separating edge and the layered blue/cyan/white/violet/magenta chrome gradient from the supplied retro text reference. Its blue glow and corner glint SHALL pulse gently. `SERVERS PRIVADOS` SHALL use the existing expressive cursive lettering and strong white/pink neon pulse.
+The hero SHALL preserve the actual-text chrome wordmark, cursive neon subtitle and seamless sun motion, with the detailed appearance and animation criteria below.
+
+#### Scenario: Chrome, subtitle and sun animation
+- **WHEN** the implementation is reviewed against the approved detailed criteria
+- **THEN** The striped sun SHALL loop without a visible stripe seam or glow pop; stripe cutouts SHALL appear only in the lower half of the sun, leaving its upper half solid.
+- **AND** The real-text `CRIAS GAMES` wordmark SHALL use heavy slanted Exo lettering, a dark separating edge and the layered blue/cyan/white/violet/magenta chrome gradient from the supplied retro text reference.
+- **AND** Its blue glow and corner glint SHALL pulse gently. `SERVERS PRIVADOS` SHALL use the existing expressive cursive lettering and strong white/pink neon pulse.
 
 #### Scenario: Reading the animated hero
 - **WHEN** the hero is viewed through consecutive animation cycles
@@ -24,21 +30,52 @@ Every visible neon accent SHALL have a perceptible glow pulse and occasional res
 - **THEN** each neon accent pulses and has an occasional brief flicker without flashing rapidly or reducing readability
 
 ### Requirement: Panel-wide neon focus color
-Every neon accent inside either main content panel SHALL be pink while idle and shift to cyan together when the panel is hovered or contains keyboard focus, including Japanese labels, heading, globe or gamepad icon, divider, URL text and frame, numbered step badges, step icons, chevrons, and copy controls. Heading dividers SHALL pulse through border color without an inset shadow across the heading area. The accents SHALL keep pulsing and flickering in either state. The same behavior SHALL work for keyboard focus and remain within reduced-motion rules.
+All neon accents in each main panel SHALL be pink at rest and cyan together on hover or keyboard focus, while preserving readable text and reduced-motion behavior.
+
+#### Scenario: All panel accents change together
+- **WHEN** the implementation is reviewed against the approved detailed criteria
+- **THEN** Every neon accent inside either main content panel SHALL be pink while idle and shift to cyan together when the panel is hovered or contains keyboard focus, including Japanese labels, heading, globe or gamepad icon, divider, URL text and frame, numbered step badges, step icons, chevrons, and copy controls.
+- **AND** Heading dividers SHALL pulse through border color without an inset shadow across the heading area.
+- **AND** The accents SHALL keep pulsing and flickering in either state.
+- **AND** The same behavior SHALL work for keyboard focus and remain within reduced-motion rules.
 
 #### Scenario: Focusing a main panel
 - **WHEN** a visitor hovers a main panel or tabs to a control inside it
 - **THEN** its border and every neon detail, including the Japanese label and URL frame, are pink at rest and turn cyan together while their glow remains active
 
 ### Requirement: Aligned city and grid horizon
-On desktop, the shared skyline/grid horizon SHALL sit higher on the page, with clearly visible wireframe mountains confined to the side corners clear of the sun. The center sky SHALL retain its original dark purple color while its brighter side edges distinguish the mountains from the background. Soft cloud layers SHALL drift horizontally at different parallax speeds above the sun and SHALL end above the skyline, without covering buildings. The sun SHALL sit behind and overlap the upper city silhouette slightly at about 1.8 times its previous CSS diameter (roughly 320–326px across 1448–1920px desktop widths); its container SHALL use `clip-path: inset(0px 0px 25%)`, its desktop lift SHALL be about 148px under the existing horizon calculation, and its orange-red bands SHALL be separated by transparent cutouts that reveal the sky. It SHALL NOT have a neon glow or neon-pulse animation; a brief non-glowing glitch is allowed. The scene SHALL NOT include a lagoon, water-reflection field, reflection image, or reflection animation. Japanese neon signage SHALL layer visibly in front of the city. The city SHALL use `opacity: 1` and `mix-blend-mode: normal`, with atmospheric color filters applied through CSS; the skyline SHALL remain opaque over mountains and grid pixels except for a short lower-edge fade. The wireframe mountains SHALL be behind the skyline and SHALL NOT show through opaque building pixels. The perspective grid SHALL begin at the skyline baseline behind the city, use a low viewpoint rather than a steep overhead angle, and fade in from transparent near the skyline. Stars SHALL remain in the sky and SHALL NOT continue across the ground grid. The skyline's lower edge SHALL dissolve through a wide, low fog band without a hard horizontal cutoff.
+The city, mountains, transparent striped sun, clouds, stars, signs and low-view grid SHALL follow the specified geometry and layer order, with normal city blending and no water-reflection layer.
+
+#### Scenario: Scene geometry, transparency and stacking
+- **WHEN** the implementation is reviewed against the approved detailed criteria
+- **THEN** On desktop, the shared skyline/grid horizon SHALL sit higher on the page, with clearly visible wireframe mountains confined to the side corners clear of the sun.
+- **AND** The center sky SHALL retain its original dark purple color while its brighter side edges distinguish the mountains from the background.
+- **AND** Soft cloud layers SHALL drift horizontally at different parallax speeds above the sun and SHALL end above the skyline, without covering buildings.
+- **AND** The sun SHALL sit behind and overlap the upper city silhouette slightly at about 1.8 times its previous CSS diameter (roughly 320–326px across 1448–1920px desktop widths); its container SHALL use `clip-path: inset(0px 0px 25%)`, its desktop lift SHALL be about 148px under the existing horizon calculation, and its orange-red bands SHALL be separated by transparent cutouts that reveal the sky.
+- **AND** It SHALL NOT have a neon glow or neon-pulse animation; a brief non-glowing glitch is allowed.
+- **AND** The scene SHALL NOT include a lagoon, water-reflection field, reflection image, or reflection animation.
+- **AND** Japanese neon signage SHALL layer visibly in front of the city.
+- **AND** The city SHALL use `opacity: 1` and `mix-blend-mode: normal`, with atmospheric color filters applied through CSS; the skyline SHALL remain opaque over mountains and grid pixels except for a short lower-edge fade.
+- **AND** The wireframe mountains SHALL be behind the skyline and SHALL NOT show through opaque building pixels.
+- **AND** The perspective grid SHALL begin at the skyline baseline behind the city, use a low viewpoint rather than a steep overhead angle, and fade in from transparent near the skyline.
+- **AND** Stars SHALL remain in the sky and SHALL NOT continue across the ground grid.
+- **AND** The skyline's lower edge SHALL dissolve through a wide, low fog band without a hard horizontal cutoff.
 
 #### Scenario: Inspecting the scene layers
 - **WHEN** the city and grid are visible together
 - **THEN** the enlarged lowered sun's transparent stripes reveal the sky behind it, the parallax clouds drift above the sun without covering buildings, bright mountain edges flank the darker center sky, Japanese neon signs sit in front of the city, the skyline base fades through fog into the grid, no stars appear on the ground, and the grid does not paint over the skyline
 
 ### Requirement: Official game card art and unified badge colors
-The three equal desktop game cards SHALL each use one continuous recognizable in-game or official screenshot across the complete card behind the title and server rows: early-game Terraria, an iconic Minecraft world scene, and Hytale spawn scenery. The image SHALL NOT be split into separate header and lower strips, repeated, covered by CSS scenery textures, or combined with the rejected generated Hytale landscape. The server-list wrapper SHALL have no separate background or border; individual server rows SHALL retain their own dark readable backgrounds and fine borders over the card artwork. All eight canonical records SHALL remain intact even when a design reference repeats placeholder rows. Version and modpack badges SHALL use the same pink color while idle and cyan when the containing card is hovered or keyboard-focused; they SHALL NOT use a different base color per game or badge. The Terraria 1.4.5.8, Calamity 2.2.4, Better MC 6, Prominence II and Hytale 0.7.3 badges SHALL link to the exact details pages defined by the persistent private-server-access spec.
+Each equal-sized desktop game card SHALL use one continuous real screenshot behind its title and readable individual server rows, preserving canonical data and unified badge interaction colors.
+
+#### Scenario: Continuous card backgrounds and release links
+- **WHEN** the implementation is reviewed against the approved detailed criteria
+- **THEN** The three equal desktop game cards SHALL each use one continuous recognizable in-game or official screenshot across the complete card behind the title and server rows: early-game Terraria, an iconic Minecraft world scene, and Hytale spawn scenery.
+- **AND** The image SHALL NOT be split into separate header and lower strips, repeated, covered by CSS scenery textures, or combined with the rejected generated Hytale landscape.
+- **AND** The server-list wrapper SHALL have no separate background or border; individual server rows SHALL retain their own dark readable backgrounds and fine borders over the card artwork.
+- **AND** All eight canonical records SHALL remain intact even when a design reference repeats placeholder rows.
+- **AND** Version and modpack badges SHALL use the same pink color while idle and cyan when the containing card is hovered or keyboard-focused; they SHALL NOT use a different base color per game or badge.
+- **AND** The Terraria 1.4.5.8, Calamity 2.2.4, Better MC 6, Prominence II and Hytale 0.7.3 badges SHALL link to the exact details pages defined by the persistent private-server-access spec.
 
 #### Scenario: Inspecting a game card
 - **WHEN** a visitor views a card or moves pointer/focus within it
@@ -70,14 +107,35 @@ The extended footer band SHALL place two instances of the same integrated bust, 
 - **THEN** the integrated statues flank the centered footer content, the right one faces the mirrored direction, and both complete silhouettes remain visible when the page is scrolled to its bottom
 
 ### Requirement: Latest desktop montage placement
-At desktop widths of 1448px and 1920px, the six upper portraits SHALL sit lower, beginning around y=160–195 and finishing near the joining panel. The side columns SHALL continue below them with a regular descending rhythm, with Kurisu beginning around y=470. The collage SHALL stay bounded near the centered content rather than spreading to wide viewport edges. An extended footer band SHALL accommodate the paired statues close to its centered signature. All illustrations SHALL remain separate, transparent, uncropped, and clear of text and controls. The user's montage is a placement reference; its pasted rectangles and duplicated content SHALL NOT be rendered.
+The fourteen original portraits, content panels and footer statues SHALL follow the latest approved desktop montage at 1448px and 1920px, with a bounded composition, transparent complete artwork and clear controls.
+
+#### Scenario: Upper portraits and descending columns
+- **WHEN** the implementation is reviewed against the approved detailed criteria
+- **THEN** At desktop widths of 1448px and 1920px, the six upper portraits SHALL sit lower, beginning around y=365–395 and finishing near the joining panel.
+- **AND** The side columns SHALL continue below them with a regular descending rhythm, with Kurisu beginning around y=670.
+- **AND** The collage SHALL stay bounded near the centered content rather than spreading to wide viewport edges.
+- **AND** An extended footer band SHALL accommodate the paired statues close to its centered signature.
+- **AND** All illustrations SHALL remain separate, transparent, uncropped, and clear of text and controls.
+- **AND** The user's montage is a placement reference; its pasted rectangles and duplicated content SHALL NOT be rendered.
 
 #### Scenario: Comparing the supplied montage
 - **WHEN** full desktop pages are reviewed at 1448px and 1920px
 - **THEN** the lowered top groups, descending side portraits, centered panels and closely flanking footer statues follow the supplied arrangement without its temporary editing artifacts
 
 ### Requirement: Pointer-reactive depth
-On fine-pointer devices, movement SHALL inject velocity and pink/cyan dye into a GPU-accelerated WebGL2 fluid simulation whose velocity advects the dye and whose pressure projection and vorticity create curling smoke. It SHALL use compact 16-bit scalar and two-channel framebuffer formats, a 6-iteration pressure solve, a 64px short-side simulation grid, a 384px short-side dye buffer, and a canvas capped at 0.6× CSS resolution and 500,000 pixels to keep pointer response fluid without excessive GPU bandwidth. Bilinear browser scaling SHALL smooth the diffuse smoke. The transparent, pointer-inert canvas SHALL layer above the hero collage and scenery, but below the hero title, Japanese signs, joining/server panels, their controls, and the footer. Text SHALL remain above the canvas through DOM stacking, with no rectangular clearing masks or visible cutouts in the fluid. It SHALL inject smoke on the first pointer movement, preserve cursor deltas, allow bounded variable time steps when frame delivery slows, stop after dye dissipates, and not run for reduced motion. Movement over a game card SHALL control a Steam-style perspective tilt, brightness and pointer-following specular highlight. The card tilt SHALL reach six degrees on each axis, at least three times the former two-degree per-axis cap, with a small hover lift/scale. Effects SHALL not block interaction or shift content.
+Fine-pointer movement SHALL create responsive GPU fluid smoke and Steam-style game-card depth within the performance, stacking and accessibility limits below.
+
+#### Scenario: Fluid solver and card depth limits
+- **WHEN** the implementation is reviewed against the approved detailed criteria
+- **THEN** On fine-pointer devices, movement SHALL inject velocity and pink/cyan dye into a GPU-accelerated WebGL2 fluid simulation whose velocity advects the dye and whose pressure projection and vorticity create curling smoke.
+- **AND** It SHALL use compact 16-bit scalar and two-channel framebuffer formats, a 6-iteration pressure solve, a 64px short-side simulation grid, a 384px short-side dye buffer, and a canvas capped at 0.6× CSS resolution and 500,000 pixels to keep pointer response fluid without excessive GPU bandwidth.
+- **AND** Bilinear browser scaling SHALL smooth the diffuse smoke.
+- **AND** The transparent, pointer-inert canvas SHALL layer above the hero collage and scenery, but below the hero title, Japanese signs, joining/server panels, their controls, and the footer.
+- **AND** Text SHALL remain above the canvas through DOM stacking, with no rectangular clearing masks or visible cutouts in the fluid.
+- **AND** It SHALL inject smoke on the first pointer movement, preserve cursor deltas, allow bounded variable time steps when frame delivery slows, stop after dye dissipates, and not run for reduced motion.
+- **AND** Movement over a game card SHALL control a Steam-style perspective tilt, brightness and pointer-following specular highlight.
+- **AND** The card tilt SHALL reach six degrees on each axis, at least three times the former two-degree per-axis cap, with a small hover lift/scale.
+- **AND** Effects SHALL not block interaction or shift content.
 
 #### Scenario: Moving a desktop pointer
 - **WHEN** the pointer moves over the page and game cards
@@ -94,10 +152,10 @@ The footer SHALL also include four independent transparent character illustratio
 
 #### Scenario: Footer character collage
 - **WHEN** the full desktop page is scrolled to its footer
-- **THEN** all four new characters are recognizable as separate illustrations, Oguri visibly eats rice with a comic expression, Tamamo reacts nearby, and all fourteen existing reference characters remain present
+- **THEN** all four new characters are separate and recognizable; Shantae closely follows the supplied Swimsuit Special drawing/outfit/pose without baked smoke, Marie Rose wears the supplied blue bodysuit/glove outfit, Oguri visibly eats rice with a comic expression, Tamamo reacts nearby, and all fourteen existing reference characters remain present
 
 ### Requirement: Exposed city above content
-The first desktop content panel SHALL begin about 48px below the shared skyline/grid baseline so the full city is exposed above it. The directory and footer SHALL follow lower in document flow. The sun, skyline, title and portrait coordinates SHALL remain unchanged by this spacing correction.
+The first desktop content panel SHALL begin about 48px below the shared skyline/grid baseline so the full city is exposed above it. The directory and footer SHALL follow lower in document flow. The sun, skyline and title coordinates SHALL remain unchanged by this spacing correction.
 
 #### Scenario: Skyline above the panels
 - **WHEN** the page is viewed at 1448px or 1920px desktop width

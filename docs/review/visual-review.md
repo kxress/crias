@@ -1,14 +1,45 @@
 # Visual and functional review
 
-## Preview availability and demos — 2026-11-10
+## Final desktop montage and outfit review — 2026-11-10
 
-## Desktop montage layout and first footer assets — 2026-11-10
+This section records the current implementation. The earlier captures below document preceding revisions. The latest user montage, rather than its pasted editing rectangles or superseded footer costumes, determines the vertical arrangement. The original `mockup.png` remains the visual reference for the retrowave composition; the user's later decisions take precedence where they differ.
+
+| CSS viewport (DPR 1) | Full document | Original / new characters | Result |
+| --- | --- | --- | --- |
+| 1448 × 1086 | 1448 × 1577 | 14 / 4 | No horizontal overflow; all 24 raster images loaded. Joining panel y=623.58, 48px below the city base. |
+| 1920 × 1080 | 1920 × 1573 | 14 / 4 | Same bounded 1448px portrait composition and 347 × 318px game cards. Joining panel y=620.39, 48px below the city base. |
+
+The full pages, motion captures and comparisons were visually inspected. The fourteen original portraits now sit about 200px lower together: upper groups start around y=365–395, Kurisu near y=670, and the columns continue to Rem/Super Creek near y=1210/1200. This preserves the exposed center of the city and accompanies the lowered panels. Portraits retain their separate silhouettes, transparent glow margins and interior CSS bottom fades; no decorative image obscures text or controls. The two instances of the integrated bust/glasses/column asset flank the centered footer signature, with the right instance mirrored in CSS.
+
+Shantae's selected cutout follows the supplied Swimsuit Special drawing, including its hands-behind-head pose, purple/black ponytail, white shirt, pink/white swimwear and blue/white shorts. The baked smoke/background glow is removed. Marie Rose follows the supplied anime drawing and blue bodysuit, separate arm gloves, white frills, red bow and reaching peace sign. Oguri Cap's rice bowl, funny eating face and Tamamo Cross's reaction remain independent chibi illustrations. All four were inspected individually and in the page. The selected lossless WebPs have genuine alpha and generous transparent margins; comparison with their fitted/padded masters found zero changed pixels. Every initial and intermediate numbered version is retained. See [asset provenance](../footer-character-art.md), [exact revision prompts and final selections](../footer-art-revisions.md), and the [archived user references](references/).
+
+The game cards each use a single continuous screenshot behind their title and separately boxed server rows. All three are equal in size, with the real 4/3/1 record distribution, seven release/modpack links and nine copy targets. The city remains fully opaque with normal blending; mountains and the striped sun stay behind it, Japanese signs above it. The sky, sun, city, grid, structural windows, all eighteen characters, statues, joining panel, cards and footer were included in the visual review.
+
+Current visual evidence:
+
+- Full pages: [1448px](screenshots/desktop-final-montage-1448.png), [1920px](screenshots/desktop-final-montage-1920.png).
+- Exact requested viewports: [1448 × 1086](screenshots/desktop-final-viewport-1448.png), [1920 × 1080](screenshots/desktop-final-viewport-1920.png).
+- A different live animation phase: [1448px](screenshots/desktop-motion-1448.png), [1920px](screenshots/desktop-motion-1920.png).
+- Side-by-side reviews: [original mockup/current viewport](screenshots/mockup-final-comparison.png), [latest dragged montage/current full page](screenshots/montage-final-comparison.png).
+- [Final footer cutouts](screenshots/footer-characters-final.png), [no-JavaScript page](screenshots/desktop-nojs-1448.png), and [copy error toast with footer visible](screenshots/copy-error-footer-1448.png).
+
+The [browser results](desktop-checks-2026-11-10.json) record eleven passing check groups. All nine copy controls were activated by native Enter/Space input, their actual browser clipboard contents matched the canonical URL/hostnames, and focus was retained. Tab navigation and visible focus were checked. Clipboard rejection, missing Clipboard API with legacy success/failure, and manual selection of the complete management URL were exercised. Error feedback was announced through the existing live region; the floating toast rendered above the footer, without signature overlap or document-height shift. Essential values and all eighteen illustrations remained available with JavaScript disabled at both `/` and `/crias-games/`.
+
+Motion checks sampled changing portrait rotation/scale, neon shadows and sun stripe positions. Card hover produced about 5° of tilt on each axis, and its badge changed to cyan; keyboard focus cleared pointer tilt. A live reduced-motion preference change stopped CSS animations and scheduled animation-frame activity after settling; an initially reduced-motion page did not create the fluid canvas. Root and repository-subpath experiment indexes and the Tifa demo returned HTTP 200, retained loaded artwork and an active WebGL context, and produced no page errors. The earlier 240-request concurrent-rebuild check below remains applicable to the unchanged publishing code.
+
+`npm run build` passed with all eight server records. Strict OpenSpec validation passed with zero issues. The latest review used Playwright 1.65.0 / Chromium 158.0.8127.18 on Windows at DPR 1; an interactive Paseo Chrome 152.0.7977.76 / Electron 44.2.0 check also confirmed the live page/demo. There was no current Firefox/Safari, physical-device, assistive-technology or separate 200% browser-zoom pass. Mobile design and mobile review were intentionally excluded from this session at the user's request; older coverage below is historical. The project has no separate test command beyond its build.
+
+There is no unresolved required illustration or known overlap in this desktop revision. Artwork provenance does not confer reuse rights: franchise images remain copyrighted, and the Terraria screenshot's third-party reuse permission is unverified, as recorded in the [game-art provenance](../game-card-art-provenance.md). Google Fonts remain an external font dependency. The local site is available on port 4173 and port 4174 is stopped. No deployment was performed.
+
+## Earlier desktop montage and first footer assets — 2026-11-10
 
 The subsequent skyline spacing correction was captured in `screenshots/city-clearance-1448.png` and `screenshots/city-clearance-1920.png`, both visually inspected. The joining panel starts at y=623.58 and y=620.39 respectively, exactly 48px below the corresponding city bases (575.58 and 572.39). The city/sun coordinates are unchanged; lower buildings remain exposed above the joining panel. Page heights are 1577px and 1573px with no horizontal overflow. These captures precede the user's newest request to move the fourteen portraits down by roughly 200px to accompany the panels.
 
 Full-page captures `screenshots/montage-desktop-1448-full.png` and `screenshots/montage-desktop-1920-full.png` were visually inspected at their native sizes. Both retain the fourteen original portraits and add four separate footer illustrations, with two instances of the integrated statue near the centered signature. The upper characters begin near y=165–195; side columns descend from Kurisu near y=470. The collage is bounded to 1448px so the wider viewport does not push the characters away from the panels. The document was 1393px tall and had no horizontal overflow; every raster image loaded. Footer text and controls remain unobscured.
 
-The four generated masters were inspected individually and together in `screenshots/footer-character-contact-sheet.png`; each has genuine alpha. Padded lossless WebP derivatives matched their resized, centered PNG sources with zero changed pixels. The initial Shantae and Marie outfits are retained for history; the user requested replacement outfits matching two supplied references, so artwork task 8.4 remains open. The subsequent request to lower the content panels for more exposed skyline is also pending; these captures document the preceding layout.
+The four generated masters were inspected individually and together in `screenshots/footer-character-contact-sheet.png`; each has genuine alpha. Padded lossless WebP derivatives matched their resized, centered PNG sources with zero changed pixels. At this stage artwork task 8.4 was held open for the newly supplied outfit references, and the lower-panel correction was pending. Both are resolved in the final review above; these captures preserve the preceding layout and initial outfits.
+
+## Preview availability and demos — 2026-11-10
 
 The live preview at `http://localhost:4173/` and the existing Tifa experiment returned HTTP 200. The experiment is preserved at `/experiments/tifa-physics/`; a new `/experiments/` index links to it and back to the site. Both routes and their relative assets also work under `/crias-games/`. Port 4174 was not listening.
 

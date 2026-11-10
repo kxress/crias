@@ -1,8 +1,10 @@
 # Footer character artwork — 2026-11-10
 
-The user approved adding these four characters in this session. Each was generated in a separate built-in `image_gen` call, with genuine transparency. PNG masters are retained as `src/assets/art/<name>-1.png`; the active lossless WebPs are `<name>-2.webp`. No previous artwork was replaced. Generated franchise depictions record provenance, not permission from their rights holders.
+The user approved adding these four characters in this session. Each was generated separately with built-in `image_gen`, with genuine transparency. Current assets are `shantae-6.webp`, `marie-rose-6.webp`, `oguri-cap-2.webp` and `tamamo-cross-2.webp`. The initial and intermediate PNG masters and WebPs remain under their numbered filenames; no previous image was replaced. Generated franchise depictions record provenance, not permission from their rights holders.
 
 Each image is centered within a 1280 × 1920 transparent canvas after fitting within 1024 × 1536 pixels. This leaves at least 128px horizontal and 192px vertical clearance for CSS glow. CSS supplies the lower fade and whole-image motion; faces and limbs are not animated. The masters retain the original generated pixels and alpha.
+
+The following table records the initial generation set. Shantae and Marie Rose were subsequently replaced by the reference-based cutouts in [the revision record](footer-art-revisions.md); Oguri Cap and Tamamo Cross retain these initial illustrations.
 
 | Character | Generation file | Recognition checked |
 | --- | --- | --- |
@@ -14,6 +16,10 @@ Each image is centered within a 1280 × 1920 transparent canvas after fitting wi
 Identity references were cross-checked against the [official Umamusume character directory](https://umamusume.jp/character) and [official Dead or Alive character directory](https://www.teamninja-studio.com/doa6/us/characters.html). The supplied user montage guided the footer arrangement and the Oguri/Tamamo visual joke. No source artwork from those directories was copied into the generated assets.
 
 ## Exact prompts
+
+The selected outfit cutouts, retained intermediate versions and all subsequent exact edit prompts are documented in [`footer-art-revisions.md`](footer-art-revisions.md).
+
+The first prompt set below documents the initial variants. The user subsequently supplied exact outfit references for Shantae and Marie Rose and requested removal of Shantae's baked smoke/glow. The later revision prompts and selection notes follow the initial set.
 
 ### shantae
 

@@ -3,7 +3,14 @@
 ## ADDED Requirements
 
 ### Requirement: Current server suffixes and version badges
-All eight game hostnames SHALL use the `.games.kress.wtf` suffix and the versions listed in the persistent server-access spec. Terraria Vanilla SHALL show `1.4.5.8`, Minecraft Vanilla SHALL show `1.21.11`, Better MC SHALL show `Better MC 6`, Prominence SHALL show `Prominence II`, and Hytale SHALL show `0.7.3`. Calamity SHALL link to `https://calamitymod.wiki.gg/wiki/2.2.4`; Terraria `1.4.5.8` SHALL link to `https://terraria.wiki.gg/wiki/1.4.5.8`; Better MC 6 SHALL link to `https://www.curseforge.com/minecraft/modpacks/better-mc-bmc6`; Prominence II SHALL link to `https://www.curseforge.com/minecraft/modpacks/prominence-2-hasturian-era`; and Hytale 0.7.3 SHALL link to `https://hytale.com/news/2026/10/hotfixes-update-7`. All version/modpack badges SHALL be pink when idle and cyan when their game card is hovered or focused.
+The directory SHALL use the current confirmed host suffixes, release/modpack labels and exact details-page destinations. Badge colors SHALL remain consistent with the containing card interaction state.
+
+#### Scenario: Current connection values and release destinations
+- **WHEN** the implementation is reviewed against the approved detailed criteria
+- **THEN** All eight game hostnames SHALL use the `.games.kress.wtf` suffix and the versions listed in the persistent server-access spec.
+- **AND** Terraria Vanilla SHALL show `1.4.5.8`, Minecraft Vanilla SHALL show `1.21.11`, Better MC SHALL show `Better MC 6`, Prominence SHALL show `Prominence II`, and Hytale SHALL show `0.7.3`.
+- **AND** Calamity SHALL link to `https://calamitymod.wiki.gg/wiki/2.2.4`; Terraria `1.4.5.8` SHALL link to `https://terraria.wiki.gg/wiki/1.4.5.8`; Better MC 6 SHALL link to `https://www.curseforge.com/minecraft/modpacks/better-mc-bmc6`; Prominence II SHALL link to `https://www.curseforge.com/minecraft/modpacks/prominence-2-hasturian-era`; and Hytale 0.7.3 SHALL link to `https://hytale.com/news/2026/10/hotfixes-update-7`.
+- **AND** All version/modpack badges SHALL be pink when idle and cyan when their game card is hovered or focused.
 
 #### Scenario: Inspecting updated badges
 - **WHEN** a visitor views the server directory
