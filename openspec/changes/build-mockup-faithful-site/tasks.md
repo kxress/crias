@@ -101,3 +101,4 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 - [x] 8.24 Layer the slow far clouds behind the mountains and the faster mid/near cloud layers in front of them; keep all clouds behind the city and inside the sky. Verify the z-order and leftward parallax at desktop widths; run the build.
 - [x] 8.25 Keep both footer bust statues completely static and move them 16px farther from page center while preserving their mirrored composition. Inspect full-page desktop captures.
 - [x] 8.26 Raise Shantae and Tamamo 8px, and Marie Rose and Oguri 16px from their current footer positions. Inspect full-page desktop captures at 1448px and 1920px; run the build.
+- [x] 8.27 Move Oguri Cap another 8px up. Inspect full-page desktop captures at 1448px and 1920px; run the build.

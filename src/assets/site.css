@@ -195,7 +195,7 @@ main, .site-footer { position: relative; z-index: 2; }
 .footer-character { position:absolute; display:block; width:220px; height:auto; object-fit:contain; pointer-events:none; transform:translate(-10%,-10%); filter:drop-shadow(0 0 8px #ff35d563); animation:billboard 6.6s ease-in-out infinite alternate,portrait-neon-pulse 7.3s ease-in-out infinite; -webkit-mask-image:linear-gradient(to bottom,#000 0 81%,#000a 85%,transparent 90%); mask-image:linear-gradient(to bottom,#000 0 81%,#000a 85%,transparent 90%); }
 .footer-character--shantae { left:-5px; top:12px; width:240px; animation-delay:-2.3s; }
 .footer-character--marie { left:195px; top:50px; width:210px; animation-delay:-4.2s; -webkit-mask-image:linear-gradient(to bottom,#000 0 76%,#000a 81%,transparent 86%); mask-image:linear-gradient(to bottom,#000 0 76%,#000a 81%,transparent 86%); }
-.footer-character--oguri { right:160px; top:46px; width:220px; transform:translate(10%,-10%); animation-delay:-1.4s; }
+.footer-character--oguri { right:160px; top:38px; width:220px; transform:translate(10%,-10%); animation-delay:-1.4s; }
 .footer-character--tamamo { right:4px; top:34px; width:200px; transform:translate(10%,-10%); animation-delay:-5.2s; }
 @media (min-width:1425px) {
   .footer-collage { --footer-character-outward:clamp(32px,calc(3.4vw - 17px),48px); }
