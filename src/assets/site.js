@@ -70,6 +70,12 @@ function announce(message, state) {
   clearTimeout(announceRevealTimer);
   status.textContent = '';
   delete status.dataset.state;
+  const footer = document.querySelector('.site-footer');
+  const footerTop = footer?.getBoundingClientRect().top ?? window.innerHeight;
+  const footerClearance = footerTop >= 0 && footerTop < window.innerHeight
+    ? Math.max(0, window.innerHeight - footerTop + 12 - 14)
+    : 0;
+  status.style.setProperty('--copy-toast-lift', `${footerClearance}px`);
   announceRevealTimer = window.setTimeout(() => {
     status.textContent = message;
     status.dataset.state = state;

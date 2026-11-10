@@ -21,21 +21,21 @@ The desktop experience SHALL closely reproduce and refine the mockup's continuou
 - **THEN** the hero, four-step joining panel, three illustrated game cards, surrounding collage, and footer retain the reference's hierarchy and recognizable visual character
 
 ### Requirement: Hero and environment
-The hero SHALL center the CRIAS GAMES wordmark, cyan underline, `SERVERS PRIVADOS` cursive subtitle and two-line introductory callout over the striped sunset and skyline. The scene SHALL include the starry purple sky, wireframe mountains, text-only Japanese neon signs and magenta perspective grid depicted in the reference; it SHALL NOT include the striped right-side facade panel. The grid SHALL continue around the panels and footer.
+The hero SHALL center the CRIAS GAMES wordmark, cyan underline and `SERVERS PRIVADOS` cursive subtitle over the striped sunset and skyline without the removed two-line introductory callout. The scene SHALL include open starry sky, wireframe mountains, text-only Japanese neon signs and magenta perspective grid depicted in the reference; stars SHALL remain above the ground grid. The city SHALL soften into the grid through a wide low fog fade without a hard horizontal cutoff. The striped sun SHALL be 75% of its current diameter, sit behind the skyline, and have its visible lower edge about 260px above the shared skyline/grid horizon. The page SHALL NOT include the striped right-side facade panel. The grid SHALL continue around the panels and footer.
 
 #### Scenario: Reading the hero
 - **WHEN** a visitor opens the page at desktop width
 - **THEN** the wordmark dominates the central scene while the introduction remains legible against the scenery
 
 ### Requirement: Character and statue composition
-The desktop collage SHALL preserve the fourteen named reference characters in their corresponding upper-left, upper-right, left-side and right-side groups, with their recognizable silhouettes and individual illustrations. The classical vaporwave bust, pixel sunglasses and ornamental column SHALL appear together as one integrated illustrated element on the left. Rei and Usagi SHALL use separate Windows-style frames; the four left-side portraits SHALL remain unframed for visual consistency.
+The desktop collage SHALL preserve the fourteen named reference characters in their corresponding upper-left, upper-right, left-side and right-side groups, with their recognizable silhouettes and individual illustrations. Character and bust illustrations SHALL have sufficient transparent effect clearance for their full neon glows to remain visible. The classical vaporwave bust, pixel sunglasses and ornamental column SHALL appear together as one integrated illustrated element on the left. Rei and Usagi SHALL use separate Windows-style frames; the four left-side portraits SHALL remain unframed for visual consistency.
 
 #### Scenario: Inspecting the collage
 - **WHEN** a visitor views the desktop composition
 - **THEN** the individual characters and bust frame the content without covering text, controls or each other's essential features
 
 ### Requirement: Joining panel presentation
-The joining panel SHALL use a glowing magenta frame, globe icon, heading and divider. Its four numbered steps SHALL appear in sequence, horizontally on wide screens, with icons and progression cues. The management URL SHALL appear as readable text in a neon inset with a copy control. All neon details inside either main panel, including Japanese labels, URL text and frame, icons, step badges, chevrons and copy controls, SHALL be pink while idle and shift to cyan together when the panel is hovered or contains keyboard focus; their glow animation SHALL continue in either state.
+The joining panel SHALL use a glowing magenta frame, globe icon, heading and divider. Its four numbered steps SHALL appear in sequence, horizontally on wide screens, with icons and progression cues. The management URL SHALL appear as readable text in a neon inset with a copy control. All neon details inside either main panel, including Japanese labels, URL text and frame, icons, step badges, chevrons and copy controls, SHALL be pink while idle and shift to cyan together when the panel is hovered or contains keyboard focus; their glow animation SHALL continue in either state. Copy feedback SHALL appear in a document-level floating toast above the footer and copyleft text, positioned clear of footer text when visible, without affecting layout.
 
 #### Scenario: Following the desktop steps
 - **WHEN** a visitor reads the joining panel at desktop width
@@ -111,20 +111,16 @@ All fourteen character illustrations SHALL be visible in the mobile page's norma
 - **WHEN** a visitor scrolls a 320 CSS-pixel-wide viewport from top to bottom
 - **THEN** all fourteen character illustrations can be seen and the page has no horizontal overflow
 
-### Requirement: Motion control and accessibility
-The site SHALL provide a visible keyboard-operable control for pausing persistent decorative motion when scripts are available. Reduced-motion preference SHALL stop nonessential animation and SHALL NOT be overridden by the control. Motion SHALL NOT obscure content, interfere with input or flash beyond WCAG 2.2 AA limits.
-
-#### Scenario: Pausing the scene
-- **WHEN** the visitor pauses motion
-- **THEN** the grid, neon and other persistent decorative animations stop until resumed
+### Requirement: Motion accessibility
+The site SHALL NOT show a manual pause/resume control. Reduced-motion preference SHALL stop nonessential CSS and pointer-driven animation, including character motion, fluid smoke, and card tilt, without relying on a control or overriding the preference. Motion SHALL NOT obscure content, interfere with input or flash beyond WCAG 2.2 AA limits.
 
 #### Scenario: Reduced motion
 - **WHEN** reduced motion is enabled before or during a visit
-- **THEN** nonessential animation stops, regardless of the manual motion setting
+- **THEN** nonessential animation stops immediately, including when the preference changes while the page is open
 
 #### Scenario: Scripts unavailable
 - **WHEN** JavaScript is unavailable
-- **THEN** the site remains readable with no nonfunctional motion control
+- **THEN** the site remains readable, essential content stays available, and no nonfunctional motion control appears
 
 ### Requirement: Accessible responsive presentation
 The site SHALL meet WCAG 2.2 AA contrast and target-size requirements, expose logical landmarks and headings, and keep full connection values accessible without horizontal page scrolling at 320 CSS pixels and at 200% zoom. Decorative artwork SHALL be excluded from the accessibility tree and pointer targeting.

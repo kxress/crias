@@ -31,11 +31,25 @@ Every neon accent inside either main content panel SHALL be pink while idle and 
 - **THEN** its border and every neon detail, including the Japanese label and URL frame, are pink at rest and turn cyan together while their glow remains active
 
 ### Requirement: Aligned city and grid horizon
-On desktop, the sun SHALL sit behind the city and its visible lower edge SHALL be raised slightly above the shared skyline/grid baseline. The building silhouette SHALL remain visually dominant while transparent sky retains the sun above it. Japanese neon signage SHALL layer visibly in front of the city. The city SHALL use normal CSS alpha compositing, with its atmospheric opacity and color harmonization applied through CSS; it SHALL NOT use screen blending. The perspective grid SHALL begin at the skyline baseline behind the city, use a low viewpoint rather than a steep overhead angle, and fade in from transparent at the horizon.
+On desktop, the scene SHALL reserve more open sky above the city, with the wireframe mountains and sun visible in that space. The sun SHALL sit behind the city at 75% of its current diameter, with its visible lower edge lifted about 260px above the shared skyline/grid baseline. Japanese neon signage SHALL layer visibly in front of the city. The city SHALL use normal CSS alpha compositing, with its atmospheric opacity and color harmonization applied through CSS; it SHALL NOT use screen blending. The perspective grid SHALL begin at the skyline baseline behind the city, use a low viewpoint rather than a steep overhead angle, and fade in from transparent at the horizon. Stars SHALL remain in the sky and SHALL NOT continue across the ground grid. The skyline's ground edge SHALL dissolve through a wide, low fog band that blends the city into the grid without a hard horizontal cutoff.
 
 #### Scenario: Inspecting the scene layers
 - **WHEN** the city and grid are visible together
-- **THEN** the raised striped sun remains behind the dominant city silhouette, Japanese neon signs sit in front of the city, the grid begins at the same horizontal horizon as the city baseline, its near-horizon edge blends softly into the city, and the grid does not paint over the skyline
+- **THEN** the smaller raised striped sun remains behind the dominant city silhouette, Japanese neon signs sit in front of the city, the skyline base fades through fog into the grid, no stars appear on the ground, the grid begins at the city baseline, and it does not paint over the skyline
+
+### Requirement: Unclipped illustration glow
+Each separate character and bust image SHALL have enough transparent effect clearance for its full CSS glow to render. Filters, masks, and positioned decoration containers SHALL NOT crop the glow at image bounds or viewport edges. Enlarging an asset canvas SHALL preserve the complete source art and save the processed image as the next numbered variant while retaining prior variants.
+
+#### Scenario: Inspecting portrait edges
+- **WHEN** character and bust glows are inspected at desktop and wide-desktop widths
+- **THEN** every silhouette and surrounding neon glow remains fully visible without a hard cutoff at its image bounds
+
+### Requirement: Copy toast stacking
+The copy success/error toast SHALL render in a document-level stacking context above the footer and copyleft label, positioned clear of their text when the footer is visible, without shifting content or intercepting interaction.
+
+#### Scenario: Copying near the footer
+- **WHEN** a visitor activates a copy control while the footer is visible
+- **THEN** the feedback toast is fully legible above the footer without covering its text or changing page layout
 
 ### Requirement: Pointer-reactive depth
 On fine-pointer devices, movement SHALL inject velocity and pink/cyan dye into a GPU-accelerated WebGL2 fluid simulation whose velocity advects the dye and whose pressure projection and vorticity create curling smoke. It SHALL use compact 16-bit scalar and two-channel framebuffer formats, a 6-iteration pressure solve, a 64px short-side simulation grid, a 384px short-side dye buffer, and a canvas capped at 0.6× CSS resolution and 500,000 pixels to keep pointer response fluid without excessive GPU bandwidth. Bilinear browser scaling SHALL smooth the diffuse smoke. The transparent, pointer-inert canvas SHALL layer above the hero collage and scenery, but below the hero title, Japanese signs, joining/server panels, their controls, and the footer. Text SHALL remain above the canvas through DOM stacking, with no rectangular clearing masks or visible cutouts in the fluid. It SHALL inject smoke on the first pointer movement, preserve cursor deltas, allow bounded variable time steps when frame delivery slows, stop after dye dissipates, and not run for reduced motion. Movement over a game card SHALL control a Steam-style perspective tilt, brightness and pointer-following specular highlight. The card tilt SHALL reach six degrees on each axis, at least three times the former two-degree per-axis cap, with a small hover lift/scale. Effects SHALL not block interaction or shift content.

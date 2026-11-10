@@ -21,6 +21,7 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 - [x] 2.7 Create separate sky, striped sunset, skyline, text-only Japanese signs, wireframe mountains and grid layers; inspect each at desktop size and verify it can be individually repositioned or disabled.
 - [x] 2.8 Create distinct Terraria, Minecraft and Hytale header/landscape artwork, independent of server rows; verify recognizable identities and the illustrated lower areas of Minecraft and Hytale.
 - [x] 2.9 Optimize and document assets, explicit image dimensions and font licensing/provenance; verify no merged characters, full-page screenshot, generic substitute, missing artwork, accidental rectangular background or broken asset reference remains.
+- [x] 2.10 Pad the twelve active unframed character WebPs and the unified bust on transparent 1280 × 1920 canvases using ImageMagick, save each as its next numbered variant, and update the asset manifest and page references; enlarge and offset their positioned canvases to preserve each current visible silhouette, then inspect all resulting glow edges at 1448 and 1920 px.
 
 ## 3. Reference layout and responsive composition
 
@@ -35,8 +36,8 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 ## 4. Motion and copy controls
 
 - [x] 4.1 Give every visible neon accent a perceptible glow pulse and restrained occasional flicker, including scene lines, Japanese labels, panel/card borders, headings, icons, badges, chevrons, copy frames and footer ornaments; on hover or keyboard focus, switch every pink neon detail in either main panel to cyan while pulses continue; verify readable text, stable controls and reduced-motion behavior.
-- [ ] 4.2 Add independently adjustable whole-image character motion with visible gentle rotation and scale cycles; verify illustrations remain single static images with no articulated or frame-by-frame animation.
-- [ ] 4.3 Keep reduced-motion behavior and remove the manual pause control; verify motion and fluid smoke stop for an initial and live reduced-motion preference.
+- [x] 4.2 Add independently adjustable whole-image character motion with visible gentle rotation and scale cycles; verify illustrations remain single static images with no articulated or frame-by-frame animation.
+- [x] 4.3 Keep reduced-motion behavior and remove the manual pause control; verify motion and fluid smoke stop for an initial and live reduced-motion preference.
 - [x] 4.4 Add nine independently named copy controls from canonical data; test exact URL and each hostname payload, repeat activation and keyboard operation.
 - [x] 4.5 Add visible and screen-reader-announced copy success/failure with stable layout and selectable fallback; test clipboard denial and verify focus and values remain unchanged.
 
@@ -50,17 +51,17 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 
 ## 6. Follow-up motion and depth refinement
 
-- [ ] 6.1 Set the grid to `perspective(280px) rotateX(80deg)`, fade it into the skyline horizon, and keep its origin aligned behind the city; verify the camera angle and blend at desktop and wide-desktop sizes.
+- [x] 6.1 Set the grid to `perspective(280px) rotateX(80deg)`, fade it into the skyline horizon, add a low fog fade where the skyline meets the ground, and confine stars to the sky; verify horizon alignment, no ground stars, and the blend at desktop and wide-desktop sizes.
 - [x] 6.2 Make the striped sun loop over an exact stripe-repeat period with matching glow endpoints; inspect several consecutive loops for jumps, pops or excessive glow.
-- [ ] 6.3 Style the actual-text `CRIAS GAMES` title as the supplied layered retrowave chrome with a pulsing glow/glint; preserve the cursive subtitle treatment with the updated `SERVERS PRIVADOS` wording and verify both at desktop and mobile sizes.
-- [ ] 6.4 Replace the slow puff/CPU trail with a WebGL2 stable-fluid solver: advect pink/cyan dye, solve pressure and vorticity at reduced render/simulation resolutions, inject on the first movement, and sleep when clear; layer it above waifus/scenery but below title, Japanese signs, and UI panels, using DOM stacking with no rectangular mask cutouts; verify responsive motion, crisp text, no blocked input/layout shift/overflow, and no reduced-motion rendering.
-- [ ] 6.5 Replace the two-degree card tilt with pointer-position-controlled Steam-style perspective, brightness and specular light; reach at least six degrees on each axis (3× the prior cap) and a small hover lift/scale, then verify readability, keyboard focus and no touch hover.
-- [ ] 6.6 Recheck all new effects with motion active, reduced, and JavaScript unavailable; capture and visually inspect desktop and wide-desktop screenshots, then run the build and relevant browser checks before marking these tasks complete.
+- [x] 6.3 Style the actual-text `CRIAS GAMES` title as the supplied layered retrowave chrome with a pulsing glow/glint; preserve the cursive subtitle treatment with the updated `SERVERS PRIVADOS` wording and verify both at desktop and mobile sizes.
+- [x] 6.4 Replace the slow puff/CPU trail with a WebGL2 stable-fluid solver: advect pink/cyan dye, solve pressure and vorticity at reduced render/simulation resolutions, inject on the first movement, and sleep when clear; layer it above waifus/scenery but below title, Japanese signs, and UI panels, using DOM stacking with no rectangular mask cutouts; verify responsive motion, crisp text, no blocked input/layout shift/overflow, and no reduced-motion rendering.
+- [x] 6.5 Replace the two-degree card tilt with pointer-position-controlled Steam-style perspective, brightness and specular light; reach at least six degrees on each axis (3× the prior cap) and a small hover lift/scale, then verify readability, keyboard focus and no touch hover.
+- [x] 6.6 Recheck all new effects with motion active, reduced, and JavaScript unavailable; capture and visually inspect desktop and wide-desktop screenshots, then run the build and relevant browser checks before marking these tasks complete.
 
 ## 7. Streamlined hero and feedback
 
 - [x] 7.1 Remove the two-line hero intro from rendered HTML; verify the heading/subtitle remain centered and the same guidance remains available in the joining steps and directory.
-- [ ] 7.2 Reduce the striped sun to 75% of its previous diameter and raise its visible lower edge about 80px above the shared skyline horizon; put Japanese signs in front of the city and use normal CSS opacity/filter compositing; verify the composition at desktop and wide-desktop sizes.
-- [ ] 7.3 Remove the floating pause control and all of its styles/handlers; verify no visible or inert pause control remains at desktop and narrow widths.
-- [x] 7.4 Move copy success/error feedback to a brief bottom-of-viewport toast; verify repeated copies, clipboard failure, screen-reader announcements, focus, and zero panel/page layout shift.
-- [ ] 7.5 Run the build and recheck no-JavaScript, reduced-motion, responsive, and subpath behavior; capture and inspect final desktop screenshots before marking visual tasks complete.
+- [x] 7.2 Reduce the striped sun to 75% of its current diameter, raise its visible lower edge about 260px above the shared skyline horizon, and reserve more open sky for the sun and wireframe mountains; put Japanese signs in front of the city and use normal CSS opacity/filter compositing; verify the composition at desktop and wide-desktop sizes.
+- [x] 7.3 Remove the floating pause control and all of its styles/handlers; verify no visible or inert pause control remains at desktop and narrow widths.
+- [x] 7.4 Keep copy success/error feedback in a brief bottom-of-viewport toast outside the main/footer stacking contexts so it renders above the copyleft label; verify footer-visible copies, repeated copies, clipboard failure, screen-reader announcements, focus, and zero panel/page layout shift.
+- [x] 7.5 Run the build and recheck no-JavaScript, reduced-motion, responsive, and subpath behavior; capture and inspect final desktop screenshots before marking visual tasks complete.

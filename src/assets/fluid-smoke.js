@@ -405,7 +405,7 @@
       gl.uniform1f(uniform(programs.clear, 'uValue'), 0.1);
     });
     pressure.swap();
-    for (let iteration = 0; iteration < 8; iteration += 1) {
+    for (let iteration = 0; iteration < 6; iteration += 1) {
       draw(programs.pressure, pressure.write, () => {
         bindTexture(programs.pressure, 'uPressure', pressure.read.texture, 0);
         bindTexture(programs.pressure, 'uDivergence', divergence.texture, 1);
