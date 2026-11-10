@@ -46,3 +46,5 @@ The newest dragged montage also moves all fourteen original portraits about 200p
 On devices without identifiable hardware-accelerated graphics, or when the browser cannot expose enough information to establish that acceleration is available, keep the site static and skip the fluid simulation and pointer-driven card motion before they start. Essential information, copying and focus feedback remain usable.
 
 On desktop, let each character illustration or its window frame respond to pointer entry with an eased left-right wiggle and to a primary click with a squash-and-stretch jump. Keep the artwork decorative and its transparent areas and nearby controls unobstructed; disable these reactions whenever motion is unavailable or reduced.
+
+Replace the current Tifa portrait with a new numbered, transparent variant guided by the supplied Final Fantasy VII illustration, preserving her current pose and correcting her hand. Refresh Nagatoro's hand and playful expression without sexualization, and correct Aqua's hand while retaining her pose. Retain preceding assets and the existing portrait positions, fades and pointer interactions.

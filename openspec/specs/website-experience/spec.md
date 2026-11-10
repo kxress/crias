@@ -123,6 +123,19 @@ The site SHALL show the fourteen reference characters as separate recognizable i
 - **WHEN** each character is individually inspected
 - **THEN** its identity and essential features are discernible, and the image can be moved independently of other characters
 
+#### Scenario: Inspecting Tifa's replacement
+- **WHEN** the refreshed Tifa illustration is inspected on the desktop page
+- **THEN** she follows the supplied Final Fantasy VII illustration's drawing treatment while retaining her current pose, her visible hands are anatomically correct, and the portrait preserves transparent margins, its existing position and interactions
+- **AND** previous numbered Tifa artwork remains available
+
+#### Scenario: Inspecting Nagatoro's replacement
+- **WHEN** the refreshed Nagatoro illustration is inspected
+- **THEN** her raised hand is anatomically correct, her expression is playful and age-appropriate, and prior numbered variants, transparency, placement and interactions remain intact
+
+#### Scenario: Inspecting Aqua's replacement
+- **WHEN** the refreshed Aqua illustration is inspected
+- **THEN** her hand at her hip is anatomically correct, her cheerful pose is preserved, and prior numbered variants, transparency, placement and interactions remain intact
+
 ### Requirement: Visible mobile character composition
 All fourteen character illustrations SHALL be visible in the mobile page's normal scroll flow, arranged independently around or between sections without covering text or controls. The page SHALL NOT depend on a visitor opening a separate gallery or toggling decorations to see them.
 
