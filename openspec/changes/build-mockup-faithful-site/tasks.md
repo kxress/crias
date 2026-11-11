@@ -128,4 +128,5 @@ Implement in dependency order. Read both persistent specs, both change specs, `d
 - [x] 8.51 Feather the cloud sprite-sheet cell edges and raise near-layer clouds enough to keep the active silhouettes inside the sky container. Inspect all 15 active sprites for horizontal or vertical clipping at 1448px and 1920px.
 - [x] 8.52 Anchor the mountain rotations at the lower outer corners and shift both halves outward by `clamp(20px, 1.25vw, 24px)` to fill the side corners without a broad crop. Keep the approved `clamp(128px, 13vh, 148px)` top and inspect the valley at desktop widths.
 - [x] 8.54 Increase Tifa's displayed size about 10%, then raise her 24px from that scaled placement; preserve the centered artwork bounds and transparent margin. Inspect against Asuka at 1448px and 1920px.
+- [x] 8.55 Shift both mountain halves farther outward by about 8–10px to hide more of their outer edges. Preserve the shared panoramic mask, rotation and desktop valley layout.
 - [x] 8.53 Extend the cloud container down to the horizon so sprites do not clip at the former city-height boundary; keep the skyline above every cloud layer and verify the animated and static desktop views.
