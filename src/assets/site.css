@@ -27,7 +27,7 @@ button { font: inherit; }
 .skip-link { position: fixed; z-index: 100; left: 1rem; top: 1rem; padding: .7rem 1rem; transform: translateY(-180%); background: #fff; color: #180b25; border-radius: .4rem; }
 .skip-link:focus { transform: none; }
 .visually-hidden { position: absolute!important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-.scene { --scene-city-height:clamp(290px,28vh,320px); --scene-sun-diameter:clamp(260px,22.2vw,326px); --scene-sun-visible-height:clamp(195px,16.65vw,244.5px); --scene-sun-lift:clamp(108px,10.65vh,116px); position: absolute; inset:0; height:auto; overflow: hidden; pointer-events: none; z-index: 0; background:radial-gradient(ellipse 39% 44% at 0% 29%,rgba(54,178,222,.28),transparent 78%),radial-gradient(ellipse 39% 44% at 100% 29%,rgba(130,91,201,.28),transparent 78%),radial-gradient(ellipse at 50% 17%,rgba(202,31,122,.24),transparent 38%); }
+.scene { --scene-city-height:clamp(290px,28vh,320px); --scene-sun-diameter:clamp(260px,22.2vw,326px); --scene-sun-visible-height:clamp(195px,16.65vw,244.5px); --scene-sun-lift:clamp(108px,10.65vh,116px); position: absolute; inset:0; height:auto; overflow: hidden; pointer-events: none; z-index: 0; background:radial-gradient(ellipse 39% 44% at 0% 29%,rgba(54,178,222,.28),transparent 78%),radial-gradient(ellipse 39% 44% at 100% 29%,rgba(54,178,222,.28),transparent 78%),radial-gradient(ellipse at 50% 17%,rgba(202,31,122,.24),transparent 38%); }
 .scene__stars { position: absolute; inset: 0 0 auto; height:calc(var(--scene-horizon) - 24px); opacity: .43; background-image: radial-gradient(#ffabea 1px, transparent 1.2px), radial-gradient(#8deaff .8px, transparent 1px); background-size: 83px 71px, 121px 109px; background-position: 16px 19px, 49px 67px; -webkit-mask-image:linear-gradient(to bottom,#000 0 66%,#0009 82%,transparent 100%); mask-image:linear-gradient(to bottom,#000 0 66%,#0009 82%,transparent 100%); animation:starfield-neon-pulse 8.6s ease-in-out infinite; }
 @media (min-width:1100px) {
   .scene__stars {
@@ -75,21 +75,21 @@ button { font: inherit; }
 .scene__cloud-sprite--far { z-index:0; --cloud-scale:.58; --cloud-opacity:.42; --cloud-duration:126s; }
 .scene__cloud-sprite--mid { z-index:3; --cloud-scale:.78; --cloud-opacity:.56; --cloud-duration:82s; }
 .scene__cloud-sprite--near { z-index:4; --cloud-scale:1; --cloud-opacity:.58; --cloud-duration:54s; }
-.scene__cloud-sprite--far-1 { --sprite-x:0px; --sprite-y:0px; --cloud-left:0vw; --cloud-top:8px; --cloud-delay:-53s; }
-.scene__cloud-sprite--far-2 { --sprite-x:-256px; --sprite-y:0px; --cloud-left:23vw; --cloud-top:26px; --cloud-delay:-59s; }
-.scene__cloud-sprite--far-3 { --sprite-x:-512px; --sprite-y:0px; --cloud-left:47vw; --cloud-top:2px; --cloud-delay:-65s; }
-.scene__cloud-sprite--far-4 { --sprite-x:-768px; --sprite-y:0px; --cloud-left:72vw; --cloud-top:19px; --cloud-delay:-72s; }
-.scene__cloud-sprite--far-5 { --sprite-x:0px; --sprite-y:-128px; --cloud-left:97vw; --cloud-top:38px; --cloud-delay:-78s; }
-.scene__cloud-sprite--far-6 { --sprite-x:-256px; --sprite-y:-128px; --cloud-left:126vw; --cloud-top:7px; --cloud-delay:-87s; }
-.scene__cloud-sprite--far-7 { --sprite-x:-512px; --sprite-y:-128px; --cloud-left:6vw; --cloud-top:51px; --cloud-delay:-25s; }
-.scene__cloud-sprite--far-8 { --sprite-x:-768px; --sprite-y:-128px; --cloud-left:59vw; --cloud-top:44px; --cloud-delay:-45s; }
-.scene__cloud-sprite--far-9 { --sprite-x:0px; --sprite-y:-256px; --cloud-left:111vw; --cloud-top:55px; --cloud-delay:-64s; }
-.scene__cloud-sprite--mid-1 { --sprite-x:-256px; --sprite-y:-256px; --cloud-left:7vw; --cloud-top:55px; --cloud-delay:-35s; }
-.scene__cloud-sprite--mid-2 { --sprite-x:-512px; --sprite-y:-256px; --cloud-left:45vw; --cloud-top:72px; --cloud-delay:-39s; }
-.scene__cloud-sprite--mid-3 { --sprite-x:-768px; --sprite-y:-256px; --cloud-left:84vw; --cloud-top:43px; --cloud-delay:-43s; }
-.scene__cloud-sprite--mid-4 { --sprite-x:0px; --sprite-y:-384px; --cloud-left:110vw; --cloud-top:73px; --cloud-delay:-47s; }
-.scene__cloud-sprite--near-1 { --sprite-x:-256px; --sprite-y:-384px; --cloud-left:3vw; --cloud-top:48px; --cloud-delay:-22s; }
-.scene__cloud-sprite--near-2 { --sprite-x:-512px; --sprite-y:-384px; --cloud-left:61vw; --cloud-top:55px; --cloud-delay:-26s; }
+.scene__cloud-sprite--far-1 { --sprite-x:0px; --sprite-y:0px; --cloud-left:0vw; --cloud-top:8px; --cloud-delay:-7s; }
+.scene__cloud-sprite--far-2 { --sprite-x:-256px; --sprite-y:0px; --cloud-left:23vw; --cloud-top:26px; --cloud-delay:-21s; }
+.scene__cloud-sprite--far-3 { --sprite-x:-512px; --sprite-y:0px; --cloud-left:47vw; --cloud-top:2px; --cloud-delay:-35s; }
+.scene__cloud-sprite--far-4 { --sprite-x:-768px; --sprite-y:0px; --cloud-left:72vw; --cloud-top:19px; --cloud-delay:-49s; }
+.scene__cloud-sprite--far-5 { --sprite-x:0px; --sprite-y:-128px; --cloud-left:97vw; --cloud-top:38px; --cloud-delay:-63s; }
+.scene__cloud-sprite--far-6 { --sprite-x:-256px; --sprite-y:-128px; --cloud-left:126vw; --cloud-top:7px; --cloud-delay:-77s; }
+.scene__cloud-sprite--far-7 { --sprite-x:-512px; --sprite-y:-128px; --cloud-left:6vw; --cloud-top:51px; --cloud-delay:-91s; }
+.scene__cloud-sprite--far-8 { --sprite-x:-768px; --sprite-y:-128px; --cloud-left:59vw; --cloud-top:44px; --cloud-delay:-105s; }
+.scene__cloud-sprite--far-9 { --sprite-x:0px; --sprite-y:-256px; --cloud-left:111vw; --cloud-top:55px; --cloud-delay:-119s; }
+.scene__cloud-sprite--mid-1 { --sprite-x:-256px; --sprite-y:-256px; --cloud-left:7vw; --cloud-top:55px; --cloud-delay:-10.25s; }
+.scene__cloud-sprite--mid-2 { --sprite-x:-512px; --sprite-y:-256px; --cloud-left:45vw; --cloud-top:72px; --cloud-delay:-30.75s; }
+.scene__cloud-sprite--mid-3 { --sprite-x:-768px; --sprite-y:-256px; --cloud-left:84vw; --cloud-top:43px; --cloud-delay:-51.25s; }
+.scene__cloud-sprite--mid-4 { --sprite-x:0px; --sprite-y:-384px; --cloud-left:110vw; --cloud-top:73px; --cloud-delay:-71.75s; }
+.scene__cloud-sprite--near-1 { --sprite-x:-256px; --sprite-y:-384px; --cloud-left:3vw; --cloud-top:48px; --cloud-delay:-13.5s; }
+.scene__cloud-sprite--near-2 { --sprite-x:-512px; --sprite-y:-384px; --cloud-left:61vw; --cloud-top:55px; --cloud-delay:-40.5s; }
 .scene__skyline { position:absolute; z-index:5; top:calc(var(--scene-horizon) - var(--scene-city-height)); left:0; width:100%; height:var(--scene-city-height); object-fit:cover; object-position:center bottom; opacity:1; mix-blend-mode:normal; filter:brightness(.78) saturate(.82) contrast(1.08) hue-rotate(4deg); -webkit-mask-image:linear-gradient(to bottom,#000 0 88%,#000d 94%,#0005 98%,transparent 100%); mask-image:linear-gradient(to bottom,#000 0 88%,#000d 94%,#0005 98%,transparent 100%); animation:city-luma 7.8s ease-in-out infinite; }
 .scene__mountains { position:absolute; z-index:1; top:clamp(128px,13vh,148px); height:360px; width:min(32vw,520px); opacity:.94; filter:drop-shadow(0 0 5px #32dfff58); animation:mountain-glow 14s ease-in-out infinite alternate; }
 .scene__mountains::before,.scene__mountains::after { content:""; position:absolute; inset:0; pointer-events:none; -webkit-mask-image:url('./art/mountains-valley.png'); mask-image:url('./art/mountains-valley.png'); -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-size:200% 100%; mask-size:200% 100%; -webkit-mask-position:var(--mountain-mask-position) 100%; mask-position:var(--mountain-mask-position) 100%; -webkit-mask-mode:alpha; mask-mode:alpha; }
@@ -328,7 +328,7 @@ html.portrait-press-active,html.portrait-press-active * { user-select:none!impor
 @keyframes portrait-neon-pulse { 0%,100% { filter:drop-shadow(0 3px 8px #ff2ec75c); } 48% { filter:drop-shadow(0 5px 15px #ff2ec7bd); } 49% { filter:drop-shadow(0 1px 2px #ff2ec725); } 49.2% { filter:drop-shadow(0 5px 15px #ff2ec7bd); } 51% { filter:drop-shadow(0 5px 15px #ff2ec7bd); } }
 @keyframes sun-glitch { 0%,84%,100% { transform:translateX(-50%); } 84.1% { transform:translateX(calc(-50% + 2px)) skewX(-.4deg); } 84.2% { transform:translateX(calc(-50% - 1px)) skewX(.3deg); } 84.3% { transform:translateX(-50%); } }
 @keyframes sun-stripes { to { -webkit-mask-position:0 -20px; mask-position:0 -20px; } }
-@keyframes cloud-sprite-drift { 0% { opacity:0; transform:translate3d(calc(100vw + 300px),0,0) scale(var(--cloud-scale)); } 5% { opacity:var(--cloud-opacity); } 95% { opacity:var(--cloud-opacity); transform:translate3d(calc(-145vw - 360px),0,0) scale(var(--cloud-scale)); } 100% { opacity:0; transform:translate3d(calc(-145vw - 360px),0,0) scale(var(--cloud-scale)); } }
+@keyframes cloud-sprite-drift { 0% { opacity:0; transform:translate3d(calc(100vw + 300px - var(--cloud-left)),0,0) scale(var(--cloud-scale)); } 5% { opacity:var(--cloud-opacity); } 95% { opacity:var(--cloud-opacity); transform:translate3d(calc(-100vw - 360px - var(--cloud-left)),0,0) scale(var(--cloud-scale)); } 100% { opacity:0; transform:translate3d(calc(-100vw - 360px - var(--cloud-left)),0,0) scale(var(--cloud-scale)); } }
 @keyframes city-luma { 0%,100% { filter:brightness(.75) saturate(.78) contrast(1.06) hue-rotate(3deg); } 48% { filter:brightness(.86) saturate(.9) contrast(1.12) hue-rotate(7deg); } 49% { filter:brightness(.68) saturate(.72) contrast(1.03) hue-rotate(2deg); } 49.2% { filter:brightness(.94) saturate(1) contrast(1.16) hue-rotate(8deg); } 50% { filter:brightness(.86) saturate(.9) contrast(1.12) hue-rotate(7deg); } }
 @keyframes mountain-glow { 0%,100% { opacity:.84; filter:brightness(1.03) drop-shadow(0 0 5px #32dfff58); } 47% { opacity:.98; filter:brightness(1.2) drop-shadow(0 0 7px #32dfff75); } 48% { opacity:.76; filter:brightness(.96) drop-shadow(0 0 4px #32dfff40); } 48.2% { opacity:1; filter:brightness(1.3) drop-shadow(0 0 8px #32dfffa0); } 50% { opacity:.98; filter:brightness(1.2) drop-shadow(0 0 7px #32dfff75); } }
 @keyframes neon-breathe { 0%,100% { border-color:color-mix(in srgb,var(--panel-neon),transparent 35%); box-shadow:0 0 6px color-mix(in srgb,var(--panel-neon-glow),transparent 45%),0 0 13px color-mix(in srgb,var(--panel-neon-glow),transparent 68%); } 47% { border-color:var(--panel-neon-light); box-shadow:0 0 15px var(--panel-neon-glow),0 0 33px color-mix(in srgb,var(--panel-neon-glow),transparent 28%); } 48% { border-color:var(--panel-neon); box-shadow:0 0 5px color-mix(in srgb,var(--panel-neon-glow),transparent 58%); } 48.2% { border-color:var(--panel-neon-light); box-shadow:0 0 18px var(--panel-neon-glow),0 0 36px color-mix(in srgb,var(--panel-neon-glow),transparent 25%); } 51% { border-color:var(--panel-neon-light); box-shadow:0 0 15px var(--panel-neon-glow),0 0 33px color-mix(in srgb,var(--panel-neon-glow),transparent 28%); } }
