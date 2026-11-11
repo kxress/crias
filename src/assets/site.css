@@ -461,8 +461,17 @@ html.portrait-press-active,html.portrait-press-active * { user-select:none!impor
   .server-row { min-height:55px; padding:6px 48px 6px 9px; }
   .server-row__hostname { font-size:clamp(13px,4vw,15px); }
   .server-row__details { font-size:14px; }
-  .site-footer { height:68px; gap:10px; font-size:22px; }
-  .footer-line { width:min(15vw,55px); }
+  .site-footer { height:210px; font-size:18px; }
+  .footer-collage { width:100%; height:100%; }
+  .footer-character { top:4px; width:clamp(72px,21vw,88px); transform:none; animation:none; }
+  .footer-character--shantae { left:0; right:auto; top:4px; width:clamp(72px,21vw,88px); }
+  .footer-character--marie { left:25%; right:auto; top:4px; width:clamp(72px,21vw,88px); }
+  .footer-character--oguri { left:auto; right:25%; top:4px; width:clamp(72px,21vw,88px); }
+  .footer-character--tamamo { left:auto; right:0; top:4px; width:clamp(72px,21vw,88px); }
+  .footer-signature { top:150px; z-index:4; gap:8px; }
+  .footer-line { width:clamp(28px,9vw,36px); }
+  .computer-icon { width:30px; height:26px; }
+  .copyleft-mark { width:22px; height:22px; font-size:18px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; }
