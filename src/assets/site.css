@@ -364,19 +364,33 @@ html.portrait-press-active,html.portrait-press-active * { user-select:none!impor
   .game-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
 }
 @media (max-width: 1099px) and (min-width: 761px) {
-  .hero { height:auto; display:flex; flex-direction:column; gap:12px; padding:0 18px; }
-  .hero__copy { order:0; width:min(760px,100%); }
-  .hero__collage { position:relative; order:2; inset:auto; left:auto; top:auto; width:100%; height:auto; transform:none; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); align-items:end; gap:8px; padding:5px 0 14px; }
-  .character { position:relative; inset:auto!important; width:100%!important; height:clamp(128px,17vw,154px)!important; margin:0; object-fit:contain; filter:drop-shadow(0 3px 7px #ff2ec780); -webkit-mask-image:none; mask-image:none; }
-  .character:not(.window) { width:125%!important; height:clamp(160px,21.25vw,192.5px)!important; transform:translate(-10%,-10%); }
-  .character:not(.window).character--asuka,.character:not(.window).character--nami,.character:not(.window).character--nagatoro,.character:not(.window).character--aqua,.character:not(.window).character--mayano,.character:not(.window).character--creek { transform:translate(10%,-10%); }
+  .hero { position:static; display:block; height:calc(var(--scene-horizon) + 48px); min-height:0; padding:0; }
+  .hero__copy { width:min(760px,100%); }
+  .hero__collage { position:absolute; inset:0; left:0; right:0; top:0; bottom:0; width:100%; height:auto; margin:0; transform:none; display:block; z-index:3; }
+  .character { position:absolute; inset:auto; width:clamp(64px,8vw,88px); height:auto; margin:0; object-fit:contain; filter:drop-shadow(0 3px 7px #ff2ec780); -webkit-mask-image:none; mask-image:none; }
+  .character:not(.window) { width:clamp(64px,8vw,88px)!important; height:auto!important; transform:none!important; }
+  .character--rei,.character--usagi { width:clamp(76px,10vw,96px)!important; height:clamp(126px,16vw,154px)!important; padding:17px 2px 2px; border-width:2px; }
+  .character--rei { top:270px; left:0; }
+  .character--makima { top:285px; right:0; }
+  .character--tifa { top:430px; left:0; }
+  .character--asuka { top:455px; right:0; }
+  .character--nami { top:590px; left:0; }
+  .character--nagatoro { top:710px; right:0; }
+  .character--kurisu { top:830px; left:0; }
+  .character--faye { top:950px; right:0; }
+  .character--hinata { top:1070px; left:0; }
+  .character--rem { top:1190px; right:0; }
+  .character--usagi { top:1310px; left:0; }
+  .character--aqua { top:1430px; right:0; }
+  .character--mayano { top:1550px; left:0; }
+  .character--creek { top:1670px; right:0; }
   .character img { object-fit:contain; object-position:center bottom; -webkit-mask-image:none; mask-image:none; }
   .statue { display:none; }
-  .character--rei,.character--usagi { padding:17px 2px 2px; border-width:2px; }
   .window figcaption { top:2px; left:6px; font-size:10px; }
   .window-controls { top:2px; right:3px; gap:1px; }
   .window-controls i { width:8px; height:8px; }
   .join,.directory { width:calc(100% - 36px); }
+  .join,.directory { padding-left:clamp(68px,9vw,84px); padding-right:clamp(68px,9vw,84px); }
   .steps { grid-template-columns:repeat(2,minmax(0,1fr)); row-gap:18px; }
   .step:not(:last-child)::after { display:none; }
   .join { padding-bottom:18px; }
@@ -384,32 +398,48 @@ html.portrait-press-active,html.portrait-press-active * { user-select:none!impor
   .game-card--hytale { grid-column:1/-1; }
 }
 @media (max-width: 1424px) and (min-width: 761px) {
-  main,.site-footer { width:calc(100% - 52px); }
+  main,.site-footer { width:calc(100% - 52px); margin-inline:auto; }
 }
 @media (max-width: 760px) {
-  .scene { --scene-horizon:410px; --scene-city-height:190px; --scene-sun-visible-height:65px; --scene-sun-lift:215px; height:100%; min-height:100%; }
+  .scene { --scene-horizon:410px; --scene-city-height:290px; --scene-sun-visible-height:65px; --scene-sun-lift:215px; height:100%; min-height:100%; }
+  .scene__skyline { left:50%; width:clamp(760px,190vw,900px); transform:translateX(-50%); }
   .scene__sun { top:calc(var(--scene-horizon) - var(--scene-sun-visible-height) - var(--scene-sun-lift)); width:98px; }
-  .scene__mountains { top:150px; height:195px; }
+  .scene__mountains { top:140px; width:clamp(250px,70vw,360px); height:280px; }
   .scene__sign { display:none; }
-  main,.site-footer { width:calc(100% - 52px); }
-  .hero { height:auto; min-height:0; display:flex; flex-direction:column; gap:12px; padding:0 12px; }
-  .hero__copy { order:0; width:100%; padding-top:105px; }
+  main,.site-footer { width:100%; margin-inline:auto; }
+  .hero { position:static; display:block; height:440px; min-height:0; padding:0; }
+  .hero__copy { width:100%; padding-top:105px; }
   .hero__jp { top:77px; font-size:11px; letter-spacing:.2em; }
   .wordmark { font-size:clamp(2.15rem,11.5vw,3.4rem); white-space:nowrap; transform:translateY(-4px) skewX(-7deg) rotate(-2deg) scaleX(.88); }
   .hero__subtitle { max-width:17ch; margin-inline:auto; font-size:clamp(1.55rem,7vw,2rem); line-height:.9; white-space:normal; }
-  .hero__collage { order:1; position:relative; inset:auto; left:auto; width:100%; height:auto; transform:none; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); align-items:end; gap:5px; padding:8px 0 13px; }
-  .character { position:relative; inset:auto!important; width:100%!important; height:clamp(112px,36vw,154px)!important; margin:0; object-fit:contain; filter:drop-shadow(0 3px 6px #ff2ec780); -webkit-mask-image:none; mask-image:none; }
-  .character:not(.window) { width:125%!important; height:clamp(140px,45vw,192.5px)!important; transform:translate(-10%,-10%); }
-  .character:not(.window).character--asuka,.character:not(.window).character--nami,.character:not(.window).character--nagatoro,.character:not(.window).character--aqua,.character:not(.window).character--mayano,.character:not(.window).character--creek { transform:translate(10%,-10%); }
+  .hero__collage { position:absolute; inset:0; left:0; right:0; top:0; bottom:0; width:100%; height:auto; margin:0; transform:none; display:block; z-index:3; }
+  .panel:hover,.panel:has(:focus-visible) { z-index:2; }
+  .character { position:absolute; inset:auto; width:clamp(54px,16vw,68px); height:auto; margin:0; object-fit:contain; filter:drop-shadow(0 3px 6px #ff2ec780); animation:none; -webkit-mask-image:none; mask-image:none; }
+  .character:not(.window) { width:clamp(54px,16vw,68px)!important; height:auto!important; transform:none!important; }
+  .character--rei,.character--usagi { width:clamp(58px,15vw,66px)!important; height:clamp(104px,27.5vw,118px)!important; padding:17px 2px 2px; border-width:2px; }
+  .character--rei { top:226px; left:0; }
+  .character--makima { top:246px; right:0; }
+  .character--tifa { top:450px; left:0; }
+  .character--asuka { top:570px; right:0; }
+  .character--nami { top:700px; left:0; }
+  .character--nagatoro { top:820px; right:0; }
+  .character--kurisu { top:950px; left:0; }
+  .character--faye { top:1080px; right:0; }
+  .character--hinata { top:1220px; left:0; }
+  .character--rem { top:1360px; right:0; }
+  .character--usagi { top:1500px; left:0; }
+  .character--aqua { top:1640px; right:0; }
+  .character--mayano { top:1780px; left:0; }
+  .character--creek { top:1920px; right:0; }
   .character img { object-fit:contain; object-position:center bottom; }
   .statue { display:none; }
-  .character--rei,.character--usagi { padding:17px 2px 2px; border-width:2px; }
   .window figcaption,.window::before { font-size:8px; }
   .window-controls { top:1px; right:2px; gap:1px; }
   .window-controls i { width:7px; height:7px; border-width:1px; }
   .window-controls i:nth-child(3)::after { font-size:7px; line-height:7px; inset:-1px 0 0; }
-  .join,.directory { width:calc(100% - 20px); border-radius:15px; }
-  .join { padding:9px 13px 9px; }
+  .join,.directory { width:calc(100% - 32px); margin-inline:auto; border-radius:15px; }
+  .join { padding:9px clamp(38px,12vw,48px); }
+  .directory { padding:10px clamp(38px,12vw,48px) 8px; }
   .panel__heading h2 { font-size:25px; }
   .panel__jp { font-size:12px; letter-spacing:.08em; }
   .steps { grid-template-columns:1fr; gap:15px; margin-top:12px; }

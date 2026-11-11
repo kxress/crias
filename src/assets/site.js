@@ -1,6 +1,7 @@
 const status = document.getElementById('copy-feedback');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+const compactLayout = window.matchMedia('(max-width: 760px)');
 let announceTimer = 0;
 let announceRevealTimer = 0;
 
@@ -453,11 +454,14 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
   }
 
   document.addEventListener('crias:motion-disabled', stopPortraitMotion);
+  compactLayout.addEventListener('change', (event) => {
+    if (event.matches) stopPortraitMotion();
+  });
   reducedMotion.addEventListener('change', () => {
     if (reducedMotion.matches) stopPortraitMotion();
   });
   window.addEventListener('pointerdown', (event) => {
-    if (event.pointerType !== 'mouse' || event.button !== 0 || !motionIsActive() || drag) return;
+    if (compactLayout.matches || event.pointerType !== 'mouse' || event.button !== 0 || !motionIsActive() || drag) return;
     const portrait = portraitAt(event.clientX, event.clientY);
     if (!portrait) return;
     const returnFrame = returnFrames.get(portrait);
@@ -496,7 +500,7 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
     drag.portrait.classList.add('portrait-wheel-zoom');
   }, { passive: false });
   window.addEventListener('pointermove', (event) => {
-    if (!drag || event.pointerId !== drag.pointerId) return;
+    if (compactLayout.matches || !drag || event.pointerId !== drag.pointerId) return;
     const deltaX = event.clientX - drag.startX;
     const deltaY = event.clientY - drag.startY;
     if (!drag.moved && Math.hypot(deltaX, deltaY) >= 4) {
@@ -533,7 +537,7 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
   window.addEventListener('pointercancel', (event) => finishDrag(event, true));
   window.addEventListener('dragstart', (event) => { if (drag) event.preventDefault(); });
   window.addEventListener('pointermove', (event) => {
-    if (event.pointerType !== 'mouse' || !motionIsActive() || drag) return;
+    if (compactLayout.matches || event.pointerType !== 'mouse' || !motionIsActive() || drag) return;
     pointer = { x: event.clientX, y: event.clientY };
     if (pointerFrame) return;
     pointerFrame = requestAnimationFrame(() => {
@@ -563,7 +567,7 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
       clearTimeout(suppressClickTimer);
       if (suppress) return;
     }
-    if (!motionIsActive() || event.button !== 0 || event.detail === 0) return;
+    if (compactLayout.matches || !motionIsActive() || event.button !== 0 || event.detail === 0) return;
     const portrait = portraitAt(event.clientX, event.clientY);
     if (!portrait) return;
     react(portrait, [
