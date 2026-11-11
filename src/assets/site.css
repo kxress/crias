@@ -401,15 +401,16 @@ html.portrait-press-active,html.portrait-press-active * { user-select:none!impor
   main,.site-footer { width:calc(100% - 52px); margin-inline:auto; }
 }
 @media (max-width: 760px) {
-  .scene { --scene-horizon:410px; --scene-city-height:290px; --scene-sun-visible-height:65px; --scene-sun-lift:215px; height:100%; min-height:100%; }
+  .scene { --scene-horizon:410px; --scene-city-height:290px; --scene-sun-visible-height:clamp(96px,28vw,116px); --scene-sun-lift:clamp(196px,50vw,210px); height:100%; min-height:100%; }
   .scene__skyline { left:50%; width:clamp(760px,190vw,900px); transform:translateX(-50%); }
-  .scene__sun { top:calc(var(--scene-horizon) - var(--scene-sun-visible-height) - var(--scene-sun-lift)); width:98px; }
-  .scene__mountains { top:140px; width:clamp(250px,70vw,360px); height:280px; }
+  .scene__sun { top:calc(var(--scene-horizon) - var(--scene-sun-visible-height) - var(--scene-sun-lift)); width:clamp(128px,38vw,156px); }
+  .scene__mountains { top:140px; width:clamp(250px,70vw,360px); height:calc(var(--scene-horizon) - 140px); overflow:hidden; clip-path:inset(0); }
+  .scene__mountains--left,.scene__mountains--right { rotate:0deg; }
   .scene__sign { display:none; }
   main,.site-footer { width:100%; margin-inline:auto; }
   .hero { position:static; display:block; height:440px; min-height:0; padding:0; }
-  .hero__copy { width:100%; padding-top:105px; }
-  .hero__jp { top:77px; font-size:11px; letter-spacing:.2em; }
+  .hero__copy { width:100%; padding-top:93px; }
+  .hero__jp { top:66px; font-size:11px; letter-spacing:.2em; }
   .wordmark { font-size:clamp(2.15rem,11.5vw,3.4rem); white-space:nowrap; transform:translateY(-4px) skewX(-7deg) rotate(-2deg) scaleX(.88); }
   .hero__subtitle { max-width:17ch; margin-inline:auto; font-size:clamp(1.55rem,7vw,2rem); line-height:.9; white-space:normal; }
   .hero__collage { position:absolute; inset:0; left:0; right:0; top:0; bottom:0; width:100%; height:auto; margin:0; transform:none; display:block; z-index:3; }
