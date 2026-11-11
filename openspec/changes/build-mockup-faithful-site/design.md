@@ -161,7 +161,7 @@ Keep the shared mountain layer at `top: clamp(128px, 13vh, 148px)` and rotate th
 
 ### 21. Refresh the active Tifa portrait
 
-Use `tifa-9.webp` as the active transparent cowgirl portrait. Frame Tifa from the Nibelheim hat to just above the knees in a relaxed hat-tip pose, with the blouse, vest, skirt and hand at her belt visible. Deliver a 2× enlarged, high-resolution master with generous transparent padding; increase its displayed size by about 10% and raise it 24px from the previous scaled placement while preserving the portrait motion and lower fade. Keep the former fighter and full-body cowgirl candidates available.
+Use `tifa-10.webp` as the active transparent cowgirl portrait. Preserve the relaxed hat-tip and hand-on-hip pose, above-knee crop, transparent breathing room, existing page scale and position, portrait motion and lower fade. Match the supplied in-game Nibelheim outfit: brown cowboy hat, sleeveless cropped rust leather vest with orange fringe and studs, white crop top with a dark inset, crossed waist cords, dark Western belt with silver buckle, short rust skirt with gold hem trim, and fingerless gloves. Keep `tifa-9.webp`, the former fighter and full-body cowgirl candidates available.
 
 ### 19. Mouse focus and keyboard focus
 

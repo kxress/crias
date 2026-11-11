@@ -207,7 +207,11 @@ The generated anime-cumulus artwork was cropped with ImageMagick into a 1024 × 
 
 Both mountain halves use `top: clamp(128px, 13vh, 148px)`, with the left rotated `5deg` and the right `-5deg`; their lower outer corners anchor the rotation, with a controlled 28–34px outward offset hiding more of the outer mountain edges. The skybox now uses matching cyan radial glows on both sides. The active Tifa portrait is a transparent hat-to-above-knee cowgirl cutout. Its 2× enlarged image has generous transparent margins; the updated display is 10% larger and 24px higher than the previous layout while retaining its transparent clearance.
 
-The [1448px upper-page capture](screenshots/tifa-clouds-1448-2026-11-10.webp) and [1920px full-page capture](screenshots/tifa-clouds-1920-2026-11-10.webp) show the above-knee Tifa crop, transparent breathing room, all active cloud layers and rotated mountain placement. The static browser renders include 15 cloud sprites, with the skyline over the clouds where their paths cross buildings. The site builds with all eight server records.
+The [1448px upper-page capture](screenshots/tifa-clouds-1448-2026-11-10.webp) and [1920px full-page capture](screenshots/tifa-clouds-1920-2026-11-10.webp) document the cloud layers and rotated mountain placement before the latest costume revision. The static browser renders include 15 cloud sprites, with the skyline over the clouds where their paths cross buildings. The site builds with all eight server records.
+
+## Tifa Nibelheim cowgirl outfit — 2026-11-11
+
+Revised the active hat-tip portrait to match the supplied in-game outfit while preserving the same pose, scale, transparent margins and above-knee crop. The sleeveless cropped rust leather vest has orange fringe and studs; the white crop top has its dark green-black inset; the exposed waist has crossing cords; the belt has dark Western panels and a silver buckle; and the short rust skirt has a narrow gold-trimmed hem. The image has no background. Desktop captures: [1448px](screenshots/tifa-costume-1448-2026-11-11.webp) and [1920px](screenshots/tifa-costume-1920-2026-11-11.webp).
 
 ## Kurisu visual-novel portrait — 2026-11-11
 
