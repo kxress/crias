@@ -352,7 +352,10 @@ html.portrait-press-active,html.portrait-press-active * { user-select:none!impor
   .scene__sun { top:calc(var(--scene-horizon) - var(--scene-sun-visible-height) - var(--scene-sun-lift)); width:clamp(128px,38vw,156px); }
   .scene__mountains { top:140px; width:360px; height:calc(var(--scene-horizon) - 140px); overflow:hidden; clip-path:inset(0); -webkit-mask-image:linear-gradient(to bottom,#000 0 68%,transparent 94%); mask-image:linear-gradient(to bottom,#000 0 68%,transparent 94%); }
   .scene__mountains--left,.scene__mountains--right { rotate:0deg; }
-  .scene__cloud-sprite { width:160px; height:80px; background-size:640px 320px; }
+  .scene__cloud-sprite { width:256px; height:128px; background-size:1024px 512px; }
+  .scene__cloud-sprite--far { --cloud-scale:.3625; }
+  .scene__cloud-sprite--mid { --cloud-scale:.4875; }
+  .scene__cloud-sprite--near { --cloud-scale:.625; }
   .scene__cloud-sprite--far-1 { left:-22vw; top:2px; }
   .scene__cloud-sprite--far-2 { left:19vw; top:76px; }
   .scene__cloud-sprite--far-3 { left:62vw; top:18px; }
@@ -438,6 +441,12 @@ html.portrait-press-active,html.portrait-press-active * { user-select:none!impor
   .footer-line { width:clamp(28px,9vw,36px); }
   .computer-icon { width:30px; height:26px; }
   .copyleft-mark { width:22px; height:22px; font-size:18px; }
+}
+@media (min-width:1100px) and (max-height:720px) {
+  .scene__mountains { -webkit-mask-image:linear-gradient(to bottom,#000 0 70%,transparent 95%); mask-image:linear-gradient(to bottom,#000 0 70%,transparent 95%); }
+  .directory { margin-top:clamp(160px,32vh,210px); }
+  .character--faye { left:calc(24% - 80px); }
+  .character--aqua { right:calc(24% - 80px); }
 }
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; }
