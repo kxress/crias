@@ -156,7 +156,7 @@ The site SHALL show the fourteen reference characters as separate recognizable i
 
 #### Scenario: Inspecting Tifa's replacement
 - **WHEN** the refreshed Tifa illustration is inspected on the desktop page
-- **THEN** she appears in the Nibelheim cowgirl outfit in a hat-tip pose, cropped just above the knees, with transparent padding, about 10% more display size and a 16px upward adjustment from the previous scaled placement
+- **THEN** she appears in the Nibelheim cowgirl outfit in a hat-tip pose, cropped just above the knees, with transparent padding, about 10% more display size and a 24px upward adjustment from the previous scaled placement
 - **AND** the portrait preserves its interactions and previous numbered Tifa artwork remains available
 
 #### Scenario: Inspecting Nagatoro's replacement
