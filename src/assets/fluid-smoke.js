@@ -4,6 +4,10 @@
   const motion = window.criasMotion;
   if (!motion || document.documentElement.classList.contains('motion-static') || !finePointer.matches || reducedMotion.matches) return;
 
+  const frameInterval = 1000 / 30;
+  const referenceStep = 1 / 60;
+  const resolutionScale = 0.5;
+
   const canvas = document.createElement('canvas');
   canvas.className = 'fluid-smoke';
   canvas.setAttribute('aria-hidden', 'true');
@@ -329,11 +333,11 @@
     height = window.innerHeight;
     const deviceScale = Math.min(window.devicePixelRatio || 1, 1);
     const pixelBudgetScale = Math.sqrt(500000 / Math.max(1, width * height));
-    pixelRatio = Math.min(deviceScale, 0.6, pixelBudgetScale);
+    pixelRatio = Math.min(deviceScale, 0.6, pixelBudgetScale) * resolutionScale;
     canvas.width = Math.max(1, Math.round(width * pixelRatio));
     canvas.height = Math.max(1, Math.round(height * pixelRatio));
-    const [simWidth, simHeight] = resolution(64);
-    const [dyeWidth, dyeHeight] = resolution(384);
+    const [simWidth, simHeight] = resolution(64 * resolutionScale);
+    const [dyeWidth, dyeHeight] = resolution(384 * resolutionScale);
     velocity = createDoubleTarget(simWidth, simHeight, velocityFormat);
     dye = createDoubleTarget(dyeWidth, dyeHeight);
     divergence = createTarget(simWidth, simHeight, scalarFormat, gl.NEAREST);
@@ -445,14 +449,20 @@
       stopAndClear();
       return;
     }
-    const dt = Math.min((now - (lastFrame || now - 16.67)) / 1000, 0.0333);
+    const elapsed = lastFrame ? now - lastFrame : frameInterval;
+    if (lastFrame && elapsed < frameInterval) {
+      raf = window.requestAnimationFrame(tick);
+      return;
+    }
+    const dt = Math.min(elapsed / 1000, 0.05);
     lastFrame = now;
     if (pointer?.moved) {
       const colorShift = (Math.sin(now * 0.0018 + pointer.x * 3.2) + 1) * 0.5;
       const pink = [0.88, 0.035, 0.56];
       const cyan = [0.01, 0.62, 0.96];
       const color = pink.map((channel, index) => channel * (1 - colorShift) + cyan[index] * colorShift);
-      applySplat(pointer.x, pointer.y, pointer.dx * 7200, pointer.dy * 7200, color);
+      const inputSpeedScale = referenceStep / dt;
+      applySplat(pointer.x, pointer.y, pointer.dx * 7200 * inputSpeedScale, pointer.dy * 7200 * inputSpeedScale, color);
       pointer.dx = 0;
       pointer.dy = 0;
       pointer.moved = false;
