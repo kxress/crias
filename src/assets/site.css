@@ -147,7 +147,7 @@ html.portrait-press-active,html.portrait-press-active * { user-select:none!impor
 .statue--right img { transform:scaleX(-1); }
 .character--rei { left:38px; top:158px; width:150px; height:232px; }
 .character--makima { left:14%; top:133px; width:clamp(205px,15vw,217px); }
-.character--tifa { left:calc(26% - 46px); top:121px; width:220px; }
+.character--tifa { left:calc(26% - 46px); top:105px; width:220px; }
 .character--asuka { right:25%; top:133px; width:clamp(185px,13.75vw,199px); }
 .character--nami { right:13%; top:138px; width:clamp(200px,15vw,217px); }
 .character--nagatoro { right:2.8%; top:133px; width:clamp(205px,15vw,217px); }
