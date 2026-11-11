@@ -18,7 +18,7 @@ reducedMotion.addEventListener('change', () => {
 });
 
 function setCardTilt(card, x, y) {
-  if (!motionIsActive() || (card.matches(':focus-within') && !card.matches(':hover'))) {
+  if (!motionIsActive() || (card.matches(':has(:focus-visible)') && !card.matches(':hover'))) {
     resetCardTilt(card);
     return;
   }
@@ -39,7 +39,7 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
     let pointerPosition = null;
     let framePending = false;
     const trackPointer = (event) => {
-      if (event.pointerType !== 'mouse' || !motionIsActive() || (card.matches(':focus-within') && !card.matches(':hover'))) return;
+      if (event.pointerType !== 'mouse' || !motionIsActive() || (card.matches(':has(:focus-visible)') && !card.matches(':hover'))) return;
       pointerPosition = { x: event.clientX, y: event.clientY };
       if (framePending) return;
       framePending = true;
@@ -76,7 +76,7 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
 // Tiny DOM sparks are only created after the shared renderer probe has confirmed
 // hardware acceleration. The page stays quiet on software-rendered devices.
 if (finePointer.matches && motionIsActive() && window.criasMotion?.isAccelerated) {
-  const particleStyle = (particle, { x, y, dx, dy, size, duration, opacity }) => {
+  const particleStyle = (particle, { x, y, dx, dy, size, duration, opacity, color }) => {
     particle.style.left = `${x.toFixed(1)}px`;
     particle.style.top = `${y.toFixed(1)}px`;
     particle.style.setProperty('--particle-dx', `${dx.toFixed(1)}px`);
@@ -84,8 +84,11 @@ if (finePointer.matches && motionIsActive() && window.criasMotion?.isAccelerated
     particle.style.setProperty('--particle-size', `${size.toFixed(1)}px`);
     particle.style.setProperty('--particle-duration', `${duration.toFixed(2)}s`);
     particle.style.setProperty('--particle-opacity', opacity.toFixed(2));
+    if (color) particle.style.setProperty('--particle-color', color);
   };
   const makeParticle = (layer, options) => {
+    const maxParticles = layer.classList.contains('pointer-particles') ? 192 : 128;
+    if (layer.childElementCount >= maxParticles) layer.firstElementChild?.remove();
     const particle = document.createElement('i');
     particle.className = `neon-particle neon-particle--${options.kind}`;
     particle.setAttribute('aria-hidden', 'true');
@@ -95,10 +98,13 @@ if (finePointer.matches && motionIsActive() && window.criasMotion?.isAccelerated
   };
   const random = (min, max) => min + Math.random() * (max - min);
   const makePanelSpark = (layer, panel) => {
-    const rect = panel.getBoundingClientRect();
+    // Particle coordinates are local to the panel layer, so use the panel's
+    // untransformed border-box dimensions rather than its tilted viewport box.
+    const width = panel.offsetWidth;
+    const height = panel.offsetHeight;
     const edge = Math.floor(Math.random() * 4);
-    const x = edge === 1 ? rect.width : edge === 3 ? 0 : random(0, rect.width);
-    const y = edge === 0 ? 0 : edge === 2 ? rect.height : random(0, rect.height);
+    const x = edge === 1 ? width : edge === 3 ? 0 : random(0, width);
+    const y = edge === 0 ? 0 : edge === 2 ? height : random(0, height);
     const spread = random(-22, 22);
     const distance = random(16, 54);
     const vector = [
@@ -135,20 +141,23 @@ if (finePointer.matches && motionIsActive() && window.criasMotion?.isAccelerated
       timer = 0;
       layer.replaceChildren();
     };
+    const hasCyanBorder = () => getComputedStyle(panel).getPropertyValue('--panel-neon').trim().toLowerCase() === '#12edff';
     const update = () => {
-      const active = motionIsActive() && (panel.matches(':hover') || panel.matches(':focus-within'));
+      const active = motionIsActive() && hasCyanBorder() && (panel.matches(':hover') || panel.matches(':has(:focus-visible)'));
       if (!active) {
         stop();
         return;
       }
       if (timer) return;
       timer = window.setInterval(() => {
-        if (!motionIsActive() || (!panel.matches(':hover') && !panel.matches(':focus-within'))) {
+        if (!motionIsActive() || !hasCyanBorder() || (!panel.matches(':hover') && !panel.matches(':has(:focus-visible)'))) {
           stop();
           return;
         }
         makePanelSpark(layer, panel);
-      }, 135);
+        makePanelSpark(layer, panel);
+        makePanelSpark(layer, panel);
+      }, 45);
     };
     panel.addEventListener('pointerenter', update, { passive: true });
     panel.addEventListener('pointerleave', update, { passive: true });
@@ -168,7 +177,7 @@ if (finePointer.matches && motionIsActive() && window.criasMotion?.isAccelerated
     const now = performance.now();
     const previous = lastPointer;
     lastPointer = { x: event.clientX, y: event.clientY };
-    if (!previous || now - lastEmission < 34) return;
+    if (!previous || now - lastEmission < 16) return;
     const dx = event.clientX - previous.x;
     const dy = event.clientY - previous.y;
     const distance = Math.hypot(dx, dy);
@@ -177,6 +186,10 @@ if (finePointer.matches && motionIsActive() && window.criasMotion?.isAccelerated
     const tail = random(10, 28);
     const travelX = -dx / distance * tail + random(-8, 8);
     const travelY = -dy / distance * tail + random(-8, 8);
+    const colorShift = (Math.sin(now * .0018 + (event.clientX / window.innerWidth) * 3.2) + 1) * .5;
+    const smokePink = [.88, .035, .56];
+    const smokeCyan = [.01, .62, .96];
+    const smokeColor = `rgb(${smokePink.map((channel, index) => Math.round((channel * (1 - colorShift) + smokeCyan[index] * colorShift) * 255)).join(' ')})`;
     const dim = Math.random() < .55;
     makeParticle(pointerLayer, {
       x: event.clientX, y: event.clientY,
@@ -184,8 +197,17 @@ if (finePointer.matches && motionIsActive() && window.criasMotion?.isAccelerated
       kind: dim ? 'dim' : 'bright',
       size: dim ? random(1, 1.8) : random(1.5, 2.8),
       duration: dim ? random(1.3, 2.2) : random(.7, 1.25),
-      opacity: dim ? random(.28, .55) : random(.7, .95)
+      opacity: dim ? random(.28, .55) : random(.7, .95),
+      color: smokeColor
     });
+    if (Math.random() < .85) {
+      makeParticle(pointerLayer, {
+        x: event.clientX + random(-4, 4), y: event.clientY + random(-4, 4),
+        dx: travelX * .65 + random(-5, 5), dy: travelY * .65 + random(-5, 5),
+        kind: dim ? 'bright' : 'dim',
+        size: random(1, 2), duration: random(1.1, 1.9), opacity: random(.35, .7), color: smokeColor
+      });
+    }
   }, { passive: true });
 
   const removeParticles = () => {
@@ -253,7 +275,7 @@ if (heroCopy && chromeTitle) {
       gradientReturnTimer = window.setTimeout(() => {
         gradientReturnTimer = 0;
         if (!heroCopy.matches(':hover')) clearGradientInlineState();
-      }, 1900);
+      }, 1000);
     });
   }, { passive: true });
   document.addEventListener('crias:motion-disabled', clearGradientInlineState, { once: true });

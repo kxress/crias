@@ -33,11 +33,11 @@ The onboarding panel SHALL present four numbered steps titled `Instale o NetBird
 - **THEN** they understand the manual invitation dependency and can see and copy the management URL
 
 ### Requirement: Directory presentation and copy targets
-The directory SHALL display the eight confirmed records from the persistent spec in their listed order, with four Terraria, three Minecraft and one Hytale row. Each row SHALL display the complete hostname, variant, port and protocol. The arena-v22 Minecraft row SHALL identify its mixed Java/Bedrock support while retaining version 1.21.11.
+The directory SHALL display the eight confirmed records from the persistent spec in their listed order, with four Terraria, three Minecraft and one Hytale row. Each row SHALL display the complete hostname, variant, port and protocol. The arena-v22 Minecraft row SHALL show `25565 / TCP · 19132 / UDP` and its `1.21.11` badge SHALL link to the official release article; it SHALL not use an edition label.
 
 #### Scenario: Reading server details
 - **WHEN** a visitor examines any record
-- **THEN** its complete hostname, variant, port and protocol are associated visually and semantically; TCP rows display `/ TCP`, Hytale displays `Porta: 5520 / UDP`, and arena-v22 displays its Java/Bedrock edition support
+- **THEN** its complete hostname, variant, port and protocol are associated visually and semantically; TCP rows display `/ TCP`, Hytale displays `Porta: 5520 / UDP`, and arena-v22 displays `Porta: 25565 / TCP · 19132 / UDP`
 
 ### Requirement: Copy feedback without layout shift
 The site SHALL provide nine independently named copy controls, one for the management URL and one per server hostname. Successful copying SHALL provide brief visible and announced feedback as a floating toast at the bottom of the viewport, without resizing the control, altering the value or preventing immediate repetition. Failure SHALL be announced in the toast and leave the value selectable.

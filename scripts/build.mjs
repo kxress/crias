@@ -18,11 +18,15 @@ const cards = data.games.map((game) => {
     <div class="game-art" aria-hidden="true"><span class="game-art__logo">${safe(game.name)}</span></div>
     <h3 class="visually-hidden" id="game-${safe(game.accent)}">${safe(game.name)}</h3>
     <ul class="server-list">
-      ${game.servers.map((server) => `<li class="server-row">
+      ${game.servers.map((server) => {
+        const endpoints = [{ port: server.port, protocol: server.protocol }, ...(server.additionalPorts || [])];
+        const portLabel = `Porta: ${endpoints.map(({ port, protocol }) => `${safe(port)} / ${safe(protocol)}`).join(' · ')}`;
+        return `<li class="server-row">
         <span class="server-row__hostname" id="host-${safe(server.hostname)}">${readableHostname(server.hostname)}</span>
-        <span class="server-row__details">${server.detailsUrl ? `<a class="badge badge--${safe(game.accent)} badge--${safe(server.variant.toLowerCase().replace(/\s+/g, '-'))} badge--link" href="${safe(server.detailsUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Detalhes de ${safe(server.variant)} (abre em nova aba)">${safe(server.variant)}</a>` : `<span class="badge badge--${safe(game.accent)} badge--${safe(server.variant.toLowerCase().replace(/\s+/g, '-'))}">${safe(server.variant)}</span>`}${server.edition ? `<span class="server-row__edition">${safe(server.edition)}</span>` : ''}<span>Porta: ${safe(server.port)} / ${safe(server.protocol)}</span></span>
+        <span class="server-row__details">${server.detailsUrl ? `<a class="badge badge--${safe(game.accent)} badge--${safe(server.variant.toLowerCase().replace(/\s+/g, '-'))} badge--link" href="${safe(server.detailsUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Detalhes de ${safe(server.variant)} (abre em nova aba)">${safe(server.variant)}</a>` : `<span class="badge badge--${safe(game.accent)} badge--${safe(server.variant.toLowerCase().replace(/\s+/g, '-'))}">${safe(server.variant)}</span>`}<span>${safe(portLabel)}</span></span>
         <button class="copy-button" type="button" data-copy="${safe(server.hostname)}" aria-label="Copiar endereço ${safe(server.hostname)}" hidden><span aria-hidden="true"></span></button>
-      </li>`).join('')}
+      </li>`;
+      }).join('')}
     </ul>
     ${game.mapUrl ? `<a class="game-map" href="${safe(game.mapUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir BlueMap do Minecraft (abre em nova aba)">Ver mapa (BlueMap) <span aria-hidden="true">↗</span></a>` : ''}
   </article>`;

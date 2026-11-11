@@ -30,7 +30,7 @@ Every visible neon accent SHALL have a perceptible glow pulse and occasional res
 - **THEN** each neon accent pulses and has an occasional brief flicker without flashing rapidly or reducing readability
 
 ### Requirement: Panel-wide neon focus color and depth
-All neon accents in each main panel SHALL be pink at rest and cyan together on hover or keyboard focus, while preserving readable text and reduced-motion behavior. At desktop widths of at least 1100px, either main panel SHALL scale to about 1.08 and tilt about 2.2 degrees on X and 1.6 degrees on Y while hovered or containing keyboard focus. The transform SHALL not alter document flow and SHALL be disabled for reduced motion and the static graphics fallback.
+All neon accents in each main panel SHALL be pink at rest and cyan together on hover or keyboard-visible focus, while preserving readable text and reduced-motion behavior. At desktop widths of at least 1100px, either main panel SHALL scale to about 1.08 and tilt about 4.4 degrees on X and 3.2 degrees on Y while hovered or containing keyboard-visible focus. COMO ENTRAR SHALL tilt in the exact opposite direction from SERVIDORES. A mouse click SHALL preserve hover feedback while the pointer stays inside, but mouse-only button focus SHALL NOT keep the panel expanded after pointer exit. The transform SHALL not alter document flow and SHALL be disabled for reduced motion and the static graphics fallback.
 
 #### Scenario: All panel accents change together
 - **WHEN** the implementation is reviewed against the approved detailed criteria
@@ -38,36 +38,40 @@ All neon accents in each main panel SHALL be pink at rest and cyan together on h
 - **AND** Heading dividers SHALL pulse through border color without an inset shadow across the heading area.
 - **AND** The accents SHALL keep pulsing and flickering in either state.
 - **AND** The same behavior SHALL work for keyboard focus and remain within reduced-motion rules.
-- **AND** On desktop, the focused panel SHALL scale to about 1.08 and lean with a restrained perspective tilt without shifting surrounding content.
+- **AND** On desktop, the focused panel SHALL scale to about 1.08 and lean with a stronger 4.4/3.2-degree perspective tilt without shifting surrounding content; COMO ENTRAR and SERVIDORES SHALL lean in opposite directions.
 
 #### Scenario: Focusing a main panel
 - **WHEN** a visitor hovers a main panel or tabs to a control inside it
 - **THEN** its border and every neon detail, including the Japanese label and URL frame, are pink at rest and turn cyan together while their glow remains active
-- **AND** at desktop widths with motion enabled, that panel zooms about 8% and tilts slightly; focus on a control triggers the same effect without moving other content
+- **AND** at desktop widths with motion enabled, that panel zooms about 8% and tilts 4.4/3.2 degrees; focus on a control triggers the same effect without moving other content
 - **AND** Clicking or focusing a control inside a hovered panel SHALL preserve the hover state and its stronger transform until the pointer leaves.
 
+#### Scenario: Mouse focus does not pin a panel
+- **WHEN** a visitor clicks a panel button, moves the pointer away, or tabs to a control
+- **THEN** mouse-only focus returns the panel to idle after pointer exit, while keyboard-visible focus keeps its active state
+
 ### Requirement: Aligned city and grid horizon
-The city, mountains, transparent striped sun, clouds, stars, signs and low-view grid SHALL follow the specified geometry and layer order, with normal city blending and no water-reflection layer.
+The city, mountains, transparent striped sun, clouds, stars, signs and low-view grid SHALL follow the specified geometry and layer order, with normal city blending and no water-reflection layer. The desktop sky SHALL use a dense, visibly varied starfield of fine, medium and haloed bright stars, plus tapered shooting-star streaks moving diagonally only above the horizon on two staggered 21-second and 27-second loops. Clouds SHALL use anime-inspired, voluminous cumulus sprites with pale cyan-blue highlights, indigo/lavender shadow planes and subtle violet bounce light. Each isolated sprite SHALL drift left independently in staggered far, middle and near parallax layers; the artwork SHALL remain painterly and stylized, without thick outlines or photoreal texture.
 
 #### Scenario: Scene geometry, transparency and stacking
 - **WHEN** the implementation is reviewed against the approved detailed criteria
 - **THEN** On desktop, the shared skyline/grid horizon SHALL sit higher on the page, with organic, uneven mountain ridges and varied layered triangulated neon wireframes confined to the side corners clear of the sun. The ranges SHALL use the opposite halves of one transparent panoramic white-wireframe PNG, tinted the same cyan with CSS and including subdued filled faces.
 - **AND** The center sky SHALL retain its original dark purple color while its brighter side edges distinguish the mountains from the background. Their broad, irregular triangulated facets SHALL recede toward a valley horizon like the supplied [CodePen reference](https://codepen.io/rickpr/pen/xxxyVxZ), avoiding repeated cones and a flat contour-map look.
 - **AND** Both mountain halves SHALL share the same image source and CSS cyan tint so their brightness remains consistent, with translucent filled terrain facets. The tint SHALL be slightly darker at the top, with a very subtle blurred haze affecting only the upper portion; lower ridges SHALL stay crisp.
-- **AND** Distinct cloud layers SHALL scroll continuously left in seamless loops at different parallax speeds above the sun and SHALL end above the skyline, without covering buildings. The slow far layer SHALL stay behind the mountains; the faster middle and near layers SHALL pass in front of the mountains and remain behind the city.
-- **AND** The sun SHALL sit behind and overlap the upper city silhouette slightly at about 1.8 times its previous CSS diameter (roughly 320–326px across 1448–1920px desktop widths); its container SHALL use `clip-path: inset(0px 0px 25%)`, its desktop lift SHALL be about 116px (32px lower than the previous 148px position), and its orange-red bands SHALL be separated by transparent cutouts that reveal the sky.
+- **AND** Separate cloud sprites SHALL move continuously left in staggered cycles at different parallax speeds above the sun and SHALL end above the skyline, without covering buildings. The slow far sprites SHALL stay behind the mountains; the faster middle and near sprites SHALL pass in front of the mountains and remain behind the city.
+- **AND** The sun SHALL sit behind and overlap the upper city silhouette slightly at about 1.8 times its previous CSS diameter (roughly 320–326px across 1448–1920px desktop widths); its container SHALL use `clip-path: inset(0px 0px 25%)`, its desktop lift SHALL be about 116px (32px lower than the previous 148px position), and its orange-red bands SHALL be separated by transparent cutouts that reveal the sky. Its stripe loop SHALL run in 6 seconds and its brief glitch cycle in 8 seconds, 1.5 times faster than the previous 9-second and 12-second timings.
 - **AND** It SHALL NOT have a neon glow or neon-pulse animation; a brief non-glowing glitch is allowed.
 - **AND** The scene SHALL NOT include a lagoon, water-reflection field, reflection image, or reflection animation.
 - **AND** Japanese neon signage SHALL layer visibly in front of the city.
 - **AND** The city SHALL use `opacity: 1` and `mix-blend-mode: normal`, with atmospheric color filters applied through CSS; the skyline SHALL remain opaque over mountains and grid pixels except for a short lower-edge fade.
 - **AND** The wireframe mountains SHALL be behind the skyline and SHALL NOT show through opaque building pixels.
 - **AND** The perspective grid SHALL begin at the skyline baseline behind the city, use a low viewpoint rather than a steep overhead angle, and fade in from transparent near the skyline.
-- **AND** Stars SHALL remain in the sky and SHALL NOT continue across the ground grid.
+- **AND** Stars and shooting-star trails SHALL remain in the sky and SHALL NOT continue across the ground grid.
 - **AND** The skyline's lower edge SHALL dissolve through a wide, low fog band without a hard horizontal cutoff.
 
 #### Scenario: Inspecting the scene layers
 - **WHEN** the city and grid are visible together
-- **THEN** the enlarged lowered sun's transparent stripes reveal the sky behind it, the parallax clouds drift above the sun without covering buildings, bright mountain edges flank the darker center sky, Japanese neon signs sit in front of the city, the skyline base fades through fog into the grid, no stars appear on the ground, and the grid does not paint over the skyline
+- **THEN** the enlarged lowered sun's transparent stripes reveal the sky behind it, the atmospheric vaporwave wisps drift above the sun without covering buildings, bright mountain edges flank the darker center sky, Japanese neon signs sit in front of the city, the skyline base fades through fog into the grid, no stars appear on the ground, and the grid does not paint over the skyline
 
 ### Requirement: Official game card art and unified badge colors
 Each equal-sized desktop game card SHALL use one continuous real screenshot behind its title and readable individual server rows, preserving canonical data and unified badge interaction colors.
@@ -157,12 +161,16 @@ Fine-pointer movement SHALL create responsive GPU fluid smoke and Steam-style ga
 - **THEN** the fluid canvas and card tilt are absent, and essential controls remain operable and clearly focused
 
 ### Requirement: Desktop hero hover response
-On desktop with motion enabled, the Japanese eyebrow SHALL remain still. Hover SHALL rock Servers Privados without scaling it and enlarge CRIAS GAMES while its chrome gradient loops vertically in one direction. On exit, ease the gradient to rest over 1.8 seconds. Reduced motion and static graphics SHALL disable these effects.
+On desktop with motion enabled, the Japanese eyebrow SHALL remain still. Hover SHALL rock Servers Privados without scaling it and enlarge CRIAS GAMES while its chrome gradient loops vertically in one direction. On exit, ease the gradient to rest over 0.9 seconds. Reduced motion and static graphics SHALL disable these effects.
 
 #### Scenario: Hovering the hero title
 - **WHEN** a visitor hovers the hero title group with motion enabled
 - **THEN** the title smoothly enlarges as its chrome gradient scrolls vertically without reversing; the subtitle rocks without scaling, the Japanese eyebrow stays still, and the title and subtitle settle when the pointer leaves
-- **AND** the gradient eases back to its resting position over 1.8 seconds after hover, without a quick snap
+- **AND** the gradient eases back to its resting position over 0.9 seconds after hover, without a quick snap
+
+#### Scenario: Static Japanese eyebrow
+- **WHEN** the hero is viewed with or without pointer hover
+- **THEN** `ネオンの夜　·　ゲームの世界` stays still and keeps its static cyan neon treatment
 
 ### Requirement: Desktop character drag and return
 On desktop fine-pointer devices with motion enabled, visible character artwork and independent frames SHALL follow mouse drags with eased movement and return to their CSS positions on release. Dragging SHALL preserve page selection, keep nearby layout fixed, and leave interface controls usable. A click without movement SHALL retain the portrait reaction. Reduced motion and the static graphics fallback SHALL disable drag motion.
@@ -179,12 +187,21 @@ While a desktop fine-pointer visitor holds the primary mouse button on a visible
 - **THEN** the portrait zooms in or out within the 1x to 4x range, page scrolling is suppressed only while it is held, and release restores its original scale without a click-jump
 
 ### Requirement: Hardware-gated neon particles
-On desktop fine-pointer devices with detected hardware-accelerated graphics, mouse movement SHALL emit small cyan particles and each cyan main panel SHALL emit particles outward from its border while hovered or keyboard-focused. Reduced motion, software rendering, and lost graphics acceleration SHALL disable and remove these particles.
+On desktop with accelerated graphics, mouse movement SHALL emit a particle trail matching the fluid-smoke color, and active cyan main-panel borders SHALL emit outward particles. Pink borders and game cards SHALL NOT emit particles. Border sparks SHALL originate on the actual panel edge while it is scaled or tilted, including the lower edge. Cap panel and cursor layers at 128 and 192 particles. Reduced motion, software rendering, or graphics-context loss SHALL disable and remove particles.
 
 #### Scenario: Emitting particles from a focused panel and pointer
 - **WHEN** a visitor hovers or focuses a main panel, or moves the mouse with accelerated graphics available
-- **THEN** small bright sparks and slower dim particles drift outward from the active panel border or trail the pointer; they remain below characters and interface controls
+- **THEN** multiple small bright sparks and slower dim particles drift outward only from cyan main-panel borders and trail the pointer in the same pink-to-cyan hue as the smoke; they remain below characters and interface controls
+- **AND** sparks begin at the panel's rendered border, including its lower edge during scaled or tilted hover
 - **AND** no particle layer is created for software graphics, reduced motion, or a lost graphics context
+
+### Requirement: Portrait and panel stacking
+At rest, waifu artwork SHALL render above both main panels. Hover or keyboard focus SHALL raise the expanded panel above all waifu artwork, including footer art. No statue SHALL render above any waifu. A selected or dragged waifu SHALL render above the statues and idle panels, while the expanded panel SHALL remain above selected art. Shared page layers SHALL not trap panels or portraits in parent stacking contexts that prevent these priorities, and the ordering SHALL preserve panel-control hit-testing.
+
+#### Scenario: Overlapping desktop layers
+- **WHEN** waifus, statues and panels overlap on desktop
+- **THEN** waifus cover idle panels, the active expanded panel covers waifus, and statues remain behind every waifu, including selected or dragged art
+- **AND** links and copy controls inside an expanded panel remain the pointer target
 
 ## MODIFIED Requirements
 

@@ -43,9 +43,15 @@
         {
           "hostname": "arena-v22.minecraft.games.kress.wtf",
           "variant": "1.21.11",
-          "edition": "Java + Bedrock",
+          "detailsUrl": "https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-11",
           "port": 25565,
-          "protocol": "TCP"
+          "protocol": "TCP",
+          "additionalPorts": [
+            {
+              "port": 19132,
+              "protocol": "UDP"
+            }
+          ]
         },
         {
           "hostname": "bmc.minecraft.games.kress.wtf",

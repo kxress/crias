@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 110" preserveAspectRatio="none">
-  <defs><linearGradient id="cloud" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9dddf4" stop-opacity=".7"/><stop offset=".48" stop-color="#817dc9" stop-opacity=".48"/><stop offset="1" stop-color="#bd5ea9" stop-opacity="0"/></linearGradient></defs>
-  <g fill="url(#cloud)">
-    <path d="M12 84c20-4 32-13 51-14 7-15 25-21 43-15 10-18 31-24 50-14 15-23 44-26 63-11 15-6 35-2 42 13 22-2 43 6 51 20 20 0 37 9 46 20-69 10-269 10-346 1Z"/>
-    <path d="M435 79c23-5 35-12 54-13 8-13 25-17 39-11 11-17 33-22 50-13 14-19 39-22 56-9 19-5 38 1 45 15 24-1 40 6 49 18 22 1 39 6 51 14-56 10-275 10-344-1Z"/>
-    <path d="M762 85c14-5 23-10 34-11 7-11 20-15 32-12 10-7 23-4 28 6 1 6 2 11 3 17-23 4-70 4-97 0Z"/>
-  </g>
-  <g fill="none" stroke="#d5f5ff" stroke-opacity=".38" stroke-width="1.7" stroke-linecap="round"><path d="M63 70c7-15 25-21 43-15m12-5c10-12 24-15 38-9m16-8c14-13 34-13 47-3m270 36c8-13 25-17 39-11m50-13c14-19 39-22 56-9m45 15c24-1 40 6 49 18"/></g>
-</svg>
