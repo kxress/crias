@@ -4,7 +4,9 @@ All revisions use the built-in `image_gen` tool. The preceding numbered artwork 
 
 ## Tifa
 
-The active `tifa-8.webp` is a lossless 1280 × 1920 transparent canvas with the 1024 × 1536 `tifa-8.png` centered inside it. `tifa-7.webp` and all earlier artwork remain available. The first attempts, `tifa-4.png` (`exec-b8866872`) and `tifa-5.png` (`exec-de75476a`), lacked a clear thumb; `tifa-6.png` (`exec-65cab16a`) added it, and `tifa-7.png` (`exec-0d3187a8`) refined the linework and color. The latest image, `tifa-8.png` (`exec-d3a41f50`), keeps the same fighter pose, outfit and framing, simplifies the shading into broader JRPG color planes, and redraws both hands. All previous versions are retained. The CSS fade, glow and pointer reactions remain separate.
+`tifa-8.webp` was the previous active image: a lossless 1280 × 1920 transparent canvas that preserves the fighter pose, outfit and framing, simplifies the shading into broader JRPG color planes, and redraws both hands. `tifa-7.webp` and all earlier artwork remain available. The first attempts, `tifa-4.png` (`exec-b8866872`) and `tifa-5.png` (`exec-de75476a`), lacked a clear thumb; `tifa-6.png` (`exec-65cab16a`) added it, and `tifa-7.png` (`exec-0d3187a8`) refined the linework and color. The CSS fade, glow and pointer reactions remain separate.
+
+The active `tifa-9.webp` is a transparent hat-to-above-knee cutout generated from the cowgirl version (`exec-a67bd35c`). The relaxed hat-tip and hand-on-belt pose keeps the Nibelheim hat, ivory blouse, brown vest and skirt visible. Its 1024 × 1536 source was enlarged 2× with Lanczos, then padded to 2560 × 3840 with transparent margins. The page renders the artwork at the same visible scale as Asuka; its pointer motion, glow and lower fade remain CSS effects. The original fighter and full-body cowgirl variants remain in the asset archive.
 
 The targeted hand edit used `tifa-5.png`, a temporary close-up of its hand, and the user-supplied reference. Its prompt was:
 

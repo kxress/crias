@@ -70,7 +70,7 @@ button { font: inherit; }
 .scene__sun::before,.scene__sun::after { content:""; position:absolute; inset:0; border-radius:50%; background:linear-gradient(180deg,#ff3048 0%,#ff5739 58%,#ffa03c 100%); }
 .scene__sun::before { clip-path:inset(0 0 50%); }
 .scene__sun::after { clip-path:inset(50% 0 0); -webkit-mask-image:repeating-linear-gradient(to bottom,#000 0 12px,transparent 12px 20px); mask-image:repeating-linear-gradient(to bottom,#000 0 12px,transparent 12px 20px); -webkit-mask-size:100% 20px; mask-size:100% 20px; -webkit-mask-position:0 0; mask-position:0 0; animation:sun-stripes 6s linear infinite; }
-.scene__clouds { position:absolute; top:clamp(56px,6vh,68px); left:0; right:0; height:calc(var(--scene-horizon) - var(--scene-city-height) - clamp(56px,6vh,68px) - 12px); overflow:hidden; }
+.scene__clouds { position:absolute; top:clamp(56px,6vh,68px); left:0; right:0; height:calc(var(--scene-horizon) - clamp(56px,6vh,68px)); overflow:hidden; }
 .scene__cloud-sprite { position:absolute; display:block; left:var(--cloud-left); top:var(--cloud-top); width:256px; height:128px; background-image:url('./art/clouds-spritesheet.png'); background-repeat:no-repeat; background-size:1024px 512px; background-position:var(--sprite-x) var(--sprite-y); -webkit-mask-image:linear-gradient(to bottom,#000 0 82%,#000c 90%,transparent 100%); mask-image:linear-gradient(to bottom,#000 0 82%,#000c 90%,transparent 100%); filter:brightness(1.28) saturate(1.25); opacity:0; transform-origin:center; animation:cloud-sprite-drift var(--cloud-duration) linear var(--cloud-delay) infinite; will-change:transform,opacity; }
 .scene__cloud-sprite--far { z-index:0; --cloud-scale:.58; --cloud-opacity:.42; --cloud-duration:126s; }
 .scene__cloud-sprite--mid { z-index:3; --cloud-scale:.78; --cloud-opacity:.56; --cloud-duration:82s; }
@@ -88,16 +88,15 @@ button { font: inherit; }
 .scene__cloud-sprite--mid-2 { --sprite-x:-512px; --sprite-y:-256px; --cloud-left:45vw; --cloud-top:72px; --cloud-delay:-39s; }
 .scene__cloud-sprite--mid-3 { --sprite-x:-768px; --sprite-y:-256px; --cloud-left:84vw; --cloud-top:43px; --cloud-delay:-43s; }
 .scene__cloud-sprite--mid-4 { --sprite-x:0px; --sprite-y:-384px; --cloud-left:110vw; --cloud-top:73px; --cloud-delay:-47s; }
-.scene__cloud-sprite--near-1 { --sprite-x:-256px; --sprite-y:-384px; --cloud-left:3vw; --cloud-top:100px; --cloud-delay:-22s; }
-.scene__cloud-sprite--near-2 { --sprite-x:-512px; --sprite-y:-384px; --cloud-left:61vw; --cloud-top:111px; --cloud-delay:-26s; }
-.scene__cloud-sprite--near-3 { --sprite-x:-768px; --sprite-y:-384px; --cloud-left:126vw; --cloud-top:92px; --cloud-delay:-31s; }
+.scene__cloud-sprite--near-1 { --sprite-x:-256px; --sprite-y:-384px; --cloud-left:3vw; --cloud-top:48px; --cloud-delay:-22s; }
+.scene__cloud-sprite--near-2 { --sprite-x:-512px; --sprite-y:-384px; --cloud-left:61vw; --cloud-top:55px; --cloud-delay:-26s; }
 .scene__skyline { position:absolute; z-index:5; top:calc(var(--scene-horizon) - var(--scene-city-height)); left:0; width:100%; height:var(--scene-city-height); object-fit:cover; object-position:center bottom; opacity:1; mix-blend-mode:normal; filter:brightness(.78) saturate(.82) contrast(1.08) hue-rotate(4deg); -webkit-mask-image:linear-gradient(to bottom,#000 0 88%,#000d 94%,#0005 98%,transparent 100%); mask-image:linear-gradient(to bottom,#000 0 88%,#000d 94%,#0005 98%,transparent 100%); animation:city-luma 7.8s ease-in-out infinite; }
 .scene__mountains { position:absolute; z-index:1; top:clamp(128px,13vh,148px); height:360px; width:min(32vw,520px); opacity:.94; filter:drop-shadow(0 0 5px #32dfff58); animation:mountain-glow 14s ease-in-out infinite alternate; }
 .scene__mountains::before,.scene__mountains::after { content:""; position:absolute; inset:0; pointer-events:none; -webkit-mask-image:url('./art/mountains-valley.png'); mask-image:url('./art/mountains-valley.png'); -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-size:200% 100%; mask-size:200% 100%; -webkit-mask-position:var(--mountain-mask-position) 100%; mask-position:var(--mountain-mask-position) 100%; -webkit-mask-mode:alpha; mask-mode:alpha; }
 .scene__mountains::before { background:linear-gradient(180deg,#267faaa8 0%,#35b9d4e8 54%,#3de2ff 100%); }
 .scene__mountains::after { background:linear-gradient(180deg,#83b6d633 0%,#5da7cb1f 46%,transparent 100%); clip-path:inset(0 0 42%); filter:blur(2px); }
-.scene__mountains--left { --mountain-mask-position:0%; left:clamp(16px,1.25vw,24px); rotate:5deg; }
-.scene__mountains--right { --mountain-mask-position:100%; right:clamp(16px,1.25vw,24px); rotate:-5deg; }
+.scene__mountains--left { --mountain-mask-position:0%; left:calc(0px - clamp(2px,.25vw,4px)); rotate:5deg; transform-origin:left bottom; }
+.scene__mountains--right { --mountain-mask-position:100%; right:calc(0px - clamp(2px,.25vw,4px)); rotate:-5deg; transform-origin:right bottom; }
 .scene__grid { position: absolute; z-index:2; left: -30%; right: -30%; top:var(--scene-horizon); bottom: -14%; transform-origin: 50% 0; transform: perspective(280px) rotateX(80deg); background-image: linear-gradient(#ff22d8a8 1px, transparent 1px), linear-gradient(90deg, #ff22d8a8 1px, transparent 1px); background-size: 100% 50px, 68px 100%; -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#0002 5%,#000e 24%,#000 72%,transparent 100%); mask-image:linear-gradient(to bottom,transparent 0%,#0002 5%,#000e 24%,#000 72%,transparent 100%); box-shadow: inset 0 22px 40px #ff28cd36; animation: grid-drift 14s linear infinite,grid-neon-pulse 3.5s ease-in-out infinite alternate,neon-flicker 11.7s steps(1,end) infinite; }
 .scene__ground-fog { position:absolute; z-index:6; top:calc(var(--scene-horizon) - clamp(48px,5vh,56px)); left:-8%; right:-8%; height:clamp(172px,21vh,228px); pointer-events:none; opacity:.96; background:radial-gradient(ellipse at 50% 8%,rgba(247,153,237,.2),transparent 65%),linear-gradient(to bottom,transparent 0%,rgba(232,151,225,.12) 16%,rgba(186,129,205,.27) 37%,rgba(95,69,133,.31) 60%,rgba(22,13,43,.25) 78%,transparent 100%); filter:blur(11px); }
 .scene__sign { position:absolute; z-index:7; top:calc(clamp(210px,21vh,228px) + 200px); left:5px; color:#ff5cde; font-size:28px; line-height:1.45; font-weight:800; writing-mode:vertical-rl; text-shadow:0 0 6px #ff2ad9,0 0 15px #ff2ad9; animation:sign-flicker 6.2s ease-in-out infinite,neon-text-pulse 2.7s ease-in-out infinite alternate; }
@@ -137,6 +136,7 @@ main { position:relative; z-index:auto; }
 html.portrait-drag-active { cursor:grabbing; }
 html.portrait-press-active,html.portrait-press-active * { user-select:none!important; -webkit-user-select:none!important; }
 .character:not(.window) { transform:translate(-10%,-10%); }
+.character:not(.window).character--tifa { transform:none; }
 .character:not(.window).character--asuka,.character:not(.window).character--nami,.character:not(.window).character--nagatoro,.character:not(.window).character--aqua,.character:not(.window).character--mayano,.character:not(.window).character--creek { transform:translate(10%,-10%); }
 .character:not(.window) { -webkit-mask-image:linear-gradient(to bottom,#000 0 80%,#000d 84%,#0008 87%,transparent 90%); mask-image:linear-gradient(to bottom,#000 0 80%,#000d 84%,#0008 87%,transparent 90%); }
 .character img { display:block; width:100%; height:100%; object-fit:contain; object-position:center top; -webkit-mask-image:linear-gradient(to bottom,#000 0 89%,#000d 95%,transparent 100%); mask-image:linear-gradient(to bottom,#000 0 89%,#000d 95%,transparent 100%); }
@@ -147,7 +147,7 @@ html.portrait-press-active,html.portrait-press-active * { user-select:none!impor
 .statue--right img { transform:scaleX(-1); }
 .character--rei { left:38px; top:158px; width:150px; height:232px; }
 .character--makima { left:14%; top:133px; width:clamp(205px,15vw,217px); }
-.character--tifa { left:24%; top:163px; width:clamp(180px,13.125vw,190px); }
+.character--tifa { left:calc(26% - 36px); top:109px; width:200px; }
 .character--asuka { right:25%; top:133px; width:clamp(185px,13.75vw,199px); }
 .character--nami { right:13%; top:138px; width:clamp(200px,15vw,217px); }
 .character--nagatoro { right:2.8%; top:133px; width:clamp(205px,15vw,217px); }

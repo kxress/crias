@@ -60,7 +60,7 @@ Generate two DOM particle populations with CSS transform and opacity animations:
 
 Make the desktop starfield dense and visibly varied: many tiny distant pinpoints, mid-sized stars, and a few larger colored stars with soft halos. Rare shooting stars cross diagonally through the sky as tapered moving streaks, remain distant and subtle, stay above the horizon, and stop moving for reduced motion or static graphics.
 
-Refresh Tifa's portrait using the supplied Final Fantasy VII illustration for its drawn treatment while preserving the current expressive fighting pose and correcting the open hand to five anatomically plausible digits. Correct Nagatoro's raised hand and keep her expression playful and age-appropriate. Correct Aqua's hand at her hip while preserving her existing joyful pose. Keep transparent glow clearance, the existing CSS bottom fades, desktop positions and separate-image pointer reactions. Save new masters and padded WebPs under unused incremented names, leaving all previous variants intact. A newly requested Nibelheim cowgirl Tifa illustration is an independent review candidate and SHALL NOT replace the currently used Tifa until approved.
+Refresh Tifa's portrait using the supplied Final Fantasy VII illustration for its drawn treatment while preserving the current expressive fighting pose and correcting the open hand to five anatomically plausible digits. Correct Nagatoro's raised hand and keep her expression playful and age-appropriate. Correct Aqua's hand at her hip while preserving her existing joyful pose. Keep transparent glow clearance, the existing CSS bottom fades, desktop positions and separate-image pointer reactions. Save new masters and padded WebPs under unused incremented names, leaving all previous variants intact. The Nibelheim cowgirl Tifa has since been approved as the active portrait; retain the fighter version in the numbered archive.
 
 Use CSS `prefers-reduced-motion` to stop CSS motion even without JS and stop the pointer-driven fluid solver when the preference is enabled. Do not show a manual pause/resume control. Apply preference changes immediately, and keep text and essential controls usable without scripts.
 
@@ -157,11 +157,11 @@ Run the two staggered desktop shooting-star sequences on 21-second and 27-second
 
 ### 20. Conceal the mountain mask crop
 
-Keep the shared mountain layer at `top: clamp(128px, 13vh, 148px)` and rotate the left half by `5deg` and the right half by `-5deg`. Move both halves inward by `clamp(16px, 1.25vw, 24px)` so the rotated outer ridges stay inside the scene. Keep the ridges readable in the side corners, retain the open valley under the sun, and preserve the mountain-behind-city stacking order.
+Keep the shared mountain layer at `top: clamp(128px, 13vh, 148px)` and rotate the left half by `5deg` and the right half by `-5deg`. Anchor each rotation at its lower outer corner and use a small outward offset so the ridges stay in the side corners without a wide crop at the viewport edges. Preserve the mountain-behind-city stacking order.
 
 ### 21. Refresh the active Tifa portrait
 
-Replace the active Tifa image with a cleaner JRPG illustration derived from the current portrait. Preserve the existing fighter pose, outfit, proportions and framing, correct both hands, and keep the image transparent and free of baked smoke or glow. Retain earlier Tifa files and keep the separate cowboy candidate review-only.
+Use `tifa-9.webp` as the active transparent cowgirl portrait. Frame Tifa from the Nibelheim hat to just above the knees in a relaxed hat-tip pose, with the blouse, vest, skirt and hand at her belt visible. Deliver a 2× enlarged, high-resolution master with generous transparent padding; size its visible figure to match Asuka and preserve the portrait motion and lower fade. Keep the former fighter and full-body cowgirl candidates available.
 
 ### 19. Mouse focus and keyboard focus
 
