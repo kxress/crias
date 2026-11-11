@@ -1,7 +1,7 @@
 const status = document.getElementById('copy-feedback');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-const compactLayout = window.matchMedia('(max-width: 760px)');
+const compactLayout = window.matchMedia('(max-width: 1099px)');
 let announceTimer = 0;
 let announceRevealTimer = 0;
 
@@ -285,8 +285,8 @@ if (heroCopy && chromeTitle) {
   });
 }
 
-// Portraits stay pointer-inert so their padded transparent canvases never cover
-// links or copy controls. Sample their alpha only when the pointer is nearby.
+// Desktop portrait interactions stay pointer-inert. Sample image alpha only
+// when the pointer is nearby so transparent margins never cover controls.
 if (finePointer.matches && !document.documentElement.classList.contains('motion-static')) {
   const portraits = [...document.querySelectorAll('.character, .footer-character')].reverse();
   const masks = new WeakMap();
@@ -578,6 +578,148 @@ if (finePointer.matches && !document.documentElement.classList.contains('motion-
       { transform: 'translateY(-4px) scale(.98, 1.02)', offset: .87, easing: 'ease-in-out' },
       { transform: 'translateY(0) scale(1, 1)' }
     ], 760, 'jump', jumps);
+  });
+}
+
+if (compactLayout.matches) {
+  const portraits = [...document.querySelectorAll('.character, .footer-character')].reverse();
+  const alphaMasks = new WeakMap();
+  let selected = null;
+  let touchStart = null;
+
+  function alphaMaskFor(image) {
+    if (alphaMasks.has(image)) return alphaMasks.get(image);
+    if (!image.complete || !image.naturalWidth || !image.naturalHeight) return null;
+    const canvas = document.createElement('canvas');
+    canvas.width = 96;
+    canvas.height = Math.max(1, Math.round(96 * image.naturalHeight / image.naturalWidth));
+    try {
+      const context = canvas.getContext('2d', { willReadFrequently: true });
+      if (!context) return null;
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      const mask = { width: canvas.width, height: canvas.height, data: context.getImageData(0, 0, canvas.width, canvas.height).data };
+      alphaMasks.set(image, mask);
+      return mask;
+    } catch {
+      alphaMasks.set(image, null);
+      return null;
+    }
+  }
+
+  function hitPortrait(portrait, x, y) {
+    const rect = portrait.getBoundingClientRect();
+    if (!rect.width || !rect.height || x < rect.left || x > rect.right || y < rect.top || y > rect.bottom) return false;
+    if (portrait.classList.contains('window')) return true;
+    const image = portrait instanceof HTMLImageElement ? portrait : portrait.querySelector('img');
+    const mask = image && alphaMaskFor(image);
+    if (!image || !mask) return true;
+    const style = getComputedStyle(portrait);
+    const width = parseFloat(style.width);
+    const height = parseFloat(style.height);
+    if (!width || !height) return false;
+    const fit = Math.min(width / image.naturalWidth, height / image.naturalHeight);
+    const imageWidth = image.naturalWidth * fit;
+    const imageHeight = image.naturalHeight * fit;
+    const localX = x - rect.left - (width - imageWidth) / 2;
+    const localY = y - rect.top - (style.objectPosition.includes('bottom') ? height - imageHeight : 0);
+    if (localX < 0 || localY < 0 || localX >= imageWidth || localY >= imageHeight) return false;
+    const pixelX = Math.min(mask.width - 1, Math.floor(localX / imageWidth * mask.width));
+    const pixelY = Math.min(mask.height - 1, Math.floor(localY / imageHeight * mask.height));
+    return mask.data[(pixelY * mask.width + pixelX) * 4 + 3] >= 32;
+  }
+
+  function portraitAtTouch(x, y) {
+    const target = document.elementFromPoint(x, y);
+    if (!target || target.closest('a, button, input, select, textarea, summary, [contenteditable]')) return null;
+    return portraits.find((portrait) => hitPortrait(portrait, x, y)) || null;
+  }
+
+  function jump(portrait) {
+    if (!motionIsActive()) return;
+    portrait.getAnimations().filter((animation) => animation.id === 'portrait-touch-jump').forEach((animation) => animation.cancel());
+    const animation = portrait.animate([
+      { transform:'translateY(0) scale(1,1)', easing:'ease-in' },
+      { transform:'translateY(3%) scale(1.1,.93)', offset:.15, easing:'cubic-bezier(.18,.75,.32,1)' },
+      { transform:'translateY(-7%) scale(.96,1.06)', offset:.43, easing:'cubic-bezier(.55,0,.8,.5)' },
+      { transform:'translateY(1%) scale(1.08,.95)', offset:.72, easing:'ease-out' },
+      { transform:'translateY(-1.5%) scale(.98,1.02)', offset:.87, easing:'ease-in-out' },
+      { transform:'translateY(0) scale(1,1)' }
+    ], { duration:760, composite:'add' });
+    animation.id = 'portrait-touch-jump';
+  }
+
+  function movePortrait(portrait, from, to) {
+    if (!motionIsActive()) return;
+    const dx = from.left + from.width / 2 - (to.left + to.width / 2);
+    const dy = from.top + from.height / 2 - (to.top + to.height / 2);
+    const sx = from.width / to.width;
+    const sy = from.height / to.height;
+    portrait.animate([
+      { transform:`translate(${dx}px,${dy}px) scale(${sx},${sy})` },
+      { transform:'none' }
+    ], { duration:360, easing:'cubic-bezier(.2,.72,.2,1)', composite:'add' });
+  }
+
+  function closeSelected() {
+    if (!selected) return;
+    const { overlay, portrait, placeholder } = selected;
+    const from = portrait.getBoundingClientRect();
+    selected = null;
+    portrait.classList.remove('portrait-touch-focus');
+    if (placeholder.parentNode) {
+      placeholder.parentNode.insertBefore(portrait, placeholder);
+      placeholder.remove();
+    }
+    const to = portrait.getBoundingClientRect();
+    movePortrait(portrait, from, to);
+    overlay.classList.add('is-closing');
+    window.setTimeout(() => overlay.remove(), 380);
+  }
+
+  function openSelected(portrait) {
+    const from = portrait.getBoundingClientRect();
+    const placeholder = document.createComment('portrait-origin');
+    portrait.parentNode.insertBefore(placeholder, portrait);
+    const overlay = document.createElement('div');
+    overlay.className = 'portrait-touch-overlay';
+    overlay.setAttribute('role', 'presentation');
+    document.body.append(overlay);
+    portrait.classList.add('portrait-touch-focus');
+    overlay.append(portrait);
+    selected = { overlay, portrait, placeholder };
+    movePortrait(portrait, from, portrait.getBoundingClientRect());
+  }
+
+  document.addEventListener('pointerdown', (event) => {
+    if (!compactLayout.matches || (event.pointerType !== 'touch' && event.pointerType !== 'pen')) return;
+    touchStart = { x:event.clientX, y:event.clientY, pointerId:event.pointerId };
+  }, true);
+  document.addEventListener('pointerup', (event) => {
+    if (!compactLayout.matches) return;
+    if (!touchStart || event.pointerId !== touchStart.pointerId) return;
+    const start = touchStart;
+    touchStart = null;
+    if (Math.hypot(event.clientX - start.x, event.clientY - start.y) > 10) return;
+    if (selected) {
+      const target = document.elementFromPoint(event.clientX, event.clientY);
+      if (target && selected.overlay.contains(target) && target.closest('.portrait-touch-focus') && hitPortrait(selected.portrait, event.clientX, event.clientY)) jump(selected.portrait);
+      else closeSelected();
+      event.preventDefault();
+      return;
+    }
+    const portrait = portraitAtTouch(event.clientX, event.clientY);
+    if (!portrait) return;
+    openSelected(portrait);
+    event.preventDefault();
+  }, true);
+  document.addEventListener('pointercancel', (event) => {
+    if (touchStart?.pointerId === event.pointerId) touchStart = null;
+  }, true);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && selected) closeSelected();
+  });
+  compactLayout.addEventListener('change', (event) => {
+    if (!event.matches) closeSelected();
   });
 }
 
