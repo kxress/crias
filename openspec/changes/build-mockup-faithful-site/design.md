@@ -157,7 +157,7 @@ Run the two staggered desktop shooting-star sequences on 21-second and 27-second
 
 ### 20. Conceal the mountain mask crop
 
-Keep the shared mountain layer at `top: clamp(128px, 13vh, 148px)` and rotate the left half by `5deg` and the right half by `-5deg`. Anchor each rotation at its lower outer corner and inset both halves by `clamp(32px, 2.5vw, 40px)` so the outer ridges remain visible inside the viewport. Preserve the mountain-behind-city stacking order.
+Keep the shared mountain layer at `top: clamp(128px, 13vh, 148px)` and rotate the left half by `5deg` and the right half by `-5deg`. Anchor each rotation at its lower outer corner and shift both halves outward by `clamp(16px, 1.25vw, 20px)` to fill the side corners without a broad crop. Preserve the mountain-behind-city stacking order.
 
 ### 21. Refresh the active Tifa portrait
 
