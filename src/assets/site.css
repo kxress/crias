@@ -152,7 +152,7 @@ html.portrait-press-active,html.portrait-press-active * { user-select:none!impor
 .character--asuka { right:25%; top:133px; width:clamp(185px,13.75vw,199px); }
 .character--nami { right:13%; top:138px; width:clamp(200px,15vw,217px); }
 .character--nagatoro { right:2.8%; top:133px; width:clamp(205px,15vw,217px); }
-.character--kurisu { left:20px; top:406px; width:clamp(150px,11.625vw,168px); }
+.character--kurisu { left:20px; top:406px; width:clamp(168px,12.5vw,185px); }
 .character--faye { left:2.2%; top:586px; width:clamp(145px,11vw,159px); }
 .character--hinata { left:0; top:766px; width:clamp(150px,11.625vw,168px); }
 .character--rem { left:0; top:946px; width:clamp(145px,11vw,159px); }
