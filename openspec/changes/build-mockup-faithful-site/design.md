@@ -157,11 +157,11 @@ Run the two staggered desktop shooting-star sequences on 21-second and 27-second
 
 ### 20. Conceal the mountain mask crop
 
-Keep the shared mountain layer at `top: clamp(128px, 13vh, 148px)` and rotate the left half by `5deg` and the right half by `-5deg`. Anchor each rotation at its lower outer corner and use a small outward offset so the ridges stay in the side corners without a wide crop at the viewport edges. Preserve the mountain-behind-city stacking order.
+Keep the shared mountain layer at `top: clamp(128px, 13vh, 148px)` and rotate the left half by `5deg` and the right half by `-5deg`. Anchor each rotation at its lower outer corner and inset both halves by `clamp(32px, 2.5vw, 40px)` so the outer ridges remain visible inside the viewport. Preserve the mountain-behind-city stacking order.
 
 ### 21. Refresh the active Tifa portrait
 
-Use `tifa-9.webp` as the active transparent cowgirl portrait. Frame Tifa from the Nibelheim hat to just above the knees in a relaxed hat-tip pose, with the blouse, vest, skirt and hand at her belt visible. Deliver a 2× enlarged, high-resolution master with generous transparent padding; size its visible figure to match Asuka and preserve the portrait motion and lower fade. Keep the former fighter and full-body cowgirl candidates available.
+Use `tifa-9.webp` as the active transparent cowgirl portrait. Frame Tifa from the Nibelheim hat to just above the knees in a relaxed hat-tip pose, with the blouse, vest, skirt and hand at her belt visible. Deliver a 2× enlarged, high-resolution master with generous transparent padding; increase its displayed size by about 10% and lower it 8–16px while preserving the portrait motion and lower fade. Keep the former fighter and full-body cowgirl candidates available.
 
 ### 19. Mouse focus and keyboard focus
 
