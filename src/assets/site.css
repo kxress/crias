@@ -30,9 +30,9 @@ button { font: inherit; }
 .scene { --scene-city-height:clamp(290px,28vh,320px); --scene-sun-diameter:clamp(260px,22.2vw,326px); --scene-sun-visible-height:clamp(195px,16.65vw,244.5px); --scene-sun-lift:clamp(108px,10.65vh,116px); position: absolute; inset:0; height:auto; overflow: hidden; pointer-events: none; z-index: 0; background:radial-gradient(ellipse 39% 44% at 0% 29%,rgba(54,178,222,.28),transparent 78%),radial-gradient(ellipse 39% 44% at 100% 29%,rgba(54,178,222,.28),transparent 78%),radial-gradient(ellipse at 50% 17%,rgba(202,31,122,.24),transparent 38%); }
 .scene__stars { position: absolute; inset: 0 0 auto; height:calc(var(--scene-horizon) - 24px); opacity: .43; background-image: radial-gradient(#ffabea 1px, transparent 1.2px), radial-gradient(#8deaff .8px, transparent 1px); background-size: 83px 71px, 121px 109px; background-position: 16px 19px, 49px 67px; -webkit-mask-image:linear-gradient(to bottom,#000 0 66%,#0009 82%,transparent 100%); mask-image:linear-gradient(to bottom,#000 0 66%,#0009 82%,transparent 100%); animation:starfield-neon-pulse 8.6s ease-in-out infinite; }
 .scene__star-layer { position:absolute; inset:0; pointer-events:none; background-position:center center; background-repeat:no-repeat; background-size:cover; mix-blend-mode:screen; opacity:.28; }
-.scene__star-layer--1 { background-image:url('./art/star-layer-1.svg'); animation:star-layer-fade-a 17.3s ease-in-out -4.1s infinite; }
-.scene__star-layer--2 { background-image:url('./art/star-layer-2.svg'); animation:star-layer-fade-b 22.7s ease-in-out -12.8s infinite; }
-.scene__star-layer--3 { background-image:url('./art/star-layer-3.svg'); animation:star-layer-fade-c 28.9s ease-in-out -7.6s infinite; }
+.scene__star-layer--1 { background-image:url('./art/star-layer-1.svg'); animation:star-layer-fade-a 8.7s ease-in-out -2.05s infinite; }
+.scene__star-layer--2 { background-image:url('./art/star-layer-2.svg'); animation:star-layer-fade-b 11.4s ease-in-out -6.4s infinite; }
+.scene__star-layer--3 { background-image:url('./art/star-layer-3.svg'); animation:star-layer-fade-c 14.5s ease-in-out -3.8s infinite; }
 @media (min-width:1100px) {
   .scene__stars {
     opacity:.76;
