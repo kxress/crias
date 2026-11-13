@@ -4,9 +4,13 @@
   const motion = window.criasMotion;
   if (!motion || document.documentElement.classList.contains('motion-static') || !finePointer.matches || reducedMotion.matches) return;
 
-  const frameInterval = 1000 / 30;
+  const simulationStep = 1 / 30; // Fixed simulation cadence, independent of display refresh rate.
+  const maxCatchUpSteps = 8; // Bound catch-up work during severe frame drops.
   const referenceStep = 1 / 60;
   const resolutionScale = 0.5;
+  const pinkSmoke = [0.88, 0.035, 0.56];
+  const cyanSmoke = [0.01, 0.62, 0.96];
+  const smokeColor = [0, 0, 0];
 
   const canvas = document.createElement('canvas');
   canvas.className = 'fluid-smoke';
@@ -165,14 +169,19 @@
       precision highp float;
       in vec2 vUv;
       uniform sampler2D uDye;
+      uniform sampler2D uPreviousDye;
       uniform vec2 uTexelSize;
+      uniform float uInterpolation;
       out vec4 outColor;
+      vec3 sampleDye(vec2 uv) {
+        return mix(texture(uPreviousDye, uv).rgb, texture(uDye, uv).rgb, uInterpolation);
+      }
       void main() {
-        vec3 color = texture(uDye, vUv).rgb;
-        vec3 leftColor = texture(uDye, vUv - vec2(uTexelSize.x, 0.0)).rgb;
-        vec3 rightColor = texture(uDye, vUv + vec2(uTexelSize.x, 0.0)).rgb;
-        vec3 topColor = texture(uDye, vUv + vec2(0.0, uTexelSize.y)).rgb;
-        vec3 bottomColor = texture(uDye, vUv - vec2(0.0, uTexelSize.y)).rgb;
+        vec3 color = sampleDye(vUv);
+        vec3 leftColor = sampleDye(vUv - vec2(uTexelSize.x, 0.0));
+        vec3 rightColor = sampleDye(vUv + vec2(uTexelSize.x, 0.0));
+        vec3 topColor = sampleDye(vUv + vec2(0.0, uTexelSize.y));
+        vec3 bottomColor = sampleDye(vUv - vec2(0.0, uTexelSize.y));
         float dx = length(rightColor) - length(leftColor);
         float dy = length(topColor) - length(bottomColor);
         vec3 normal = normalize(vec3(dx, dy, length(uTexelSize)));
@@ -287,8 +296,11 @@
   let height = 1;
   let raf = 0;
   let lastFrame = 0;
+  let accumulator = 0;
   let lastInput = 0;
   let pointer = null;
+  let inputStartX = 0;
+  let inputStartY = 0;
   let running = false;
 
   try {
@@ -434,11 +446,14 @@
     advect(dye, dye, 3.5, dt);
   }
 
-  function render() {
+  function render(interpolation) {
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     draw(programs.display, null, () => {
+      // Blend the previous and current dye states at the display frame rate.
       bindTexture(programs.display, 'uDye', dye.read.texture, 0);
+      bindTexture(programs.display, 'uPreviousDye', dye.write.texture, 1);
+      gl.uniform1f(uniform(programs.display, 'uInterpolation'), interpolation);
       setTexelSize(programs.display, dye.read);
     });
     gl.disable(gl.BLEND);
@@ -449,27 +464,53 @@
       stopAndClear();
       return;
     }
-    const elapsed = lastFrame ? now - lastFrame : frameInterval;
-    if (lastFrame && elapsed < frameInterval) {
-      raf = window.requestAnimationFrame(tick);
-      return;
-    }
-    const dt = Math.min(elapsed / 1000, 0.05);
+    const elapsed = lastFrame ? Math.max(0, (now - lastFrame) / 1000) : 0;
     lastFrame = now;
-    if (pointer?.moved) {
-      const colorShift = (Math.sin(now * 0.0018 + pointer.x * 3.2) + 1) * 0.5;
-      const pink = [0.88, 0.035, 0.56];
-      const cyan = [0.01, 0.62, 0.96];
-      const color = pink.map((channel, index) => channel * (1 - colorShift) + cyan[index] * colorShift);
-      const inputSpeedScale = referenceStep / dt;
-      applySplat(pointer.x, pointer.y, pointer.dx * 7200 * inputSpeedScale, pointer.dy * 7200 * inputSpeedScale, color);
-      pointer.dx = 0;
-      pointer.dy = 0;
-      pointer.moved = false;
+    accumulator += elapsed;
+    const availableSteps = Math.floor((accumulator + 1e-8) / simulationStep);
+    const stepsToRun = Math.min(availableSteps, maxCatchUpSteps);
+    const pendingPointer = pointer?.moved ? { x: pointer.x, y: pointer.y, dx: pointer.dx, dy: pointer.dy } : null;
+    const hasPointerMotion = Boolean(pendingPointer && (pendingPointer.dx || pendingPointer.dy));
+
+    for (let index = 0; index < stepsToRun; index += 1) {
+      if (pendingPointer && (hasPointerMotion || index === 0)) {
+        const progress = hasPointerMotion ? (index + 1) / availableSteps : 1;
+        const splatX = inputStartX + (pendingPointer.x - inputStartX) * progress;
+        const splatY = inputStartY + (pendingPointer.y - inputStartY) * progress;
+        const deltaX = hasPointerMotion ? pendingPointer.dx / availableSteps : 0;
+        const deltaY = hasPointerMotion ? pendingPointer.dy / availableSteps : 0;
+        const stepTime = now - (availableSteps - index - 1) * simulationStep * 1000;
+        const colorShift = (Math.sin(stepTime * 0.0018 + splatX * 3.2) + 1) * 0.5;
+        for (let colorIndex = 0; colorIndex < smokeColor.length; colorIndex += 1) {
+          smokeColor[colorIndex] = pinkSmoke[colorIndex] * (1 - colorShift) + cyanSmoke[colorIndex] * colorShift;
+        }
+        const inputSpeedScale = referenceStep / simulationStep;
+        applySplat(splatX, splatY, deltaX * 7200 * inputSpeedScale, deltaY * 7200 * inputSpeedScale, smokeColor);
+      }
+      step(simulationStep);
     }
-    step(dt);
-    render();
-    if (now - lastInput < 2400) {
+
+    if (stepsToRun > 0) {
+      accumulator = Math.max(0, accumulator - stepsToRun * simulationStep);
+      if (pendingPointer) {
+        if (hasPointerMotion && stepsToRun < availableSteps) {
+          const consumed = stepsToRun / availableSteps;
+          inputStartX += (pendingPointer.x - inputStartX) * consumed;
+          inputStartY += (pendingPointer.y - inputStartY) * consumed;
+          pointer.dx *= 1 - consumed;
+          pointer.dy *= 1 - consumed;
+        } else {
+          inputStartX = pendingPointer.x;
+          inputStartY = pendingPointer.y;
+          pointer.dx = 0;
+          pointer.dy = 0;
+          pointer.moved = false;
+        }
+      }
+    }
+
+    render(Math.min(1, accumulator / simulationStep));
+    if (now - lastInput < 2400 || accumulator >= simulationStep) {
       raf = window.requestAnimationFrame(tick);
     } else {
       running = false;
@@ -492,6 +533,9 @@
     running = false;
     pointer = null;
     lastFrame = 0;
+    accumulator = 0;
+    inputStartX = 0;
+    inputStartY = 0;
     clearSimulation();
   }
 
@@ -510,7 +554,11 @@
     if ((event.pointerType !== 'mouse' && event.pointerType !== 'pen') || reducedMotion.matches) return;
     const x = Math.max(0, Math.min(1, event.clientX / width));
     const y = 1 - Math.max(0, Math.min(1, event.clientY / height));
-    if (!pointer) pointer = { x, y, dx: 0, dy: 0, moved: true };
+    if (!pointer) {
+      pointer = { x, y, dx: 0, dy: 0, moved: true };
+      inputStartX = x;
+      inputStartY = y;
+    }
     else {
       let dx = x - pointer.x;
       let dy = y - pointer.y;
