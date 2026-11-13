@@ -29,10 +29,11 @@ button { font: inherit; }
 .visually-hidden { position: absolute!important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .scene { --scene-city-height:clamp(290px,28vh,320px); --scene-sun-diameter:clamp(260px,22.2vw,326px); --scene-sun-visible-height:clamp(195px,16.65vw,244.5px); --scene-sun-lift:clamp(108px,10.65vh,116px); position: absolute; inset:0; height:auto; overflow: hidden; pointer-events: none; z-index: 0; background:radial-gradient(ellipse 39% 44% at 0% 29%,rgba(54,178,222,.28),transparent 78%),radial-gradient(ellipse 39% 44% at 100% 29%,rgba(54,178,222,.28),transparent 78%),radial-gradient(ellipse at 50% 17%,rgba(202,31,122,.24),transparent 38%); }
 .scene__stars { position: absolute; inset: 0 0 auto; height:calc(var(--scene-horizon) - 24px); opacity: .43; background-image: radial-gradient(#ffabea 1px, transparent 1.2px), radial-gradient(#8deaff .8px, transparent 1px); background-size: 83px 71px, 121px 109px; background-position: 16px 19px, 49px 67px; -webkit-mask-image:linear-gradient(to bottom,#000 0 66%,#0009 82%,transparent 100%); mask-image:linear-gradient(to bottom,#000 0 66%,#0009 82%,transparent 100%); animation:starfield-neon-pulse 8.6s ease-in-out infinite; }
-.scene__star-layer { position:absolute; inset:0; pointer-events:none; background-position:center center; background-repeat:no-repeat; background-size:cover; mix-blend-mode:screen; opacity:.28; }
-.scene__star-layer--1 { background-image:url('./art/star-layer-1.svg'); animation:star-layer-fade-a 2.9s ease-in-out -.68s infinite; }
-.scene__star-layer--2 { background-image:url('./art/star-layer-2.svg'); animation:star-layer-fade-b 3.8s ease-in-out -2.13s infinite; }
-.scene__star-layer--3 { background-image:url('./art/star-layer-3.svg'); animation:star-layer-fade-c 4.83s ease-in-out -1.27s infinite; }
+.scene__star-layer { position:absolute; inset:0; display:block; width:100%; height:100%; overflow:visible; pointer-events:none; mix-blend-mode:screen; opacity:.28; }
+.scene__star-layer--1 { animation:star-layer-fade-a 2.9s ease-in-out -.68s infinite; }
+.scene__star-layer--2 { animation:star-layer-fade-b 3.8s ease-in-out -2.13s infinite; }
+.scene__star-layer--3 { animation:star-layer-fade-c 4.83s ease-in-out -1.27s infinite; }
+.scene__star-core { opacity:.28; transform-box:fill-box; transform-origin:center; animation:star-core-twinkle var(--star-duration) ease-in-out var(--star-delay) infinite; }
 @media (min-width:1100px) {
   .scene__stars {
     opacity:.76;
@@ -321,6 +322,7 @@ html.portrait-press-active,html.portrait-press-active * { user-select:none!impor
 @keyframes star-layer-fade-a { 0%,100% { opacity:.1; } 14% { opacity:.38; } 27% { opacity:.68; } 41% { opacity:.5; } 53% { opacity:.16; } 69% { opacity:.24; } 82% { opacity:.62; } 91% { opacity:.42; } }
 @keyframes star-layer-fade-b { 0%,100% { opacity:.46; } 12% { opacity:.2; } 26% { opacity:.12; } 43% { opacity:.58; } 57% { opacity:.72; } 71% { opacity:.35; } 86% { opacity:.16; } }
 @keyframes star-layer-fade-c { 0%,100% { opacity:.18; } 17% { opacity:.56; } 32% { opacity:.3; } 48% { opacity:.12; } 63% { opacity:.2; } 78% { opacity:.7; } 89% { opacity:.52; } }
+@keyframes star-core-twinkle { 0%,100% { opacity:.22; transform:scale(.76); } 18% { opacity:.45; transform:scale(.96); } 31% { opacity:1; transform:scale(1.5); } 44% { opacity:.3; transform:scale(.82); } 64% { opacity:.78; transform:scale(1.2); } 76% { opacity:.2; transform:scale(.76); } }
 @keyframes meteor-drift-a { 0%,16%,100% { opacity:0; transform:translate(0,0) rotate(28deg); } 16.2% { opacity:.06; transform:translate(4px,2px) rotate(28deg); } 16.6% { opacity:.86; transform:translate(14px,7px) rotate(28deg); } 17.2% { opacity:.7; transform:translate(50px,24px) rotate(28deg); } 17.8% { opacity:.35; transform:translate(80px,39px) rotate(28deg); } 18% { opacity:0; transform:translate(88px,43px) rotate(28deg); } }
 @keyframes meteor-drift-b { 0%,51%,100% { opacity:0; transform:translate(0,0) rotate(24deg); } 51.2% { opacity:.05; transform:translate(3px,1px) rotate(24deg); } 51.5% { opacity:.8; transform:translate(12px,6px) rotate(24deg); } 52.1% { opacity:.64; transform:translate(40px,19px) rotate(24deg); } 52.6% { opacity:.3; transform:translate(62px,29px) rotate(24deg); } 52.8% { opacity:0; transform:translate(72px,34px) rotate(24deg); } }
 @keyframes neon-flicker { 0%,38%,41%,100% { opacity:1; } 39% { opacity:.68; } 39.15% { opacity:.98; } 40% { opacity:.78; } 40.25% { opacity:1; } }

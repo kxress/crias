@@ -7,6 +7,25 @@ const out = path.resolve(root, process.env.OUT_DIR || 'dist');
 if (out === root || root.startsWith(`${out}${path.sep}`)) throw new Error('Build output must not contain the source repository.');
 const data = JSON.parse(await readFile(path.join(root, 'src/data/servers.json'), 'utf8'));
 const template = await readFile(path.join(root, 'src/template.html'), 'utf8');
+const starLayers = (await Promise.all([1, 2, 3].map(async (layer) => {
+  const source = await readFile(path.join(root, `src/assets/art/star-layer-${layer}.svg`), 'utf8');
+  const contentStart = source.indexOf('>') + 1;
+  const contentEnd = source.lastIndexOf('</svg>');
+  if (contentStart <= 0 || contentEnd <= contentStart) throw new Error(`Invalid SVG source for star layer ${layer}.`);
+  let starIndex = 0;
+  const coreCirclePattern = new RegExp('<circle cx="([^"]+)" cy="([^"]+)" r="([^"]+)" fill="(#[a-fA-F0-9]+)" fill-opacity="([^"]+)"/>', 'g');
+  const contents = source.slice(contentStart, contentEnd)
+    .replaceAll('id="halo"', `id="star-halo-${layer}"`)
+    .replaceAll('url(#halo)', `url(#star-halo-${layer})`)
+    .replace(coreCirclePattern, (_circle, x, y, radius, fill, opacity) => {
+      const duration = (19 + (starIndex * 17 + layer * 11) % 27) / 10;
+      const delay = -((starIndex * 23 + layer * 19) % 53) / 10;
+      starIndex += 1;
+      return `<circle class="scene__star-core" style="--star-duration:${duration}s;--star-delay:${delay}s" cx="${x}" cy="${y}" r="${radius}" fill="${fill}" fill-opacity="${opacity}"/>`;
+    });
+  if (!starIndex) throw new Error(`No twinkle points found in star layer ${layer}.`);
+  return `<svg class="scene__star-layer scene__star-layer--${layer}" viewBox="0 0 2400 680" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${contents}</svg>`;
+}))).join('\n');
 const safe = (text) => String(text).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const readableHostname = (hostname) => safe(hostname).replaceAll('.', '.<wbr>');
 
@@ -32,7 +51,7 @@ const cards = data.games.map((game) => {
   </article>`;
 }).join('\n');
 
-const html = template.replaceAll('{{MANAGEMENT_URL}}', safe(data.managementUrl)).replace('{{GAME_CARDS}}', cards);
+const html = template.replaceAll('{{MANAGEMENT_URL}}', safe(data.managementUrl)).replace('{{GAME_CARDS}}', cards).replace('{{STAR_LAYERS}}', starLayers);
 const emitted = new Set();
 
 async function publish(relativePath, source, content) {
