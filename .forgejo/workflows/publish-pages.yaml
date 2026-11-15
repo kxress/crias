@@ -1,0 +1,46 @@
+name: Publish Forgejo Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: docker
+    container:
+      image: node:22-bookworm
+    steps:
+      - name: Check out source
+        uses: https://data.forgejo.org/actions/checkout@v4
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Publish generated site
+        env:
+          FORGEJO_TOKEN: ${{ secrets.FORGEJO_TOKEN }}
+        run: |
+          set -eu
+
+          git -C dist init
+          git -C dist config user.name "Forgejo Actions"
+          git -C dist config user.email "forgejo-actions@users.noreply.forgejo.org"
+          git -C dist add --all
+          git -C dist commit -m "Publish ${GITHUB_SHA}"
+          git -C dist branch -M static-pages
+
+          cat > /tmp/forgejo-pages-askpass <<'EOF'
+          #!/bin/sh
+          case "$1" in
+            *Username*) printf '%s\n' "$GITHUB_ACTOR" ;;
+            *Password*) printf '%s\n' "$FORGEJO_TOKEN" ;;
+            *) exit 1 ;;
+          esac
+          EOF
+          chmod 700 /tmp/forgejo-pages-askpass
+
+          GIT_ASKPASS=/tmp/forgejo-pages-askpass GIT_TERMINAL_PROMPT=0 \
+            git -C dist push --force \
+              "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}.git" \
+              HEAD:refs/heads/static-pages
